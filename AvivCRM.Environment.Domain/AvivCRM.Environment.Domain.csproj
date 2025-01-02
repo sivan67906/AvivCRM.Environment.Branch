@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Interfaces\IGenericRepository.cs" />
+  </ItemGroup>
+
+
+    <ItemGroup>
+        <PackageReference Include="MediatR" Version="12.4.1" />
+        <PackageReference Include="AutoMapper" Version="13.0.1" />
+        <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
+        <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="9.0.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.0" />
+        <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
+    </ItemGroup>
+    
+  <ItemGroup>
+    <EditorConfigFiles Remove="D:\Workspace\AvivCRM\AvivCRM.Environment\AvivCRM.Environment.Domain\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="D:\Workspace\AvivCRM\AvivCRM.Environment\AvivCRM.Environment.Domain\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Entities\Common\" />
+    <Folder Include="Entities\Identity\" />
+    <Folder Include="Entities\Mapping\" />
+    <Folder Include="Interfaces\" />
+  </ItemGroup>
+
+</Project>

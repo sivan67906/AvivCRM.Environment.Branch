@@ -1,0 +1,58 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{877B9AD3-F023-4BF4-AD18-0B31A8E36EAA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{E60775C6-D3D8-4DB7-AD3A-7AF297AFD2BB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{A9608920-4652-43BC-9A1D-AB4053B5704F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{89E65E53-0AB6-47EB-9A1C-52F5F6F7B675}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvivCRM.Environment.API", "AvivCRM.Environment.API\AvivCRM.Environment.API.csproj", "{1F94CCC6-7AEB-48DD-8C7D-09DFD4649D9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvivCRM.Environment.Application", "AvivCRM.Environment.Application\AvivCRM.Environment.Application.csproj", "{D676D533-DA6A-4299-B53F-5DCE918DEF4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvivCRM.Environment.Domain", "AvivCRM.Environment.Domain\AvivCRM.Environment.Domain.csproj", "{C816D852-F704-46E1-BC4F-51444DEC1C1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvivCRM.Environment.Infrastructure", "AvivCRM.Environment.Infrastructure\AvivCRM.Environment.Infrastructure.csproj", "{53974BB8-6642-4B37-9545-C28B182495E9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F94CCC6-7AEB-48DD-8C7D-09DFD4649D9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F94CCC6-7AEB-48DD-8C7D-09DFD4649D9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F94CCC6-7AEB-48DD-8C7D-09DFD4649D9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F94CCC6-7AEB-48DD-8C7D-09DFD4649D9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D676D533-DA6A-4299-B53F-5DCE918DEF4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D676D533-DA6A-4299-B53F-5DCE918DEF4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D676D533-DA6A-4299-B53F-5DCE918DEF4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D676D533-DA6A-4299-B53F-5DCE918DEF4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C816D852-F704-46E1-BC4F-51444DEC1C1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C816D852-F704-46E1-BC4F-51444DEC1C1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C816D852-F704-46E1-BC4F-51444DEC1C1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C816D852-F704-46E1-BC4F-51444DEC1C1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53974BB8-6642-4B37-9545-C28B182495E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53974BB8-6642-4B37-9545-C28B182495E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53974BB8-6642-4B37-9545-C28B182495E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53974BB8-6642-4B37-9545-C28B182495E9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E60775C6-D3D8-4DB7-AD3A-7AF297AFD2BB} = {877B9AD3-F023-4BF4-AD18-0B31A8E36EAA}
+		{A9608920-4652-43BC-9A1D-AB4053B5704F} = {877B9AD3-F023-4BF4-AD18-0B31A8E36EAA}
+		{89E65E53-0AB6-47EB-9A1C-52F5F6F7B675} = {877B9AD3-F023-4BF4-AD18-0B31A8E36EAA}
+		{1F94CCC6-7AEB-48DD-8C7D-09DFD4649D9B} = {E60775C6-D3D8-4DB7-AD3A-7AF297AFD2BB}
+		{D676D533-DA6A-4299-B53F-5DCE918DEF4E} = {A9608920-4652-43BC-9A1D-AB4053B5704F}
+		{C816D852-F704-46E1-BC4F-51444DEC1C1A} = {A9608920-4652-43BC-9A1D-AB4053B5704F}
+		{53974BB8-6642-4B37-9545-C28B182495E9} = {89E65E53-0AB6-47EB-9A1C-52F5F6F7B675}
+	EndGlobalSection
+EndGlobal
+

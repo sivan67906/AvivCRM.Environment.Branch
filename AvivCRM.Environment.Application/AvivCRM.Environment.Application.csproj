@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Feature\**" />
+    <EmbeddedResource Remove="Feature\**" />
+    <None Remove="Feature\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EditorConfigFiles Remove="D:\Workspace\AvivCRM\AvivCRM.Environment\AvivCRM.Environment.Application\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="D:\Workspace\AvivCRM\AvivCRM.Environment\AvivCRM.Environment.Application\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AvivCRM.Environment.Domain\AvivCRM.Environment.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
