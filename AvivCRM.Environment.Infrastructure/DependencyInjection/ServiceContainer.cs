@@ -1,5 +1,6 @@
 ﻿using AvivCRM.Environment.Domain.Contracts;
 using AvivCRM.Environment.Domain.Contracts.Lead;
+using AvivCRM.Environment.Domain.Contracts.Project;
 using AvivCRM.Environment.Infrastructure.Persistence;
 using AvivCRM.Environment.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -14,21 +15,11 @@ public static class ServiceContainer
         this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<EnvironmentDbContext>(options =>
-        options.UseSqlServer(configuration.GetConnectionString("environmentCS")));
-
-        //services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-        //services.AddScoped<ILeadAgentService, LeadAgentService>();
-        //services.AddScoped<ILeadCategoryService, LeadCategoryservice>();
-        //services.AddScoped<IClientService, ClientService>();
-        //services.AddScoped<ILeadSourceService, LeadSourceService>();
-        //services.AddScoped<ILeadStatusService, LeadStatusService>();
-        //services.AddScoped<IStateService, StateService>();
-        //services.AddScoped<ICityService, CityService>();
-
+        options.UseSqlServer(configuration.GetConnectionString("environmentServiceCS")));
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
-        //services.AddScoped<ILeadCategory, LeadCategoryRepository>();
         services.AddScoped<ILeadSource, LeadSourceRepository>();
+        services.AddScoped<IProjectCategory, ProjectCategoryRepository>();
         services.AddScoped<ILeadStatus, LeadStatusRepository>();
 
         return services;

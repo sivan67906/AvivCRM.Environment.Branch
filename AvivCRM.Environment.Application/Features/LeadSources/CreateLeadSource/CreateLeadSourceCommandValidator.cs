@@ -8,8 +8,8 @@ public class CreateLeadSourceCommandValidator : AbstractValidator<CreateLeadSour
     public CreateLeadSourceCommandValidator()
     {
         RuleFor(x => x.Name)
-            .NotEmpty().WithMessage("Source Name not empty")
-            .MaximumLength(25).WithMessage("Source Name must not exceed 25 Characters")
+            .NotEmpty().WithMessage("Source Name should not be empty")
+            .MaximumLength(25).WithMessage("Source Name must not exceeds 25 Characters")
             .MinimumLength(3).WithMessage("Source Name should not be less than 3 characters");
 
     }
