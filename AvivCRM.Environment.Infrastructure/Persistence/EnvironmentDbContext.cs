@@ -28,7 +28,7 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
     {
         base.OnModelCreating(modelBuilder);
 
-        modelBuilder.HasDefaultSchema("aiv");
+        modelBuilder.HasDefaultSchema("aviv");
 
         modelBuilder.Entity<LeadSource>().ToTable("tblLeadSource");
         modelBuilder.Entity<ProjectCategory>().ToTable("tblProjectCategory");

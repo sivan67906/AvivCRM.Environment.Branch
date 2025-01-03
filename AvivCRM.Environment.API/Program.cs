@@ -18,7 +18,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
     app.MapScalarApiReference(options =>
     options.WithTitle("Aviv Environment API")
-    .WithTheme(ScalarTheme.Moon)
+    .WithTheme(ScalarTheme.Mars)
     .WithDefaultHttpClient(ScalarTarget.CSharp, ScalarClient.HttpClient)
     );
 }

@@ -18,7 +18,7 @@ public static class ServiceContainer
         this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<EnvironmentDbContext>(options =>
-        options.UseSqlServer(configuration.GetConnectionString("environmentServiceCS")));
+        options.UseSqlServer(configuration.GetConnectionString("configurationSettingsCS")));
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<ILeadSource, LeadSourceRepository>();
