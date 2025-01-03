@@ -367,3 +367,6 @@ FodyWeavers.xsd
 /AvivCRM.Environment.Infrastructure/Data/Migrations/20250103064624_LeadSts.cs
 /AvivCRM.Environment.Infrastructure/Data/Migrations/20250103064624_LeadSts.Designer.cs
 /AvivCRM.Environment.Infrastructure/Data/Migrations/EnvironmentDbContextModelSnapshot.cs
+/AvivCRM.Environment.API/appsettings.json
+/AvivCRM.Environment.Infrastructure/Data/Migrations/20250103110540_Contrct.cs
+/AvivCRM.Environment.Infrastructure/Data/Migrations/20250103110540_Contrct.Designer.cs
