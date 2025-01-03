@@ -370,3 +370,4 @@ FodyWeavers.xsd
 /AvivCRM.Environment.API/appsettings.json
 /AvivCRM.Environment.Infrastructure/Data/Migrations/20250103110540_Contrct.cs
 /AvivCRM.Environment.Infrastructure/Data/Migrations/20250103110540_Contrct.Designer.cs
+/AvivCRM.Environment.Infrastructure/Data/Migrations

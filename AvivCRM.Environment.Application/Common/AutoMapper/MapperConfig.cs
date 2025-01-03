@@ -1,8 +1,12 @@
 ﻿using AutoMapper;
+using AvivCRM.Environment.Application.DTOs.Contracts;
 using AvivCRM.Environment.Application.DTOs.FinanceInvoiceTemplateSettings;
 using AvivCRM.Environment.Application.DTOs.FinancePrefixSettings;
 using AvivCRM.Environment.Application.DTOs.FinanceUnitSettings;
+using AvivCRM.Environment.Application.DTOs.LeadAgent;
+using AvivCRM.Environment.Application.DTOs.LeadCategories;
 using AvivCRM.Environment.Application.DTOs.LeadSources;
+using AvivCRM.Environment.Application.DTOs.LeadStatus;
 using AvivCRM.Environment.Application.DTOs.ProjectCategories;
 using AvivCRM.Environment.Application.DTOs.ProjectReminderPersons;
 using AvivCRM.Environment.Application.DTOs.RecruitNotificationSettings;
@@ -159,5 +163,22 @@ public class MapperConfig : Profile
         CreateMap<CreateRecruitNotificationSettingRequest, RecruitNotificationSetting>();
         CreateMap<UpdateRecruitNotificationSettingRequest, RecruitNotificationSetting>();
         CreateMap<RecruitNotificationSetting, GetRecruitNotificationSetting>();
+
+        // LeadStatus
+        CreateMap<CreateLeadStatusRequest, LeadStatus>();
+        CreateMap<UpdateLeadStatusRequest, LeadStatus>();
+        CreateMap<LeadStatus, GetLeadStatus>();
+        // Contract
+        CreateMap<CreateContractRequest, Contract>();
+        CreateMap<UpdateContractRequest, Contract>();
+        CreateMap<Contract, GetContract>();
+        // LeadAgent
+        CreateMap<CreateLeadAgentRequest, LeadAgent>();
+        CreateMap<UpdateLeadAgentRequest, LeadAgent>();
+        CreateMap<LeadAgent, GetLeadAgent>();
+        // LeadCategory
+        CreateMap<CreateLeadCategoryRequest, LeadCategory>();
+        CreateMap<UpdateLeadCategoryRequest, LeadCategory>();
+        CreateMap<LeadCategory, GetLeadCategory>();
     }
 }
