@@ -4,4 +4,4 @@ using AvivCRM.Environment.Infrastructure.Persistence;
 
 namespace AvivCRM.Environment.Infrastructure.Repositories;
 
-public class LeadStatusRepository(EnvironmentDbContext context) : GenericRepository<LeadStatus>(context, context.LeadStatuss), ILeadStatus { }
+public class LeadCategoryRepository(EnvironmentDbContext context) : GenericRepository<LeadCategory>(context, context.LeadCategories), ILeadCategory { }

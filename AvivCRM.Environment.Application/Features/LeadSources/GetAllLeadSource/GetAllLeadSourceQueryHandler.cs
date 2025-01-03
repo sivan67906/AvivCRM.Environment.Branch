@@ -1,6 +1,5 @@
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.LeadSources;
-using AvivCRM.Environment.Application.Features.LeadSources.GetAllLeadSource;
 using AvivCRM.Environment.Domain.Contracts.Lead;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
@@ -15,10 +14,10 @@ internal class GetAllLeadSourceQueryHandler(ILeadSource _leadSourceRepository, I
         if (leadSource is null) return new ServerResponse(Message: "No Lead Source Found");
 
         // Map the plan types to the response
-        var leadSourcResponse = mapper.Map<IEnumerable<GetLeadSource>>(leadSource);
-        if (leadSourcResponse is null) return new ServerResponse(Message: "Lead Source Not Found");
+        var leadSourceResponse = mapper.Map<IEnumerable<GetLeadSource>>(leadSource);
+        if (leadSourceResponse is null) return new ServerResponse(Message: "Lead Source Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "List of Lead Source", Data: leadSourcResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Lead Source", Data: leadSourceResponse);
     }
 }
 

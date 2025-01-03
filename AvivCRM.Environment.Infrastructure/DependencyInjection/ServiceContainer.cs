@@ -21,6 +21,9 @@ public static class ServiceContainer
         services.AddScoped<ILeadSource, LeadSourceRepository>();
         services.AddScoped<IProjectCategory, ProjectCategoryRepository>();
         services.AddScoped<ILeadStatus, LeadStatusRepository>();
+        services.AddScoped<IContract, ContractRepository>();
+        services.AddScoped<ILeadAgent, LeadAgentRepository>();
+        services.AddScoped<ILeadCategory, LeadCategoryRepository>();
 
         return services;
     }
