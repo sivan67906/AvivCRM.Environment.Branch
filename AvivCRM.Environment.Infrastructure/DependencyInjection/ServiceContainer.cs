@@ -29,6 +29,7 @@ public static class ServiceContainer
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         //services.AddScoped<ILeadCategory, LeadCategoryRepository>();
         services.AddScoped<ILeadSource, LeadSourceRepository>();
+        services.AddScoped<ILeadStatus, LeadStatusRepository>();
 
         return services;
     }
