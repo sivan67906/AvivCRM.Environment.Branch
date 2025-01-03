@@ -33,6 +33,10 @@ public static class ServiceContainer
         services.AddScoped<IFinancePrefixSetting, FinancePrefixSettingRepository>();
         services.AddScoped<IFinanceUnitSetting, FinanceUnitSettingRepository>();
         services.AddScoped<IRecruitNotificationSetting, RecruitNotificationSettingRepository>();
+        services.AddScoped<ILeadStatus, LeadStatusRepository>();
+        services.AddScoped<IContract, ContractRepository>();
+        services.AddScoped<ILeadAgent, LeadAgentRepository>();
+        services.AddScoped<ILeadCategory, LeadCategoryRepository>();
 
         return services;
     }

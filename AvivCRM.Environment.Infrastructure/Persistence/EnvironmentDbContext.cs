@@ -18,6 +18,10 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
     public DbSet<FinancePrefixSetting> FinancePrefixSettings => Set<FinancePrefixSetting>();
     public DbSet<FinanceUnitSetting> FinanceUnitSettings => Set<FinanceUnitSetting>();
     public DbSet<RecruitNotificationSetting> RecruitNotificationSettings => Set<RecruitNotificationSetting>();
+    public DbSet<LeadStatus> LeadStatuss => Set<LeadStatus>();
+    public DbSet<Contract> Contracts => Set<Contract>();
+    public DbSet<LeadAgent> LeadAgents => Set<LeadAgent>();
+    public DbSet<LeadCategory> LeadCategories => Set<LeadCategory>();
 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -39,6 +43,10 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
         modelBuilder.Entity<FinanceUnitSetting>().ToTable("tblFinanceUnitSetting");
         modelBuilder.Entity<RecruitNotificationSetting>().ToTable("tblRecruitNotificationSetting");
 
+        modelBuilder.Entity<LeadStatus>().ToTable("tblLeadStatus");
+        modelBuilder.Entity<Contract>().ToTable("tblContract");
+        modelBuilder.Entity<LeadAgent>().ToTable("tblLeadAgent");
+        modelBuilder.Entity<LeadCategory>().ToTable("tblLeadCategory");
     }
 
 }
