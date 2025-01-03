@@ -1,5 +1,5 @@
 ﻿namespace AvivCRM.Environment.Application.DTOs.LeadSources;
-public class UpdateLeadSourceRequest : LeadSourceBaseModel
+public class UpdateLeadSourceRequest : GetLeadSource
 {
-    public Guid Id { get; set; }
+
 }

@@ -12,4 +12,5 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
     }
     //public DbSet<LeadCategory> LeadCategories { get; set; }
     public DbSet<LeadSource> LeadSources { get; set; }
+    public DbSet<LeadStatus> LeadStatuss { get; set; }
 }
