@@ -8,7 +8,7 @@ public class MapperConfig : Profile
     public MapperConfig()
     {
         CreateMap<CreateLeadSourceRequest, LeadSource>();
-        CreateMap<CreateLeadSourceRequest, LeadSource>();
+        CreateMap<UpdateLeadSourceRequest, LeadSource>();
         CreateMap<LeadSource, GetLeadSource>();
     }
 }

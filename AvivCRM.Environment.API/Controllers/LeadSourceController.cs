@@ -1,9 +1,9 @@
 ﻿using AvivCRM.Environment.Application.DTOs.LeadSources;
+using AvivCRM.Environment.Application.Features.LeadSources.CreateLeadSource;
 using AvivCRM.Environment.Application.Features.LeadSources.DeleteLeadSource;
 using AvivCRM.Environment.Application.Features.LeadSources.GetAllLeadSource;
-using AvivCRM.Environment.Application.Features.LeadSources.UpdateLeadSource;
-using AvivCRM.Environment.Application.Features.LeadSources.CreateLeadSource;
 using AvivCRM.Environment.Application.Features.LeadSources.GetLeadSourceById;
+using AvivCRM.Environment.Application.Features.LeadSources.UpdateLeadSource;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,9 +18,9 @@ public class LeadSourceController : ControllerBase
     public LeadSourceController(ISender sender) => _sender = sender;
 
     [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(GetLeadSource leadSource)
+    public async Task<IActionResult> GetById(Guid Id)
     {
-        var result = await _sender.Send(new GetLeadSourceByIdQuery(leadSource.Id));
+        var result = await _sender.Send(new GetLeadSourceByIdQuery(Id));
         return Ok(result);
     }
 
