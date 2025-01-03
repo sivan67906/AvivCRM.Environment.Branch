@@ -16,7 +16,11 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
-    app.MapScalarApiReference();
+    app.MapScalarApiReference(options =>
+    options.WithTitle("Aviv Environment API")
+    .WithTheme(ScalarTheme.Moon)
+    .WithDefaultHttpClient(ScalarTarget.CSharp, ScalarClient.HttpClient)
+    );
 }
 
 app.UseHttpsRedirection();

@@ -1,6 +1,9 @@
 ﻿using AvivCRM.Environment.Domain.Contracts;
+using AvivCRM.Environment.Domain.Contracts.Finance;
 using AvivCRM.Environment.Domain.Contracts.Lead;
 using AvivCRM.Environment.Domain.Contracts.Project;
+using AvivCRM.Environment.Domain.Contracts.Recruit;
+using AvivCRM.Environment.Domain.Contracts.Ticket;
 using AvivCRM.Environment.Infrastructure.Persistence;
 using AvivCRM.Environment.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +23,16 @@ public static class ServiceContainer
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<ILeadSource, LeadSourceRepository>();
         services.AddScoped<IProjectCategory, ProjectCategoryRepository>();
+        services.AddScoped<IProjectReminderPerson, ProjectReminderPersonRepository>();
+        services.AddScoped<ITicketAgent, TicketAgentRepository>();
+        services.AddScoped<ITicketChannel, TicketChannelRepository>();
+        services.AddScoped<ITicketGroup, TicketGroupRepository>();
+        services.AddScoped<ITicketReplyTemplate, TicketReplyTemplateRepository>();
+        services.AddScoped<ITicketType, TicketTypeRepository>();
+        services.AddScoped<IFinanceInvoiceTemplateSetting, FinanceInvoiceTemplateSettingRepository>();
+        services.AddScoped<IFinancePrefixSetting, FinancePrefixSettingRepository>();
+        services.AddScoped<IFinanceUnitSetting, FinanceUnitSettingRepository>();
+        services.AddScoped<IRecruitNotificationSetting, RecruitNotificationSettingRepository>();
 
         return services;
     }

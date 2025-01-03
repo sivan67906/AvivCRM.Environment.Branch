@@ -11,7 +11,7 @@ public class UpdateLeadSourceCommandValidator : AbstractValidator<UpdateLeadSour
             .NotEmpty().WithMessage("Source Id should not be empty");
 
         RuleFor(x => x.Name)
-                    .NotEmpty().WithMessage("Source Name not empty")
+                    .NotEmpty().WithMessage("Source Name should not be empty")
                     .MaximumLength(25).WithMessage("Source Name must not exceed 25 Characters")
                     .MinimumLength(3).WithMessage("Source Name should not be less than 3 characters");
 
