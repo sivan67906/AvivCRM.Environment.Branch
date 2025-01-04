@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using AvivCRM.Environment.Application.DTOs.Applications;
 using AvivCRM.Environment.Application.DTOs.Contracts;
+using AvivCRM.Environment.Application.DTOs.Currencies;
 using AvivCRM.Environment.Application.DTOs.CustomQuestionCategories;
 using AvivCRM.Environment.Application.DTOs.CustomQuestionTypes;
 using AvivCRM.Environment.Application.DTOs.FinanceInvoiceTemplateSettings;
@@ -13,6 +15,7 @@ using AvivCRM.Environment.Application.DTOs.LeadSources;
 using AvivCRM.Environment.Application.DTOs.LeadStatus;
 using AvivCRM.Environment.Application.DTOs.NotificationMains;
 using AvivCRM.Environment.Application.DTOs.Payment;
+using AvivCRM.Environment.Application.DTOs.Plannings;
 using AvivCRM.Environment.Application.DTOs.ProjectCategories;
 using AvivCRM.Environment.Application.DTOs.ProjectReminderPersons;
 using AvivCRM.Environment.Application.DTOs.ProjectSettings;
@@ -23,6 +26,7 @@ using AvivCRM.Environment.Application.DTOs.RecruitFooterSettings;
 using AvivCRM.Environment.Application.DTOs.RecruitGeneralSettings;
 using AvivCRM.Environment.Application.DTOs.RecruitJobApplicationStatusSettings;
 using AvivCRM.Environment.Application.DTOs.RecruitNotificationSettings;
+using AvivCRM.Environment.Application.DTOs.Taxes;
 using AvivCRM.Environment.Application.DTOs.TicketAgents;
 using AvivCRM.Environment.Application.DTOs.TicketChannels;
 using AvivCRM.Environment.Application.DTOs.TicketGroups;
@@ -332,6 +336,22 @@ public class MapperConfig : Profile
         CreateMap<CreatePaymentRequest, Payment>();
         CreateMap<UpdatePaymentRequest, Payment>();
         CreateMap<Payment, GetPayment>();
+        // Application
+        CreateMap<CreateApplicationRequest, Applications>();
+        CreateMap<UpdateApplicationRequest, Applications>();
+        CreateMap<Applications, GetApplication>();
+        // Currency
+        CreateMap<CreateCurrencyRequest, Currency>();
+        CreateMap<UpdateCurrencyRequest, Currency>();
+        CreateMap<Currency, GetCurrency>();
+        // Planning
+        CreateMap<CreatePlanningRequest, Planning>();
+        CreateMap<UpdatePlanningRequest, Planning>();
+        CreateMap<Planning, GetPlanning>();
+        // Tax
+        CreateMap<CreateTaxRequest, Tax>();
+        CreateMap<UpdateTaxRequest, Tax>();
+        CreateMap<Tax, GetTax>();
 
     }
 }

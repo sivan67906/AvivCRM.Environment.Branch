@@ -24,7 +24,6 @@ public class ProjectStatusController : ControllerBase
         return Ok(result);
     }
 
-
     [HttpPost("Create")]
     public async Task<IActionResult> Create(CreateProjectStatusRequest projectStatus)
     {
@@ -46,7 +45,6 @@ public class ProjectStatusController : ControllerBase
         return Ok(projectStatusList);
     }
 
-
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
@@ -54,12 +52,3 @@ public class ProjectStatusController : ControllerBase
         return NoContent();
     }
 }
-
-
-
-
-
-
-
-
-

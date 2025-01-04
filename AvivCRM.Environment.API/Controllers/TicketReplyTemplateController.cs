@@ -24,7 +24,6 @@ public class TicketReplyTemplateController : ControllerBase
         return Ok(result);
     }
 
-
     [HttpPost("Create")]
     public async Task<IActionResult> Create(CreateTicketReplyTemplateRequest ticketReplyTemplate)
     {
@@ -46,7 +45,6 @@ public class TicketReplyTemplateController : ControllerBase
         return Ok(ticketReplyTemplateList);
     }
 
-
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
@@ -54,12 +52,3 @@ public class TicketReplyTemplateController : ControllerBase
         return NoContent();
     }
 }
-
-
-
-
-
-
-
-
-

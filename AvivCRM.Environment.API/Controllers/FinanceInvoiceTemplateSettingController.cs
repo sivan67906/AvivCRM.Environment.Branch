@@ -24,7 +24,6 @@ public class FinanceInvoiceTemplateSettingController : ControllerBase
         return Ok(result);
     }
 
-
     [HttpPost("Create")]
     public async Task<IActionResult> Create(CreateFinanceInvoiceTemplateSettingRequest financeInvoiceTemplateSetting)
     {
@@ -46,7 +45,6 @@ public class FinanceInvoiceTemplateSettingController : ControllerBase
         return Ok(financeInvoiceTemplateSettingList);
     }
 
-
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
@@ -54,12 +52,3 @@ public class FinanceInvoiceTemplateSettingController : ControllerBase
         return NoContent();
     }
 }
-
-
-
-
-
-
-
-
-

@@ -32,14 +32,3 @@ internal class DeleteTicketAgentCommandHandler(ITicketAgent _ticketAgentReposito
         return new ServerResponse(IsSuccess: true, Message: "Ticket Agent deleted successfully", Data: ticketAgent);
     }
 }
-
-
-
-
-
-
-
-
-
-
-

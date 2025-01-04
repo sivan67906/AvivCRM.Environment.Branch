@@ -24,7 +24,6 @@ public class JobApplicationCategoryController : ControllerBase
         return Ok(result);
     }
 
-
     [HttpPost("Create")]
     public async Task<IActionResult> Create(CreateJobApplicationCategoryRequest jobApplicationCategory)
     {
@@ -46,7 +45,6 @@ public class JobApplicationCategoryController : ControllerBase
         return Ok(jobApplicationCategoryList);
     }
 
-
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
@@ -54,12 +52,3 @@ public class JobApplicationCategoryController : ControllerBase
         return NoContent();
     }
 }
-
-
-
-
-
-
-
-
-

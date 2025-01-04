@@ -20,14 +20,3 @@ internal class GetAllTicketAgentQueryHandler(ITicketAgent _ticketAgentRepository
         return new ServerResponse(IsSuccess: true, Message: "List of Ticket Agents", Data: leadSourcResponse);
     }
 }
-
-
-
-
-
-
-
-
-
-
-

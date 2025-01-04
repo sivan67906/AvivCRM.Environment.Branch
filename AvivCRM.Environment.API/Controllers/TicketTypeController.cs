@@ -24,7 +24,6 @@ public class TicketTypeController : ControllerBase
         return Ok(result);
     }
 
-
     [HttpPost("Create")]
     public async Task<IActionResult> Create(CreateTicketTypeRequest ticketType)
     {
@@ -46,7 +45,6 @@ public class TicketTypeController : ControllerBase
         return Ok(ticketTypeList);
     }
 
-
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
@@ -54,12 +52,3 @@ public class TicketTypeController : ControllerBase
         return NoContent();
     }
 }
-
-
-
-
-
-
-
-
-

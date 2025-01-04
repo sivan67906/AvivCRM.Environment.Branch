@@ -24,7 +24,6 @@ public class TimeLogController : ControllerBase
         return Ok(result);
     }
 
-
     [HttpPost("Create")]
     public async Task<IActionResult> Create(CreateTimeLogRequest timeLog)
     {
@@ -46,7 +45,6 @@ public class TimeLogController : ControllerBase
         return Ok(timeLogList);
     }
 
-
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
@@ -54,12 +52,3 @@ public class TimeLogController : ControllerBase
         return NoContent();
     }
 }
-
-
-
-
-
-
-
-
-

@@ -24,7 +24,6 @@ public class TimesheetController : ControllerBase
         return Ok(result);
     }
 
-
     [HttpPost("Create")]
     public async Task<IActionResult> Create(CreateTimesheetRequest timesheet)
     {
@@ -46,7 +45,6 @@ public class TimesheetController : ControllerBase
         return Ok(timesheetList);
     }
 
-
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
@@ -54,12 +52,3 @@ public class TimesheetController : ControllerBase
         return NoContent();
     }
 }
-
-
-
-
-
-
-
-
-

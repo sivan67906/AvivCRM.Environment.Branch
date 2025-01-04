@@ -9,11 +9,11 @@ internal class GetAllContractQueryHandler(IContract _contractRepository, IMapper
 {
     public async Task<ServerResponse> Handle(GetAllContractQuery request, CancellationToken cancellationToken)
     {
-        // Get all plan types
+        // Get all Contract
         var contract = await _contractRepository.GetAllAsync();
         if (contract is null) return new ServerResponse(Message: "No Contract Found");
 
-        // Map the plan types to the response
+        // Map the Contract to the response
         var contractResponse = mapper.Map<IEnumerable<GetContract>>(contract);
         if (contractResponse is null) return new ServerResponse(Message: "Contract Not Found");
 

@@ -24,7 +24,6 @@ public class TicketChannelController : ControllerBase
         return Ok(result);
     }
 
-
     [HttpPost("Create")]
     public async Task<IActionResult> Create(CreateTicketChannelRequest ticketChannel)
     {
@@ -46,7 +45,6 @@ public class TicketChannelController : ControllerBase
         return Ok(ticketChannelList);
     }
 
-
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
@@ -54,12 +52,3 @@ public class TicketChannelController : ControllerBase
         return NoContent();
     }
 }
-
-
-
-
-
-
-
-
-

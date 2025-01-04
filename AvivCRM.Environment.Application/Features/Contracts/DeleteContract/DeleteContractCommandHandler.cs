@@ -18,7 +18,7 @@ internal class DeleteContractCommandHandler(IContract _contractRepository, IUnit
 
         try
         {
-            // Delete plan type
+            // Delete Contract
             _contractRepository.Delete(delMapEntity);
             await _unitOfWork.SaveChangesAsync();
         }

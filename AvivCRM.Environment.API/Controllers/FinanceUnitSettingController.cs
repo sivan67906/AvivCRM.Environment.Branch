@@ -24,7 +24,6 @@ public class FinanceUnitSettingController : ControllerBase
         return Ok(result);
     }
 
-
     [HttpPost("Create")]
     public async Task<IActionResult> Create(CreateFinanceUnitSettingRequest financeUnitSetting)
     {
@@ -46,7 +45,6 @@ public class FinanceUnitSettingController : ControllerBase
         return Ok(financeUnitSettingList);
     }
 
-
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
@@ -54,12 +52,3 @@ public class FinanceUnitSettingController : ControllerBase
         return NoContent();
     }
 }
-
-
-
-
-
-
-
-
-

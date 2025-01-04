@@ -24,7 +24,6 @@ public class TicketAgentController : ControllerBase
         return Ok(result);
     }
 
-
     [HttpPost("Create")]
     public async Task<IActionResult> Create(CreateTicketAgentRequest ticketAgent)
     {
@@ -46,7 +45,6 @@ public class TicketAgentController : ControllerBase
         return Ok(ticketAgentList);
     }
 
-
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
@@ -54,11 +52,3 @@ public class TicketAgentController : ControllerBase
         return NoContent();
     }
 }
-
-
-
-
-
-
-
-
