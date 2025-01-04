@@ -221,6 +221,21 @@ public class MapperConfig : Profile
         CreateMap<UpdateCustomQuestionTypeRequest, CustomQuestionType>();
         CreateMap<CustomQuestionType, GetCustomQuestionType>();
 
+        CreateMap<CreateCustomQuestionTypeRequest, CustomQuestionType>()
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.CQTypeName));
+        CreateMap<CustomQuestionType, CreateCustomQuestionTypeRequest>()
+            .ForMember(dest => dest.CQTypeName, opt => opt.MapFrom(src => src.Name));
+
+        CreateMap<UpdateCustomQuestionTypeRequest, CustomQuestionType>()
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.CQTypeName));
+        CreateMap<CustomQuestionType, UpdateCustomQuestionTypeRequest>()
+            .ForMember(dest => dest.CQTypeName, opt => opt.MapFrom(src => src.Name));
+
+        CreateMap<CustomQuestionType, GetCustomQuestionType>()
+            .ForMember(dest => dest.CQTypeName, opt => opt.MapFrom(src => src.Name));
+        CreateMap<GetCustomQuestionType, CustomQuestionType>()
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.CQTypeName));
+
         // JobApplicationCategory
         CreateMap<CreateJobApplicationCategoryRequest, JobApplicationCategory>();
         CreateMap<UpdateJobApplicationCategoryRequest, JobApplicationCategory>();

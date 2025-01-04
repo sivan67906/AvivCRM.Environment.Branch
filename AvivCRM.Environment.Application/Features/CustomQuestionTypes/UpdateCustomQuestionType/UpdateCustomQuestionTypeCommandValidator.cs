@@ -10,7 +10,7 @@ public class UpdateCustomQuestionTypeCommandValidator : AbstractValidator<Update
         RuleFor(x => x.Id)
             .NotEmpty().WithMessage("Custom Question TypeId should not be empty");
 
-        RuleFor(x => x.Name)
+        RuleFor(x => x.CQTypeName)
                     .NotEmpty().WithMessage("Custom Question Name not empty")
                     .MaximumLength(25).WithMessage("Custom Question Name must not exceed 25 Characters")
                     .MinimumLength(3).WithMessage("Custom Question Name should not be less than 3 characters");
