@@ -7,6 +7,7 @@ using AvivCRM.Environment.Application.DTOs.LeadAgent;
 using AvivCRM.Environment.Application.DTOs.LeadCategories;
 using AvivCRM.Environment.Application.DTOs.LeadSources;
 using AvivCRM.Environment.Application.DTOs.LeadStatus;
+using AvivCRM.Environment.Application.DTOs.Payment;
 using AvivCRM.Environment.Application.DTOs.ProjectCategories;
 using AvivCRM.Environment.Application.DTOs.ProjectReminderPersons;
 using AvivCRM.Environment.Application.DTOs.RecruitNotificationSettings;
@@ -180,5 +181,10 @@ public class MapperConfig : Profile
         CreateMap<CreateLeadCategoryRequest, LeadCategory>();
         CreateMap<UpdateLeadCategoryRequest, LeadCategory>();
         CreateMap<LeadCategory, GetLeadCategory>();
+        // Payment
+        CreateMap<CreatePaymentRequest, Payment>();
+        CreateMap<UpdatePaymentRequest, Payment>();
+        CreateMap<Payment, GetPayment>();
+
     }
 }

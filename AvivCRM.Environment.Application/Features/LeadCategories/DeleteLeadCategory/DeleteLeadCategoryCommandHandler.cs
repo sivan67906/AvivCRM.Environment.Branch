@@ -7,7 +7,7 @@ using MediatR;
 
 namespace AvivCRM.Environment.Application.Features.LeadCategories.DeleteLeadCategory;
 
-internal class DeletePlanTypeCommandHandler(ILeadCategory _leadCategoryRepository, IUnitOfWork _unitOfWork, IMapper mapper) : IRequestHandler<DeleteLeadCategoryCommand, ServerResponse>
+internal class DeleteLeadCategoryCommandHandler(ILeadCategory _leadCategoryRepository, IUnitOfWork _unitOfWork, IMapper mapper) : IRequestHandler<DeleteLeadCategoryCommand, ServerResponse>
 {
     public async Task<ServerResponse> Handle(DeleteLeadCategoryCommand request, CancellationToken cancellationToken)
     {

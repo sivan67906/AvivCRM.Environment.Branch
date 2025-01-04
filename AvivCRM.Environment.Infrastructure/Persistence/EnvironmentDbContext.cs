@@ -22,6 +22,7 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
     public DbSet<Contract> Contracts => Set<Contract>();
     public DbSet<LeadAgent> LeadAgents => Set<LeadAgent>();
     public DbSet<LeadCategory> LeadCategories => Set<LeadCategory>();
+    public DbSet<Payment> Payments => Set<Payment>();
 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -47,6 +48,7 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
         modelBuilder.Entity<Contract>().ToTable("tblContract");
         modelBuilder.Entity<LeadAgent>().ToTable("tblLeadAgent");
         modelBuilder.Entity<LeadCategory>().ToTable("tblLeadCategory");
+        modelBuilder.Entity<Payment>().ToTable("tblPayment");
     }
 
 }

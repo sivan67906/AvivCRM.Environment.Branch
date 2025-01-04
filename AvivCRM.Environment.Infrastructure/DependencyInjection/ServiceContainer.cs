@@ -37,6 +37,7 @@ public static class ServiceContainer
         services.AddScoped<IContract, ContractRepository>();
         services.AddScoped<ILeadAgent, LeadAgentRepository>();
         services.AddScoped<ILeadCategory, LeadCategoryRepository>();
+        services.AddScoped<IPayment, PaymentRepository>();
 
         return services;
     }
