@@ -241,6 +241,21 @@ public class MapperConfig : Profile
         CreateMap<UpdateJobApplicationCategoryRequest, JobApplicationCategory>();
         CreateMap<JobApplicationCategory, GetJobApplicationCategory>();
 
+        CreateMap<CreateJobApplicationCategoryRequest, JobApplicationCategory>()
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.JACategoryName));
+        CreateMap<JobApplicationCategory, CreateJobApplicationCategoryRequest>()
+            .ForMember(dest => dest.JACategoryName, opt => opt.MapFrom(src => src.Name));
+
+        CreateMap<UpdateJobApplicationCategoryRequest, JobApplicationCategory>()
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.JACategoryName));
+        CreateMap<JobApplicationCategory, UpdateJobApplicationCategoryRequest>()
+            .ForMember(dest => dest.JACategoryName, opt => opt.MapFrom(src => src.Name));
+
+        CreateMap<JobApplicationCategory, GetJobApplicationCategory>()
+            .ForMember(dest => dest.JACategoryName, opt => opt.MapFrom(src => src.Name));
+        CreateMap<GetJobApplicationCategory, JobApplicationCategory>()
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.JACategoryName));
+
         // CustomQuestionPosition
         CreateMap<CreateCustomQuestionPositionRequest, CustomQuestionPosition>();
         CreateMap<UpdateCustomQuestionPositionRequest, CustomQuestionPosition>();
