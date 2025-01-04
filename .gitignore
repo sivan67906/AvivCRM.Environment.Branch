@@ -375,3 +375,6 @@ FodyWeavers.xsd
 /AvivCRM.Environment.API/appsettings.Development.json
 /.gitignore
 /AvivCRM.Environment.API/appsettings.Development.json
+/AvivCRM.Environment.Infrastructure/Data/Persistence
+/.gitignore
+/.gitignore

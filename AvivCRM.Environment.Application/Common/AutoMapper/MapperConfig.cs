@@ -200,6 +200,22 @@ public class MapperConfig : Profile
         CreateMap<UpdateCustomQuestionCategoryRequest, CustomQuestionCategory>();
         CreateMap<CustomQuestionCategory, GetCustomQuestionCategory>();
 
+        CreateMap<CreateCustomQuestionCategoryRequest, CustomQuestionCategory>()
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.CQCategoryName));
+        CreateMap<CustomQuestionCategory, CreateCustomQuestionCategoryRequest>()
+            .ForMember(dest => dest.CQCategoryName, opt => opt.MapFrom(src => src.Name));
+
+        CreateMap<UpdateCustomQuestionCategoryRequest, CustomQuestionCategory>()
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.CQCategoryName));
+        CreateMap<CustomQuestionCategory, UpdateCustomQuestionCategoryRequest>()
+            .ForMember(dest => dest.CQCategoryName, opt => opt.MapFrom(src => src.Name));
+
+        CreateMap<CustomQuestionCategory, GetCustomQuestionCategory>()
+            .ForMember(dest => dest.CQCategoryName, opt => opt.MapFrom(src => src.Name));
+        CreateMap<GetCustomQuestionCategory, CustomQuestionCategory>()
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.CQCategoryName));
+
+
         // CustomQuestionType
         CreateMap<CreateCustomQuestionTypeRequest, CustomQuestionType>();
         CreateMap<UpdateCustomQuestionTypeRequest, CustomQuestionType>();
