@@ -29,7 +29,7 @@ internal class DeleteLeadCategoryCommandHandler(ILeadCategory _leadCategoryRepos
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Lead Category Deleted Successfully", Data: leadCategory);
+        return new ServerResponse(IsSuccess: true, Message: "Lead Category deleted successfully", Data: leadCategory);
     }
 }
 

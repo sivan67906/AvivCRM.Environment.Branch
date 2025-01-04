@@ -31,7 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Entities\Common\" />
     <Folder Include="Entities\Identity\" />
     <Folder Include="Entities\Mapping\" />
     <Folder Include="Interfaces\" />

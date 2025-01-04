@@ -35,7 +35,7 @@ internal class CreateRecruitNotificationSettingCommandHandler(IValidator<CreateR
             return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Recruit Notification Setting Created Succcessfully", Data: recruitNotificationSettingEntity);
+        return new ServerResponse(IsSuccess: true, Message: "Recruit Notification Setting created successfully", Data: recruitNotificationSettingEntity);
     }
 }
 

@@ -29,7 +29,7 @@ internal class DeleteProjectCategoryCommandHandler(IProjectCategory _projectCate
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Project Category Deleted Successfully", Data: projectCategory);
+        return new ServerResponse(IsSuccess: true, Message: "Project Category deleted successfully", Data: projectCategory);
     }
 }
 

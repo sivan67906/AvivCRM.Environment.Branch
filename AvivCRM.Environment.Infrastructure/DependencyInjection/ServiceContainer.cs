@@ -18,7 +18,7 @@ public static class ServiceContainer
         this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<EnvironmentDbContext>(options =>
-        options.UseSqlServer(configuration.GetConnectionString("environmentServiceCS")));
+        options.UseSqlServer(configuration.GetConnectionString("configurationSettingsCS")));
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<ILeadSource, LeadSourceRepository>();
@@ -37,6 +37,20 @@ public static class ServiceContainer
         services.AddScoped<IContract, ContractRepository>();
         services.AddScoped<ILeadAgent, LeadAgentRepository>();
         services.AddScoped<ILeadCategory, LeadCategoryRepository>();
+        services.AddScoped<ICustomQuestionCategory, CustomQuestionCategoryRepository>();
+        services.AddScoped<ICustomQuestionType, CustomQuestionTypeRepository>();
+        services.AddScoped<IJobApplicationCategory, JobApplicationCategoryRepository>();
+        services.AddScoped<IJobApplicationPosition, JobApplicationPositionRepository>();
+        services.AddScoped<INotificationMain, NotificationMainRepository>();
+        services.AddScoped<IProjectSetting, ProjectSettingRepository>();
+        services.AddScoped<IProjectStatus, ProjectStatusRepository>();
+        services.AddScoped<IRecruitCustomQuestionSetting, RecruitCustomQuestionSettingRepository>();
+        services.AddScoped<IRecruitFooterSetting, RecruitFooterSettingRepository>();
+        services.AddScoped<IRecruitGeneralSetting, RecruitGeneralSettingRepository>();
+        services.AddScoped<IRecruitJobApplicationStatusSetting, RecruitJobApplicationStatusSettingRepository>();
+        services.AddScoped<IRecruiterSetting, RecruiterSettingRepository>();
+        services.AddScoped<ITimeLog, TimeLogRepository>();
+        services.AddScoped<ITimesheet, TimesheetRepository>();
         services.AddScoped<IPayment, PaymentRepository>();
 
         return services;

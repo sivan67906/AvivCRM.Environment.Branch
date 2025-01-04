@@ -7,8 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DTOs\CustomQuestionPositions\**" />
+    <Compile Remove="Features\CustomQuestionPositions\**" />
     <Compile Remove="Feature\**" />
+    <EmbeddedResource Remove="DTOs\CustomQuestionPositions\**" />
+    <EmbeddedResource Remove="Features\CustomQuestionPositions\**" />
     <EmbeddedResource Remove="Feature\**" />
+    <None Remove="DTOs\CustomQuestionPositions\**" />
+    <None Remove="Features\CustomQuestionPositions\**" />
     <None Remove="Feature\**" />
   </ItemGroup>
 

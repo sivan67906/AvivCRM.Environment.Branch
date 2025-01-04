@@ -18,7 +18,7 @@ internal class GetFinancePrefixSettingByIdQueryHandler(IFinancePrefixSetting fin
         var financePrefixSettingResponse = mapper.Map<GetFinancePrefixSetting>(financePrefixSetting); // <DTO> (parameter)
         if (financePrefixSettingResponse is null) return new ServerResponse(Message: "Finance Prefix Setting Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "Finance Prefix Setting", Data: financePrefixSettingResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Finance Prefix Setting", Data: financePrefixSettingResponse);
     }
 }
 

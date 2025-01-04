@@ -18,7 +18,7 @@ internal class GetTicketReplyTemplateByIdQueryHandler(ITicketReplyTemplate ticke
         var ticketReplyTemplateResponse = mapper.Map<GetTicketReplyTemplate>(ticketReplyTemplate); // <DTO> (parameter)
         if (ticketReplyTemplateResponse is null) return new ServerResponse(Message: "Ticket ReplyTemplate Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "Ticket ReplyTemplate", Data: ticketReplyTemplateResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Ticket ReplyTemplate", Data: ticketReplyTemplateResponse);
     }
 }
 

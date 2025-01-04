@@ -18,7 +18,7 @@ internal class GetProjectCategoryByIdQueryHandler(IProjectCategory projectCatego
         var projectCategoryResponse = mapper.Map<GetProjectCategory>(projectCategory); // <DTO> (parameter)
         if (projectCategoryResponse is null) return new ServerResponse(Message: "Project Category Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "Project Category", Data: projectCategoryResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Project Category", Data: projectCategoryResponse);
     }
 }
 

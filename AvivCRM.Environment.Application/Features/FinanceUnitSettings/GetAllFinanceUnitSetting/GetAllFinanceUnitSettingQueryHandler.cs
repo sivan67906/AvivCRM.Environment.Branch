@@ -1,6 +1,5 @@
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.FinanceUnitSettings;
-using AvivCRM.Environment.Application.Features.FinanceUnitSettings.GetAllFinanceUnitSetting;
 using AvivCRM.Environment.Domain.Contracts.Finance;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
@@ -18,7 +17,7 @@ internal class GetAllFinanceUnitSettingQueryHandler(IFinanceUnitSetting _finance
         var leadSourcResponse = mapper.Map<IEnumerable<GetFinanceUnitSetting>>(financeUnitSetting);
         if (leadSourcResponse is null) return new ServerResponse(Message: "Finance Unit Setting Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "List of Finance Unit Setting", Data: leadSourcResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Finance Unit Settings", Data: leadSourcResponse);
     }
 }
 

@@ -33,6 +33,6 @@ internal class UpdateContractCommandHandler(IValidator<UpdateContractRequest> _v
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Contract Updated Successfully", Data: contract);
+        return new ServerResponse(IsSuccess: true, Message: "Contract updated successfully", Data: contract);
     }
 }

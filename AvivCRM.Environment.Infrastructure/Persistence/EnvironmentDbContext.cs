@@ -22,14 +22,27 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
     public DbSet<Contract> Contracts => Set<Contract>();
     public DbSet<LeadAgent> LeadAgents => Set<LeadAgent>();
     public DbSet<LeadCategory> LeadCategories => Set<LeadCategory>();
+    public DbSet<CustomQuestionCategory> CustomQuestionCategories => Set<CustomQuestionCategory>();
+    public DbSet<CustomQuestionType> CustomQuestionTypes => Set<CustomQuestionType>();
+    public DbSet<JobApplicationCategory> JobApplicationCategories => Set<JobApplicationCategory>();
+    public DbSet<JobApplicationPosition> JobApplicationPositions => Set<JobApplicationPosition>();
+    public DbSet<NotificationMain> NotificationMains => Set<NotificationMain>();
+    public DbSet<ProjectSetting> ProjectSettings => Set<ProjectSetting>();
+    public DbSet<ProjectStatus> ProjectStatuses => Set<ProjectStatus>();
+    public DbSet<RecruitCustomQuestionSetting> RecruitCustomQuestionSettings => Set<RecruitCustomQuestionSetting>();
+    public DbSet<RecruitFooterSetting> RecruitFooterSettings => Set<RecruitFooterSetting>();
+    public DbSet<RecruitGeneralSetting> RecruitGeneralSettings => Set<RecruitGeneralSetting>();
+    public DbSet<RecruitJobApplicationStatusSetting> RecruitJobApplicationStatusSettings => Set<RecruitJobApplicationStatusSetting>();
+    public DbSet<RecruiterSetting> RecruiterSettings => Set<RecruiterSetting>();
+    public DbSet<TimeLog> TimeLogs => Set<TimeLog>();
+    public DbSet<Timesheet> Timesheets => Set<Timesheet>();
     public DbSet<Payment> Payments => Set<Payment>();
-
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
 
-        modelBuilder.HasDefaultSchema("aiv");
+        modelBuilder.HasDefaultSchema("aviv");
 
         modelBuilder.Entity<LeadSource>().ToTable("tblLeadSource");
         modelBuilder.Entity<ProjectCategory>().ToTable("tblProjectCategory");
@@ -43,12 +56,24 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
         modelBuilder.Entity<FinancePrefixSetting>().ToTable("tblFinancePrefixSetting");
         modelBuilder.Entity<FinanceUnitSetting>().ToTable("tblFinanceUnitSetting");
         modelBuilder.Entity<RecruitNotificationSetting>().ToTable("tblRecruitNotificationSetting");
-
         modelBuilder.Entity<LeadStatus>().ToTable("tblLeadStatus");
         modelBuilder.Entity<Contract>().ToTable("tblContract");
         modelBuilder.Entity<LeadAgent>().ToTable("tblLeadAgent");
         modelBuilder.Entity<LeadCategory>().ToTable("tblLeadCategory");
+        modelBuilder.Entity<CustomQuestionCategory>().ToTable("tblCustomQuestionCategory");
+        modelBuilder.Entity<CustomQuestionType>().ToTable("tblCustomQuestionType");
+        modelBuilder.Entity<JobApplicationCategory>().ToTable("tblJobApplicationCategory");
+        modelBuilder.Entity<JobApplicationPosition>().ToTable("tblJobApplicationPosition");
+        modelBuilder.Entity<NotificationMain>().ToTable("tblNotificationMain");
+        modelBuilder.Entity<ProjectSetting>().ToTable("tblProjectSetting");
+        modelBuilder.Entity<ProjectStatus>().ToTable("tblProjectStatus");
+        modelBuilder.Entity<RecruitCustomQuestionSetting>().ToTable("tblRecruitCustomQuestionSetting");
+        modelBuilder.Entity<RecruitFooterSetting>().ToTable("tblRecruitFooterSetting");
+        modelBuilder.Entity<RecruitGeneralSetting>().ToTable("tblRecruitGeneralSetting");
+        modelBuilder.Entity<RecruitJobApplicationStatusSetting>().ToTable("tblRecruitJobApplicationStatusSetting");
+        modelBuilder.Entity<RecruiterSetting>().ToTable("tblRecruiterSetting");
+        modelBuilder.Entity<TimeLog>().ToTable("tblTimeLog");
+        modelBuilder.Entity<Timesheet>().ToTable("tblTimesheet");
         modelBuilder.Entity<Payment>().ToTable("tblPayment");
     }
-
 }

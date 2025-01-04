@@ -29,7 +29,7 @@ internal class DeleteFinancePrefixSettingCommandHandler(IFinancePrefixSetting _f
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Finance Prefix Setting Deleted Successfully", Data: financePrefixSetting);
+        return new ServerResponse(IsSuccess: true, Message: "Finance Prefix Setting deleted successfully", Data: financePrefixSetting);
     }
 }
 

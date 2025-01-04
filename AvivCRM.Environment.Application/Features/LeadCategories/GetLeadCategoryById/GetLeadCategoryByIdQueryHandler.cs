@@ -17,6 +17,6 @@ internal class GetLeadCategoryByIdQueryHandler(ILeadCategory _leadCategoryReposi
         var planTypeResponse = mapper.Map<GetLeadCategory>(leadCategory);
         if (planTypeResponse is null) return new ServerResponse(Message: "Lead Category Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "Lead Category", Data: planTypeResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Lead Category", Data: planTypeResponse);
     }
 }

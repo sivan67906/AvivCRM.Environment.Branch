@@ -29,7 +29,7 @@ internal class DeleteProjectReminderPersonCommandHandler(IProjectReminderPerson 
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Project Reminder Person Deleted Successfully", Data: projectReminderPerson);
+        return new ServerResponse(IsSuccess: true, Message: "Project Reminder Person deleted successfully", Data: projectReminderPerson);
     }
 }
 

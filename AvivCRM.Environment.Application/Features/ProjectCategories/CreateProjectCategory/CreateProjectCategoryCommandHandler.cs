@@ -35,7 +35,7 @@ internal class CreateProjectCategoryCommandHandler(IValidator<CreateProjectCateg
             return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Project Category Created Succcessfully", Data: projectCategoryEntity);
+        return new ServerResponse(IsSuccess: true, Message: "Project Category created successfully", Data: projectCategoryEntity);
     }
 }
 

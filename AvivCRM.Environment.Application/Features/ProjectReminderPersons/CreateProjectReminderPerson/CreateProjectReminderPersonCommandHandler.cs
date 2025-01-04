@@ -35,7 +35,7 @@ internal class CreateProjectReminderPersonCommandHandler(IValidator<CreateProjec
             return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Project Reminder Person Created Succcessfully", Data: projectReminderPersonEntity);
+        return new ServerResponse(IsSuccess: true, Message: "Project Reminder Person created successfully", Data: projectReminderPersonEntity);
     }
 }
 

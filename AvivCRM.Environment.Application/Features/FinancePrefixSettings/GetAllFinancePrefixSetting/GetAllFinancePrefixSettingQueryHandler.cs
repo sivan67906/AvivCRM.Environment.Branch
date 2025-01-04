@@ -1,6 +1,5 @@
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.FinancePrefixSettings;
-using AvivCRM.Environment.Application.Features.FinancePrefixSettings.GetAllFinancePrefixSetting;
 using AvivCRM.Environment.Domain.Contracts.Finance;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
@@ -18,7 +17,7 @@ internal class GetAllFinancePrefixSettingQueryHandler(IFinancePrefixSetting _fin
         var leadSourcResponse = mapper.Map<IEnumerable<GetFinancePrefixSetting>>(financePrefixSetting);
         if (leadSourcResponse is null) return new ServerResponse(Message: "Finance Prefix Setting Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "List of Finance Prefix Setting", Data: leadSourcResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Finance Prefix Settings", Data: leadSourcResponse);
     }
 }
 

@@ -40,7 +40,7 @@ internal class CreateLeadCategoryCommandHandler(IValidator<CreateLeadCategoryReq
             return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Lead Categories Created Succcessfully", Data: leadCategoryEntity);
+        return new ServerResponse(IsSuccess: true, Message: "Lead Categories created successfully", Data: leadCategoryEntity);
     }
 }
 

@@ -18,7 +18,7 @@ internal class GetAllLeadAgentQueryHandler(ILeadAgent _leadAgentRepository, IMap
         var leadAgentResponse = mapper.Map<IEnumerable<GetLeadAgent>>(leadAgents);
         if (leadAgentResponse is null) return new ServerResponse(Message: "Lead Agent Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "List of Lead Agent", Data: leadAgentResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Lead Agents", Data: leadAgentResponse);
     }
 }
 

@@ -36,7 +36,7 @@ internal class CreateLeadAgentCommandHandler(IValidator<CreateLeadAgentRequest> 
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Lead Agent Created Successfully", Data: leadAgentEntity);
+        return new ServerResponse(IsSuccess: true, Message: "Lead Agent created successfully", Data: leadAgentEntity);
     }
 }
 

@@ -35,7 +35,7 @@ internal class CreateTicketReplyTemplateCommandHandler(IValidator<CreateTicketRe
             return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Ticket ReplyTemplate Created Succcessfully", Data: ticketReplyTemplateEntity);
+        return new ServerResponse(IsSuccess: true, Message: "Ticket ReplyTemplate created successfully", Data: ticketReplyTemplateEntity);
     }
 }
 

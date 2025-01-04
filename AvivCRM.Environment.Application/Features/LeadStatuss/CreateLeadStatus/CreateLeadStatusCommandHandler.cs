@@ -34,6 +34,6 @@ internal class CreateLeadStatusCommandHandler(IValidator<CreateLeadStatusRequest
             return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Lead Status Created Succcessfully", Data: leadStatusEntity);
+        return new ServerResponse(IsSuccess: true, Message: "Lead Status created successfully", Data: leadStatusEntity);
     }
 }

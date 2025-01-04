@@ -17,6 +17,6 @@ internal class GetContractByIdQueryHandler(IContract contractRepository, IMapper
         var contractResponse = mapper.Map<GetContract>(contract); // <DTO> (parameter)
         if (contractResponse is null) return new ServerResponse(Message: "Contract Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "Contract", Data: contractResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Contract", Data: contractResponse);
     }
 }

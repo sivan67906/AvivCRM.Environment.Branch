@@ -1,7 +1,7 @@
 ﻿using AvivCRM.Environment.Domain.Entities.Common;
 
 namespace AvivCRM.Environment.Domain.Entities;
-public sealed class LeadSource : BaseEntity
+public sealed class LeadSource : BaseEntity, IEntity
 {
     public string? Name { get; set; }
 }

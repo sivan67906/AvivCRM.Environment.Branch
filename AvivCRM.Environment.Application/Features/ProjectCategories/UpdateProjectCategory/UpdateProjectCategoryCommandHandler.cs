@@ -35,7 +35,7 @@ internal class UpdateProjectCategoryCommandHandler(IValidator<UpdateProjectCateg
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Project Category Updated Successfully", Data: projectCategory);
+        return new ServerResponse(IsSuccess: true, Message: "Project Category updated successfully", Data: projectCategory);
     }
 }
 

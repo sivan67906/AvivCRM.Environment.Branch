@@ -18,7 +18,7 @@ internal class GetRecruitNotificationSettingByIdQueryHandler(IRecruitNotificatio
         var recruitNotificationSettingResponse = mapper.Map<GetRecruitNotificationSetting>(recruitNotificationSetting); // <DTO> (parameter)
         if (recruitNotificationSettingResponse is null) return new ServerResponse(Message: "Recruit Notification Setting Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "Recruit Notification Setting", Data: recruitNotificationSettingResponse);
+        return new ServerResponse(IsSuccess: true, Message: "Recruit Notification Settings", Data: recruitNotificationSettingResponse);
     }
 }
 

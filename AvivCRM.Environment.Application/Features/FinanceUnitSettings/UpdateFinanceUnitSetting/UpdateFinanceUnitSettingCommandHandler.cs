@@ -35,7 +35,7 @@ internal class UpdateFinanceUnitSettingCommandHandler(IValidator<UpdateFinanceUn
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Finance Unit Setting Updated Successfully", Data: financeUnitSetting);
+        return new ServerResponse(IsSuccess: true, Message: "Finance Unit Setting updated successfully", Data: financeUnitSetting);
     }
 }
 

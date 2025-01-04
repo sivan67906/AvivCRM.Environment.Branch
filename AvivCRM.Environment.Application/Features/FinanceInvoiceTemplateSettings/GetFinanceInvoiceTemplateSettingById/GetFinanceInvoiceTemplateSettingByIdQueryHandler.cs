@@ -18,7 +18,7 @@ internal class GetFinanceInvoiceTemplateSettingByIdQueryHandler(IFinanceInvoiceT
         var financeInvoiceTemplateSettingResponse = mapper.Map<GetFinanceInvoiceTemplateSetting>(financeInvoiceTemplateSetting); // <DTO> (parameter)
         if (financeInvoiceTemplateSettingResponse is null) return new ServerResponse(Message: "Finance Invoice Template Setting Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "Finance Invoice Template Setting", Data: financeInvoiceTemplateSettingResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Finance Invoice Template Setting", Data: financeInvoiceTemplateSettingResponse);
     }
 }
 

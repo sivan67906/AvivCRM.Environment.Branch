@@ -18,7 +18,7 @@ internal class GetTicketAgentByIdQueryHandler(ITicketAgent ticketAgentRepository
         var ticketAgentResponse = mapper.Map<GetTicketAgent>(ticketAgent); // <DTO> (parameter)
         if (ticketAgentResponse is null) return new ServerResponse(Message: "Ticket Agent Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "Ticket Agent", Data: ticketAgentResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Ticket Agent", Data: ticketAgentResponse);
     }
 }
 
