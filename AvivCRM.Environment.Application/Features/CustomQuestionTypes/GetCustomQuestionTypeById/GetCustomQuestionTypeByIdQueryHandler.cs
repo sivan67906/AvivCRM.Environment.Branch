@@ -18,7 +18,7 @@ internal class GetCustomQuestionTypeByIdQueryHandler(ICustomQuestionType customQ
         var customQuestionTypeResponse = mapper.Map<GetCustomQuestionType>(customQuestionType); // <DTO> (parameter)
         if (customQuestionTypeResponse is null) return new ServerResponse(Message: "Custom Question Type Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "Custom Question Type", Data: customQuestionTypeResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Custom Question Type", Data: customQuestionTypeResponse);
     }
 }
 

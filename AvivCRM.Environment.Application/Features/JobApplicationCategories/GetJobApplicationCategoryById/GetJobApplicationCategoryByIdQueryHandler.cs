@@ -18,7 +18,7 @@ internal class GetJobApplicationCategoryByIdQueryHandler(IJobApplicationCategory
         var jobApplicationCategoryResponse = mapper.Map<GetJobApplicationCategory>(jobApplicationCategory); // <DTO> (parameter)
         if (jobApplicationCategoryResponse is null) return new ServerResponse(Message: "Job Application Category Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "Job Application Category", Data: jobApplicationCategoryResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Job Application Category", Data: jobApplicationCategoryResponse);
     }
 }
 

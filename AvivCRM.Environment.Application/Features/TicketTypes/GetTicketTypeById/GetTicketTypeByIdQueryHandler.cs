@@ -18,7 +18,7 @@ internal class GetTicketTypeByIdQueryHandler(ITicketType ticketTypeRepository, I
         var ticketTypeResponse = mapper.Map<GetTicketType>(ticketType); // <DTO> (parameter)
         if (ticketTypeResponse is null) return new ServerResponse(Message: "Ticket Type Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "Ticket Type", Data: ticketTypeResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Ticket Type", Data: ticketTypeResponse);
     }
 }
 

@@ -1,6 +1,5 @@
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.TicketAgents;
-using AvivCRM.Environment.Application.Features.TicketAgents.GetAllTicketAgent;
 using AvivCRM.Environment.Domain.Contracts.Ticket;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
@@ -18,7 +17,7 @@ internal class GetAllTicketAgentQueryHandler(ITicketAgent _ticketAgentRepository
         var leadSourcResponse = mapper.Map<IEnumerable<GetTicketAgent>>(ticketAgent);
         if (leadSourcResponse is null) return new ServerResponse(Message: "Ticket Agent Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "List of Ticket Agent", Data: leadSourcResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Ticket Agents", Data: leadSourcResponse);
     }
 }
 

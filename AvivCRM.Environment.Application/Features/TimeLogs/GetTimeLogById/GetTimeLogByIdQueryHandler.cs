@@ -18,7 +18,7 @@ internal class GetTimeLogByIdQueryHandler(ITimeLog timeLogRepository, IMapper ma
         var timeLogResponse = mapper.Map<GetTimeLog>(timeLog); // <DTO> (parameter)
         if (timeLogResponse is null) return new ServerResponse(Message: "TimeLog Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "TimeLog", Data: timeLogResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of TimeLog", Data: timeLogResponse);
     }
 }
 

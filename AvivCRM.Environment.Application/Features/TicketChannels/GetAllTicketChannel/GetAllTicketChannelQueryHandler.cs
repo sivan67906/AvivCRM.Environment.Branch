@@ -1,6 +1,5 @@
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.TicketChannels;
-using AvivCRM.Environment.Application.Features.TicketChannels.GetAllTicketChannel;
 using AvivCRM.Environment.Domain.Contracts.Ticket;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
@@ -18,7 +17,7 @@ internal class GetAllTicketChannelQueryHandler(ITicketChannel _ticketChannelRepo
         var leadSourcResponse = mapper.Map<IEnumerable<GetTicketChannel>>(ticketChannel);
         if (leadSourcResponse is null) return new ServerResponse(Message: "Ticket Channel Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "List of Ticket Channel", Data: leadSourcResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Ticket Channels", Data: leadSourcResponse);
     }
 }
 

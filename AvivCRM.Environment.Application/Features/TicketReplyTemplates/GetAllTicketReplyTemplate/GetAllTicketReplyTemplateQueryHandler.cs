@@ -1,6 +1,5 @@
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.TicketReplyTemplates;
-using AvivCRM.Environment.Application.Features.TicketReplyTemplates.GetAllTicketReplyTemplate;
 using AvivCRM.Environment.Domain.Contracts.Ticket;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
@@ -18,7 +17,7 @@ internal class GetAllTicketReplyTemplateQueryHandler(ITicketReplyTemplate _ticke
         var leadSourcResponse = mapper.Map<IEnumerable<GetTicketReplyTemplate>>(ticketReplyTemplate);
         if (leadSourcResponse is null) return new ServerResponse(Message: "Ticket ReplyTemplate Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "List of Ticket ReplyTemplate", Data: leadSourcResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Ticket ReplyTemplates", Data: leadSourcResponse);
     }
 }
 

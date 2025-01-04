@@ -1,6 +1,5 @@
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.CustomQuestionTypes;
-using AvivCRM.Environment.Application.Features.CustomQuestionTypes.GetAllCustomQuestionType;
 using AvivCRM.Environment.Domain.Contracts.Recruit;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
@@ -18,7 +17,7 @@ internal class GetAllCustomQuestionTypeQueryHandler(ICustomQuestionType _customQ
         var leadSourcResponse = mapper.Map<IEnumerable<GetCustomQuestionType>>(customQuestionType);
         if (leadSourcResponse is null) return new ServerResponse(Message: "Custom Question Type Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "List of Custom Question Type", Data: leadSourcResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Custom Question Types", Data: leadSourcResponse);
     }
 }
 

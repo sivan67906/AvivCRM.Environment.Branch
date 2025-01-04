@@ -18,7 +18,7 @@ internal class GetRecruiterSettingByIdQueryHandler(IRecruiterSetting recruiterSe
         var recruiterSettingResponse = mapper.Map<GetRecruiterSetting>(recruiterSetting); // <DTO> (parameter)
         if (recruiterSettingResponse is null) return new ServerResponse(Message: "Recruiter Setting Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "Recruiter Setting", Data: recruiterSettingResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Recruiter Setting", Data: recruiterSettingResponse);
     }
 }
 

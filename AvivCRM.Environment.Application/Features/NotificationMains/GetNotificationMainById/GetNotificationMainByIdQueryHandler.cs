@@ -18,7 +18,7 @@ internal class GetNotificationMainByIdQueryHandler(INotificationMain notificatio
         var notificationMainResponse = mapper.Map<GetNotificationMain>(notificationMain); // <DTO> (parameter)
         if (notificationMainResponse is null) return new ServerResponse(Message: "Notification Main Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "Notification Main", Data: notificationMainResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Notification Main", Data: notificationMainResponse);
     }
 }
 

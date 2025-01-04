@@ -18,6 +18,6 @@ internal class GetLeadSourceByIdQueryHandler(ILeadSource leadSourceRepository, I
         var leadSourceResponse = mapper.Map<GetLeadSource>(leadSource); // <DTO> (parameter)
         if (leadSourceResponse is null) return new ServerResponse(Message: "Lead Source Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "Lead Source", Data: leadSourceResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Lead Source", Data: leadSourceResponse);
     }
 }

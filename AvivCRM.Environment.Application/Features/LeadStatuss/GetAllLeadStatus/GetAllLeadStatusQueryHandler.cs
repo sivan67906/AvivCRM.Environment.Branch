@@ -17,6 +17,6 @@ internal class GetAllLeadStatusQueryHandler(ILeadStatus _leadStatusRepository, I
         var leadStatusResponse = mapper.Map<IEnumerable<GetLeadStatus>>(leadStatus);
         if (leadStatusResponse is null) return new ServerResponse(Message: "Lead Status Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "List of Lead Status", Data: leadStatusResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Lead Statuses", Data: leadStatusResponse);
     }
 }

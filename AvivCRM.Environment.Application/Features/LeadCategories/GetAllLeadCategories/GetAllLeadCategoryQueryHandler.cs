@@ -18,7 +18,7 @@ internal class GetAllLeadCategoryQueryHandler(ILeadCategory _leadCategoryReposit
         var leadCategoryResponse = mapper.Map<IEnumerable<GetLeadCategory>>(leadCategory);
         if (leadCategoryResponse is null) return new ServerResponse(Message: "Lead Category Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "List of Lead Category", Data: leadCategoryResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Lead Categories", Data: leadCategoryResponse);
     }
 }
 

@@ -1,6 +1,5 @@
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.RecruitCustomQuestionSettings;
-using AvivCRM.Environment.Application.Features.RecruitCustomQuestionSettings.GetAllRecruitCustomQuestionSetting;
 using AvivCRM.Environment.Domain.Contracts.Recruit;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
@@ -18,7 +17,7 @@ internal class GetAllRecruitCustomQuestionSettingQueryHandler(IRecruitCustomQues
         var leadSourcResponse = mapper.Map<IEnumerable<GetRecruitCustomQuestionSetting>>(recruitCustomQuestionSetting);
         if (leadSourcResponse is null) return new ServerResponse(Message: "Recruit Custom Question Setting Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "List of Recruit Custom Question Setting", Data: leadSourcResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Recruit Custom Question Settings", Data: leadSourcResponse);
     }
 }
 

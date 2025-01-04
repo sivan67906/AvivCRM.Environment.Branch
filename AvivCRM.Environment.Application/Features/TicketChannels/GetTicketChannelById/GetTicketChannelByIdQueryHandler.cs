@@ -18,7 +18,7 @@ internal class GetTicketChannelByIdQueryHandler(ITicketChannel ticketChannelRepo
         var ticketChannelResponse = mapper.Map<GetTicketChannel>(ticketChannel); // <DTO> (parameter)
         if (ticketChannelResponse is null) return new ServerResponse(Message: "Ticket Channel Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "Ticket Channel", Data: ticketChannelResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Ticket Channel", Data: ticketChannelResponse);
     }
 }
 

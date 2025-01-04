@@ -1,6 +1,5 @@
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.ProjectSettings;
-using AvivCRM.Environment.Application.Features.ProjectSettings.GetAllProjectSetting;
 using AvivCRM.Environment.Domain.Contracts.Project;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
@@ -18,7 +17,7 @@ internal class GetAllProjectSettingQueryHandler(IProjectSetting _projectSettingR
         var leadSourcResponse = mapper.Map<IEnumerable<GetProjectSetting>>(projectSetting);
         if (leadSourcResponse is null) return new ServerResponse(Message: "Project Setting Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "List of Project Setting", Data: leadSourcResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Project Settings", Data: leadSourcResponse);
     }
 }
 

@@ -18,7 +18,7 @@ internal class GetLeadAgentByIdQueryHandler(ILeadAgent planTypeRepository, IMapp
         var leadAgentResponse = mapper.Map<GetLeadAgent>(leadAgent);
         if (leadAgentResponse is null) return new ServerResponse(Message: "Lead Agent Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "Lead Agent", Data: leadAgentResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Lead Agent", Data: leadAgentResponse);
     }
 }
 

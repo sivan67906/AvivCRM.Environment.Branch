@@ -18,7 +18,7 @@ internal class GetRecruitCustomQuestionSettingByIdQueryHandler(IRecruitCustomQue
         var recruitCustomQuestionSettingResponse = mapper.Map<GetRecruitCustomQuestionSetting>(recruitCustomQuestionSetting); // <DTO> (parameter)
         if (recruitCustomQuestionSettingResponse is null) return new ServerResponse(Message: "Recruit Custom Question Setting Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "Recruit Custom Question Setting", Data: recruitCustomQuestionSettingResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Recruit Custom Question Setting", Data: recruitCustomQuestionSettingResponse);
     }
 }
 

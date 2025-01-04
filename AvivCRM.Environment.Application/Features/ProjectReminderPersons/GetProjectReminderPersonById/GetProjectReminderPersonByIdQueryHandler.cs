@@ -18,7 +18,7 @@ internal class GetProjectReminderPersonByIdQueryHandler(IProjectReminderPerson p
         var projectReminderPersonResponse = mapper.Map<GetProjectReminderPerson>(projectReminderPerson); // <DTO> (parameter)
         if (projectReminderPersonResponse is null) return new ServerResponse(Message: "Project Reminder Person Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "Project Reminder Person", Data: projectReminderPersonResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Project Reminder Person", Data: projectReminderPersonResponse);
     }
 }
 

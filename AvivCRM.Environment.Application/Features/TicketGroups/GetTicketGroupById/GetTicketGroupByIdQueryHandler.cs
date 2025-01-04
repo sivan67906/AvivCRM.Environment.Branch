@@ -18,7 +18,7 @@ internal class GetTicketGroupByIdQueryHandler(ITicketGroup ticketGroupRepository
         var ticketGroupResponse = mapper.Map<GetTicketGroup>(ticketGroup); // <DTO> (parameter)
         if (ticketGroupResponse is null) return new ServerResponse(Message: "Ticket Group Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "Ticket Group", Data: ticketGroupResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Ticket Group", Data: ticketGroupResponse);
     }
 }
 

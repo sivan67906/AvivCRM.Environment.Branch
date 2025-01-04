@@ -18,7 +18,7 @@ internal class GetTimesheetByIdQueryHandler(ITimesheet timesheetRepository, IMap
         var timesheetResponse = mapper.Map<GetTimesheet>(timesheet); // <DTO> (parameter)
         if (timesheetResponse is null) return new ServerResponse(Message: "Timesheet Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "Timesheet", Data: timesheetResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Timesheet", Data: timesheetResponse);
     }
 }
 

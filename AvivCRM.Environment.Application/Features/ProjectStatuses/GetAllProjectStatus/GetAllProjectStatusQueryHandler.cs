@@ -1,6 +1,5 @@
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.ProjectStatuses;
-using AvivCRM.Environment.Application.Features.ProjectStatuses.GetAllProjectStatus;
 using AvivCRM.Environment.Domain.Contracts.Project;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
@@ -18,7 +17,7 @@ internal class GetAllProjectStatusQueryHandler(IProjectStatus _projectStatusRepo
         var leadSourcResponse = mapper.Map<IEnumerable<GetProjectStatus>>(projectStatus);
         if (leadSourcResponse is null) return new ServerResponse(Message: "Project Status Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "List of Project Status", Data: leadSourcResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Project Statuses", Data: leadSourcResponse);
     }
 }
 

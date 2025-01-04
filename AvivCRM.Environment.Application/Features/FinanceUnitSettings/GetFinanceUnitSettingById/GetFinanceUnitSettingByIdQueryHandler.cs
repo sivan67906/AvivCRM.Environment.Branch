@@ -18,7 +18,7 @@ internal class GetFinanceUnitSettingByIdQueryHandler(IFinanceUnitSetting finance
         var financeUnitSettingResponse = mapper.Map<GetFinanceUnitSetting>(financeUnitSetting); // <DTO> (parameter)
         if (financeUnitSettingResponse is null) return new ServerResponse(Message: "Finance Unit Setting Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "Finance Unit Setting", Data: financeUnitSettingResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Finance Unit Setting", Data: financeUnitSettingResponse);
     }
 }
 

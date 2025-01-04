@@ -1,6 +1,5 @@
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.RecruitGeneralSettings;
-using AvivCRM.Environment.Application.Features.RecruitGeneralSettings.GetAllRecruitGeneralSetting;
 using AvivCRM.Environment.Domain.Contracts.Recruit;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
@@ -18,7 +17,7 @@ internal class GetAllRecruitGeneralSettingQueryHandler(IRecruitGeneralSetting _r
         var leadSourcResponse = mapper.Map<IEnumerable<GetRecruitGeneralSetting>>(recruitGeneralSetting);
         if (leadSourcResponse is null) return new ServerResponse(Message: "Recruit General Setting Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "List of Recruit General Setting", Data: leadSourcResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Recruit General Settings", Data: leadSourcResponse);
     }
 }
 

@@ -1,6 +1,5 @@
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.ProjectReminderPersons;
-using AvivCRM.Environment.Application.Features.ProjectReminderPersons.GetAllProjectReminderPerson;
 using AvivCRM.Environment.Domain.Contracts.Project;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
@@ -18,7 +17,7 @@ internal class GetAllProjectReminderPersonQueryHandler(IProjectReminderPerson _p
         var leadSourcResponse = mapper.Map<IEnumerable<GetProjectReminderPerson>>(projectReminderPerson);
         if (leadSourcResponse is null) return new ServerResponse(Message: "Project Reminder Person Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "List of Project Reminder Person", Data: leadSourcResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Project Reminder Persons", Data: leadSourcResponse);
     }
 }
 

@@ -17,7 +17,7 @@ internal class GetAllNotificationMainQueryHandler(INotificationMain _notificatio
         var leadSourcResponse = mapper.Map<IEnumerable<GetNotificationMain>>(notificationMain);
         if (leadSourcResponse is null) return new ServerResponse(Message: "Notification Main Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "List of Notification Main", Data: leadSourcResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Notification Mains", Data: leadSourcResponse);
     }
 }
 

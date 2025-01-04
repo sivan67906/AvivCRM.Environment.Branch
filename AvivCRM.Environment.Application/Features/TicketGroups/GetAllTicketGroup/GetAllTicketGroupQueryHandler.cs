@@ -1,6 +1,5 @@
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.TicketGroups;
-using AvivCRM.Environment.Application.Features.TicketGroups.GetAllTicketGroup;
 using AvivCRM.Environment.Domain.Contracts.Ticket;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
@@ -18,7 +17,7 @@ internal class GetAllTicketGroupQueryHandler(ITicketGroup _ticketGroupRepository
         var leadSourcResponse = mapper.Map<IEnumerable<GetTicketGroup>>(ticketGroup);
         if (leadSourcResponse is null) return new ServerResponse(Message: "Ticket Group Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "List of Ticket Group", Data: leadSourcResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Ticket Groups", Data: leadSourcResponse);
     }
 }
 

@@ -18,7 +18,7 @@ internal class GetRecruitFooterSettingByIdQueryHandler(IRecruitFooterSetting rec
         var recruitFooterSettingResponse = mapper.Map<GetRecruitFooterSetting>(recruitFooterSetting); // <DTO> (parameter)
         if (recruitFooterSettingResponse is null) return new ServerResponse(Message: "Recruit Footer Setting Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "Recruit Footer Setting", Data: recruitFooterSettingResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Recruit Footer Setting", Data: recruitFooterSettingResponse);
     }
 }
 

@@ -18,7 +18,7 @@ internal class GetJobApplicationPositionByIdQueryHandler(IJobApplicationPosition
         var jobApplicationPositionResponse = mapper.Map<GetJobApplicationPosition>(jobApplicationPosition); // <DTO> (parameter)
         if (jobApplicationPositionResponse is null) return new ServerResponse(Message: "Job Application Position Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "Job Application Position", Data: jobApplicationPositionResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Job Application Position", Data: jobApplicationPositionResponse);
     }
 }
 

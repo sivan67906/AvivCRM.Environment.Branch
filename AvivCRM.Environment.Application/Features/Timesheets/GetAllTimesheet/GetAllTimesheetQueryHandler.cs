@@ -1,6 +1,5 @@
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.Timesheets;
-using AvivCRM.Environment.Application.Features.Timesheets.GetAllTimesheet;
 using AvivCRM.Environment.Domain.Contracts;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
@@ -18,7 +17,7 @@ internal class GetAllTimesheetQueryHandler(ITimesheet _timesheetRepository, IMap
         var leadSourcResponse = mapper.Map<IEnumerable<GetTimesheet>>(timesheet);
         if (leadSourcResponse is null) return new ServerResponse(Message: "Timesheet Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "List of Timesheet", Data: leadSourcResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Timesheets", Data: leadSourcResponse);
     }
 }
 

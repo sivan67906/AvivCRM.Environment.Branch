@@ -18,7 +18,7 @@ internal class GetRecruitJobApplicationStatusSettingByIdQueryHandler(IRecruitJob
         var recruitJobApplicationStatusSettingResponse = mapper.Map<GetRecruitJobApplicationStatusSetting>(recruitJobApplicationStatusSetting); // <DTO> (parameter)
         if (recruitJobApplicationStatusSettingResponse is null) return new ServerResponse(Message: "Recruit JobApplication Status Setting Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "Recruit JobApplication Status Setting", Data: recruitJobApplicationStatusSettingResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Recruit JobApplication Status Setting", Data: recruitJobApplicationStatusSettingResponse);
     }
 }
 

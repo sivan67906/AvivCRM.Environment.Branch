@@ -1,6 +1,5 @@
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.RecruitNotificationSettings;
-using AvivCRM.Environment.Application.Features.RecruitNotificationSettings.GetAllRecruitNotificationSetting;
 using AvivCRM.Environment.Domain.Contracts.Recruit;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
@@ -18,7 +17,7 @@ internal class GetAllRecruitNotificationSettingQueryHandler(IRecruitNotification
         var leadSourcResponse = mapper.Map<IEnumerable<GetRecruitNotificationSetting>>(recruitNotificationSetting);
         if (leadSourcResponse is null) return new ServerResponse(Message: "Recruit Notification Setting Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "List of Recruit Notification Setting", Data: leadSourcResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Recruit Notification Settings", Data: leadSourcResponse);
     }
 }
 

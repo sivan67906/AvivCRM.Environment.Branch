@@ -1,6 +1,5 @@
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.JobApplicationCategories;
-using AvivCRM.Environment.Application.Features.JobApplicationCategories.GetAllJobApplicationCategory;
 using AvivCRM.Environment.Domain.Contracts.Recruit;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
@@ -18,7 +17,7 @@ internal class GetAllJobApplicationCategoryQueryHandler(IJobApplicationCategory 
         var leadSourcResponse = mapper.Map<IEnumerable<GetJobApplicationCategory>>(jobApplicationCategory);
         if (leadSourcResponse is null) return new ServerResponse(Message: "Job Application Category Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "List of Job Application Category", Data: leadSourcResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Job Application Categories", Data: leadSourcResponse);
     }
 }
 

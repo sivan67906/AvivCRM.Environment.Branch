@@ -17,7 +17,7 @@ internal class GetAllLeadSourceQueryHandler(ILeadSource _leadSourceRepository, I
         var leadSourceResponse = mapper.Map<IEnumerable<GetLeadSource>>(leadSource);
         if (leadSourceResponse is null) return new ServerResponse(Message: "Lead Source Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "List of Lead Source", Data: leadSourceResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Lead Sources", Data: leadSourceResponse);
     }
 }
 

@@ -1,6 +1,5 @@
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.TimeLogs;
-using AvivCRM.Environment.Application.Features.TimeLogs.GetAllTimeLog;
 using AvivCRM.Environment.Domain.Contracts;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
@@ -18,7 +17,7 @@ internal class GetAllTimeLogQueryHandler(ITimeLog _timeLogRepository, IMapper ma
         var leadSourcResponse = mapper.Map<IEnumerable<GetTimeLog>>(timeLog);
         if (leadSourcResponse is null) return new ServerResponse(Message: "TimeLog Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "List of TimeLog", Data: leadSourcResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of TimeLogs", Data: leadSourcResponse);
     }
 }
 

@@ -18,7 +18,7 @@ internal class GetProjectSettingByIdQueryHandler(IProjectSetting projectSettingR
         var projectSettingResponse = mapper.Map<GetProjectSetting>(projectSetting); // <DTO> (parameter)
         if (projectSettingResponse is null) return new ServerResponse(Message: "Project Setting Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "Project Setting", Data: projectSettingResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Project Setting", Data: projectSettingResponse);
     }
 }
 

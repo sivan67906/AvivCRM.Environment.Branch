@@ -1,6 +1,5 @@
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.ProjectCategories;
-using AvivCRM.Environment.Application.Features.ProjectCategories.GetAllProjectCategory;
 using AvivCRM.Environment.Domain.Contracts.Project;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
@@ -18,7 +17,7 @@ internal class GetAllProjectCategoryQueryHandler(IProjectCategory _projectCatego
         var leadSourcResponse = mapper.Map<IEnumerable<GetProjectCategory>>(projectCategory);
         if (leadSourcResponse is null) return new ServerResponse(Message: "Project Category Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "List of Project Category", Data: leadSourcResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Project Categories", Data: leadSourcResponse);
     }
 }
 

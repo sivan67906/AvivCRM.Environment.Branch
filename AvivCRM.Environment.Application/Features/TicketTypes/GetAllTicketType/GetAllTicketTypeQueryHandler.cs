@@ -1,6 +1,5 @@
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.TicketTypes;
-using AvivCRM.Environment.Application.Features.TicketTypes.GetAllTicketType;
 using AvivCRM.Environment.Domain.Contracts.Ticket;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
@@ -18,7 +17,7 @@ internal class GetAllTicketTypeQueryHandler(ITicketType _ticketTypeRepository, I
         var leadSourcResponse = mapper.Map<IEnumerable<GetTicketType>>(ticketType);
         if (leadSourcResponse is null) return new ServerResponse(Message: "Ticket Type Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "List of Ticket Type", Data: leadSourcResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Ticket Types", Data: leadSourcResponse);
     }
 }
 

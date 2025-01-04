@@ -7,10 +7,10 @@ public class CreateTimesheetCommandValidator : AbstractValidator<CreateTimesheet
 {
     public CreateTimesheetCommandValidator()
     {
-        RuleFor(x => x.Name)
-            .NotEmpty().WithMessage("Timesheet Name not empty")
-            .MaximumLength(25).WithMessage("Timesheet Name must not exceed 25 Characters")
-            .MinimumLength(3).WithMessage("Timesheet Name should not be less than 3 characters");
+        //RuleFor(x => x.Name)
+        //    .NotEmpty().WithMessage("Timesheet Name not empty")
+        //    .MaximumLength(25).WithMessage("Timesheet Name must not exceed 25 Characters")
+        //    .MinimumLength(3).WithMessage("Timesheet Name should not be less than 3 characters");
 
     }
 }

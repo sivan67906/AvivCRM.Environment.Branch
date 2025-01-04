@@ -17,6 +17,6 @@ internal class GetAllContractQueryHandler(IContract _contractRepository, IMapper
         var contractResponse = mapper.Map<IEnumerable<GetContract>>(contract);
         if (contractResponse is null) return new ServerResponse(Message: "Contract Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "List of Contract", Data: contractResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Contracts", Data: contractResponse);
     }
 }

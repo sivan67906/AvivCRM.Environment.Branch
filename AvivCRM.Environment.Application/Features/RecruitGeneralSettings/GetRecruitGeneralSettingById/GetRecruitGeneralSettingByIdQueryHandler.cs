@@ -18,7 +18,7 @@ internal class GetRecruitGeneralSettingByIdQueryHandler(IRecruitGeneralSetting r
         var recruitGeneralSettingResponse = mapper.Map<GetRecruitGeneralSetting>(recruitGeneralSetting); // <DTO> (parameter)
         if (recruitGeneralSettingResponse is null) return new ServerResponse(Message: "Recruit General Setting Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "Recruit General Setting", Data: recruitGeneralSettingResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Recruit General Setting", Data: recruitGeneralSettingResponse);
     }
 }
 

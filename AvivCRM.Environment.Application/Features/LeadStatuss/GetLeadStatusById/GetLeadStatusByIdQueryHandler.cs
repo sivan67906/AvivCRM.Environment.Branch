@@ -17,6 +17,6 @@ internal class GetLeadStatusByIdQueryHandler(ILeadStatus leadStatusRepository, I
         var leadStatusResponse = mapper.Map<GetLeadStatus>(leadStatus); // <DTO> (parameter)
         if (leadStatusResponse is null) return new ServerResponse(Message: "Lead Status Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "Lead Status", Data: leadStatusResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Lead Status", Data: leadStatusResponse);
     }
 }

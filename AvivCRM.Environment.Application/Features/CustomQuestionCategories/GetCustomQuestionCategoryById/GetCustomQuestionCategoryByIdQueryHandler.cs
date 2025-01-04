@@ -18,7 +18,7 @@ internal class GetCustomQuestionCategoryByIdQueryHandler(ICustomQuestionCategory
         var customQuestionCategoryResponse = mapper.Map<GetCustomQuestionCategory>(customQuestionCategory); // <DTO> (parameter)
         if (customQuestionCategoryResponse is null) return new ServerResponse(Message: "Custom Question Category Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "Custom Question Category", Data: customQuestionCategoryResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Custom Question Category", Data: customQuestionCategoryResponse);
     }
 }
 

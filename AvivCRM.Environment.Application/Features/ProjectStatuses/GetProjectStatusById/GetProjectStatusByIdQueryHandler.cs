@@ -18,7 +18,7 @@ internal class GetProjectStatusByIdQueryHandler(IProjectStatus projectStatusRepo
         var projectStatusResponse = mapper.Map<GetProjectStatus>(projectStatus); // <DTO> (parameter)
         if (projectStatusResponse is null) return new ServerResponse(Message: "Project Status Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "Project Status", Data: projectStatusResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Project Status", Data: projectStatusResponse);
     }
 }
 
