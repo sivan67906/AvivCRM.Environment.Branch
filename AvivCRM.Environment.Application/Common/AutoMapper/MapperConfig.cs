@@ -1,20 +1,34 @@
 ﻿using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.Contracts;
+using AvivCRM.Environment.Application.DTOs.CustomQuestionCategories;
+using AvivCRM.Environment.Application.DTOs.CustomQuestionPositions;
+using AvivCRM.Environment.Application.DTOs.CustomQuestionTypes;
 using AvivCRM.Environment.Application.DTOs.FinanceInvoiceTemplateSettings;
 using AvivCRM.Environment.Application.DTOs.FinancePrefixSettings;
 using AvivCRM.Environment.Application.DTOs.FinanceUnitSettings;
+using AvivCRM.Environment.Application.DTOs.JobApplicationCategories;
 using AvivCRM.Environment.Application.DTOs.LeadAgent;
 using AvivCRM.Environment.Application.DTOs.LeadCategories;
 using AvivCRM.Environment.Application.DTOs.LeadSources;
 using AvivCRM.Environment.Application.DTOs.LeadStatus;
+using AvivCRM.Environment.Application.DTOs.NotificationMains;
 using AvivCRM.Environment.Application.DTOs.ProjectCategories;
 using AvivCRM.Environment.Application.DTOs.ProjectReminderPersons;
+using AvivCRM.Environment.Application.DTOs.ProjectSettings;
+using AvivCRM.Environment.Application.DTOs.ProjectStatuses;
+using AvivCRM.Environment.Application.DTOs.RecruitCustomQuestionSettings;
+using AvivCRM.Environment.Application.DTOs.RecruiterSettings;
+using AvivCRM.Environment.Application.DTOs.RecruitFooterSettings;
+using AvivCRM.Environment.Application.DTOs.RecruitGeneralSettings;
+using AvivCRM.Environment.Application.DTOs.RecruitJobApplicationStatusSettings;
 using AvivCRM.Environment.Application.DTOs.RecruitNotificationSettings;
 using AvivCRM.Environment.Application.DTOs.TicketAgents;
 using AvivCRM.Environment.Application.DTOs.TicketChannels;
 using AvivCRM.Environment.Application.DTOs.TicketGroups;
 using AvivCRM.Environment.Application.DTOs.TicketReplyTemplates;
 using AvivCRM.Environment.Application.DTOs.TicketTypes;
+using AvivCRM.Environment.Application.DTOs.TimeLogs;
+using AvivCRM.Environment.Application.DTOs.Timesheets;
 using AvivCRM.Environment.Domain.Entities;
 
 namespace AvivCRM.Environment.Application.Common.AutoMapper;
@@ -180,5 +194,75 @@ public class MapperConfig : Profile
         CreateMap<CreateLeadCategoryRequest, LeadCategory>();
         CreateMap<UpdateLeadCategoryRequest, LeadCategory>();
         CreateMap<LeadCategory, GetLeadCategory>();
+
+        // CustomQuestionCategory
+        CreateMap<CreateCustomQuestionCategoryRequest, CustomQuestionCategory>();
+        CreateMap<UpdateCustomQuestionCategoryRequest, CustomQuestionCategory>();
+        CreateMap<CustomQuestionCategory, GetCustomQuestionCategory>();
+
+        // CustomQuestionType
+        CreateMap<CreateCustomQuestionTypeRequest, CustomQuestionType>();
+        CreateMap<UpdateCustomQuestionTypeRequest, CustomQuestionType>();
+        CreateMap<CustomQuestionType, GetCustomQuestionType>();
+
+        // JobApplicationCategory
+        CreateMap<CreateJobApplicationCategoryRequest, JobApplicationCategory>();
+        CreateMap<UpdateJobApplicationCategoryRequest, JobApplicationCategory>();
+        CreateMap<JobApplicationCategory, GetJobApplicationCategory>();
+
+        // CustomQuestionPosition
+        CreateMap<CreateCustomQuestionPositionRequest, CustomQuestionPosition>();
+        CreateMap<UpdateCustomQuestionPositionRequest, CustomQuestionPosition>();
+        CreateMap<CustomQuestionPosition, GetCustomQuestionPosition>();
+
+        // NotificationMain
+        CreateMap<CreateNotificationMainRequest, NotificationMain>();
+        CreateMap<UpdateNotificationMainRequest, NotificationMain>();
+        CreateMap<NotificationMain, GetNotificationMain>();
+
+        // ProjectSetting
+        CreateMap<CreateProjectSettingRequest, ProjectSetting>();
+        CreateMap<UpdateProjectSettingRequest, ProjectSetting>();
+        CreateMap<ProjectSetting, GetProjectSetting>();
+
+        // ProjectStatus
+        CreateMap<CreateProjectStatusRequest, ProjectStatus>();
+        CreateMap<UpdateProjectStatusRequest, ProjectStatus>();
+        CreateMap<ProjectStatus, GetProjectStatus>();
+
+        // RecruitCustomQuestionSetting
+        CreateMap<CreateRecruitCustomQuestionSettingRequest, RecruitCustomQuestionSetting>();
+        CreateMap<UpdateRecruitCustomQuestionSettingRequest, RecruitCustomQuestionSetting>();
+        CreateMap<RecruitCustomQuestionSetting, GetRecruitCustomQuestionSetting>();
+
+        // RecruitFooterSetting
+        CreateMap<CreateRecruitFooterSettingRequest, RecruitFooterSetting>();
+        CreateMap<UpdateRecruitFooterSettingRequest, RecruitFooterSetting>();
+        CreateMap<RecruitFooterSetting, GetRecruitFooterSetting>();
+
+        // RecruitGeneralSetting
+        CreateMap<CreateRecruitGeneralSettingRequest, RecruitGeneralSetting>();
+        CreateMap<UpdateRecruitGeneralSettingRequest, RecruitGeneralSetting>();
+        CreateMap<RecruitGeneralSetting, GetRecruitGeneralSetting>();
+
+        // RecruitJobApplicationStatusSetting
+        CreateMap<CreateRecruitJobApplicationStatusSettingRequest, RecruitJobApplicationStatusSetting>();
+        CreateMap<UpdateRecruitJobApplicationStatusSettingRequest, RecruitJobApplicationStatusSetting>();
+        CreateMap<RecruitJobApplicationStatusSetting, GetRecruitJobApplicationStatusSetting>();
+
+        // RecruiterSetting
+        CreateMap<CreateRecruiterSettingRequest, RecruiterSetting>();
+        CreateMap<UpdateRecruiterSettingRequest, RecruiterSetting>();
+        CreateMap<RecruiterSetting, GetRecruiterSetting>();
+
+        // TimeLog
+        CreateMap<CreateTimeLogRequest, TimeLog>();
+        CreateMap<UpdateTimeLogRequest, TimeLog>();
+        CreateMap<TimeLog, GetTimeLog>();
+
+        // Timesheet
+        CreateMap<CreateTimesheetRequest, Timesheet>();
+        CreateMap<UpdateTimesheetRequest, Timesheet>();
+        CreateMap<Timesheet, GetTimesheet>();
     }
 }
