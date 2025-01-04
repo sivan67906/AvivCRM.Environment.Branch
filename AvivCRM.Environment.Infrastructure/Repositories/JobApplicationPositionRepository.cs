@@ -3,7 +3,15 @@ using AvivCRM.Environment.Domain.Entities;
 using AvivCRM.Environment.Infrastructure.Persistence;
 
 namespace AvivCRM.Environment.Infrastructure.Repositories;
-public class CustomQuestionPositionRepository(EnvironmentDbContext context) : GenericRepository<CustomQuestionPosition>(context, context.CustomQuestionPositions), ICustomQuestionPosition { }
+public class JobApplicationPositionRepository(EnvironmentDbContext context) : GenericRepository<JobApplicationPosition>(context, context.JobApplicationPositions), IJobApplicationPosition { }
+
+
+
+
+
+
+
+
 
 
 

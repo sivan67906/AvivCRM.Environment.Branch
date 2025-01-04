@@ -25,7 +25,7 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
     public DbSet<CustomQuestionCategory> CustomQuestionCategories => Set<CustomQuestionCategory>();
     public DbSet<CustomQuestionType> CustomQuestionTypes => Set<CustomQuestionType>();
     public DbSet<JobApplicationCategory> JobApplicationCategories => Set<JobApplicationCategory>();
-    public DbSet<CustomQuestionPosition> CustomQuestionPositions => Set<CustomQuestionPosition>();
+    public DbSet<JobApplicationPosition> JobApplicationPositions => Set<JobApplicationPosition>();
     public DbSet<NotificationMain> NotificationMains => Set<NotificationMain>();
     public DbSet<ProjectSetting> ProjectSettings => Set<ProjectSetting>();
     public DbSet<ProjectStatus> ProjectStatuses => Set<ProjectStatus>();
@@ -62,7 +62,7 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
         modelBuilder.Entity<CustomQuestionCategory>().ToTable("tblCustomQuestionCategory");
         modelBuilder.Entity<CustomQuestionType>().ToTable("tblCustomQuestionType");
         modelBuilder.Entity<JobApplicationCategory>().ToTable("tblJobApplicationCategory");
-        modelBuilder.Entity<CustomQuestionPosition>().ToTable("tblCustomQuestionPosition");
+        modelBuilder.Entity<JobApplicationPosition>().ToTable("tblJobApplicationPosition");
         modelBuilder.Entity<NotificationMain>().ToTable("tblNotificationMain");
         modelBuilder.Entity<ProjectSetting>().ToTable("tblProjectSetting");
         modelBuilder.Entity<ProjectStatus>().ToTable("tblProjectStatus");

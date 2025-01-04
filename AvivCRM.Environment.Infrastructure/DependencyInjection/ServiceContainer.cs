@@ -40,7 +40,7 @@ public static class ServiceContainer
         services.AddScoped<ICustomQuestionCategory, CustomQuestionCategoryRepository>();
         services.AddScoped<ICustomQuestionType, CustomQuestionTypeRepository>();
         services.AddScoped<IJobApplicationCategory, JobApplicationCategoryRepository>();
-        services.AddScoped<ICustomQuestionPosition, CustomQuestionPositionRepository>();
+        services.AddScoped<IJobApplicationPosition, JobApplicationPositionRepository>();
         services.AddScoped<INotificationMain, NotificationMainRepository>();
         services.AddScoped<IProjectSetting, ProjectSettingRepository>();
         services.AddScoped<IProjectStatus, ProjectStatusRepository>();

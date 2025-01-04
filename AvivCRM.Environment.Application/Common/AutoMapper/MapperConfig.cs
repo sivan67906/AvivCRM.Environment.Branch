@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.Contracts;
 using AvivCRM.Environment.Application.DTOs.CustomQuestionCategories;
-using AvivCRM.Environment.Application.DTOs.CustomQuestionPositions;
 using AvivCRM.Environment.Application.DTOs.CustomQuestionTypes;
 using AvivCRM.Environment.Application.DTOs.FinanceInvoiceTemplateSettings;
 using AvivCRM.Environment.Application.DTOs.FinancePrefixSettings;
 using AvivCRM.Environment.Application.DTOs.FinanceUnitSettings;
 using AvivCRM.Environment.Application.DTOs.JobApplicationCategories;
+using AvivCRM.Environment.Application.DTOs.JobApplicationPositions;
 using AvivCRM.Environment.Application.DTOs.LeadAgent;
 using AvivCRM.Environment.Application.DTOs.LeadCategories;
 using AvivCRM.Environment.Application.DTOs.LeadSources;
@@ -256,10 +256,27 @@ public class MapperConfig : Profile
         CreateMap<GetJobApplicationCategory, JobApplicationCategory>()
             .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.JACategoryName));
 
-        // CustomQuestionPosition
-        CreateMap<CreateCustomQuestionPositionRequest, CustomQuestionPosition>();
-        CreateMap<UpdateCustomQuestionPositionRequest, CustomQuestionPosition>();
-        CreateMap<CustomQuestionPosition, GetCustomQuestionPosition>();
+        // JobApplicationPosition
+        CreateMap<CreateJobApplicationPositionRequest, JobApplicationPosition>();
+        CreateMap<UpdateJobApplicationPositionRequest, JobApplicationPosition>();
+        CreateMap<JobApplicationPosition, GetJobApplicationPosition>();
+
+        CreateMap<CreateJobApplicationPositionRequest, JobApplicationPosition>()
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.JAPositionName));
+        CreateMap<JobApplicationPosition, CreateJobApplicationPositionRequest>()
+            .ForMember(dest => dest.JAPositionName, opt => opt.MapFrom(src => src.Name));
+
+        CreateMap<UpdateJobApplicationPositionRequest, JobApplicationPosition>()
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.JAPositionName));
+        CreateMap<JobApplicationPosition, UpdateJobApplicationPositionRequest>()
+            .ForMember(dest => dest.JAPositionName, opt => opt.MapFrom(src => src.Name));
+
+        CreateMap<JobApplicationPosition, GetJobApplicationPosition>()
+            .ForMember(dest => dest.JAPositionName, opt => opt.MapFrom(src => src.Name));
+        CreateMap<GetJobApplicationPosition, JobApplicationPosition>()
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.JAPositionName));
+
+
 
         // NotificationMain
         CreateMap<CreateNotificationMainRequest, NotificationMain>();
