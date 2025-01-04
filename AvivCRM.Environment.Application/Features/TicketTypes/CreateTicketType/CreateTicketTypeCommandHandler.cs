@@ -35,7 +35,7 @@ internal class CreateTicketTypeCommandHandler(IValidator<CreateTicketTypeRequest
             return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Ticket Type Created Succcessfully", Data: ticketTypeEntity);
+        return new ServerResponse(IsSuccess: true, Message: "Ticket Type created successfully", Data: ticketTypeEntity);
     }
 }
 

@@ -35,7 +35,7 @@ internal class CreateRecruiterSettingCommandHandler(IValidator<CreateRecruiterSe
             return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Recruiter Setting Created Succcessfully", Data: recruiterSettingEntity);
+        return new ServerResponse(IsSuccess: true, Message: "Recruiter Setting created successfully", Data: recruiterSettingEntity);
     }
 }
 

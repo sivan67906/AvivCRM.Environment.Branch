@@ -29,7 +29,7 @@ internal class DeleteProjectStatusCommandHandler(IProjectStatus _projectStatusRe
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Project Status Deleted Successfully", Data: projectStatus);
+        return new ServerResponse(IsSuccess: true, Message: "Project Status deleted successfully", Data: projectStatus);
     }
 }
 

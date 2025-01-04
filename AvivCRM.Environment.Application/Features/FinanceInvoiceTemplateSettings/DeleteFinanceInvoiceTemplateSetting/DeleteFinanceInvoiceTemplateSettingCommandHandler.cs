@@ -29,7 +29,7 @@ internal class DeleteFinanceInvoiceTemplateSettingCommandHandler(IFinanceInvoice
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Finance Invoice Template Setting Deleted Successfully", Data: financeInvoiceTemplateSetting);
+        return new ServerResponse(IsSuccess: true, Message: "Finance Invoice Template Setting deleted successfully", Data: financeInvoiceTemplateSetting);
     }
 }
 

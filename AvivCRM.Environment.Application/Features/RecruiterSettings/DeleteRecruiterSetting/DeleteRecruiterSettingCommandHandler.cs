@@ -29,7 +29,7 @@ internal class DeleteRecruiterSettingCommandHandler(IRecruiterSetting _recruiter
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Recruiter Setting Deleted Successfully", Data: recruiterSetting);
+        return new ServerResponse(IsSuccess: true, Message: "Recruiter Setting deleted successfully", Data: recruiterSetting);
     }
 }
 

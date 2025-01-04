@@ -35,7 +35,7 @@ internal class UpdateJobApplicationCategoryCommandHandler(IValidator<UpdateJobAp
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Job Application Category Updated Successfully", Data: jobApplicationCategory);
+        return new ServerResponse(IsSuccess: true, Message: "Job Application Category updated successfully", Data: jobApplicationCategory);
     }
 }
 

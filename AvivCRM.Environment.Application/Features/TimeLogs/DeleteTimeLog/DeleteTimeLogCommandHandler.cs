@@ -29,7 +29,7 @@ internal class DeleteTimeLogCommandHandler(ITimeLog _timeLogRepository, IUnitOfW
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "TimeLog Deleted Successfully", Data: timeLog);
+        return new ServerResponse(IsSuccess: true, Message: "TimeLog deleted successfully", Data: timeLog);
     }
 }
 

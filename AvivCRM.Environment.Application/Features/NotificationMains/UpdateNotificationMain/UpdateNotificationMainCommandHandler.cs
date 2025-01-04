@@ -35,7 +35,7 @@ internal class UpdateNotificationMainCommandHandler(IValidator<UpdateNotificatio
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Notification Main Updated Successfully", Data: notificationMain);
+        return new ServerResponse(IsSuccess: true, Message: "Notification Main updated successfully", Data: notificationMain);
     }
 }
 

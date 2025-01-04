@@ -35,7 +35,7 @@ internal class CreateTicketGroupCommandHandler(IValidator<CreateTicketGroupReque
             return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Ticket Group Created Succcessfully", Data: ticketGroupEntity);
+        return new ServerResponse(IsSuccess: true, Message: "Ticket Group created successfully", Data: ticketGroupEntity);
     }
 }
 

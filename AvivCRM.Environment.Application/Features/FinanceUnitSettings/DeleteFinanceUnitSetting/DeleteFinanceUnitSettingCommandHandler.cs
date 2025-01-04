@@ -29,7 +29,7 @@ internal class DeleteFinanceUnitSettingCommandHandler(IFinanceUnitSetting _finan
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Finance Unit Setting Deleted Successfully", Data: financeUnitSetting);
+        return new ServerResponse(IsSuccess: true, Message: "Finance Unit Setting deleted successfully", Data: financeUnitSetting);
     }
 }
 

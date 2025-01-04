@@ -35,7 +35,7 @@ internal class CreateRecruitJobApplicationStatusSettingCommandHandler(IValidator
             return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Recruit JobApplication Status Setting Created Succcessfully", Data: recruitJobApplicationStatusSettingEntity);
+        return new ServerResponse(IsSuccess: true, Message: "Recruit JobApplication Status Setting created successfully", Data: recruitJobApplicationStatusSettingEntity);
     }
 }
 

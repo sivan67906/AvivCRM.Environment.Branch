@@ -35,7 +35,7 @@ internal class UpdateRecruiterSettingCommandHandler(IValidator<UpdateRecruiterSe
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Recruiter Setting Updated Successfully", Data: recruiterSetting);
+        return new ServerResponse(IsSuccess: true, Message: "Recruiter Setting updated successfully", Data: recruiterSetting);
     }
 }
 

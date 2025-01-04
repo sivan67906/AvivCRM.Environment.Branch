@@ -29,7 +29,7 @@ internal class DeleteTimesheetCommandHandler(ITimesheet _timesheetRepository, IU
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Timesheet Deleted Successfully", Data: timesheet);
+        return new ServerResponse(IsSuccess: true, Message: "Timesheet deleted successfully", Data: timesheet);
     }
 }
 

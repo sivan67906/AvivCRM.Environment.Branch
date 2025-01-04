@@ -35,7 +35,7 @@ internal class UpdateFinancePrefixSettingCommandHandler(IValidator<UpdateFinance
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Finance Prefix Setting Updated Successfully", Data: financePrefixSetting);
+        return new ServerResponse(IsSuccess: true, Message: "Finance Prefix Setting updated successfully", Data: financePrefixSetting);
     }
 }
 

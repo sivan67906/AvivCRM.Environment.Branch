@@ -35,7 +35,7 @@ internal class CreateFinancePrefixSettingCommandHandler(IValidator<CreateFinance
             return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Finance Prefix Setting Created Succcessfully", Data: financePrefixSettingEntity);
+        return new ServerResponse(IsSuccess: true, Message: "Finance Prefix Setting created successfully", Data: financePrefixSettingEntity);
     }
 }
 

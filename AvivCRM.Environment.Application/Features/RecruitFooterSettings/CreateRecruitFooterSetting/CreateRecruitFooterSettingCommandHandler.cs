@@ -35,7 +35,7 @@ internal class CreateRecruitFooterSettingCommandHandler(IValidator<CreateRecruit
             return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Recruit Footer Setting Created Succcessfully", Data: recruitFooterSettingEntity);
+        return new ServerResponse(IsSuccess: true, Message: "Recruit Footer Setting created successfully", Data: recruitFooterSettingEntity);
     }
 }
 

@@ -35,7 +35,7 @@ internal class CreateJobApplicationPositionCommandHandler(IValidator<CreateJobAp
             return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Job Application Position Created Succcessfully", Data: jobApplicationPositionEntity);
+        return new ServerResponse(IsSuccess: true, Message: "Job Application Position created successfully", Data: jobApplicationPositionEntity);
     }
 }
 

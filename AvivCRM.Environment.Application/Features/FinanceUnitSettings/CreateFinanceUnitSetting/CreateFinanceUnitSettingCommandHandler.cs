@@ -35,7 +35,7 @@ internal class CreateFinanceUnitSettingCommandHandler(IValidator<CreateFinanceUn
             return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Finance Unit Setting Created Succcessfully", Data: financeUnitSettingEntity);
+        return new ServerResponse(IsSuccess: true, Message: "Finance Unit Setting created successfully", Data: financeUnitSettingEntity);
     }
 }
 

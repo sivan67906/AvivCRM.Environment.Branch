@@ -29,7 +29,7 @@ internal class DeleteRecruitCustomQuestionSettingCommandHandler(IRecruitCustomQu
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Recruit Custom Question Setting Deleted Successfully", Data: recruitCustomQuestionSetting);
+        return new ServerResponse(IsSuccess: true, Message: "Recruit Custom Question Setting deleted successfully", Data: recruitCustomQuestionSetting);
     }
 }
 

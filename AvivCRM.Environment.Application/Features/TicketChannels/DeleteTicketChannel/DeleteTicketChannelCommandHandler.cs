@@ -29,7 +29,7 @@ internal class DeleteTicketChannelCommandHandler(ITicketChannel _ticketChannelRe
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Ticket Channel Deleted Successfully", Data: ticketChannel);
+        return new ServerResponse(IsSuccess: true, Message: "Ticket Channel deleted successfully", Data: ticketChannel);
     }
 }
 

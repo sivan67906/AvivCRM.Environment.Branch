@@ -29,7 +29,7 @@ internal class DeleteCustomQuestionTypeCommandHandler(ICustomQuestionType _custo
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Custom Question Type Deleted Successfully", Data: customQuestionType);
+        return new ServerResponse(IsSuccess: true, Message: "Custom Question Type deleted successfully", Data: customQuestionType);
     }
 }
 

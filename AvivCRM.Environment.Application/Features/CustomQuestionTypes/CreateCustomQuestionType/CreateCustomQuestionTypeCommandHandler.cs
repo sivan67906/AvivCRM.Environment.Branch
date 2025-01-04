@@ -35,7 +35,7 @@ internal class CreateCustomQuestionTypeCommandHandler(IValidator<CreateCustomQue
             return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Custom Question Type Created Succcessfully", Data: customQuestionTypeEntity);
+        return new ServerResponse(IsSuccess: true, Message: "Custom Question Type created successfully", Data: customQuestionTypeEntity);
     }
 }
 

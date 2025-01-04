@@ -35,7 +35,7 @@ internal class UpdateRecruitFooterSettingCommandHandler(IValidator<UpdateRecruit
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Recruit Footer Setting Updated Successfully", Data: recruitFooterSetting);
+        return new ServerResponse(IsSuccess: true, Message: "Recruit Footer Setting updated successfully", Data: recruitFooterSetting);
     }
 }
 

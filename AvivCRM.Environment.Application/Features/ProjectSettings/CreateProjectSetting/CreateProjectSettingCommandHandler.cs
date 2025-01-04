@@ -35,7 +35,7 @@ internal class CreateProjectSettingCommandHandler(IValidator<CreateProjectSettin
             return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Project Setting Created Succcessfully", Data: projectSettingEntity);
+        return new ServerResponse(IsSuccess: true, Message: "Project Setting created successfully", Data: projectSettingEntity);
     }
 }
 

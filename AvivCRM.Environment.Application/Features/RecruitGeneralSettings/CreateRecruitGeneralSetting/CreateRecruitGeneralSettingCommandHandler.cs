@@ -35,7 +35,7 @@ internal class CreateRecruitGeneralSettingCommandHandler(IValidator<CreateRecrui
             return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Recruit General Setting Created Succcessfully", Data: recruitGeneralSettingEntity);
+        return new ServerResponse(IsSuccess: true, Message: "Recruit General Setting created successfully", Data: recruitGeneralSettingEntity);
     }
 }
 

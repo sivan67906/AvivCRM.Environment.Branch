@@ -35,7 +35,7 @@ internal class UpdateRecruitGeneralSettingCommandHandler(IValidator<UpdateRecrui
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Recruit General Setting Updated Successfully", Data: recruitGeneralSetting);
+        return new ServerResponse(IsSuccess: true, Message: "Recruit General Setting updated successfully", Data: recruitGeneralSetting);
     }
 }
 

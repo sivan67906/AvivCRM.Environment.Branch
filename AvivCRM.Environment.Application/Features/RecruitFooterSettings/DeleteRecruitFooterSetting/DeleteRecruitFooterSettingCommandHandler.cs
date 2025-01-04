@@ -29,7 +29,7 @@ internal class DeleteRecruitFooterSettingCommandHandler(IRecruitFooterSetting _r
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Recruit Footer Setting Deleted Successfully", Data: recruitFooterSetting);
+        return new ServerResponse(IsSuccess: true, Message: "Recruit Footer Setting deleted successfully", Data: recruitFooterSetting);
     }
 }
 

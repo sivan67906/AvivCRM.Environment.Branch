@@ -35,7 +35,7 @@ internal class UpdateCustomQuestionCategoryCommandHandler(IValidator<UpdateCusto
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Custom Question Category Updated Successfully", Data: customQuestionCategory);
+        return new ServerResponse(IsSuccess: true, Message: "Custom Question Category updated successfully", Data: customQuestionCategory);
     }
 }
 

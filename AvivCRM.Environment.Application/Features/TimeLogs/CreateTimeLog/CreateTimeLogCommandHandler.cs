@@ -35,7 +35,7 @@ internal class CreateTimeLogCommandHandler(IValidator<CreateTimeLogRequest> vali
             return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "TimeLog Created Succcessfully", Data: timeLogEntity);
+        return new ServerResponse(IsSuccess: true, Message: "TimeLog created successfully", Data: timeLogEntity);
     }
 }
 

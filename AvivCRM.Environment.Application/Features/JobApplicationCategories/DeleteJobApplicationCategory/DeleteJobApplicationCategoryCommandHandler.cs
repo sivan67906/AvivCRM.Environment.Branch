@@ -29,7 +29,7 @@ internal class DeleteJobApplicationCategoryCommandHandler(IJobApplicationCategor
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Job Application Category Deleted Successfully", Data: jobApplicationCategory);
+        return new ServerResponse(IsSuccess: true, Message: "Job Application Category deleted successfully", Data: jobApplicationCategory);
     }
 }
 

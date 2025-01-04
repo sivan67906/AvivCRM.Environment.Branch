@@ -29,7 +29,7 @@ internal class DeleteJobApplicationPositionCommandHandler(IJobApplicationPositio
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Job Application Position Deleted Successfully", Data: jobApplicationPosition);
+        return new ServerResponse(IsSuccess: true, Message: "Job Application Position deleted successfully", Data: jobApplicationPosition);
     }
 }
 

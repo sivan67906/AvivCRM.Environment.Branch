@@ -29,7 +29,7 @@ internal class DeleteRecruitGeneralSettingCommandHandler(IRecruitGeneralSetting 
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Recruit General Setting Deleted Successfully", Data: recruitGeneralSetting);
+        return new ServerResponse(IsSuccess: true, Message: "Recruit General Setting deleted successfully", Data: recruitGeneralSetting);
     }
 }
 

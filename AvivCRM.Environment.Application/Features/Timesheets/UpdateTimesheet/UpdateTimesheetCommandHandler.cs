@@ -35,7 +35,7 @@ internal class UpdateTimesheetCommandHandler(IValidator<UpdateTimesheetRequest> 
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Timesheet Updated Successfully", Data: timesheet);
+        return new ServerResponse(IsSuccess: true, Message: "Timesheet updated successfully", Data: timesheet);
     }
 }
 

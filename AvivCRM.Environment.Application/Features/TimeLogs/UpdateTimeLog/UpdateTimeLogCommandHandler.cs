@@ -35,7 +35,7 @@ internal class UpdateTimeLogCommandHandler(IValidator<UpdateTimeLogRequest> _val
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "TimeLog Updated Successfully", Data: timeLog);
+        return new ServerResponse(IsSuccess: true, Message: "TimeLog updated successfully", Data: timeLog);
     }
 }
 

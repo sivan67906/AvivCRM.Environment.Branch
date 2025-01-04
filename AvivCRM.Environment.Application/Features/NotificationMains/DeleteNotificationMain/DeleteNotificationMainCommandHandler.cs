@@ -29,7 +29,7 @@ internal class DeleteNotificationMainCommandHandler(INotificationMain _notificat
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Notification Main Deleted Successfully", Data: notificationMain);
+        return new ServerResponse(IsSuccess: true, Message: "Notification Main deleted successfully", Data: notificationMain);
     }
 }
 

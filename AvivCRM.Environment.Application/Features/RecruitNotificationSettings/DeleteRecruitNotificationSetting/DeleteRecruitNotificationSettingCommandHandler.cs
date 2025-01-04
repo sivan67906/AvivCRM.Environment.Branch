@@ -29,7 +29,7 @@ internal class DeleteRecruitNotificationSettingCommandHandler(IRecruitNotificati
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Recruit Notification Setting Deleted Successfully", Data: recruitNotificationSetting);
+        return new ServerResponse(IsSuccess: true, Message: "Recruit Notification Setting deleted successfully", Data: recruitNotificationSetting);
     }
 }
 

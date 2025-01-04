@@ -35,7 +35,7 @@ internal class UpdateProjectReminderPersonCommandHandler(IValidator<UpdateProjec
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Project Reminder Person Updated Successfully", Data: projectReminderPerson);
+        return new ServerResponse(IsSuccess: true, Message: "Project Reminder Person updated successfully", Data: projectReminderPerson);
     }
 }
 

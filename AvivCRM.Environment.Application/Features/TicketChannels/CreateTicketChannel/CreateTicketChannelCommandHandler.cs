@@ -35,7 +35,7 @@ internal class CreateTicketChannelCommandHandler(IValidator<CreateTicketChannelR
             return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Ticket Channel Created Succcessfully", Data: ticketChannelEntity);
+        return new ServerResponse(IsSuccess: true, Message: "Ticket Channel created successfully", Data: ticketChannelEntity);
     }
 }
 

@@ -29,7 +29,7 @@ internal class DeleteRecruitJobApplicationStatusSettingCommandHandler(IRecruitJo
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Recruit JobApplication Status Setting Deleted Successfully", Data: recruitJobApplicationStatusSetting);
+        return new ServerResponse(IsSuccess: true, Message: "Recruit JobApplication Status Setting deleted successfully", Data: recruitJobApplicationStatusSetting);
     }
 }
 

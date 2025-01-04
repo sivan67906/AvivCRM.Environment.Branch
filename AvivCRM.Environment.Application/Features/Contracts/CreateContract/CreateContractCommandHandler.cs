@@ -33,6 +33,6 @@ internal class CreateContractCommandHandler(IValidator<CreateContractRequest> va
             return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Contract Created Succcessfully", Data: contractEntity);
+        return new ServerResponse(IsSuccess: true, Message: "Contract created successfully", Data: contractEntity);
     }
 }

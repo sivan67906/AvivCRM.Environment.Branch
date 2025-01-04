@@ -34,6 +34,6 @@ internal class UpdateLeadStatusCommandHandler(IValidator<UpdateLeadStatusRequest
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Lead Status Updated Successfully", Data: leadStatus);
+        return new ServerResponse(IsSuccess: true, Message: "Lead Status updated successfully", Data: leadStatus);
     }
 }

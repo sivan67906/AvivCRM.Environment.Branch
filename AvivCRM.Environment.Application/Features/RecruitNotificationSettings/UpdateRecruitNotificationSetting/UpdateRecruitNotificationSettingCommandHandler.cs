@@ -35,7 +35,7 @@ internal class UpdateRecruitNotificationSettingCommandHandler(IValidator<UpdateR
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Recruit Notification Setting Updated Successfully", Data: recruitNotificationSetting);
+        return new ServerResponse(IsSuccess: true, Message: "Recruit Notification Setting updated successfully", Data: recruitNotificationSetting);
     }
 }
 

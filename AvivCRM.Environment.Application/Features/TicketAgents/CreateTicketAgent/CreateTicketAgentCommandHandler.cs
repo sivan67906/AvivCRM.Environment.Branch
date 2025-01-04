@@ -35,7 +35,7 @@ internal class CreateTicketAgentCommandHandler(IValidator<CreateTicketAgentReque
             return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Ticket Agent Created Succcessfully", Data: ticketAgentEntity);
+        return new ServerResponse(IsSuccess: true, Message: "Ticket Agent created successfully", Data: ticketAgentEntity);
     }
 }
 

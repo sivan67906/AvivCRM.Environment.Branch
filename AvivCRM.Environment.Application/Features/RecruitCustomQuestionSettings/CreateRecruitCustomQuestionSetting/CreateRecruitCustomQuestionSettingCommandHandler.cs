@@ -35,7 +35,7 @@ internal class CreateRecruitCustomQuestionSettingCommandHandler(IValidator<Creat
             return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Recruit Custom Question Setting Created Succcessfully", Data: recruitCustomQuestionSettingEntity);
+        return new ServerResponse(IsSuccess: true, Message: "Recruit Custom Question Setting created successfully", Data: recruitCustomQuestionSettingEntity);
     }
 }
 

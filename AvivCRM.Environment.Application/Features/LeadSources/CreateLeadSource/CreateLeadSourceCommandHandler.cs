@@ -35,7 +35,7 @@ internal class CreateLeadSourceCommandHandler(IValidator<CreateLeadSourceRequest
             return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Lead Source Created Succcessfully", Data: leadSourceEntity);
+        return new ServerResponse(IsSuccess: true, Message: "Lead Source created successfully", Data: leadSourceEntity);
     }
 }
 

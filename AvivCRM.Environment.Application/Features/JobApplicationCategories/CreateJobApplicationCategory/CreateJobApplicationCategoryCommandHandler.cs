@@ -35,7 +35,7 @@ internal class CreateJobApplicationCategoryCommandHandler(IValidator<CreateJobAp
             return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Job Application Category Created Succcessfully", Data: jobApplicationCategoryEntity);
+        return new ServerResponse(IsSuccess: true, Message: "Job Application Category created successfully", Data: jobApplicationCategoryEntity);
     }
 }
 

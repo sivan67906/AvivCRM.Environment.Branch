@@ -35,7 +35,7 @@ internal class CreateTimesheetCommandHandler(IValidator<CreateTimesheetRequest> 
             return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Timesheet Created Succcessfully", Data: timesheetEntity);
+        return new ServerResponse(IsSuccess: true, Message: "Timesheet created successfully", Data: timesheetEntity);
     }
 }
 

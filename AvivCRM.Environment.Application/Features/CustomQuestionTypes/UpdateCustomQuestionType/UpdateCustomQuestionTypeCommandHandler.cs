@@ -35,7 +35,7 @@ internal class UpdateCustomQuestionTypeCommandHandler(IValidator<UpdateCustomQue
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Custom Question Type Updated Successfully", Data: customQuestionType);
+        return new ServerResponse(IsSuccess: true, Message: "Custom Question Type updated successfully", Data: customQuestionType);
     }
 }
 

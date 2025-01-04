@@ -35,7 +35,7 @@ internal class CreateProjectStatusCommandHandler(IValidator<CreateProjectStatusR
             return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Project Status Created Succcessfully", Data: projectStatusEntity);
+        return new ServerResponse(IsSuccess: true, Message: "Project Status created successfully", Data: projectStatusEntity);
     }
 }
 

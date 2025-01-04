@@ -35,7 +35,7 @@ internal class CreateNotificationMainCommandHandler(IValidator<CreateNotificatio
             return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Notification Main Created Succcessfully", Data: notificationMainEntity);
+        return new ServerResponse(IsSuccess: true, Message: "Notification Main created successfully", Data: notificationMainEntity);
     }
 }
 

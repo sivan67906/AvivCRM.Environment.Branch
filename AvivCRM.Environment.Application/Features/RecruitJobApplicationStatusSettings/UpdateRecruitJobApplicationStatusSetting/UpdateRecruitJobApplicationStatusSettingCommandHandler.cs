@@ -35,7 +35,7 @@ internal class UpdateRecruitJobApplicationStatusSettingCommandHandler(IValidator
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Recruit JobApplication Status Setting Updated Successfully", Data: recruitJobApplicationStatusSetting);
+        return new ServerResponse(IsSuccess: true, Message: "Recruit JobApplication Status Setting updated successfully", Data: recruitJobApplicationStatusSetting);
     }
 }
 

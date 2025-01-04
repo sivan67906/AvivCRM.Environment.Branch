@@ -35,7 +35,7 @@ internal class UpdateProjectSettingCommandHandler(IValidator<UpdateProjectSettin
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Project Setting Updated Successfully", Data: projectSetting);
+        return new ServerResponse(IsSuccess: true, Message: "Project Setting updated successfully", Data: projectSetting);
     }
 }
 

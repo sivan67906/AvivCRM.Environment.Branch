@@ -35,7 +35,7 @@ internal class CreateFinanceInvoiceTemplateSettingCommandHandler(IValidator<Crea
             return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Finance Invoice Template Setting Created Succcessfully", Data: financeInvoiceTemplateSettingEntity);
+        return new ServerResponse(IsSuccess: true, Message: "Finance Invoice Template Setting created successfully", Data: financeInvoiceTemplateSettingEntity);
     }
 }
 

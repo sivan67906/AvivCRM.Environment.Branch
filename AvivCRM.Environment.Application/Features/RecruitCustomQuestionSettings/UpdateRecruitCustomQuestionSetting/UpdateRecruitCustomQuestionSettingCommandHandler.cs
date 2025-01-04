@@ -35,7 +35,7 @@ internal class UpdateRecruitCustomQuestionSettingCommandHandler(IValidator<Updat
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Recruit Custom Question Setting Updated Successfully", Data: recruitCustomQuestionSetting);
+        return new ServerResponse(IsSuccess: true, Message: "Recruit Custom Question Setting updated successfully", Data: recruitCustomQuestionSetting);
     }
 }
 
