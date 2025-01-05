@@ -35,8 +35,8 @@ public class TicketGroupController : ControllerBase
     [HttpPut("Update")]
     public async Task<IActionResult> Update(UpdateTicketGroupRequest ticketGroup)
     {
-        await _sender.Send(new UpdateTicketGroupCommand(ticketGroup));
-        return NoContent();
+        var result = await _sender.Send(new UpdateTicketGroupCommand(ticketGroup));
+        return Ok(result);
     }
 
     [HttpGet("GetAll")]
@@ -50,8 +50,8 @@ public class TicketGroupController : ControllerBase
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
-        await _sender.Send(new DeleteTicketGroupCommand(Id));
-        return NoContent();
+        var result = await _sender.Send(new DeleteTicketGroupCommand(Id));
+        return Ok(result);
     }
 }
 

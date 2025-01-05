@@ -35,8 +35,8 @@ public class LeadSourceController : ControllerBase
     [HttpPut("Update")]
     public async Task<IActionResult> Update(UpdateLeadSourceRequest leadSource)
     {
-        await _sender.Send(new UpdateLeadSourceCommand(leadSource));
-        return NoContent();
+        var result = await _sender.Send(new UpdateLeadSourceCommand(leadSource));
+        return Ok(result);
     }
 
     [HttpGet("GetAll")]
@@ -50,7 +50,7 @@ public class LeadSourceController : ControllerBase
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
-        await _sender.Send(new DeleteLeadSourceCommand(Id));
-        return NoContent();
+        var result = var result = await _sender.Send(new DeleteLeadSourceCommand(Id));
+        return Ok(result);
     }
 }

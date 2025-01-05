@@ -35,8 +35,8 @@ public class TicketChannelController : ControllerBase
     [HttpPut("Update")]
     public async Task<IActionResult> Update(UpdateTicketChannelRequest ticketChannel)
     {
-        await _sender.Send(new UpdateTicketChannelCommand(ticketChannel));
-        return NoContent();
+        var result = await _sender.Send(new UpdateTicketChannelCommand(ticketChannel));
+        return Ok(result);
     }
 
     [HttpGet("GetAll")]
@@ -50,8 +50,8 @@ public class TicketChannelController : ControllerBase
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
-        await _sender.Send(new DeleteTicketChannelCommand(Id));
-        return NoContent();
+        var result = await _sender.Send(new DeleteTicketChannelCommand(Id));
+        return Ok(result);
     }
 }
 

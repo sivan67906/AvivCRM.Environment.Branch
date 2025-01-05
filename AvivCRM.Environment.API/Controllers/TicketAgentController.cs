@@ -35,8 +35,8 @@ public class TicketAgentController : ControllerBase
     [HttpPut("Update")]
     public async Task<IActionResult> Update(UpdateTicketAgentRequest ticketAgent)
     {
-        await _sender.Send(new UpdateTicketAgentCommand(ticketAgent));
-        return NoContent();
+        var result = await _sender.Send(new UpdateTicketAgentCommand(ticketAgent));
+        return Ok(result);
     }
 
     [HttpGet("GetAll")]
@@ -50,8 +50,8 @@ public class TicketAgentController : ControllerBase
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
-        await _sender.Send(new DeleteTicketAgentCommand(Id));
-        return NoContent();
+        var result = await _sender.Send(new DeleteTicketAgentCommand(Id));
+        return Ok(result);
     }
 }
 

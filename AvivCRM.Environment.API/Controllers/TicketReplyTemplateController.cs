@@ -35,8 +35,8 @@ public class TicketReplyTemplateController : ControllerBase
     [HttpPut("Update")]
     public async Task<IActionResult> Update(UpdateTicketReplyTemplateRequest ticketReplyTemplate)
     {
-        await _sender.Send(new UpdateTicketReplyTemplateCommand(ticketReplyTemplate));
-        return NoContent();
+        var result = await _sender.Send(new UpdateTicketReplyTemplateCommand(ticketReplyTemplate));
+        return Ok(result);
     }
 
     [HttpGet("GetAll")]
@@ -50,8 +50,8 @@ public class TicketReplyTemplateController : ControllerBase
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
-        await _sender.Send(new DeleteTicketReplyTemplateCommand(Id));
-        return NoContent();
+        var result = await _sender.Send(new DeleteTicketReplyTemplateCommand(Id));
+        return Ok(result);
     }
 }
 

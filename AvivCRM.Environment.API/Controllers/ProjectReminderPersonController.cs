@@ -35,8 +35,8 @@ public class ProjectReminderPersonController : ControllerBase
     [HttpPut("Update")]
     public async Task<IActionResult> Update(UpdateProjectReminderPersonRequest projectReminderPerson)
     {
-        await _sender.Send(new UpdateProjectReminderPersonCommand(projectReminderPerson));
-        return NoContent();
+        var result = await _sender.Send(new UpdateProjectReminderPersonCommand(projectReminderPerson));
+        return Ok(result);
     }
 
     [HttpGet("GetAll")]
@@ -50,8 +50,8 @@ public class ProjectReminderPersonController : ControllerBase
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
-        await _sender.Send(new DeleteProjectReminderPersonCommand(Id));
-        return NoContent();
+        var result = await _sender.Send(new DeleteProjectReminderPersonCommand(Id));
+        return Ok(result);
     }
 }
 

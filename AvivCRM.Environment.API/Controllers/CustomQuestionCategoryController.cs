@@ -35,8 +35,8 @@ public class CustomQuestionCategoryController : ControllerBase
     [HttpPut("Update")]
     public async Task<IActionResult> Update(UpdateCustomQuestionCategoryRequest customQuestionCategory)
     {
-        await _sender.Send(new UpdateCustomQuestionCategoryCommand(customQuestionCategory));
-        return NoContent();
+        var result = await _sender.Send(new UpdateCustomQuestionCategoryCommand(customQuestionCategory));
+        return Ok(result);
     }
 
     [HttpGet("GetAll")]
@@ -50,8 +50,8 @@ public class CustomQuestionCategoryController : ControllerBase
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
-        await _sender.Send(new DeleteCustomQuestionCategoryCommand(Id));
-        return NoContent();
+        var result = await _sender.Send(new DeleteCustomQuestionCategoryCommand(Id));
+        return Ok(result);
     }
 }
 

@@ -35,8 +35,8 @@ public class RecruitFooterSettingController : ControllerBase
     [HttpPut("Update")]
     public async Task<IActionResult> Update(UpdateRecruitFooterSettingRequest recruitFooterSetting)
     {
-        await _sender.Send(new UpdateRecruitFooterSettingCommand(recruitFooterSetting));
-        return NoContent();
+        var result = await _sender.Send(new UpdateRecruitFooterSettingCommand(recruitFooterSetting));
+        return Ok(result);
     }
 
     [HttpGet("GetAll")]
@@ -50,8 +50,8 @@ public class RecruitFooterSettingController : ControllerBase
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
-        await _sender.Send(new DeleteRecruitFooterSettingCommand(Id));
-        return NoContent();
+        var result = await _sender.Send(new DeleteRecruitFooterSettingCommand(Id));
+        return Ok(result);
     }
 }
 

@@ -35,8 +35,8 @@ public class RecruitGeneralSettingController : ControllerBase
     [HttpPut("Update")]
     public async Task<IActionResult> Update(UpdateRecruitGeneralSettingRequest recruitGeneralSetting)
     {
-        await _sender.Send(new UpdateRecruitGeneralSettingCommand(recruitGeneralSetting));
-        return NoContent();
+        var result = await _sender.Send(new UpdateRecruitGeneralSettingCommand(recruitGeneralSetting));
+        return Ok(result);
     }
 
     [HttpGet("GetAll")]
@@ -50,8 +50,8 @@ public class RecruitGeneralSettingController : ControllerBase
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
-        await _sender.Send(new DeleteRecruitGeneralSettingCommand(Id));
-        return NoContent();
+        var result = await _sender.Send(new DeleteRecruitGeneralSettingCommand(Id));
+        return Ok(result);
     }
 }
 

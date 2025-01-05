@@ -35,8 +35,8 @@ public class JobApplicationPositionController : ControllerBase
     [HttpPut("Update")]
     public async Task<IActionResult> Update(UpdateJobApplicationPositionRequest jobApplicationPosition)
     {
-        await _sender.Send(new UpdateJobApplicationPositionCommand(jobApplicationPosition));
-        return NoContent();
+        var result = await _sender.Send(new UpdateJobApplicationPositionCommand(jobApplicationPosition));
+        return Ok(result);
     }
 
     [HttpGet("GetAll")]
@@ -50,8 +50,8 @@ public class JobApplicationPositionController : ControllerBase
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
-        await _sender.Send(new DeleteJobApplicationPositionCommand(Id));
-        return NoContent();
+        var result = await _sender.Send(new DeleteJobApplicationPositionCommand(Id));
+        return Ok(result);
     }
 }
 

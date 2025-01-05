@@ -35,8 +35,8 @@ public class ProjectCategoryController : ControllerBase
     [HttpPut("Update")]
     public async Task<IActionResult> Update(UpdateProjectCategoryRequest projectCategory)
     {
-        await _sender.Send(new UpdateProjectCategoryCommand(projectCategory));
-        return NoContent();
+        var result = await _sender.Send(new UpdateProjectCategoryCommand(projectCategory));
+        return Ok(result);
     }
 
     [HttpGet("GetAll")]
@@ -50,8 +50,8 @@ public class ProjectCategoryController : ControllerBase
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
-        await _sender.Send(new DeleteProjectCategoryCommand(Id));
-        return NoContent();
+        var result = await _sender.Send(new DeleteProjectCategoryCommand(Id));
+        return Ok(result);
     }
 }
 

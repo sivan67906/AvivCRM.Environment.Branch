@@ -33,8 +33,8 @@ public class LeadCategoryController : ControllerBase
     [HttpPut("Update")]
     public async Task<IActionResult> Update(UpdateLeadCategoryRequest leadCategory)
     {
-        await _sender.Send(new UpdateLeadCategoryCommand(leadCategory));
-        return NoContent();
+        var result = await _sender.Send(new UpdateLeadCategoryCommand(leadCategory));
+        return Ok(result);
     }
 
     [HttpGet("GetAll")]
@@ -48,7 +48,7 @@ public class LeadCategoryController : ControllerBase
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
-        await _sender.Send(new DeleteLeadCategoryCommand(Id));
-        return NoContent();
+        var result = await _sender.Send(new DeleteLeadCategoryCommand(Id));
+        return Ok(result);
     }
 }

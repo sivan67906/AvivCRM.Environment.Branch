@@ -35,8 +35,8 @@ public class FinancePrefixSettingController : ControllerBase
     [HttpPut("Update")]
     public async Task<IActionResult> Update(UpdateFinancePrefixSettingRequest financePrefixSetting)
     {
-        await _sender.Send(new UpdateFinancePrefixSettingCommand(financePrefixSetting));
-        return NoContent();
+        var result = await _sender.Send(new UpdateFinancePrefixSettingCommand(financePrefixSetting));
+        return Ok(result);
     }
 
     [HttpGet("GetAll")]
@@ -50,8 +50,8 @@ public class FinancePrefixSettingController : ControllerBase
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
-        await _sender.Send(new DeleteFinancePrefixSettingCommand(Id));
-        return NoContent();
+        var result = await _sender.Send(new DeleteFinancePrefixSettingCommand(Id));
+        return Ok(result);
     }
 }
 

@@ -35,8 +35,8 @@ public class RecruitCustomQuestionSettingController : ControllerBase
     [HttpPut("Update")]
     public async Task<IActionResult> Update(UpdateRecruitCustomQuestionSettingRequest recruitCustomQuestionSetting)
     {
-        await _sender.Send(new UpdateRecruitCustomQuestionSettingCommand(recruitCustomQuestionSetting));
-        return NoContent();
+        var result = await _sender.Send(new UpdateRecruitCustomQuestionSettingCommand(recruitCustomQuestionSetting));
+        return Ok(result);
     }
 
     [HttpGet("GetAll")]
@@ -50,8 +50,8 @@ public class RecruitCustomQuestionSettingController : ControllerBase
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
-        await _sender.Send(new DeleteRecruitCustomQuestionSettingCommand(Id));
-        return NoContent();
+        var result = await _sender.Send(new DeleteRecruitCustomQuestionSettingCommand(Id));
+        return Ok(result);
     }
 }
 

@@ -29,7 +29,7 @@ internal class DeleteLeadSourceCommandHandler(ILeadSource _leadSourceRepository,
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Lead Source deleted successfully", Data: leadSource);
+        return new ServerResponse(IsSuccess: true, Message: "Lead Source deleted successfully", Data: delMapEntity);
     }
 }
 

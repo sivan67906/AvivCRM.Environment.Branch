@@ -35,8 +35,8 @@ public class FinanceUnitSettingController : ControllerBase
     [HttpPut("Update")]
     public async Task<IActionResult> Update(UpdateFinanceUnitSettingRequest financeUnitSetting)
     {
-        await _sender.Send(new UpdateFinanceUnitSettingCommand(financeUnitSetting));
-        return NoContent();
+        var result = await _sender.Send(new UpdateFinanceUnitSettingCommand(financeUnitSetting));
+        return Ok(result);
     }
 
     [HttpGet("GetAll")]
@@ -50,8 +50,8 @@ public class FinanceUnitSettingController : ControllerBase
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
-        await _sender.Send(new DeleteFinanceUnitSettingCommand(Id));
-        return NoContent();
+        var result = await _sender.Send(new DeleteFinanceUnitSettingCommand(Id));
+        return Ok(result);
     }
 }
 

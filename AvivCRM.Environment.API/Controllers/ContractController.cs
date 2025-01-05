@@ -33,8 +33,8 @@ public class ContractController : ControllerBase
     [HttpPut("Update")]
     public async Task<IActionResult> Update(UpdateContractRequest contract)
     {
-        await _sender.Send(new UpdateContractCommand(contract));
-        return NoContent();
+        var result = await _sender.Send(new UpdateContractCommand(contract));
+        return Ok(result);
     }
 
     [HttpGet("GetAll")]
@@ -48,7 +48,7 @@ public class ContractController : ControllerBase
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
-        await _sender.Send(new DeleteContractCommand(Id));
-        return NoContent();
+        var result = await _sender.Send(new DeleteContractCommand(Id));
+        return Ok(result);
     }
 }

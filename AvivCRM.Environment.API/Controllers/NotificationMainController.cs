@@ -35,8 +35,8 @@ public class NotificationMainController : ControllerBase
     [HttpPut("Update")]
     public async Task<IActionResult> Update(UpdateNotificationMainRequest notificationMain)
     {
-        await _sender.Send(new UpdateNotificationMainCommand(notificationMain));
-        return NoContent();
+        var result = await _sender.Send(new UpdateNotificationMainCommand(notificationMain));
+        return Ok(result);
     }
 
     [HttpGet("GetAll")]
@@ -50,8 +50,8 @@ public class NotificationMainController : ControllerBase
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
-        await _sender.Send(new DeleteNotificationMainCommand(Id));
-        return NoContent();
+        var result = await _sender.Send(new DeleteNotificationMainCommand(Id));
+        return Ok(result);
     }
 }
 

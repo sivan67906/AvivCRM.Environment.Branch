@@ -33,8 +33,8 @@ public class LeadAgentController : ControllerBase
     [HttpPut("Update")]
     public async Task<IActionResult> Update(UpdateLeadAgentRequest leadAgent)
     {
-        await _sender.Send(new UpdateLeadAgentCommand(leadAgent));
-        return NoContent();
+        var result = await _sender.Send(new UpdateLeadAgentCommand(leadAgent));
+        return Ok(result);
     }
 
     [HttpGet("GetAll")]
@@ -48,7 +48,7 @@ public class LeadAgentController : ControllerBase
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
-        await _sender.Send(new DeleteLeadAgentCommand(Id));
-        return NoContent();
+        var result = await _sender.Send(new DeleteLeadAgentCommand(Id));
+        return Ok(result);
     }
 }

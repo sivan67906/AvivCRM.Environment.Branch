@@ -35,8 +35,8 @@ public class TimeLogController : ControllerBase
     [HttpPut("Update")]
     public async Task<IActionResult> Update(UpdateTimeLogRequest timeLog)
     {
-        await _sender.Send(new UpdateTimeLogCommand(timeLog));
-        return NoContent();
+        var result = await _sender.Send(new UpdateTimeLogCommand(timeLog));
+        return Ok(result);
     }
 
     [HttpGet("GetAll")]
@@ -50,8 +50,8 @@ public class TimeLogController : ControllerBase
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
-        await _sender.Send(new DeleteTimeLogCommand(Id));
-        return NoContent();
+        var result = await _sender.Send(new DeleteTimeLogCommand(Id));
+        return Ok(result);
     }
 }
 

@@ -35,8 +35,8 @@ public class TimesheetController : ControllerBase
     [HttpPut("Update")]
     public async Task<IActionResult> Update(UpdateTimesheetRequest timesheet)
     {
-        await _sender.Send(new UpdateTimesheetCommand(timesheet));
-        return NoContent();
+        var result = await _sender.Send(new UpdateTimesheetCommand(timesheet));
+        return Ok(result);
     }
 
     [HttpGet("GetAll")]
@@ -50,8 +50,8 @@ public class TimesheetController : ControllerBase
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
-        await _sender.Send(new DeleteTimesheetCommand(Id));
-        return NoContent();
+        var result = await _sender.Send(new DeleteTimesheetCommand(Id));
+        return Ok(result);
     }
 }
 
