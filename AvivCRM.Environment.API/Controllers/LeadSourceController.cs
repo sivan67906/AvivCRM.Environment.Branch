@@ -17,40 +17,38 @@ public class LeadSourceController : ControllerBase
     private readonly ISender _sender;
     public LeadSourceController(ISender sender) => _sender = sender;
 
-    [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(Guid Id)
-    {
-        var result = await _sender.Send(new GetLeadSourceByIdQuery(Id));
-        return Ok(result);
-    }
-
-
-    [HttpPost("Create")]
-    public async Task<IActionResult> Create(CreateLeadSourceRequest leadSource)
-    {
-        var result = await _sender.Send(new CreateLeadSourceCommand(leadSource));
-        return Ok(result);
-    }
-
-    [HttpPut("Update")]
-    public async Task<IActionResult> Update(UpdateLeadSourceRequest leadSource)
-    {
-        var result = await _sender.Send(new UpdateLeadSourceCommand(leadSource));
-        return Ok(result);
-    }
-
-    [HttpGet("GetAll")]
-    public async Task<IActionResult> GetAll()
+    [HttpGet("all-leadsource")]
+    public async Task<IActionResult> GetAllAsync()
     {
         var leadSourceList = await _sender.Send(new GetAllLeadSourceQuery());
         return Ok(leadSourceList);
     }
 
-
-    [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(Guid Id)
+    [HttpGet("byid-leadsource")]
+    public async Task<IActionResult> GetByIdAsync(Guid Id)
     {
-        var result = var result = await _sender.Send(new DeleteLeadSourceCommand(Id));
+        var result = await _sender.Send(new GetLeadSourceByIdQuery(Id));
+        return Ok(result);
+    }
+
+    [HttpPost("create-leadsource")]
+    public async Task<IActionResult> CreateAsync(CreateLeadSourceRequest leadSource)
+    {
+        var result = await _sender.Send(new CreateLeadSourceCommand(leadSource));
+        return Ok(result);
+    }
+
+    [HttpPut("update-leadsource")]
+    public async Task<IActionResult> UpdateAsync(UpdateLeadSourceRequest leadSource)
+    {
+        var result = await _sender.Send(new UpdateLeadSourceCommand(leadSource));
+        return Ok(result);
+    }
+
+    [HttpDelete("delete-leadsource")]
+    public async Task<IActionResult> DeleteAsync(Guid Id)
+    {
+        var result = await _sender.Send(new DeleteLeadSourceCommand(Id));
         return Ok(result);
     }
 }
