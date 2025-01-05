@@ -378,3 +378,4 @@ FodyWeavers.xsd
 /AvivCRM.Environment.Infrastructure/Data/Persistence
 /.gitignore
 /.gitignore
+/AvivCRM.Environment.Domain/Entities/AttendanceSetting.manifest
