@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.Applications;
 using AvivCRM.Environment.Application.DTOs.AttendanceSettings;
+using AvivCRM.Environment.Application.DTOs.BillOrders;
 using AvivCRM.Environment.Application.DTOs.Clients;
 using AvivCRM.Environment.Application.DTOs.Contracts;
 using AvivCRM.Environment.Application.DTOs.Currencies;
@@ -23,6 +24,7 @@ using AvivCRM.Environment.Application.DTOs.ProjectCategories;
 using AvivCRM.Environment.Application.DTOs.ProjectReminderPersons;
 using AvivCRM.Environment.Application.DTOs.ProjectSettings;
 using AvivCRM.Environment.Application.DTOs.ProjectStatuses;
+using AvivCRM.Environment.Application.DTOs.PurchaseOrders;
 using AvivCRM.Environment.Application.DTOs.RecruitCustomQuestionSettings;
 using AvivCRM.Environment.Application.DTOs.RecruiterSettings;
 using AvivCRM.Environment.Application.DTOs.RecruitFooterSettings;
@@ -37,6 +39,7 @@ using AvivCRM.Environment.Application.DTOs.TicketReplyTemplates;
 using AvivCRM.Environment.Application.DTOs.TicketTypes;
 using AvivCRM.Environment.Application.DTOs.TimeLogs;
 using AvivCRM.Environment.Application.DTOs.Timesheets;
+using AvivCRM.Environment.Application.DTOs.VendorCredit;
 using AvivCRM.Environment.Domain.Entities;
 
 namespace AvivCRM.Environment.Application.Common.AutoMapper;
@@ -367,6 +370,18 @@ public class MapperConfig : Profile
         CreateMap<CreateAttendanceSettingRequest, AttendanceSetting>();
         CreateMap<UpdateAttendanceSettingRequest, AttendanceSetting>();
         CreateMap<AttendanceSetting, GetAttendanceSetting>();
+        // BillOrder
+        CreateMap<CreateBillOrderRequest, BillOrder>();
+        CreateMap<UpdateBillOrderRequest, BillOrder>();
+        CreateMap<BillOrder, GetBillOrder>();
+        // PurchaseOrder
+        CreateMap<CreatePurchaseOrderRequest, PurchaseOrder>();
+        CreateMap<UpdatePurchaseOrderRequest, PurchaseOrder>();
+        CreateMap<PurchaseOrder, GetPurchaseOrder>();
+        // VendorCredit
+        CreateMap<CreateVendorCreditRequest, VendorCredit>();
+        CreateMap<UpdateVendorCreditRequest, VendorCredit>();
+        CreateMap<VendorCredit, GetVendorCredit>();
 
     }
 }

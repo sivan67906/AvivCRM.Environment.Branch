@@ -39,14 +39,14 @@ public class EmployeeController : ControllerBase
     [HttpPut("update-employee")]
     public async Task<IActionResult> UpdateAsync(UpdateEmployeeRequest employee)
     {
-        await _sender.Send(new UpdateEmployeeCommand(employee));
-        return NoContent();
+        var result = await _sender.Send(new UpdateEmployeeCommand(employee));
+        return Ok(result);
     }
 
     [HttpDelete("delete-employee")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
-        await _sender.Send(new DeleteEmployeeCommand(Id));
-        return NoContent();
+        var result = await _sender.Send(new DeleteEmployeeCommand(Id));
+        return Ok(result);
     }
 }

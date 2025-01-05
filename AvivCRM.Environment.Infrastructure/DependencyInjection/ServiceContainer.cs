@@ -2,6 +2,7 @@
 using AvivCRM.Environment.Domain.Contracts.Finance;
 using AvivCRM.Environment.Domain.Contracts.Lead;
 using AvivCRM.Environment.Domain.Contracts.Project;
+using AvivCRM.Environment.Domain.Contracts.Purchase;
 using AvivCRM.Environment.Domain.Contracts.Recruit;
 using AvivCRM.Environment.Domain.Contracts.Ticket;
 using AvivCRM.Environment.Infrastructure.Persistence;
@@ -59,6 +60,9 @@ public static class ServiceContainer
         services.AddScoped<IClient, ClientRepository>();
         services.AddScoped<IEmployee, EmployeeRepository>();
         services.AddScoped<IAttendanceSetting, AttendanceSettingRepository>();
+        services.AddScoped<IBillOrder, BillOrderRepository>();
+        services.AddScoped<IPurchaseOrder, PurchaseOrderRepository>();
+        services.AddScoped<IVendorCredit, VendorCreditRepository>();
 
         return services;
     }

@@ -3,8 +3,8 @@
 namespace AvivCRM.Environment.Domain.Entities;
 public sealed class BillOrder : BaseEntity, IEntity
 {
-    public string? BillOrderPrefix { get; set; } = default!;
-    public string? BillOrderNumberSeperater { get; set; } = default!;
-    public string? BillOrderNumberDigits { get; set; } = default!;
-    public string? BillOrderNumberExample { get; set; }
+    public string? Prefix { get; set; } = default!;
+    public string? Seperater { get; set; } = default!;
+    public string? NumberDigits { get; set; } = default!;
+    public string? Example { get; set; }
 }

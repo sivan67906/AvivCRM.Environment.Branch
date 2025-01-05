@@ -39,14 +39,14 @@ public class PlanningController : ControllerBase
     [HttpPut("update-planning")]
     public async Task<IActionResult> UpdateAsync(UpdatePlanningRequest planning)
     {
-        await _sender.Send(new UpdatePlanningCommand(planning));
-        return NoContent();
+        var result = await _sender.Send(new UpdatePlanningCommand(planning));
+        return Ok(result);
     }
 
     [HttpDelete("delete")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
-        await _sender.Send(new DeletePlanningCommand(Id));
-        return NoContent();
+        var result = await _sender.Send(new DeletePlanningCommand(Id));
+        return Ok(result);
     }
 }

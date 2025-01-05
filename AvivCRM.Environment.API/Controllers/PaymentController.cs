@@ -39,14 +39,14 @@ public class PaymentController : ControllerBase
     [HttpPut("update-payment")]
     public async Task<IActionResult> UpdateAsync(UpdatePaymentRequest payment)
     {
-        await _sender.Send(new UpdatePaymentCommand(payment));
-        return NoContent();
+        var result = await _sender.Send(new UpdatePaymentCommand(payment));
+        return Ok(result);
     }
 
     [HttpDelete("delete-payment")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
-        await _sender.Send(new DeletePaymentCommand(Id));
-        return NoContent();
+        var result = await _sender.Send(new DeletePaymentCommand(Id));
+        return Ok(result);
     }
 }

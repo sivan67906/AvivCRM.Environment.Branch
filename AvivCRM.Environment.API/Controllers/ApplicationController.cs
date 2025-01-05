@@ -40,14 +40,14 @@ public class ApplicationController : ControllerBase
     [HttpPut("update-application")]
     public async Task<IActionResult> UpdateAsync(UpdateApplicationRequest application)
     {
-        await _sender.Send(new UpdateApplicationCommand(application));
-        return NoContent();
+        var result = await _sender.Send(new UpdateApplicationCommand(application));
+        return Ok(result);
     }
 
     [HttpDelete("delete-application")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
-        await _sender.Send(new DeleteApplicationCommand(Id));
-        return NoContent();
+        var result = await _sender.Send(new DeleteApplicationCommand(Id));
+        return Ok(result);
     }
 }

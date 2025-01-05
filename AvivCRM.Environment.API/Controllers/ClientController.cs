@@ -39,14 +39,14 @@ public class ClientController : ControllerBase
     [HttpPut("update-client")]
     public async Task<IActionResult> UpdateAsync(UpdateClientRequest client)
     {
-        await _sender.Send(new UpdateClientCommand(client));
-        return NoContent();
+        var result = await _sender.Send(new UpdateClientCommand(client));
+        return Ok(result);
     }
 
     [HttpDelete("delete-client")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
-        await _sender.Send(new DeleteClientCommand(Id));
-        return NoContent();
+        var result = await _sender.Send(new DeleteClientCommand(Id));
+        return Ok(result);
     }
 }

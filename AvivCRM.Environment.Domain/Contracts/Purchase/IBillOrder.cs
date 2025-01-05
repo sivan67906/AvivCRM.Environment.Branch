@@ -1,6 +1,6 @@
 ﻿using AvivCRM.Environment.Domain.Entities;
 
-namespace AvivCRM.Environment.Domain.Contracts;
+namespace AvivCRM.Environment.Domain.Contracts.Purchase;
 public interface IBillOrder
 {
     void Add(BillOrder billOrder);

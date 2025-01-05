@@ -39,14 +39,14 @@ public class TaxController : ControllerBase
     [HttpPut("update-tax")]
     public async Task<IActionResult> UpdateAsync(UpdateTaxRequest tax)
     {
-        await _sender.Send(new UpdateTaxCommand(tax));
-        return NoContent();
+        var result = await _sender.Send(new UpdateTaxCommand(tax));
+        return Ok(result);
     }
 
     [HttpDelete("delete-tax")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
-        await _sender.Send(new DeleteTaxCommand(Id));
-        return NoContent();
+        var result = await _sender.Send(new DeleteTaxCommand(Id));
+        return Ok(result);
     }
 }

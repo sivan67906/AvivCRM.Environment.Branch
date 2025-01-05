@@ -39,14 +39,14 @@ public class AttendanceSettingController : ControllerBase
     [HttpPut("update-attendancesetting")]
     public async Task<IActionResult> UpdateAsync(UpdateAttendanceSettingRequest attendancesetting)
     {
-        await _sender.Send(new UpdateAttendanceSettingCommand(attendancesetting));
-        return NoContent();
+        var result = await _sender.Send(new UpdateAttendanceSettingCommand(attendancesetting));
+        return Ok(result);
     }
 
     [HttpDelete("delete-attendancesetting")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
-        await _sender.Send(new DeleteAttendanceSettingCommand(Id));
-        return NoContent();
+        var result = await _sender.Send(new DeleteAttendanceSettingCommand(Id));
+        return Ok(result);
     }
 }

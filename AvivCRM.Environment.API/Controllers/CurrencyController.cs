@@ -39,14 +39,14 @@ public class CurrencyController : ControllerBase
     [HttpPut("update-currency")]
     public async Task<IActionResult> UpdateAsync(UpdateCurrencyRequest currency)
     {
-        await _sender.Send(new UpdateCurrencyCommand(currency));
-        return NoContent();
+        var result = await _sender.Send(new UpdateCurrencyCommand(currency));
+        return Ok(result);
     }
 
     [HttpDelete("delete-currency")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
-        await _sender.Send(new DeleteCurrencyCommand(Id));
-        return NoContent();
+        var result = await _sender.Send(new DeleteCurrencyCommand(Id));
+        return Ok(result);
     }
 }
