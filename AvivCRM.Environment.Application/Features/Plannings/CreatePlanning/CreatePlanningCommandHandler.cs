@@ -31,6 +31,6 @@ internal class CreatePlanningCommandHandler(IValidator<CreatePlanningRequest> _v
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Planning Created Successfully", Data: planningEntity);
+        return new ServerResponse(IsSuccess: true, Message: "Planning created successfully", Data: planningEntity);
     }
 }

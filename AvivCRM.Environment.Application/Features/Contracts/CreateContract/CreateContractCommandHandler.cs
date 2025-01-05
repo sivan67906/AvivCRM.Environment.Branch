@@ -14,13 +14,14 @@ internal class CreateContractCommandHandler(IValidator<CreateContractRequest> va
 
     public async Task<ServerResponse> Handle(CreateContractCommand request, CancellationToken cancellationToken)
     {
+        // Validate request
         var validate = await validator.ValidateAsync(request.Contract);
         if (!validate.IsValid)
         {
             var errorList = string.Join("; ", validate.Errors.Select(error => error.ErrorMessage));
             return new ServerResponse(Message: errorList);
         }
-
+        // Mapping Entity
         var contractEntity = mapper.Map<Contract>(request.Contract);
 
         try

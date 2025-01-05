@@ -17,36 +17,36 @@ public class RecruiterSettingController : ControllerBase
     private readonly ISender _sender;
     public RecruiterSettingController(ISender sender) => _sender = sender;
 
-    [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(Guid Id)
+    [HttpGet("byid")]
+    public async Task<IActionResult> GetByIdAsync(Guid Id)
     {
         var result = await _sender.Send(new GetRecruiterSettingByIdQuery(Id));
         return Ok(result);
     }
 
-    [HttpPost("Create")]
-    public async Task<IActionResult> Create(CreateRecruiterSettingRequest recruiterSetting)
+    [HttpPost("create")]
+    public async Task<IActionResult> CreateAsync(CreateRecruiterSettingRequest recruiterSetting)
     {
         var result = await _sender.Send(new CreateRecruiterSettingCommand(recruiterSetting));
         return Ok(result);
     }
 
-    [HttpPut("Update")]
-    public async Task<IActionResult> Update(UpdateRecruiterSettingRequest recruiterSetting)
+    [HttpPut("update")]
+    public async Task<IActionResult> UpdateAsync(UpdateRecruiterSettingRequest recruiterSetting)
     {
         var result = await _sender.Send(new UpdateRecruiterSettingCommand(recruiterSetting));
         return Ok(result);
     }
 
-    [HttpGet("GetAll")]
-    public async Task<IActionResult> GetAll()
+    [HttpGet("all")]
+    public async Task<IActionResult> GetAllAsync()
     {
         var recruiterSettingList = await _sender.Send(new GetAllRecruiterSettingQuery());
         return Ok(recruiterSettingList);
     }
 
-    [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(Guid Id)
+    [HttpDelete("delete")]
+    public async Task<IActionResult> DeleteAsync(Guid Id)
     {
         var result = await _sender.Send(new DeleteRecruiterSettingCommand(Id));
         return Ok(result);

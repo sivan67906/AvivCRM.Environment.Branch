@@ -15,13 +15,14 @@ internal class CreateLeadStatusCommandHandler(IValidator<CreateLeadStatusRequest
 
     public async Task<ServerResponse> Handle(CreateLeadStatusCommand request, CancellationToken cancellationToken)
     {
+        // Validate Check
         var validate = await validator.ValidateAsync(request.LeadStatus);
         if (!validate.IsValid)
         {
             var errorList = string.Join("; ", validate.Errors.Select(error => error.ErrorMessage));
             return new ServerResponse(Message: errorList);
         }
-        // Mapping
+        // Mapping Entity
         var leadStatusEntity = mapper.Map<LeadStatus>(request.LeadStatus);
 
         try

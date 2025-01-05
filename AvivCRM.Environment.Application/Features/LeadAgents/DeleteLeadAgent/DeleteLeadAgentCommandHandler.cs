@@ -29,7 +29,7 @@ internal class DeleteLeadAgentCommandHandler(ILeadAgent _leadAgentRepository, IU
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Lead Agent deleted successfully", Data: leadAgent);
+        return new ServerResponse(IsSuccess: true, Message: "Lead Agent deleted successfully", Data: delMapEntity);
     }
 }
 

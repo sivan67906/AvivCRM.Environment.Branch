@@ -15,38 +15,36 @@ public class CurrencyController : ControllerBase
     private readonly ISender _sender;
     public CurrencyController(ISender sender) => _sender = sender;
 
-    [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(Guid Id)
-    {
-        var result = await _sender.Send(new GetCurrencyByIdQuery(Id));
-        return Ok(result);
-    }
-
-
-    [HttpPost("Create")]
-    public async Task<IActionResult> Create(CreateCurrencyRequest currency)
-    {
-        var result = await _sender.Send(new CreateCurrencyCommand(currency));
-        return Ok(result);
-    }
-
-    [HttpPut("Update")]
-    public async Task<IActionResult> Update(UpdateCurrencyRequest currency)
-    {
-        await _sender.Send(new UpdateCurrencyCommand(currency));
-        return NoContent();
-    }
-
-    [HttpGet("GetAll")]
-    public async Task<IActionResult> GetAll()
+    [HttpGet("all-currency")]
+    public async Task<IActionResult> GetAllAsync()
     {
         var currencyList = await _sender.Send(new GetAllCurrencyQuery());
         return Ok(currencyList);
     }
 
+    [HttpGet("byid-currency")]
+    public async Task<IActionResult> GetByIdAsync(Guid Id)
+    {
+        var result = await _sender.Send(new GetCurrencyByIdQuery(Id));
+        return Ok(result);
+    }
 
-    [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(Guid Id)
+    [HttpPost("create-currency")]
+    public async Task<IActionResult> CreateAsync(CreateCurrencyRequest currency)
+    {
+        var result = await _sender.Send(new CreateCurrencyCommand(currency));
+        return Ok(result);
+    }
+
+    [HttpPut("update-currency")]
+    public async Task<IActionResult> UpdateAsync(UpdateCurrencyRequest currency)
+    {
+        await _sender.Send(new UpdateCurrencyCommand(currency));
+        return NoContent();
+    }
+
+    [HttpDelete("delete-currency")]
+    public async Task<IActionResult> DeleteAsync(Guid Id)
     {
         await _sender.Send(new DeleteCurrencyCommand(Id));
         return NoContent();

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.Applications;
+using AvivCRM.Environment.Application.DTOs.Clients;
 using AvivCRM.Environment.Application.DTOs.Contracts;
 using AvivCRM.Environment.Application.DTOs.Currencies;
 using AvivCRM.Environment.Application.DTOs.CustomQuestionCategories;
@@ -352,6 +353,10 @@ public class MapperConfig : Profile
         CreateMap<CreateTaxRequest, Tax>();
         CreateMap<UpdateTaxRequest, Tax>();
         CreateMap<Tax, GetTax>();
+        // Client
+        CreateMap<CreateClientRequest, Client>();
+        CreateMap<UpdateClientRequest, Client>();
+        CreateMap<Client, GetClient>();
 
     }
 }

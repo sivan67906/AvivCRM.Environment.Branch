@@ -1,11 +1,11 @@
 using AutoMapper;
-using FluentValidation;
-using MediatR;
 using AvivCRM.Environment.Application.DTOs.LeadCategories;
 using AvivCRM.Environment.Domain.Contracts;
 using AvivCRM.Environment.Domain.Contracts.Lead;
 using AvivCRM.Environment.Domain.Entities;
 using AvivCRM.Environment.Domain.Responses;
+using FluentValidation;
+using MediatR;
 
 namespace AvivCRM.Environment.Application.Features.LeadCategories.CreateLeadCategory;
 
@@ -15,19 +15,14 @@ internal class CreateLeadCategoryCommandHandler(IValidator<CreateLeadCategoryReq
 {
     public async Task<ServerResponse> Handle(CreateLeadCategoryCommand request, CancellationToken cancellationToken)
     {
+        // validate check
         var validate = await validator.ValidateAsync(request.LeadCategory);
         if (!validate.IsValid)
         {
             var errorList = string.Join("; ", validate.Errors.Select(error => error.ErrorMessage));
             return new ServerResponse(Message: errorList);
         }
-
-        //var product = new Domain.Entities.LeadCategory
-        //{
-        //    CategoryName = request.LeadCategory.CategoryName
-        //};
-
-        // mapper.Map<output.DomainEntiy>(input.DTO);
+        // Mapping Entity
         var leadCategoryEntity = mapper.Map<LeadCategory>(request.LeadCategory);
 
         try

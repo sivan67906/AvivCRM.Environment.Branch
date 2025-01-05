@@ -17,36 +17,36 @@ public class RecruitJobApplicationStatusSettingController : ControllerBase
     private readonly ISender _sender;
     public RecruitJobApplicationStatusSettingController(ISender sender) => _sender = sender;
 
-    [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(Guid Id)
+    [HttpGet("byid")]
+    public async Task<IActionResult> GetByIdAsync(Guid Id)
     {
         var result = await _sender.Send(new GetRecruitJobApplicationStatusSettingByIdQuery(Id));
         return Ok(result);
     }
 
-    [HttpPost("Create")]
-    public async Task<IActionResult> Create(CreateRecruitJobApplicationStatusSettingRequest recruitJobApplicationStatusSetting)
+    [HttpPost("create")]
+    public async Task<IActionResult> CreateAsync(CreateRecruitJobApplicationStatusSettingRequest recruitJobApplicationStatusSetting)
     {
         var result = await _sender.Send(new CreateRecruitJobApplicationStatusSettingCommand(recruitJobApplicationStatusSetting));
         return Ok(result);
     }
 
-    [HttpPut("Update")]
-    public async Task<IActionResult> Update(UpdateRecruitJobApplicationStatusSettingRequest recruitJobApplicationStatusSetting)
+    [HttpPut("update")]
+    public async Task<IActionResult> UpdateAsync(UpdateRecruitJobApplicationStatusSettingRequest recruitJobApplicationStatusSetting)
     {
         var result = await _sender.Send(new UpdateRecruitJobApplicationStatusSettingCommand(recruitJobApplicationStatusSetting));
         return Ok(result);
     }
 
-    [HttpGet("GetAll")]
-    public async Task<IActionResult> GetAll()
+    [HttpGet("all")]
+    public async Task<IActionResult> GetAllAsync()
     {
         var recruitJobApplicationStatusSettingList = await _sender.Send(new GetAllRecruitJobApplicationStatusSettingQuery());
         return Ok(recruitJobApplicationStatusSettingList);
     }
 
-    [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(Guid Id)
+    [HttpDelete("delete")]
+    public async Task<IActionResult> DeleteAsync(Guid Id)
     {
         var result = await _sender.Send(new DeleteRecruitJobApplicationStatusSettingCommand(Id));
         return Ok(result);

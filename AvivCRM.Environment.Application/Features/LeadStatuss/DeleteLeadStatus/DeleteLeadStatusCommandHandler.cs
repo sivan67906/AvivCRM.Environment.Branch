@@ -28,6 +28,6 @@ internal class DeleteLeadStatusCommandHandler(ILeadStatus _leadStatusRepository,
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Lead Status deleted successfully", Data: leadStatus);
+        return new ServerResponse(IsSuccess: true, Message: "Lead Status deleted successfully", Data: delMapEntity);
     }
 }

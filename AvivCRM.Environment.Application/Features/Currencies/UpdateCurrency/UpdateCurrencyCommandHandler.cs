@@ -33,6 +33,6 @@ internal class UpdateCurrencyCommandHandler(IValidator<UpdateCurrencyRequest> _v
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Currency updated successfully", Data: currency);
+        return new ServerResponse(IsSuccess: true, Message: "Currency updated successfully", Data: currencyEntity);
     }
 }

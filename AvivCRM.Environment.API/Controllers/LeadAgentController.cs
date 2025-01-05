@@ -15,38 +15,36 @@ public class LeadAgentController : ControllerBase
     private readonly ISender _sender;
     public LeadAgentController(ISender sender) => _sender = sender;
 
-    [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(Guid Id)
-    {
-        var result = await _sender.Send(new GetLeadAgentByIdQuery(Id));
-        return Ok(result);
-    }
-
-
-    [HttpPost("Create")]
-    public async Task<IActionResult> Create(CreateLeadAgentRequest leadAgent)
-    {
-        var result = await _sender.Send(new CreateLeadAgentCommand(leadAgent));
-        return Ok(result);
-    }
-
-    [HttpPut("Update")]
-    public async Task<IActionResult> Update(UpdateLeadAgentRequest leadAgent)
-    {
-        var result = await _sender.Send(new UpdateLeadAgentCommand(leadAgent));
-        return Ok(result);
-    }
-
-    [HttpGet("GetAll")]
-    public async Task<IActionResult> GetAll()
+    [HttpGet("all-leadsgent")]
+    public async Task<IActionResult> GetAllAsync()
     {
         var leadAgentList = await _sender.Send(new GetAllLeadAgentsQuery());
         return Ok(leadAgentList);
     }
 
+    [HttpGet("byid-leadsgent")]
+    public async Task<IActionResult> GetByIdAsync(Guid Id)
+    {
+        var result = await _sender.Send(new GetLeadAgentByIdQuery(Id));
+        return Ok(result);
+    }
 
-    [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(Guid Id)
+    [HttpPost("create-leadsgent")]
+    public async Task<IActionResult> CreateAsync(CreateLeadAgentRequest leadAgent)
+    {
+        var result = await _sender.Send(new CreateLeadAgentCommand(leadAgent));
+        return Ok(result);
+    }
+
+    [HttpPut("update-leadsgent")]
+    public async Task<IActionResult> UpdateAsync(UpdateLeadAgentRequest leadAgent)
+    {
+        var result = await _sender.Send(new UpdateLeadAgentCommand(leadAgent));
+        return Ok(result);
+    }
+
+    [HttpDelete("delete-leadsgent")]
+    public async Task<IActionResult> DeleteAsync(Guid Id)
     {
         var result = await _sender.Send(new DeleteLeadAgentCommand(Id));
         return Ok(result);

@@ -33,6 +33,6 @@ internal class UpdatePaymentCommandHandler(IValidator<UpdatePaymentRequest> _val
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Payment Updated Successfully", Data: payment);
+        return new ServerResponse(IsSuccess: true, Message: "Payment updated successfully", Data: paymentEntity);
     }
 }

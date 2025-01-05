@@ -17,36 +17,36 @@ public class RecruitFooterSettingController : ControllerBase
     private readonly ISender _sender;
     public RecruitFooterSettingController(ISender sender) => _sender = sender;
 
-    [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(Guid Id)
+    [HttpGet("byid")]
+    public async Task<IActionResult> GetByIdAsync(Guid Id)
     {
         var result = await _sender.Send(new GetRecruitFooterSettingByIdQuery(Id));
         return Ok(result);
     }
 
-    [HttpPost("Create")]
-    public async Task<IActionResult> Create(CreateRecruitFooterSettingRequest recruitFooterSetting)
+    [HttpPost("create")]
+    public async Task<IActionResult> CreateAsync(CreateRecruitFooterSettingRequest recruitFooterSetting)
     {
         var result = await _sender.Send(new CreateRecruitFooterSettingCommand(recruitFooterSetting));
         return Ok(result);
     }
 
-    [HttpPut("Update")]
-    public async Task<IActionResult> Update(UpdateRecruitFooterSettingRequest recruitFooterSetting)
+    [HttpPut("update")]
+    public async Task<IActionResult> UpdateAsync(UpdateRecruitFooterSettingRequest recruitFooterSetting)
     {
         var result = await _sender.Send(new UpdateRecruitFooterSettingCommand(recruitFooterSetting));
         return Ok(result);
     }
 
-    [HttpGet("GetAll")]
-    public async Task<IActionResult> GetAll()
+    [HttpGet("all")]
+    public async Task<IActionResult> GetAllAsync()
     {
         var recruitFooterSettingList = await _sender.Send(new GetAllRecruitFooterSettingQuery());
         return Ok(recruitFooterSettingList);
     }
 
-    [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(Guid Id)
+    [HttpDelete("delete")]
+    public async Task<IActionResult> DeleteAsync(Guid Id)
     {
         var result = await _sender.Send(new DeleteRecruitFooterSettingCommand(Id));
         return Ok(result);

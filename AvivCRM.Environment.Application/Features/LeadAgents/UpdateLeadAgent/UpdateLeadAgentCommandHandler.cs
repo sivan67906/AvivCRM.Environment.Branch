@@ -35,7 +35,7 @@ internal class UpdateLeadAgentCommandHandler(IValidator<UpdateLeadAgentRequest> 
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Lead Agent updated successfully", Data: leadAgent);
+        return new ServerResponse(IsSuccess: true, Message: "Lead Agent updated successfully", Data: leadAgentEntity);
     }
 }
 

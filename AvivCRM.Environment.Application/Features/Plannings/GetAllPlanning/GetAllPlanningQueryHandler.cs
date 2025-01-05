@@ -17,6 +17,6 @@ internal class GetAllPlanningQueryHandler(IPlanning _planningRepository, IMapper
         var planningResponse = mapper.Map<IEnumerable<GetPlanning>>(plannings);
         if (planningResponse is null) return new ServerResponse(Message: "Planning Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "List of Planning", Data: planningResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Plannings", Data: planningResponse);
     }
 }

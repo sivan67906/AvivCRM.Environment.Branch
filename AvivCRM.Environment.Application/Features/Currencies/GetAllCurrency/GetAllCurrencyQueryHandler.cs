@@ -17,6 +17,6 @@ internal class GetAllCurrencyQueryHandler(ICurrency _currencyRepository, IMapper
         var currencyResponse = mapper.Map<IEnumerable<GetCurrency>>(currency);
         if (currencyResponse is null) return new ServerResponse(Message: "Currency Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "List of Currencys", Data: currencyResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Currencies", Data: currencyResponse);
     }
 }

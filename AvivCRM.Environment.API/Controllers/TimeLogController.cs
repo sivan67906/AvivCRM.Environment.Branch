@@ -17,36 +17,36 @@ public class TimeLogController : ControllerBase
     private readonly ISender _sender;
     public TimeLogController(ISender sender) => _sender = sender;
 
-    [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(Guid Id)
+    [HttpGet("byid")]
+    public async Task<IActionResult> GetByIdAsync(Guid Id)
     {
         var result = await _sender.Send(new GetTimeLogByIdQuery(Id));
         return Ok(result);
     }
 
-    [HttpPost("Create")]
-    public async Task<IActionResult> Create(CreateTimeLogRequest timeLog)
+    [HttpPost("create")]
+    public async Task<IActionResult> CreateAsync(CreateTimeLogRequest timeLog)
     {
         var result = await _sender.Send(new CreateTimeLogCommand(timeLog));
         return Ok(result);
     }
 
-    [HttpPut("Update")]
-    public async Task<IActionResult> Update(UpdateTimeLogRequest timeLog)
+    [HttpPut("update")]
+    public async Task<IActionResult> UpdateAsync(UpdateTimeLogRequest timeLog)
     {
         var result = await _sender.Send(new UpdateTimeLogCommand(timeLog));
         return Ok(result);
     }
 
-    [HttpGet("GetAll")]
-    public async Task<IActionResult> GetAll()
+    [HttpGet("all")]
+    public async Task<IActionResult> GetAllAsync()
     {
         var timeLogList = await _sender.Send(new GetAllTimeLogQuery());
         return Ok(timeLogList);
     }
 
-    [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(Guid Id)
+    [HttpDelete("delete")]
+    public async Task<IActionResult> DeleteAsync(Guid Id)
     {
         var result = await _sender.Send(new DeleteTimeLogCommand(Id));
         return Ok(result);

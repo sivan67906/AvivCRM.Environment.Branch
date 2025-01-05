@@ -17,36 +17,36 @@ public class RecruitCustomQuestionSettingController : ControllerBase
     private readonly ISender _sender;
     public RecruitCustomQuestionSettingController(ISender sender) => _sender = sender;
 
-    [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(Guid Id)
+    [HttpGet("byid")]
+    public async Task<IActionResult> GetByIdAsync(Guid Id)
     {
         var result = await _sender.Send(new GetRecruitCustomQuestionSettingByIdQuery(Id));
         return Ok(result);
     }
 
-    [HttpPost("Create")]
-    public async Task<IActionResult> Create(CreateRecruitCustomQuestionSettingRequest recruitCustomQuestionSetting)
+    [HttpPost("create")]
+    public async Task<IActionResult> CreateAsync(CreateRecruitCustomQuestionSettingRequest recruitCustomQuestionSetting)
     {
         var result = await _sender.Send(new CreateRecruitCustomQuestionSettingCommand(recruitCustomQuestionSetting));
         return Ok(result);
     }
 
-    [HttpPut("Update")]
-    public async Task<IActionResult> Update(UpdateRecruitCustomQuestionSettingRequest recruitCustomQuestionSetting)
+    [HttpPut("update")]
+    public async Task<IActionResult> UpdateAsync(UpdateRecruitCustomQuestionSettingRequest recruitCustomQuestionSetting)
     {
         var result = await _sender.Send(new UpdateRecruitCustomQuestionSettingCommand(recruitCustomQuestionSetting));
         return Ok(result);
     }
 
-    [HttpGet("GetAll")]
-    public async Task<IActionResult> GetAll()
+    [HttpGet("all")]
+    public async Task<IActionResult> GetAllAsync()
     {
         var recruitCustomQuestionSettingList = await _sender.Send(new GetAllRecruitCustomQuestionSettingQuery());
         return Ok(recruitCustomQuestionSettingList);
     }
 
-    [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(Guid Id)
+    [HttpDelete("delete")]
+    public async Task<IActionResult> DeleteAsync(Guid Id)
     {
         var result = await _sender.Send(new DeleteRecruitCustomQuestionSettingCommand(Id));
         return Ok(result);

@@ -27,6 +27,6 @@ internal class DeletePlanningCommandHandler(IPlanning _planningRepository, IUnit
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Planning Deleted Successfully", Data: planning);
+        return new ServerResponse(IsSuccess: true, Message: "Planning deleted successfully", Data: delMapEntity);
     }
 }

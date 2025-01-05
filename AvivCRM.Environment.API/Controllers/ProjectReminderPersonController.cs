@@ -17,36 +17,36 @@ public class ProjectReminderPersonController : ControllerBase
     private readonly ISender _sender;
     public ProjectReminderPersonController(ISender sender) => _sender = sender;
 
-    [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(Guid Id)
+    [HttpGet("byid")]
+    public async Task<IActionResult> GetByIdAsync(Guid Id)
     {
         var result = await _sender.Send(new GetProjectReminderPersonByIdQuery(Id));
         return Ok(result);
     }
 
-    [HttpPost("Create")]
-    public async Task<IActionResult> Create(CreateProjectReminderPersonRequest projectReminderPerson)
+    [HttpPost("create")]
+    public async Task<IActionResult> CreateAsync(CreateProjectReminderPersonRequest projectReminderPerson)
     {
         var result = await _sender.Send(new CreateProjectReminderPersonCommand(projectReminderPerson));
         return Ok(result);
     }
 
-    [HttpPut("Update")]
-    public async Task<IActionResult> Update(UpdateProjectReminderPersonRequest projectReminderPerson)
+    [HttpPut("update")]
+    public async Task<IActionResult> UpdateAsync(UpdateProjectReminderPersonRequest projectReminderPerson)
     {
         var result = await _sender.Send(new UpdateProjectReminderPersonCommand(projectReminderPerson));
         return Ok(result);
     }
 
-    [HttpGet("GetAll")]
-    public async Task<IActionResult> GetAll()
+    [HttpGet("all")]
+    public async Task<IActionResult> GetAllAsync()
     {
         var projectReminderPersonList = await _sender.Send(new GetAllProjectReminderPersonQuery());
         return Ok(projectReminderPersonList);
     }
 
-    [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(Guid Id)
+    [HttpDelete("delete")]
+    public async Task<IActionResult> DeleteAsync(Guid Id)
     {
         var result = await _sender.Send(new DeleteProjectReminderPersonCommand(Id));
         return Ok(result);

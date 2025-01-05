@@ -15,38 +15,36 @@ public class LeadStatusController : ControllerBase
     private readonly ISender _sender;
     public LeadStatusController(ISender sender) => _sender = sender;
 
-    [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(Guid Id)
-    {
-        var result = await _sender.Send(new GetLeadStatusByIdQuery(Id));
-        return Ok(result);
-    }
-
-
-    [HttpPost("Create")]
-    public async Task<IActionResult> Create(CreateLeadStatusRequest leadStatus)
-    {
-        var result = await _sender.Send(new CreateLeadStatusCommand(leadStatus));
-        return Ok(result);
-    }
-
-    [HttpPut("Update")]
-    public async Task<IActionResult> Update(UpdateLeadStatusRequest leadStatus)
-    {
-        var result = await _sender.Send(new UpdateLeadStatusCommand(leadStatus));
-        return Ok(result);
-    }
-
-    [HttpGet("GetAll")]
-    public async Task<IActionResult> GetAll()
+    [HttpGet("all-leadstatus")]
+    public async Task<IActionResult> GetAllAsync()
     {
         var leadStatusList = await _sender.Send(new GetAllLeadStatusQuery());
         return Ok(leadStatusList);
     }
 
+    [HttpGet("byid-leadstatus")]
+    public async Task<IActionResult> GetByIdAsync(Guid Id)
+    {
+        var result = await _sender.Send(new GetLeadStatusByIdQuery(Id));
+        return Ok(result);
+    }
 
-    [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(Guid Id)
+    [HttpPost("create-leadstatus")]
+    public async Task<IActionResult> CreateAsync(CreateLeadStatusRequest leadStatus)
+    {
+        var result = await _sender.Send(new CreateLeadStatusCommand(leadStatus));
+        return Ok(result);
+    }
+
+    [HttpPut("update-leadstatus")]
+    public async Task<IActionResult> UpdateAsync(UpdateLeadStatusRequest leadStatus)
+    {
+        var result = await _sender.Send(new UpdateLeadStatusCommand(leadStatus));
+        return Ok(result);
+    }
+
+    [HttpDelete("delete-leadstatus")]
+    public async Task<IActionResult> DeleteAsync(Guid Id)
     {
         var result = await _sender.Send(new DeleteLeadStatusCommand(Id));
         return Ok(result);

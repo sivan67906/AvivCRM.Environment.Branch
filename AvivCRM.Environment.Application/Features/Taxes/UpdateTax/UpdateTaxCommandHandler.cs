@@ -33,7 +33,7 @@ internal class UpdateTaxCommandHandler(IValidator<UpdateTaxRequest> _validator, 
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Tax updated successfully", Data: tax);
+        return new ServerResponse(IsSuccess: true, Message: "Tax updated successfully", Data: taxEntity);
     }
 }
 

@@ -17,36 +17,36 @@ public class FinancePrefixSettingController : ControllerBase
     private readonly ISender _sender;
     public FinancePrefixSettingController(ISender sender) => _sender = sender;
 
-    [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(Guid Id)
+    [HttpGet("byid")]
+    public async Task<IActionResult> GetByIdAsync(Guid Id)
     {
         var result = await _sender.Send(new GetFinancePrefixSettingByIdQuery(Id));
         return Ok(result);
     }
 
-    [HttpPost("Create")]
-    public async Task<IActionResult> Create(CreateFinancePrefixSettingRequest financePrefixSetting)
+    [HttpPost("create")]
+    public async Task<IActionResult> CreateAsync(CreateFinancePrefixSettingRequest financePrefixSetting)
     {
         var result = await _sender.Send(new CreateFinancePrefixSettingCommand(financePrefixSetting));
         return Ok(result);
     }
 
-    [HttpPut("Update")]
-    public async Task<IActionResult> Update(UpdateFinancePrefixSettingRequest financePrefixSetting)
+    [HttpPut("update")]
+    public async Task<IActionResult> UpdateAsync(UpdateFinancePrefixSettingRequest financePrefixSetting)
     {
         var result = await _sender.Send(new UpdateFinancePrefixSettingCommand(financePrefixSetting));
         return Ok(result);
     }
 
-    [HttpGet("GetAll")]
-    public async Task<IActionResult> GetAll()
+    [HttpGet("all")]
+    public async Task<IActionResult> GetAllAsync()
     {
         var financePrefixSettingList = await _sender.Send(new GetAllFinancePrefixSettingQuery());
         return Ok(financePrefixSettingList);
     }
 
-    [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(Guid Id)
+    [HttpDelete("delete")]
+    public async Task<IActionResult> DeleteAsync(Guid Id)
     {
         var result = await _sender.Send(new DeleteFinancePrefixSettingCommand(Id));
         return Ok(result);

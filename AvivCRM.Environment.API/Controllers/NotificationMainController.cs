@@ -17,38 +17,38 @@ public class NotificationMainController : ControllerBase
     private readonly ISender _sender;
     public NotificationMainController(ISender sender) => _sender = sender;
 
-    [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(Guid Id)
+    [HttpGet("byid")]
+    public async Task<IActionResult> GetByIdAsync(Guid Id)
     {
         var result = await _sender.Send(new GetNotificationMainByIdQuery(Id));
         return Ok(result);
     }
 
 
-    [HttpPost("Create")]
-    public async Task<IActionResult> Create(CreateNotificationMainRequest notificationMain)
+    [HttpPost("create")]
+    public async Task<IActionResult> CreateAsync(CreateNotificationMainRequest notificationMain)
     {
         var result = await _sender.Send(new CreateNotificationMainCommand(notificationMain));
         return Ok(result);
     }
 
-    [HttpPut("Update")]
-    public async Task<IActionResult> Update(UpdateNotificationMainRequest notificationMain)
+    [HttpPut("update")]
+    public async Task<IActionResult> UpdateAsync(UpdateNotificationMainRequest notificationMain)
     {
         var result = await _sender.Send(new UpdateNotificationMainCommand(notificationMain));
         return Ok(result);
     }
 
-    [HttpGet("GetAll")]
-    public async Task<IActionResult> GetAll()
+    [HttpGet("all")]
+    public async Task<IActionResult> GetAllAsync()
     {
         var notificationMainList = await _sender.Send(new GetAllNotificationMainQuery());
         return Ok(notificationMainList);
     }
 
 
-    [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(Guid Id)
+    [HttpDelete("delete")]
+    public async Task<IActionResult> DeleteAsync(Guid Id)
     {
         var result = await _sender.Send(new DeleteNotificationMainCommand(Id));
         return Ok(result);

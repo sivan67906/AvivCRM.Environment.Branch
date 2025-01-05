@@ -27,7 +27,7 @@ internal class DeleteContractCommandHandler(IContract _contractRepository, IUnit
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Contract deleted successfully", Data: contract);
+        return new ServerResponse(IsSuccess: true, Message: "Contract deleted successfully", Data: delMapEntity);
     }
 }
 

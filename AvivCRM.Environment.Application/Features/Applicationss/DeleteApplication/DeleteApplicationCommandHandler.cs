@@ -27,6 +27,6 @@ internal class DeleteApplicationCommandHandler(IApplication _applicationReposito
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Application deleted successfully", Data: application);
+        return new ServerResponse(IsSuccess: true, Message: "Application deleted successfully", Data: delMapEntity);
     }
 }

@@ -27,6 +27,6 @@ internal class DeletePaymentCommandHandler(IPayment _paymentRepository, IUnitOfW
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Payment Deleted Successfully", Data: payment);
+        return new ServerResponse(IsSuccess: true, Message: "Payment deleted successfully", Data: delMapEntity);
     }
 }

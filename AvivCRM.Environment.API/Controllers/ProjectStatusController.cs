@@ -17,36 +17,36 @@ public class ProjectStatusController : ControllerBase
     private readonly ISender _sender;
     public ProjectStatusController(ISender sender) => _sender = sender;
 
-    [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(Guid Id)
+    [HttpGet("byid")]
+    public async Task<IActionResult> GetByIdAsync(Guid Id)
     {
         var result = await _sender.Send(new GetProjectStatusByIdQuery(Id));
         return Ok(result);
     }
 
-    [HttpPost("Create")]
-    public async Task<IActionResult> Create(CreateProjectStatusRequest projectStatus)
+    [HttpPost("create")]
+    public async Task<IActionResult> CreateAsync(CreateProjectStatusRequest projectStatus)
     {
         var result = await _sender.Send(new CreateProjectStatusCommand(projectStatus));
         return Ok(result);
     }
 
-    [HttpPut("Update")]
-    public async Task<IActionResult> Update(UpdateProjectStatusRequest projectStatus)
+    [HttpPut("update")]
+    public async Task<IActionResult> UpdateAsync(UpdateProjectStatusRequest projectStatus)
     {
         var result = await _sender.Send(new UpdateProjectStatusCommand(projectStatus));
         return Ok(result);
     }
 
-    [HttpGet("GetAll")]
-    public async Task<IActionResult> GetAll()
+    [HttpGet("all")]
+    public async Task<IActionResult> GetAllAsync()
     {
         var projectStatusList = await _sender.Send(new GetAllProjectStatusQuery());
         return Ok(projectStatusList);
     }
 
-    [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(Guid Id)
+    [HttpDelete("delete")]
+    public async Task<IActionResult> DeleteAsync(Guid Id)
     {
         var result = await _sender.Send(new DeleteProjectStatusCommand(Id));
         return Ok(result);

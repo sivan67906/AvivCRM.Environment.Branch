@@ -33,6 +33,6 @@ internal class UpdateApplicationCommandHandler(IValidator<UpdateApplicationReque
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Application updated successfully", Data: application);
+        return new ServerResponse(IsSuccess: true, Message: "Application updated successfully", Data: applicationEntity);
     }
 }

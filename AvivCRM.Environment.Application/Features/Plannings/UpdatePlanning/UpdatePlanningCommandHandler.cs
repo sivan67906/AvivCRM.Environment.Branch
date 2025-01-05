@@ -33,6 +33,6 @@ internal class UpdatePlanningCommandHandler(IValidator<UpdatePlanningRequest> _v
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Planning Updated Successfully", Data: planning);
+        return new ServerResponse(IsSuccess: true, Message: "Planning updated successfully", Data: planningEntity);
     }
 }

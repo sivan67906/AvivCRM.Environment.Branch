@@ -10,11 +10,11 @@ internal class GetAllLeadAgentQueryHandler(ILeadAgent _leadAgentRepository, IMap
 {
     public async Task<ServerResponse> Handle(GetAllLeadAgentsQuery request, CancellationToken cancellationToken)
     {
-        // Get all plan types
+        // Get all lead agent
         var leadAgents = await _leadAgentRepository.GetAllAsync();
         if (leadAgents is null) return new ServerResponse(Message: "No Lead Agent Found");
 
-        // Map the plan types to the response
+        // Map the lead agent to the response
         var leadAgentResponse = mapper.Map<IEnumerable<GetLeadAgent>>(leadAgents);
         if (leadAgentResponse is null) return new ServerResponse(Message: "Lead Agent Not Found");
 

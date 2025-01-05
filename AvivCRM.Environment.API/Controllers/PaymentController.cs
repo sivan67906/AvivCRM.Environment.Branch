@@ -15,38 +15,36 @@ public class PaymentController : ControllerBase
     private readonly ISender _sender;
     public PaymentController(ISender sender) => _sender = sender;
 
-    [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(Guid Id)
-    {
-        var result = await _sender.Send(new GetPaymentByIdQuery(Id));
-        return Ok(result);
-    }
-
-
-    [HttpPost("Create")]
-    public async Task<IActionResult> Create(CreatePaymentRequest payment)
-    {
-        var result = await _sender.Send(new CreatePaymentCommand(payment));
-        return Ok(result);
-    }
-
-    [HttpPut("Update")]
-    public async Task<IActionResult> Update(UpdatePaymentRequest payment)
-    {
-        await _sender.Send(new UpdatePaymentCommand(payment));
-        return NoContent();
-    }
-
-    [HttpGet("GetAll")]
-    public async Task<IActionResult> GetAll()
+    [HttpGet("all-payment")]
+    public async Task<IActionResult> GetAllAsync()
     {
         var paymentList = await _sender.Send(new GetAllPaymentQuery());
         return Ok(paymentList);
     }
 
+    [HttpGet("byid-payment")]
+    public async Task<IActionResult> GetByIdAsync(Guid Id)
+    {
+        var result = await _sender.Send(new GetPaymentByIdQuery(Id));
+        return Ok(result);
+    }
 
-    [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(Guid Id)
+    [HttpPost("create-payment")]
+    public async Task<IActionResult> CreateAsync(CreatePaymentRequest payment)
+    {
+        var result = await _sender.Send(new CreatePaymentCommand(payment));
+        return Ok(result);
+    }
+
+    [HttpPut("update-payment")]
+    public async Task<IActionResult> UpdateAsync(UpdatePaymentRequest payment)
+    {
+        await _sender.Send(new UpdatePaymentCommand(payment));
+        return NoContent();
+    }
+
+    [HttpDelete("delete-payment")]
+    public async Task<IActionResult> DeleteAsync(Guid Id)
     {
         await _sender.Send(new DeletePaymentCommand(Id));
         return NoContent();

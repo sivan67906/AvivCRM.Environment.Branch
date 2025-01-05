@@ -41,6 +41,7 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
     public DbSet<Currency> Currencies => Set<Currency>();
     public DbSet<Planning> Plannings => Set<Planning>();
     public DbSet<Tax> Taxs => Set<Tax>();
+    public DbSet<Client> Clients => Set<Client>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -83,5 +84,6 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
         modelBuilder.Entity<Currency>().ToTable("tblCurrency");
         modelBuilder.Entity<Planning>().ToTable("tblPlanning");
         modelBuilder.Entity<Tax>().ToTable("tblTax");
+        modelBuilder.Entity<Client>().ToTable("tblClient");
     }
 }

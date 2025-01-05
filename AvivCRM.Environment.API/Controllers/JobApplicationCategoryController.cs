@@ -17,36 +17,36 @@ public class JobApplicationCategoryController : ControllerBase
     private readonly ISender _sender;
     public JobApplicationCategoryController(ISender sender) => _sender = sender;
 
-    [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(Guid Id)
+    [HttpGet("byid")]
+    public async Task<IActionResult> GetByIdAsync(Guid Id)
     {
         var result = await _sender.Send(new GetJobApplicationCategoryByIdQuery(Id));
         return Ok(result);
     }
 
-    [HttpPost("Create")]
-    public async Task<IActionResult> Create(CreateJobApplicationCategoryRequest jobApplicationCategory)
+    [HttpPost("create")]
+    public async Task<IActionResult> CreateAsync(CreateJobApplicationCategoryRequest jobApplicationCategory)
     {
         var result = await _sender.Send(new CreateJobApplicationCategoryCommand(jobApplicationCategory));
         return Ok(result);
     }
 
-    [HttpPut("Update")]
-    public async Task<IActionResult> Update(UpdateJobApplicationCategoryRequest jobApplicationCategory)
+    [HttpPut("update")]
+    public async Task<IActionResult> UpdateAsync(UpdateJobApplicationCategoryRequest jobApplicationCategory)
     {
         var result = await _sender.Send(new UpdateJobApplicationCategoryCommand(jobApplicationCategory));
         return Ok(result);
     }
 
-    [HttpGet("GetAll")]
-    public async Task<IActionResult> GetAll()
+    [HttpGet("all")]
+    public async Task<IActionResult> GetAllAsync()
     {
         var jobApplicationCategoryList = await _sender.Send(new GetAllJobApplicationCategoryQuery());
         return Ok(jobApplicationCategoryList);
     }
 
-    [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(Guid Id)
+    [HttpDelete("delete")]
+    public async Task<IActionResult> DeleteAsync(Guid Id)
     {
         var result = await _sender.Send(new DeleteJobApplicationCategoryCommand(Id));
         return Ok(result);

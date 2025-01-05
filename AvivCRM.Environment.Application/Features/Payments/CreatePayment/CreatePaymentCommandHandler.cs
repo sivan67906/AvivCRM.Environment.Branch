@@ -31,7 +31,7 @@ internal class CreatePaymentCommandHandler(IValidator<CreatePaymentRequest> _val
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Payment Created Successfully", Data: paymentEntity);
+        return new ServerResponse(IsSuccess: true, Message: "Payment created successfully", Data: paymentEntity);
     }
 }
 

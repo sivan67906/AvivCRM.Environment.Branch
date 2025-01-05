@@ -17,7 +17,7 @@ internal class GetAllPaymentQueryHandler(IPayment _paymentRepository, IMapper ma
         var paymentResponse = mapper.Map<IEnumerable<GetPayment>>(payments);
         if (paymentResponse is null) return new ServerResponse(Message: "Payment Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "List of Payment", Data: paymentResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Payments", Data: paymentResponse);
     }
 }
 

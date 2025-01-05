@@ -15,38 +15,36 @@ public class PlanningController : ControllerBase
     private readonly ISender _sender;
     public PlanningController(ISender sender) => _sender = sender;
 
-    [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(Guid Id)
-    {
-        var result = await _sender.Send(new GetPlanningByIdQuery(Id));
-        return Ok(result);
-    }
-
-
-    [HttpPost("Create")]
-    public async Task<IActionResult> Create(CreatePlanningRequest planning)
-    {
-        var result = await _sender.Send(new CreatePlanningCommand(planning));
-        return Ok(result);
-    }
-
-    [HttpPut("Update")]
-    public async Task<IActionResult> Update(UpdatePlanningRequest planning)
-    {
-        await _sender.Send(new UpdatePlanningCommand(planning));
-        return NoContent();
-    }
-
-    [HttpGet("GetAll")]
-    public async Task<IActionResult> GetAll()
+    [HttpGet("all-planning")]
+    public async Task<IActionResult> GetAllAsync()
     {
         var planningList = await _sender.Send(new GetAllPlanningQuery());
         return Ok(planningList);
     }
 
+    [HttpGet("byid-planning")]
+    public async Task<IActionResult> GetByIdAsync(Guid Id)
+    {
+        var result = await _sender.Send(new GetPlanningByIdQuery(Id));
+        return Ok(result);
+    }
 
-    [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(Guid Id)
+    [HttpPost("create-planning")]
+    public async Task<IActionResult> CreateAsync(CreatePlanningRequest planning)
+    {
+        var result = await _sender.Send(new CreatePlanningCommand(planning));
+        return Ok(result);
+    }
+
+    [HttpPut("update-planning")]
+    public async Task<IActionResult> UpdateAsync(UpdatePlanningRequest planning)
+    {
+        await _sender.Send(new UpdatePlanningCommand(planning));
+        return NoContent();
+    }
+
+    [HttpDelete("delete")]
+    public async Task<IActionResult> DeleteAsync(Guid Id)
     {
         await _sender.Send(new DeletePlanningCommand(Id));
         return NoContent();
