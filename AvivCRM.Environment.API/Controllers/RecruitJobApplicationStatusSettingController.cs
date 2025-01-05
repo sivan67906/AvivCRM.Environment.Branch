@@ -24,7 +24,6 @@ public class RecruitJobApplicationStatusSettingController : ControllerBase
         return Ok(result);
     }
 
-
     [HttpPost("Create")]
     public async Task<IActionResult> Create(CreateRecruitJobApplicationStatusSettingRequest recruitJobApplicationStatusSetting)
     {
@@ -46,7 +45,6 @@ public class RecruitJobApplicationStatusSettingController : ControllerBase
         return Ok(recruitJobApplicationStatusSettingList);
     }
 
-
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
@@ -54,12 +52,3 @@ public class RecruitJobApplicationStatusSettingController : ControllerBase
         return Ok(result);
     }
 }
-
-
-
-
-
-
-
-
-

@@ -24,7 +24,6 @@ public class RecruitCustomQuestionSettingController : ControllerBase
         return Ok(result);
     }
 
-
     [HttpPost("Create")]
     public async Task<IActionResult> Create(CreateRecruitCustomQuestionSettingRequest recruitCustomQuestionSetting)
     {
@@ -46,7 +45,6 @@ public class RecruitCustomQuestionSettingController : ControllerBase
         return Ok(recruitCustomQuestionSettingList);
     }
 
-
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
@@ -54,12 +52,3 @@ public class RecruitCustomQuestionSettingController : ControllerBase
         return Ok(result);
     }
 }
-
-
-
-
-
-
-
-
-

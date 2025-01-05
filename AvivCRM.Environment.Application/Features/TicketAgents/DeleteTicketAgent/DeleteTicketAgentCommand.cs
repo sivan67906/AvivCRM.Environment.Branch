@@ -3,12 +3,3 @@ using MediatR;
 
 namespace AvivCRM.Environment.Application.Features.TicketAgents.DeleteTicketAgent;
 public record DeleteTicketAgentCommand(Guid Id) : IRequest<ServerResponse>;
-
-
-
-
-
-
-
-
-

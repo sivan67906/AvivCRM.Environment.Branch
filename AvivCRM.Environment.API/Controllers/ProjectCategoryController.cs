@@ -24,7 +24,6 @@ public class ProjectCategoryController : ControllerBase
         return Ok(result);
     }
 
-
     [HttpPost("Create")]
     public async Task<IActionResult> Create(CreateProjectCategoryRequest projectCategory)
     {
@@ -46,7 +45,6 @@ public class ProjectCategoryController : ControllerBase
         return Ok(projectCategoryList);
     }
 
-
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
@@ -54,12 +52,3 @@ public class ProjectCategoryController : ControllerBase
         return Ok(result);
     }
 }
-
-
-
-
-
-
-
-
-

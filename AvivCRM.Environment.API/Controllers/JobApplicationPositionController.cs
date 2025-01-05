@@ -24,7 +24,6 @@ public class JobApplicationPositionController : ControllerBase
         return Ok(result);
     }
 
-
     [HttpPost("Create")]
     public async Task<IActionResult> Create(CreateJobApplicationPositionRequest jobApplicationPosition)
     {
@@ -46,7 +45,6 @@ public class JobApplicationPositionController : ControllerBase
         return Ok(jobApplicationPositionList);
     }
 
-
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
@@ -54,20 +52,3 @@ public class JobApplicationPositionController : ControllerBase
         return Ok(result);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

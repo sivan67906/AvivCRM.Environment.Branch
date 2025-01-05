@@ -24,7 +24,6 @@ public class RecruitFooterSettingController : ControllerBase
         return Ok(result);
     }
 
-
     [HttpPost("Create")]
     public async Task<IActionResult> Create(CreateRecruitFooterSettingRequest recruitFooterSetting)
     {
@@ -46,7 +45,6 @@ public class RecruitFooterSettingController : ControllerBase
         return Ok(recruitFooterSettingList);
     }
 
-
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
@@ -54,12 +52,3 @@ public class RecruitFooterSettingController : ControllerBase
         return Ok(result);
     }
 }
-
-
-
-
-
-
-
-
-

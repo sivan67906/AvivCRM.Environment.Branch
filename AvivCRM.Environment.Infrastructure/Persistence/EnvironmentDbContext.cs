@@ -36,6 +36,11 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
     public DbSet<RecruiterSetting> RecruiterSettings => Set<RecruiterSetting>();
     public DbSet<TimeLog> TimeLogs => Set<TimeLog>();
     public DbSet<Timesheet> Timesheets => Set<Timesheet>();
+    public DbSet<Payment> Payments => Set<Payment>();
+    public DbSet<Applications> Applications => Set<Applications>();
+    public DbSet<Currency> Currencies => Set<Currency>();
+    public DbSet<Planning> Plannings => Set<Planning>();
+    public DbSet<Tax> Taxs => Set<Tax>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -73,5 +78,10 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
         modelBuilder.Entity<RecruiterSetting>().ToTable("tblRecruiterSetting");
         modelBuilder.Entity<TimeLog>().ToTable("tblTimeLog");
         modelBuilder.Entity<Timesheet>().ToTable("tblTimesheet");
+        modelBuilder.Entity<Payment>().ToTable("tblPayment");
+        modelBuilder.Entity<Applications>().ToTable("tblApplication");
+        modelBuilder.Entity<Currency>().ToTable("tblCurrency");
+        modelBuilder.Entity<Planning>().ToTable("tblPlanning");
+        modelBuilder.Entity<Tax>().ToTable("tblTax");
     }
 }

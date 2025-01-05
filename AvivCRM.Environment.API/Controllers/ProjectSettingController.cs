@@ -54,12 +54,3 @@ public class ProjectSettingController : ControllerBase
         return Ok(result);
     }
 }
-
-
-
-
-
-
-
-
-

@@ -51,6 +51,11 @@ public static class ServiceContainer
         services.AddScoped<IRecruiterSetting, RecruiterSettingRepository>();
         services.AddScoped<ITimeLog, TimeLogRepository>();
         services.AddScoped<ITimesheet, TimesheetRepository>();
+        services.AddScoped<IPayment, PaymentRepository>();
+        services.AddScoped<ITax, TaxRepository>();
+        services.AddScoped<IPlanning, PlanningRepository>();
+        services.AddScoped<IApplication, ApplicationRepository>();
+        services.AddScoped<ICurrency, CurrencyRepository>();
 
         return services;
     }

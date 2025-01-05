@@ -9,7 +9,7 @@ using MediatR;
 
 namespace AvivCRM.Environment.Application.Features.LeadAgents.UpdateLeadAgent;
 
-internal class UpdatePlanTypeCommandHandler(IValidator<UpdateLeadAgentRequest> _validator, ILeadAgent _leadAgentRepository, IUnitOfWork _unitOfWork, IMapper mapper) : IRequestHandler<UpdateLeadAgentCommand, ServerResponse>
+internal class UpdateLeadAgentCommandHandler(IValidator<UpdateLeadAgentRequest> _validator, ILeadAgent _leadAgentRepository, IUnitOfWork _unitOfWork, IMapper mapper) : IRequestHandler<UpdateLeadAgentCommand, ServerResponse>
 {
     public async Task<ServerResponse> Handle(UpdateLeadAgentCommand request, CancellationToken cancellationToken)
     {

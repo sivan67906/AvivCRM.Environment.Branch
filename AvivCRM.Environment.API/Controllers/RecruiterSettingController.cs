@@ -24,7 +24,6 @@ public class RecruiterSettingController : ControllerBase
         return Ok(result);
     }
 
-
     [HttpPost("Create")]
     public async Task<IActionResult> Create(CreateRecruiterSettingRequest recruiterSetting)
     {
@@ -46,7 +45,6 @@ public class RecruiterSettingController : ControllerBase
         return Ok(recruiterSettingList);
     }
 
-
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
@@ -54,12 +52,3 @@ public class RecruiterSettingController : ControllerBase
         return Ok(result);
     }
 }
-
-
-
-
-
-
-
-
-

@@ -24,7 +24,6 @@ public class ProjectReminderPersonController : ControllerBase
         return Ok(result);
     }
 
-
     [HttpPost("Create")]
     public async Task<IActionResult> Create(CreateProjectReminderPersonRequest projectReminderPerson)
     {
@@ -46,7 +45,6 @@ public class ProjectReminderPersonController : ControllerBase
         return Ok(projectReminderPersonList);
     }
 
-
     [HttpDelete("Delete")]
     public async Task<IActionResult> Delete(Guid Id)
     {
@@ -54,12 +52,3 @@ public class ProjectReminderPersonController : ControllerBase
         return Ok(result);
     }
 }
-
-
-
-
-
-
-
-
-

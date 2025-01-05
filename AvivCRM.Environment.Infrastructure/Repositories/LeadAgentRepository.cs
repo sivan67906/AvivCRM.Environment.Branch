@@ -5,3 +5,4 @@ using AvivCRM.Environment.Infrastructure.Persistence;
 namespace AvivCRM.Environment.Infrastructure.Repositories;
 
 public class LeadAgentRepository(EnvironmentDbContext context) : GenericRepository<LeadAgent>(context, context.LeadAgents), ILeadAgent { }
+
