@@ -58,6 +58,7 @@ public static class ServiceContainer
         services.AddScoped<ICurrency, CurrencyRepository>();
         services.AddScoped<IClient, ClientRepository>();
         services.AddScoped<IEmployee, EmployeeRepository>();
+        services.AddScoped<IAttendanceSetting, AttendanceSettingRepository>();
 
         return services;
     }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.Applications;
+using AvivCRM.Environment.Application.DTOs.AttendanceSettings;
 using AvivCRM.Environment.Application.DTOs.Clients;
 using AvivCRM.Environment.Application.DTOs.Contracts;
 using AvivCRM.Environment.Application.DTOs.Currencies;
@@ -362,6 +363,10 @@ public class MapperConfig : Profile
         CreateMap<CreateEmployeeRequest, Employee>();
         CreateMap<UpdateEmployeeRequest, Employee>();
         CreateMap<Employee, GetEmployee>();
+        // AttendanceSetting
+        CreateMap<CreateAttendanceSettingRequest, AttendanceSetting>();
+        CreateMap<UpdateAttendanceSettingRequest, AttendanceSetting>();
+        CreateMap<AttendanceSetting, GetAttendanceSetting>();
 
     }
 }

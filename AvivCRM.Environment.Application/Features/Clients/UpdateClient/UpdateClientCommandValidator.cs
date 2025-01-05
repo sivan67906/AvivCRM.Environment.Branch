@@ -24,7 +24,6 @@ public class UpdateClientCommandValidator : AbstractValidator<UpdateClientReques
                     .MaximumLength(10).WithMessage("PhoneNumber must not exceed 25 Characters")
                     .MinimumLength(6).WithMessage("PhoneNumber should not be less than 3 characters");
         RuleFor(x => x.Description)
-
                    .MaximumLength(250).WithMessage("Description must not exceed 25 Characters");
 
     }

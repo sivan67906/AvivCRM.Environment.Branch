@@ -8,7 +8,7 @@ public sealed class FinanceInvoiceSetting : BaseEntity, IEntity
     public string? FILogoImageFileName { get; set; }
     public string? FIAuthorisedImagePath { get; set; }
     public string? FIAuthorisedImageFileName { get; set; }
-    public int FILanguageId { get; set; }
+    public Guid FILanguageId { get; set; }
     public int FIDueAfter { get; set; } = default!;
     public int FISendReminderBefore { get; set; }
     public int FISendReminderAfterEveryId { get; set; }
