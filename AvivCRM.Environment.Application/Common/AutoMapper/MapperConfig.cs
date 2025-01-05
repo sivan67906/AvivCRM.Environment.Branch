@@ -5,6 +5,7 @@ using AvivCRM.Environment.Application.DTOs.Contracts;
 using AvivCRM.Environment.Application.DTOs.Currencies;
 using AvivCRM.Environment.Application.DTOs.CustomQuestionCategories;
 using AvivCRM.Environment.Application.DTOs.CustomQuestionTypes;
+using AvivCRM.Environment.Application.DTOs.Employees;
 using AvivCRM.Environment.Application.DTOs.FinanceInvoiceTemplateSettings;
 using AvivCRM.Environment.Application.DTOs.FinancePrefixSettings;
 using AvivCRM.Environment.Application.DTOs.FinanceUnitSettings;
@@ -357,6 +358,10 @@ public class MapperConfig : Profile
         CreateMap<CreateClientRequest, Client>();
         CreateMap<UpdateClientRequest, Client>();
         CreateMap<Client, GetClient>();
+        // Employee
+        CreateMap<CreateEmployeeRequest, Employee>();
+        CreateMap<UpdateEmployeeRequest, Employee>();
+        CreateMap<Employee, GetEmployee>();
 
     }
 }
