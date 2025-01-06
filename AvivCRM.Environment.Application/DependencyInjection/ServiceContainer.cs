@@ -1,7 +1,9 @@
 ﻿using System.Reflection;
 using AvivCRM.Environment.Application.Common.AutoMapper;
+using AvivCRM.Environment.Application.Common.Behaviors;
 using AvivCRM.Environment.Application.Features.LeadSources.CreateLeadSource;
 using FluentValidation;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace AvivCRM.Environment.Application.DependencyInjection;
@@ -16,6 +18,7 @@ public static class ServiceContainer
         });
         services.AddAutoMapper(typeof(MapperConfig));
         services.AddValidatorsFromAssemblyContaining<CreateLeadSourceCommandValidator>();
+        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
         return services;
     }
 }

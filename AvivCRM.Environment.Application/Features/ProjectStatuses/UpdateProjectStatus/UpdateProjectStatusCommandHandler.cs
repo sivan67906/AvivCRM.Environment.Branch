@@ -17,17 +17,47 @@ internal class UpdateProjectStatusCommandHandler(IValidator<UpdateProjectStatusR
         var validate = await _validator.ValidateAsync(request.ProjectStatus);
         if (!validate.IsValid) return new ServerResponse(Message: string.Join("; ", validate.Errors.Select(error => error.ErrorMessage)));
 
-        // Check if the plan type exists
-        var projectStatus = await _projectStatusRepository.GetByIdAsync(request.ProjectStatus.Id);
-        if (projectStatus is null) return new ServerResponse(Message: "Project Status Not Found");
+        //// Check if the Project Status exists
+        //var projectStatus = await _projectStatusRepository.GetByIdAsync(request.ProjectStatus.Id);
+        //if (projectStatus is null) return new ServerResponse(Message: "Project Status Not Found");
 
-        // Map the request to the entity
-        var projectStatusEntity = mapper.Map<ProjectStatus>(request.ProjectStatus);
+        //// Map the request to the entity
+        //var projectStatusEntity = mapper.Map<ProjectStatus>(request.ProjectStatus);
+
+        // Check if the Project Status exists
+        var projectStatuses = await _projectStatusRepository.GetAllAsync();
+        if (projectStatuses is null) return new ServerResponse(Message: "No Project Status Found");
+
+        ProjectStatus selectedProjectStatus = new();
+
+
 
         try
         {
-            // Update the lead Source
-            _projectStatusRepository.Update(projectStatusEntity);
+            // Update the project Default Status
+            foreach (var entity in projectStatuses)
+            {
+                if (entity.Id == request.ProjectStatus.Id)
+                {
+                    entity.Id = request.ProjectStatus.Id;
+                    entity.Name = request.ProjectStatus.Name;
+                    entity.ColorCode = request.ProjectStatus.ColorCode;
+                    entity.IsDefaultStatus = request.ProjectStatus.IsDefaultStatus;
+                    entity.Status = request.ProjectStatus.Status;
+                    entity.ModifiedOn = DateTime.Now;
+                    selectedProjectStatus = entity;
+                    _projectStatusRepository.Update(entity);
+                }
+                else
+                {
+                    if (entity.IsDefaultStatus)
+                    {
+                        entity.ModifiedOn = DateTime.Now;
+                    }
+                    entity.IsDefaultStatus = false;
+                    _projectStatusRepository.Update(entity);
+                }
+            }
             await _unitOfWork.SaveChangesAsync();
         }
         catch (Exception ex)
@@ -35,7 +65,7 @@ internal class UpdateProjectStatusCommandHandler(IValidator<UpdateProjectStatusR
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Project Status updated successfully", Data: projectStatus);
+        return new ServerResponse(IsSuccess: true, Message: "Project Status updated successfully", Data: selectedProjectStatus);
     }
 }
 

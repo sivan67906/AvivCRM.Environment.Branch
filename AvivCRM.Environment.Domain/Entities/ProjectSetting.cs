@@ -5,7 +5,7 @@ public sealed class ProjectSetting : BaseEntity, IEntity
 {
     public string? Name { get; set; }
     public bool IsSendReminder { get; set; }
-    public int ProjectReminderPersonId { get; set; }
+    public Guid ProjectReminderPersonId { get; set; }
     public int RemindBefore { get; set; }
 }
 

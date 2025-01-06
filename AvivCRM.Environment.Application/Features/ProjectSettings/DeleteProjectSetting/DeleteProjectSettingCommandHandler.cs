@@ -20,7 +20,7 @@ internal class DeleteProjectSettingCommandHandler(IProjectSetting _projectSettin
 
         try
         {
-            // Delete plan type
+            // Delete Project Setting
             _projectSettingRepository.Delete(delMapEntity);
             await _unitOfWork.SaveChangesAsync();
         }
@@ -29,7 +29,7 @@ internal class DeleteProjectSettingCommandHandler(IProjectSetting _projectSettin
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Project Setting deleted successfully", Data: projectSetting);
+        return new ServerResponse(IsSuccess: true, Message: "Project Setting deleted successfully", Data: delMapEntity);
     }
 }
 

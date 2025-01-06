@@ -17,7 +17,7 @@ internal class UpdateProjectCategoryCommandHandler(IValidator<UpdateProjectCateg
         var validate = await _validator.ValidateAsync(request.ProjectCategory);
         if (!validate.IsValid) return new ServerResponse(Message: string.Join("; ", validate.Errors.Select(error => error.ErrorMessage)));
 
-        // Check if the plan type exists
+        // Check if the Project Category exists
         var projectCategory = await _projectCategoryRepository.GetByIdAsync(request.ProjectCategory.Id);
         if (projectCategory is null) return new ServerResponse(Message: "Project Category Not Found");
 
@@ -26,7 +26,7 @@ internal class UpdateProjectCategoryCommandHandler(IValidator<UpdateProjectCateg
 
         try
         {
-            // Update the lead Source
+            // Update the Project Category
             _projectCategoryRepository.Update(projectCategoryEntity);
             await _unitOfWork.SaveChangesAsync();
         }
@@ -35,7 +35,7 @@ internal class UpdateProjectCategoryCommandHandler(IValidator<UpdateProjectCateg
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Project Category updated successfully", Data: projectCategory);
+        return new ServerResponse(IsSuccess: true, Message: "Project Category updated successfully", Data: projectCategoryEntity);
     }
 }
 
