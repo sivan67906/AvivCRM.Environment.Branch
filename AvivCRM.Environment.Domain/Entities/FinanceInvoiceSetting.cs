@@ -1,5 +1,4 @@
 ﻿using AvivCRM.Environment.Domain.Entities.Common;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AvivCRM.Environment.Domain.Entities;
 public sealed class FinanceInvoiceSetting : BaseEntity, IEntity
@@ -19,6 +18,6 @@ public sealed class FinanceInvoiceSetting : BaseEntity, IEntity
     public string? FIOtherInfo { get; set; }
 
     // Navigation Property
-    [ForeignKey(nameof(FILanguageId))]
-    public Language? Language { get; set; }
+    //[ForeignKey(nameof(FILanguageId))]
+    //public Language? Language { get; set; }
 }

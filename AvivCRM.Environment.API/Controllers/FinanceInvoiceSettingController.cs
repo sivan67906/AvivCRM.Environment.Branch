@@ -3,6 +3,7 @@ using AvivCRM.Environment.Application.Features.FinanceInvoiceSettings.CreateFina
 using AvivCRM.Environment.Application.Features.FinanceInvoiceSettings.DeleteFinanceInvoiceSetting;
 using AvivCRM.Environment.Application.Features.FinanceInvoiceSettings.GetAllFinanceInvoiceSetting;
 using AvivCRM.Environment.Application.Features.FinanceInvoiceSettings.GetFinanceInvoiceSettingById;
+using AvivCRM.Environment.Application.Features.FinanceInvoiceSettings.UpdateFinanceInvoiceSetting;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -35,12 +36,12 @@ public class FinanceInvoiceSettingController : ControllerBase
         return Ok(result);
     }
 
-    //[HttpPut("update-financeInvoiceSetting")]
-    //public async Task<IActionResult> UpdateAsync(UpdateFinanceInvoiceSettingRequest financeInvoiceSetting)
-    //{
-    //    var result = await _sender.Send(new UpdateFinanceInvoiceSettingCommand(financeInvoiceSetting));
-    //    return Ok(result);
-    //}
+    [HttpPut("update-financeInvoiceSetting")]
+    public async Task<IActionResult> UpdateAsync(UpdateFinanceInvoiceSettingRequest financeInvoiceSetting)
+    {
+        var result = await _sender.Send(new UpdateFinanceInvoiceSettingCommand(financeInvoiceSetting));
+        return Ok(result);
+    }
 
     [HttpDelete("delete-financeInvoiceSetting")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
