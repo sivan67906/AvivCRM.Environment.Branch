@@ -21,12 +21,3 @@ internal class GetFinanceInvoiceTemplateSettingByIdQueryHandler(IFinanceInvoiceT
         return new ServerResponse(IsSuccess: true, Message: "List of Finance Invoice Template Setting", Data: financeInvoiceTemplateSettingResponse);
     }
 }
-
-
-
-
-
-
-
-
-

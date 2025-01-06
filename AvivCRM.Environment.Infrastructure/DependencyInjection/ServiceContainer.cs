@@ -63,6 +63,8 @@ public static class ServiceContainer
         services.AddScoped<IBillOrder, BillOrderRepository>();
         services.AddScoped<IPurchaseOrder, PurchaseOrderRepository>();
         services.AddScoped<IVendorCredit, VendorCreditRepository>();
+        services.AddScoped<IFinanceInvoiceSetting, FinanceInvoiceSettingRepository>();
+        services.AddScoped<ILanguage, LanguageRepository>();
 
         return services;
     }

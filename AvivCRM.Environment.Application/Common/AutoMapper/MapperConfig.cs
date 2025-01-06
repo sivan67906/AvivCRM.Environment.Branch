@@ -8,11 +8,13 @@ using AvivCRM.Environment.Application.DTOs.Currencies;
 using AvivCRM.Environment.Application.DTOs.CustomQuestionCategories;
 using AvivCRM.Environment.Application.DTOs.CustomQuestionTypes;
 using AvivCRM.Environment.Application.DTOs.Employees;
+using AvivCRM.Environment.Application.DTOs.FinanceInvoiceSettings;
 using AvivCRM.Environment.Application.DTOs.FinanceInvoiceTemplateSettings;
 using AvivCRM.Environment.Application.DTOs.FinancePrefixSettings;
 using AvivCRM.Environment.Application.DTOs.FinanceUnitSettings;
 using AvivCRM.Environment.Application.DTOs.JobApplicationCategories;
 using AvivCRM.Environment.Application.DTOs.JobApplicationPositions;
+using AvivCRM.Environment.Application.DTOs.Languages;
 using AvivCRM.Environment.Application.DTOs.LeadAgent;
 using AvivCRM.Environment.Application.DTOs.LeadCategories;
 using AvivCRM.Environment.Application.DTOs.LeadSources;
@@ -382,6 +384,14 @@ public class MapperConfig : Profile
         CreateMap<CreateVendorCreditRequest, VendorCredit>();
         CreateMap<UpdateVendorCreditRequest, VendorCredit>();
         CreateMap<VendorCredit, GetVendorCredit>();
+        // FinanceInvoiceSetting
+        CreateMap<CreateFinanceInvoiceSettingRequest, FinanceInvoiceSetting>();
+        CreateMap<UpdateFinanceInvoiceSettingRequest, FinanceInvoiceSetting>();
+        CreateMap<FinanceInvoiceSetting, GetFinanceInvoiceSetting>();
+        // Language
+        CreateMap<createLanguageRequest, Language>();
+        CreateMap<UpdateLanguageRequest, Language>();
+        CreateMap<Language, GetLanguage>();
 
     }
 }
