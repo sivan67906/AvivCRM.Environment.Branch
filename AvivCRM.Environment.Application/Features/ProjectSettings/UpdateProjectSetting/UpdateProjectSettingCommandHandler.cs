@@ -17,7 +17,7 @@ internal class UpdateProjectSettingCommandHandler(IValidator<UpdateProjectSettin
         var validate = await _validator.ValidateAsync(request.ProjectSetting);
         if (!validate.IsValid) return new ServerResponse(Message: string.Join("; ", validate.Errors.Select(error => error.ErrorMessage)));
 
-        // Check if the plan type exists
+        // Check if the Project Setting exists
         var projectSetting = await _projectSettingRepository.GetByIdAsync(request.ProjectSetting.Id);
         if (projectSetting is null) return new ServerResponse(Message: "Project Setting Not Found");
 
@@ -35,7 +35,7 @@ internal class UpdateProjectSettingCommandHandler(IValidator<UpdateProjectSettin
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Project Setting updated successfully", Data: projectSetting);
+        return new ServerResponse(IsSuccess: true, Message: "Project Setting updated successfully", Data: projectSettingEntity);
     }
 }
 

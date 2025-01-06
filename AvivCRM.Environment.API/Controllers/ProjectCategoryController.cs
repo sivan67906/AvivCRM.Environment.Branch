@@ -17,35 +17,35 @@ public class ProjectCategoryController : ControllerBase
     private readonly ISender _sender;
     public ProjectCategoryController(ISender sender) => _sender = sender;
 
-    [HttpGet("byid")]
-    public async Task<IActionResult> GetByIdAsync(Guid Id)
-    {
-        var result = await _sender.Send(new GetProjectCategoryByIdQuery(Id));
-        return Ok(result);
-    }
-
-    [HttpPost("create")]
-    public async Task<IActionResult> CreateAsync(CreateProjectCategoryRequest projectCategory)
-    {
-        var result = await _sender.Send(new CreateProjectCategoryCommand(projectCategory));
-        return Ok(result);
-    }
-
-    [HttpPut("update")]
-    public async Task<IActionResult> UpdateAsync(UpdateProjectCategoryRequest projectCategory)
-    {
-        var result = await _sender.Send(new UpdateProjectCategoryCommand(projectCategory));
-        return Ok(result);
-    }
-
-    [HttpGet("all")]
+    [HttpGet("all-projectcategory")]
     public async Task<IActionResult> GetAllAsync()
     {
         var projectCategoryList = await _sender.Send(new GetAllProjectCategoryQuery());
         return Ok(projectCategoryList);
     }
 
-    [HttpDelete("delete")]
+    [HttpGet("byid-projectcategory")]
+    public async Task<IActionResult> GetByIdAsync(Guid Id)
+    {
+        var result = await _sender.Send(new GetProjectCategoryByIdQuery(Id));
+        return Ok(result);
+    }
+
+    [HttpPost("create-projectcategory")]
+    public async Task<IActionResult> CreateAsync(CreateProjectCategoryRequest projectCategory)
+    {
+        var result = await _sender.Send(new CreateProjectCategoryCommand(projectCategory));
+        return Ok(result);
+    }
+
+    [HttpPut("update-projectcategory")]
+    public async Task<IActionResult> UpdateAsync(UpdateProjectCategoryRequest projectCategory)
+    {
+        var result = await _sender.Send(new UpdateProjectCategoryCommand(projectCategory));
+        return Ok(result);
+    }
+
+    [HttpDelete("delete-projectcategory")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
         var result = await _sender.Send(new DeleteProjectCategoryCommand(Id));

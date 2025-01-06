@@ -20,7 +20,7 @@ internal class DeleteProjectCategoryCommandHandler(IProjectCategory _projectCate
 
         try
         {
-            // Delete plan type
+            // Delete Project Category
             _projectCategoryRepository.Delete(delMapEntity);
             await _unitOfWork.SaveChangesAsync();
         }
@@ -29,7 +29,7 @@ internal class DeleteProjectCategoryCommandHandler(IProjectCategory _projectCate
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Project Category deleted successfully", Data: projectCategory);
+        return new ServerResponse(IsSuccess: true, Message: "Project Category deleted successfully", Data: delMapEntity);
     }
 }
 

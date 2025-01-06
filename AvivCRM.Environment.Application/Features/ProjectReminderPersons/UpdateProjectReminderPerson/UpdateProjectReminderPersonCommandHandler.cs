@@ -17,7 +17,7 @@ internal class UpdateProjectReminderPersonCommandHandler(IValidator<UpdateProjec
         var validate = await _validator.ValidateAsync(request.ProjectReminderPerson);
         if (!validate.IsValid) return new ServerResponse(Message: string.Join("; ", validate.Errors.Select(error => error.ErrorMessage)));
 
-        // Check if the plan type exists
+        // Check if the Project Reminder Person exists
         var projectReminderPerson = await _projectReminderPersonRepository.GetByIdAsync(request.ProjectReminderPerson.Id);
         if (projectReminderPerson is null) return new ServerResponse(Message: "Project Reminder Person Not Found");
 
@@ -26,7 +26,7 @@ internal class UpdateProjectReminderPersonCommandHandler(IValidator<UpdateProjec
 
         try
         {
-            // Update the lead Source
+            // Update the Project Reminder Person
             _projectReminderPersonRepository.Update(projectReminderPersonEntity);
             await _unitOfWork.SaveChangesAsync();
         }
@@ -35,7 +35,7 @@ internal class UpdateProjectReminderPersonCommandHandler(IValidator<UpdateProjec
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Project Reminder Person updated successfully", Data: projectReminderPerson);
+        return new ServerResponse(IsSuccess: true, Message: "Project Reminder Person updated successfully", Data: projectReminderPersonEntity);
     }
 }
 

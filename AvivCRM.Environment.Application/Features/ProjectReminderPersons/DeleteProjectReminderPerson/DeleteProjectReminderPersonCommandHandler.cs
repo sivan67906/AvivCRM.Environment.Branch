@@ -20,7 +20,7 @@ internal class DeleteProjectReminderPersonCommandHandler(IProjectReminderPerson 
 
         try
         {
-            // Delete plan type
+            // Delete Project Reminder
             _projectReminderPersonRepository.Delete(delMapEntity);
             await _unitOfWork.SaveChangesAsync();
         }
@@ -29,7 +29,7 @@ internal class DeleteProjectReminderPersonCommandHandler(IProjectReminderPerson 
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Project Reminder Person deleted successfully", Data: projectReminderPerson);
+        return new ServerResponse(IsSuccess: true, Message: "Project Reminder Person deleted successfully", Data: delMapEntity);
     }
 }
 

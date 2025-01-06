@@ -23,12 +23,44 @@ internal class CreateProjectStatusCommandHandler(IValidator<CreateProjectStatusR
             return new ServerResponse(Message: errorList);
         }
 
+
         var projectStatusEntity = mapper.Map<ProjectStatus>(request.ProjectStatus);
 
         try
         {
             _projectStatusRepository.Add(projectStatusEntity);
             await _unitOfWork.SaveChangesAsync();
+
+
+
+            if (projectStatusEntity.IsDefaultStatus)
+            {
+                var projectStatuses = await _projectStatusRepository.GetAllAsync();
+
+                // Update the project Default Status
+                foreach (var entity in projectStatuses)
+                {
+                    if (entity.Id == projectStatusEntity.Id)
+                    {
+                        //entity.Id = projectStatusEntity.Id;
+                        //entity.IsDefaultStatus = true;
+                        //entity.ModifiedOn = DateTime.Now;
+                        //selectedProjectStatus = entity;
+                        //_projectStatusRepository.Update(entity);
+                    }
+                    else
+                    {
+                        if (entity.IsDefaultStatus)
+                        {
+                            entity.ModifiedOn = DateTime.Now;
+                        }
+                        entity.IsDefaultStatus = false;
+                        _projectStatusRepository.Update(entity);
+                    }
+                }
+                await _unitOfWork.SaveChangesAsync();
+            }
+
         }
         catch (Exception ex)
         {
@@ -37,6 +69,7 @@ internal class CreateProjectStatusCommandHandler(IValidator<CreateProjectStatusR
 
         return new ServerResponse(IsSuccess: true, Message: "Project Status created successfully", Data: projectStatusEntity);
     }
+
 }
 
 
