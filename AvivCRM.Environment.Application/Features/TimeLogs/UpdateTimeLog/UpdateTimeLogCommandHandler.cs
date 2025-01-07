@@ -1,7 +1,6 @@
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.TimeLogs;
 using AvivCRM.Environment.Domain.Contracts;
-using AvivCRM.Environment.Domain.Contracts;
 using AvivCRM.Environment.Domain.Entities;
 using AvivCRM.Environment.Domain.Responses;
 using FluentValidation;
@@ -35,7 +34,7 @@ internal class UpdateTimeLogCommandHandler(IValidator<UpdateTimeLogRequest> _val
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "TimeLog updated successfully", Data: timeLog);
+        return new ServerResponse(IsSuccess: true, Message: "TimeLog updated successfully", Data: timeLogEntity);
     }
 }
 

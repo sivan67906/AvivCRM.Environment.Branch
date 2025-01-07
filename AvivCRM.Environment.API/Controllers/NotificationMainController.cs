@@ -17,37 +17,35 @@ public class NotificationMainController : ControllerBase
     private readonly ISender _sender;
     public NotificationMainController(ISender sender) => _sender = sender;
 
-    [HttpGet("byid")]
-    public async Task<IActionResult> GetByIdAsync(Guid Id)
-    {
-        var result = await _sender.Send(new GetNotificationMainByIdQuery(Id));
-        return Ok(result);
-    }
-
-
-    [HttpPost("create")]
-    public async Task<IActionResult> CreateAsync(CreateNotificationMainRequest notificationMain)
-    {
-        var result = await _sender.Send(new CreateNotificationMainCommand(notificationMain));
-        return Ok(result);
-    }
-
-    [HttpPut("update")]
-    public async Task<IActionResult> UpdateAsync(UpdateNotificationMainRequest notificationMain)
-    {
-        var result = await _sender.Send(new UpdateNotificationMainCommand(notificationMain));
-        return Ok(result);
-    }
-
-    [HttpGet("all")]
+    [HttpGet("all-notificationmain")]
     public async Task<IActionResult> GetAllAsync()
     {
         var notificationMainList = await _sender.Send(new GetAllNotificationMainQuery());
         return Ok(notificationMainList);
     }
 
+    [HttpGet("byid-notificationmain")]
+    public async Task<IActionResult> GetByIdAsync(Guid Id)
+    {
+        var result = await _sender.Send(new GetNotificationMainByIdQuery(Id));
+        return Ok(result);
+    }
 
-    [HttpDelete("delete")]
+    [HttpPost("create-notificationmain")]
+    public async Task<IActionResult> CreateAsync(CreateNotificationMainRequest notificationMain)
+    {
+        var result = await _sender.Send(new CreateNotificationMainCommand(notificationMain));
+        return Ok(result);
+    }
+
+    [HttpPut("update-notificationmain")]
+    public async Task<IActionResult> UpdateAsync(UpdateNotificationMainRequest notificationMain)
+    {
+        var result = await _sender.Send(new UpdateNotificationMainCommand(notificationMain));
+        return Ok(result);
+    }
+
+    [HttpDelete("delete-notificationmain")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
         var result = await _sender.Send(new DeleteNotificationMainCommand(Id));

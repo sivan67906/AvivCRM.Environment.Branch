@@ -1,6 +1,5 @@
 using AutoMapper;
 using AvivCRM.Environment.Domain.Contracts;
-using AvivCRM.Environment.Domain.Contracts;
 using AvivCRM.Environment.Domain.Entities;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
@@ -29,7 +28,7 @@ internal class DeleteNotificationMainCommandHandler(INotificationMain _notificat
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Notification Main deleted successfully", Data: notificationMain);
+        return new ServerResponse(IsSuccess: true, Message: "Notification Main deleted successfully", Data: delMapEntity);
     }
 }
 

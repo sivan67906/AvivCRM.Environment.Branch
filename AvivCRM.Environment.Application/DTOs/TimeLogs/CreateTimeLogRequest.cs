@@ -5,7 +5,7 @@ public class CreateTimeLogRequest : TimeLogBaseModel
     public bool IsTimeTrackerReminderEnabled { get; set; }
     public string? TLTime { get; set; }
     public bool IsDailyTimeLogReportEnabled { get; set; }
-    public int RoleId { get; set; }
+    public Guid RoleId { get; set; }
 }
 
 
