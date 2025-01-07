@@ -44,11 +44,13 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
     public DbSet<Client> Clients => Set<Client>();
     public DbSet<Employee> Employees => Set<Employee>();
     public DbSet<AttendanceSetting> AttendanceSettings => Set<AttendanceSetting>();
-    public DbSet<BillOrder> BillOrders => Set<BillOrder>();
-    public DbSet<PurchaseOrder> PurchaseOrders => Set<PurchaseOrder>();
-    public DbSet<VendorCredit> VendorCredits => Set<VendorCredit>();
+    //public DbSet<BillOrder> BillOrders => Set<BillOrder>();
+    //public DbSet<PurchaseOrder> PurchaseOrders => Set<PurchaseOrder>();
+    //public DbSet<VendorCredit> VendorCredits => Set<VendorCredit>();
     public DbSet<FinanceInvoiceSetting> FinanceInvoiceSettings => Set<FinanceInvoiceSetting>();
     public DbSet<Language> Languages => Set<Language>();
+    public DbSet<PurchaseSetting> PurchaseSettings => Set<PurchaseSetting>();
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -94,10 +96,11 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
         modelBuilder.Entity<Client>().ToTable("tblClient");
         modelBuilder.Entity<Employee>().ToTable("tblEmployee");
         modelBuilder.Entity<AttendanceSetting>().ToTable("tblAttendanceSetting");
-        modelBuilder.Entity<BillOrder>().ToTable("tblBillOrder");
-        modelBuilder.Entity<PurchaseOrder>().ToTable("tblPurchaseOrder");
-        modelBuilder.Entity<VendorCredit>().ToTable("tblVendorCredit");
+        //modelBuilder.Entity<BillOrder>().ToTable("tblBillOrder");
+        //modelBuilder.Entity<PurchaseOrder>().ToTable("tblPurchaseOrder");
+        //modelBuilder.Entity<VendorCredit>().ToTable("tblVendorCredit");
         modelBuilder.Entity<FinanceInvoiceSetting>().ToTable("tblFinanceInvoiceSetting");
         modelBuilder.Entity<Language>().ToTable("tblLanguage");
+        modelBuilder.Entity<PurchaseSetting>().ToTable("tblPurchaseSetting");
     }
 }

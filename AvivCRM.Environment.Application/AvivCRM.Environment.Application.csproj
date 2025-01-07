@@ -7,14 +7,32 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DTOs\BillOrders\**" />
     <Compile Remove="DTOs\CustomQuestionPositions\**" />
+    <Compile Remove="DTOs\PurchaseOrders\**" />
+    <Compile Remove="DTOs\VendorCredits\**" />
+    <Compile Remove="Features\BillOrders\**" />
     <Compile Remove="Features\CustomQuestionPositions\**" />
+    <Compile Remove="Features\PurchaseOrders\**" />
+    <Compile Remove="Features\VendorCredits\**" />
     <Compile Remove="Feature\**" />
+    <EmbeddedResource Remove="DTOs\BillOrders\**" />
     <EmbeddedResource Remove="DTOs\CustomQuestionPositions\**" />
+    <EmbeddedResource Remove="DTOs\PurchaseOrders\**" />
+    <EmbeddedResource Remove="DTOs\VendorCredits\**" />
+    <EmbeddedResource Remove="Features\BillOrders\**" />
     <EmbeddedResource Remove="Features\CustomQuestionPositions\**" />
+    <EmbeddedResource Remove="Features\PurchaseOrders\**" />
+    <EmbeddedResource Remove="Features\VendorCredits\**" />
     <EmbeddedResource Remove="Feature\**" />
+    <None Remove="DTOs\BillOrders\**" />
     <None Remove="DTOs\CustomQuestionPositions\**" />
+    <None Remove="DTOs\PurchaseOrders\**" />
+    <None Remove="DTOs\VendorCredits\**" />
+    <None Remove="Features\BillOrders\**" />
     <None Remove="Features\CustomQuestionPositions\**" />
+    <None Remove="Features\PurchaseOrders\**" />
+    <None Remove="Features\VendorCredits\**" />
     <None Remove="Feature\**" />
   </ItemGroup>
 

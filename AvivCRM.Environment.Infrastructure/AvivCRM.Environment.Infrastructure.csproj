@@ -6,6 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Repositories\BillOrderRepository.cs" />
+    <Compile Remove="Repositories\PurchaseOrderRepository.cs" />
+    <Compile Remove="Repositories\VendorCreditRepository.cs" />
+  </ItemGroup>
+
     <ItemGroup>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0">
             <PrivateAssets>all</PrivateAssets>

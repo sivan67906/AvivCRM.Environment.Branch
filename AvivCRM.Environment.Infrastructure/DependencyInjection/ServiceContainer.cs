@@ -60,11 +60,12 @@ public static class ServiceContainer
         services.AddScoped<IClient, ClientRepository>();
         services.AddScoped<IEmployee, EmployeeRepository>();
         services.AddScoped<IAttendanceSetting, AttendanceSettingRepository>();
-        services.AddScoped<IBillOrder, BillOrderRepository>();
-        services.AddScoped<IPurchaseOrder, PurchaseOrderRepository>();
-        services.AddScoped<IVendorCredit, VendorCreditRepository>();
+        //services.AddScoped<IBillOrder, BillOrderRepository>();
+        //services.AddScoped<IPurchaseOrder, PurchaseOrderRepository>();
+        //services.AddScoped<IVendorCredit, VendorCreditRepository>();
         services.AddScoped<IFinanceInvoiceSetting, FinanceInvoiceSettingRepository>();
         services.AddScoped<ILanguage, LanguageRepository>();
+        services.AddScoped<IPurchaseSetting, PurchaseSettingRepository>();
 
         return services;
     }
