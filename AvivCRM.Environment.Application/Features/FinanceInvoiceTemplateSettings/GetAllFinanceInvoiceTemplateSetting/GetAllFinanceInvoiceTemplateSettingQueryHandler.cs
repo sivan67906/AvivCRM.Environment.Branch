@@ -14,10 +14,10 @@ internal class GetAllFinanceInvoiceTemplateSettingQueryHandler(IFinanceInvoiceTe
         if (financeInvoiceTemplateSetting is null) return new ServerResponse(Message: "No Finance Invoice Template Setting Found");
 
         // Map the plan types to the response
-        var leadSourcResponse = mapper.Map<IEnumerable<GetFinanceInvoiceTemplateSetting>>(financeInvoiceTemplateSetting);
-        if (leadSourcResponse is null) return new ServerResponse(Message: "Finance Invoice Template Setting Not Found");
+        var financeInvoiceTemplateResponse = mapper.Map<IEnumerable<GetFinanceInvoiceTemplateSetting>>(financeInvoiceTemplateSetting);
+        if (financeInvoiceTemplateResponse is null) return new ServerResponse(Message: "Finance Invoice Template Setting Not Found");
 
-        return new ServerResponse(IsSuccess: true, Message: "List of Finance Invoice Template Settings", Data: leadSourcResponse);
+        return new ServerResponse(IsSuccess: true, Message: "List of Finance Invoice Template Settings", Data: financeInvoiceTemplateResponse);
     }
 }
 

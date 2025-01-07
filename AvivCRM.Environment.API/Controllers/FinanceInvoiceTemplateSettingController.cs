@@ -17,35 +17,35 @@ public class FinanceInvoiceTemplateSettingController : ControllerBase
     private readonly ISender _sender;
     public FinanceInvoiceTemplateSettingController(ISender sender) => _sender = sender;
 
-    [HttpGet("byid")]
-    public async Task<IActionResult> GetByIdAsync(Guid Id)
-    {
-        var result = await _sender.Send(new GetFinanceInvoiceTemplateSettingByIdQuery(Id));
-        return Ok(result);
-    }
-
-    [HttpPost("create")]
-    public async Task<IActionResult> CreateAsync(CreateFinanceInvoiceTemplateSettingRequest financeInvoiceTemplateSetting)
-    {
-        var result = await _sender.Send(new CreateFinanceInvoiceTemplateSettingCommand(financeInvoiceTemplateSetting));
-        return Ok(result);
-    }
-
-    [HttpPut("update")]
-    public async Task<IActionResult> UpdateAsync(UpdateFinanceInvoiceTemplateSettingRequest financeInvoiceTemplateSetting)
-    {
-        var result = await _sender.Send(new UpdateFinanceInvoiceTemplateSettingCommand(financeInvoiceTemplateSetting));
-        return Ok(result);
-    }
-
-    [HttpGet("all")]
+    [HttpGet("all-financeinvoicetemplatesetting")]
     public async Task<IActionResult> GetAllAsync()
     {
         var financeInvoiceTemplateSettingList = await _sender.Send(new GetAllFinanceInvoiceTemplateSettingQuery());
         return Ok(financeInvoiceTemplateSettingList);
     }
 
-    [HttpDelete("delete")]
+    [HttpGet("byid-financeinvoicetemplatesetting")]
+    public async Task<IActionResult> GetByIdAsync(Guid Id)
+    {
+        var result = await _sender.Send(new GetFinanceInvoiceTemplateSettingByIdQuery(Id));
+        return Ok(result);
+    }
+
+    [HttpPost("create-financeinvoicetemplatesetting")]
+    public async Task<IActionResult> CreateAsync(CreateFinanceInvoiceTemplateSettingRequest financeInvoiceTemplateSetting)
+    {
+        var result = await _sender.Send(new CreateFinanceInvoiceTemplateSettingCommand(financeInvoiceTemplateSetting));
+        return Ok(result);
+    }
+
+    [HttpPut("update-financeinvoicetemplatesetting")]
+    public async Task<IActionResult> UpdateAsync(UpdateFinanceInvoiceTemplateSettingRequest financeInvoiceTemplateSetting)
+    {
+        var result = await _sender.Send(new UpdateFinanceInvoiceTemplateSettingCommand(financeInvoiceTemplateSetting));
+        return Ok(result);
+    }
+
+    [HttpDelete("delete-financeinvoicetemplatesetting")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
         var result = await _sender.Send(new DeleteFinanceInvoiceTemplateSettingCommand(Id));

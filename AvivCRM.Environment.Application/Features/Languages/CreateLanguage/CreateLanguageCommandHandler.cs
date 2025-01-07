@@ -17,7 +17,7 @@ internal class CreateLanguageCommandHandler(IValidator<createLanguageRequest> _v
         if (!validate.IsValid) return new ServerResponse(Message: string.Join("; ", validate.Errors.Select(error => error.ErrorMessage)));
 
         // Check if the Language already exists
-        var isAvailable = await _languageRepository.IsAvailableByNameAsync(request.Language.Name!);
+        var isAvailable = await _languageRepository.IsAvailableByNameAsync(request.Language.LanguageName!);
         if (isAvailable) return new ServerResponse(Message: "Language Already Exists");
 
         // Map the request to the entity

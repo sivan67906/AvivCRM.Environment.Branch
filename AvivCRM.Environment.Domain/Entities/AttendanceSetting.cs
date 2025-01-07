@@ -7,6 +7,6 @@ public sealed class AttendanceSetting : BaseEntity, IEntity
     public string? AttendanceSettingName { get; set; } = default!;
 
     // Navigation Property
-    public ICollection<FinanceInvoiceSetting>? FinanceInvoiceSettings { get; set; }
+    //public ICollection<FinanceInvoiceSetting>? FinanceInvoiceSettings { get; set; }
 
 }

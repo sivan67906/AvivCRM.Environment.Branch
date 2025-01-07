@@ -393,5 +393,25 @@ public class MapperConfig : Profile
         CreateMap<UpdateLanguageRequest, Language>();
         CreateMap<Language, GetLanguage>();
 
+        CreateMap<createLanguageRequest, Language>()
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.LanguageName))
+            .ForMember(dest => dest.Code, opt => opt.MapFrom(src => src.LanguageCode));
+        CreateMap<Language, createLanguageRequest>()
+            .ForMember(dest => dest.LanguageName, opt => opt.MapFrom(src => src.Name))
+            .ForMember(dest => dest.LanguageCode, opt => opt.MapFrom(src => src.Code));
+
+        CreateMap<UpdateLanguageRequest, Language>()
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.LanguageName))
+            .ForMember(dest => dest.Code, opt => opt.MapFrom(src => src.LanguageCode));
+        CreateMap<Language, UpdateLanguageRequest>()
+            .ForMember(dest => dest.LanguageName, opt => opt.MapFrom(src => src.Name))
+            .ForMember(dest => dest.LanguageCode, opt => opt.MapFrom(src => src.Code));
+
+        CreateMap<Language, GetLanguage>()
+            .ForMember(dest => dest.LanguageName, opt => opt.MapFrom(src => src.Name))
+            .ForMember(dest => dest.LanguageCode, opt => opt.MapFrom(src => src.Code));
+        CreateMap<GetLanguage, Language>()
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.LanguageName))
+            .ForMember(dest => dest.Code, opt => opt.MapFrom(src => src.LanguageCode));
     }
 }

@@ -35,7 +35,7 @@ internal class UpdateFinanceInvoiceTemplateSettingCommandHandler(IValidator<Upda
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Finance Invoice Template Setting updated successfully", Data: financeInvoiceTemplateSetting);
+        return new ServerResponse(IsSuccess: true, Message: "Finance Invoice Template Setting updated successfully", Data: financeInvoiceTemplateSettingEntity);
     }
 }
 
