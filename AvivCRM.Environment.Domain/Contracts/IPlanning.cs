@@ -1,7 +1,10 @@
-﻿using AvivCRM.Environment.Domain.Entities;
+﻿#region
+
+using AvivCRM.Environment.Domain.Entities;
+
+#endregion
 
 namespace AvivCRM.Environment.Domain.Contracts;
-
 public interface IPlanning
 {
     void Add(Planning planning);

@@ -1,4 +1,6 @@
-﻿using AvivCRM.Environment.Application.DTOs.Taxes;
+﻿#region
+
+using AvivCRM.Environment.Application.DTOs.Taxes;
 using AvivCRM.Environment.Application.Features.Taxes.CreateTax;
 using AvivCRM.Environment.Application.Features.Taxes.DeleteTax;
 using AvivCRM.Environment.Application.Features.Taxes.GetAllTax;
@@ -7,13 +9,19 @@ using AvivCRM.Environment.Application.Features.Taxes.UpdateTax;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
+#endregion
+
 namespace AvivCRM.Environment.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class TaxController : ControllerBase
 {
     private readonly ISender _sender;
-    public TaxController(ISender sender) => _sender = sender;
+
+    public TaxController(ISender sender)
+    {
+        _sender = sender;
+    }
 
     [HttpGet("all-tax")]
     public async Task<IActionResult> GetAllAsync()

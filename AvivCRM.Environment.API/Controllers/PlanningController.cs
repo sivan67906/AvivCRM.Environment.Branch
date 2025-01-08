@@ -1,4 +1,6 @@
-﻿using AvivCRM.Environment.Application.DTOs.Plannings;
+﻿#region
+
+using AvivCRM.Environment.Application.DTOs.Plannings;
 using AvivCRM.Environment.Application.Features.Plannings.CreatePlanning;
 using AvivCRM.Environment.Application.Features.Plannings.DeletePlanning;
 using AvivCRM.Environment.Application.Features.Plannings.GetAllPlanning;
@@ -7,13 +9,19 @@ using AvivCRM.Environment.Application.Features.Plannings.UpdatePlanning;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
+#endregion
+
 namespace AvivCRM.Environment.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class PlanningController : ControllerBase
 {
     private readonly ISender _sender;
-    public PlanningController(ISender sender) => _sender = sender;
+
+    public PlanningController(ISender sender)
+    {
+        _sender = sender;
+    }
 
     [HttpGet("all-planning")]
     public async Task<IActionResult> GetAllAsync()

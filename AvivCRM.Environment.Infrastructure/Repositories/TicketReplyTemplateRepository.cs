@@ -1,15 +1,13 @@
+#region
+
 using AvivCRM.Environment.Domain.Contracts.Ticket;
 using AvivCRM.Environment.Domain.Entities;
 using AvivCRM.Environment.Infrastructure.Persistence;
 
+#endregion
+
 namespace AvivCRM.Environment.Infrastructure.Repositories;
-public class TicketReplyTemplateRepository(EnvironmentDbContext context) : GenericRepository<TicketReplyTemplate>(context, context.TicketReplyTemplates), ITicketReplyTemplate { }
-
-
-
-
-
-
-
-
-
+public class TicketReplyTemplateRepository(EnvironmentDbContext context)
+    : GenericRepository<TicketReplyTemplate>(context, context.TicketReplyTemplates), ITicketReplyTemplate
+{
+}

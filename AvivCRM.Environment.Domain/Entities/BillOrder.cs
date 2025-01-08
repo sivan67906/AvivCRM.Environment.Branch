@@ -1,4 +1,8 @@
-﻿using AvivCRM.Environment.Domain.Entities.Common;
+﻿#region
+
+using AvivCRM.Environment.Domain.Entities.Common;
+
+#endregion
 
 namespace AvivCRM.Environment.Domain.Entities;
 public sealed class BillOrder : BaseEntity, IEntity

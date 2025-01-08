@@ -1,3 +1,5 @@
+#region
+
 using AvivCRM.Environment.Application.DTOs.Timesheets;
 using AvivCRM.Environment.Application.Features.Timesheets.CreateTimesheet;
 using AvivCRM.Environment.Application.Features.Timesheets.DeleteTimesheet;
@@ -7,15 +9,19 @@ using AvivCRM.Environment.Application.Features.Timesheets.UpdateTimesheet;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AvivCRM.Environment.API.Controllers;
+#endregion
 
+namespace AvivCRM.Environment.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class TimesheetController : ControllerBase
 {
-
     private readonly ISender _sender;
-    public TimesheetController(ISender sender) => _sender = sender;
+
+    public TimesheetController(ISender sender)
+    {
+        _sender = sender;
+    }
 
     [HttpGet("byid")]
     public async Task<IActionResult> GetByIdAsync(Guid Id)

@@ -1,4 +1,6 @@
-﻿using AvivCRM.Environment.Domain.Contracts;
+﻿#region
+
+using AvivCRM.Environment.Domain.Contracts;
 using AvivCRM.Environment.Domain.Contracts.Finance;
 using AvivCRM.Environment.Domain.Contracts.Lead;
 using AvivCRM.Environment.Domain.Contracts.Project;
@@ -11,15 +13,16 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace AvivCRM.Environment.Infrastructure.DependencyInjection;
+#endregion
 
+namespace AvivCRM.Environment.Infrastructure.DependencyInjection;
 public static class ServiceContainer
 {
     public static IServiceCollection AddInfrastructureServices(
         this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<EnvironmentDbContext>(options =>
-        options.UseSqlServer(configuration.GetConnectionString("configurationSettingsCS")));
+            options.UseSqlServer(configuration.GetConnectionString("configurationSettingsCS")));
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<ILeadSource, LeadSourceRepository>();

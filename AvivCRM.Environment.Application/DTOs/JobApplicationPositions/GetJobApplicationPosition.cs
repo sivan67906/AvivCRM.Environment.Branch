@@ -3,20 +3,3 @@ public class GetJobApplicationPosition : JobApplicationPositionBaseModel
 {
     public Guid Id { get; set; }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

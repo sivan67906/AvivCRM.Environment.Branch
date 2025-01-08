@@ -1,3 +1,5 @@
+#region
+
 using AvivCRM.Environment.Application.DTOs.ProjectStatuses;
 using AvivCRM.Environment.Application.Features.ProjectStatuses.CreateProjectStatus;
 using AvivCRM.Environment.Application.Features.ProjectStatuses.DeleteProjectStatus;
@@ -8,15 +10,19 @@ using AvivCRM.Environment.Application.Features.ProjectStatuses.UpdateProjectStat
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AvivCRM.Environment.API.Controllers;
+#endregion
 
+namespace AvivCRM.Environment.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class ProjectStatusController : ControllerBase
 {
-
     private readonly ISender _sender;
-    public ProjectStatusController(ISender sender) => _sender = sender;
+
+    public ProjectStatusController(ISender sender)
+    {
+        _sender = sender;
+    }
 
     [HttpGet("all-projectstatus")]
     public async Task<IActionResult> GetAllAsync()

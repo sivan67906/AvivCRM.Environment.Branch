@@ -10,12 +10,3 @@ public class GetRecruitCustomQuestionSetting : RecruitCustomQuestionSettingBaseM
     public int CQStatusName { get; set; }
     public int CQIsRequiredId { get; set; }
 }
-
-
-
-
-
-
-
-
-

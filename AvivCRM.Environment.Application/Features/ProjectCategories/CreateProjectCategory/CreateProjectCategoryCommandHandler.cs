@@ -1,3 +1,5 @@
+#region
+
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.ProjectCategories;
 using AvivCRM.Environment.Domain.Contracts;
@@ -7,13 +9,16 @@ using AvivCRM.Environment.Domain.Responses;
 using FluentValidation;
 using MediatR;
 
-namespace AvivCRM.Environment.Application.Features.ProjectCategories.CreateProjectCategory;
+#endregion
 
-internal class CreateProjectCategoryCommandHandler(IValidator<CreateProjectCategoryRequest> validator,
-    IProjectCategory _projectCategoryRepository, IUnitOfWork _unitOfWork, IMapper mapper)
+namespace AvivCRM.Environment.Application.Features.ProjectCategories.CreateProjectCategory;
+internal class CreateProjectCategoryCommandHandler(
+    IValidator<CreateProjectCategoryRequest> validator,
+    IProjectCategory _projectCategoryRepository,
+    IUnitOfWork _unitOfWork,
+    IMapper mapper)
     : IRequestHandler<CreateProjectCategoryCommand, ServerResponse>
 {
-
     public async Task<ServerResponse> Handle(CreateProjectCategoryCommand request, CancellationToken cancellationToken)
     {
         var validate = await validator.ValidateAsync(request.ProjectCategory);
@@ -32,20 +37,9 @@ internal class CreateProjectCategoryCommandHandler(IValidator<CreateProjectCateg
         }
         catch (Exception ex)
         {
-            return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
+            return new ServerResponse(Message: "Error Occured: " + ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Project Category created successfully", Data: projectCategoryEntity);
+        return new ServerResponse(true, "Project Category created successfully", projectCategoryEntity);
     }
 }
-
-
-
-
-
-
-
-
-
-
-

@@ -1,4 +1,6 @@
-﻿using AvivCRM.Environment.Application.DTOs.LeadStatus;
+﻿#region
+
+using AvivCRM.Environment.Application.DTOs.LeadStatus;
 using AvivCRM.Environment.Application.Features.LeadStatuss.CreateLeadStatus;
 using AvivCRM.Environment.Application.Features.LeadStatuss.DeleteLeadStatus;
 using AvivCRM.Environment.Application.Features.LeadStatuss.GetAllLeadStatus;
@@ -7,13 +9,19 @@ using AvivCRM.Environment.Application.Features.LeadStatuss.UpdateLeadStatus;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
+#endregion
+
 namespace AvivCRM.Environment.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class LeadStatusController : ControllerBase
 {
     private readonly ISender _sender;
-    public LeadStatusController(ISender sender) => _sender = sender;
+
+    public LeadStatusController(ISender sender)
+    {
+        _sender = sender;
+    }
 
     [HttpGet("all-leadstatus")]
     public async Task<IActionResult> GetAllAsync()

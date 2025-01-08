@@ -1,5 +1,9 @@
-﻿using AvivCRM.Environment.Application.DTOs.FinanceInvoiceSettings;
+﻿#region
+
+using AvivCRM.Environment.Application.DTOs.FinanceInvoiceSettings;
 using FluentValidation;
+
+#endregion
 
 namespace AvivCRM.Environment.Application.Features.FinanceInvoiceSettings.CreateFinanceInvoiceSetting;
 public class CreateFinanceInvoiceSettingCommandValidator : AbstractValidator<CreateFinanceInvoiceSettingRequest>
@@ -8,6 +12,5 @@ public class CreateFinanceInvoiceSettingCommandValidator : AbstractValidator<Cre
     {
         RuleFor(x => x.FIDueAfter)
             .NotEmpty().WithMessage("Finance Invoice Setting date should not be empty");
-
     }
 }

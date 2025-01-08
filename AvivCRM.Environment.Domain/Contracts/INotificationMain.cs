@@ -1,4 +1,8 @@
+#region
+
 using AvivCRM.Environment.Domain.Entities;
+
+#endregion
 
 namespace AvivCRM.Environment.Domain.Contracts;
 public interface INotificationMain
@@ -10,12 +14,3 @@ public interface INotificationMain
     Task<IEnumerable<NotificationMain>> GetAllAsync();
     Task<bool> IsAvailableByNameAsync(string notificationMainName);
 }
-
-
-
-
-
-
-
-
-

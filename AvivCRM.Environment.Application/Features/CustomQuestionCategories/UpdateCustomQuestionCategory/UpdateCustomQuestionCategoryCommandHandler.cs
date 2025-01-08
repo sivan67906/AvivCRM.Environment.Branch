@@ -1,3 +1,5 @@
+#region
+
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.CustomQuestionCategories;
 using AvivCRM.Environment.Domain.Contracts;
@@ -7,19 +9,32 @@ using AvivCRM.Environment.Domain.Responses;
 using FluentValidation;
 using MediatR;
 
-namespace AvivCRM.Environment.Application.Features.CustomQuestionCategories.UpdateCustomQuestionCategory;
+#endregion
 
-internal class UpdateCustomQuestionCategoryCommandHandler(IValidator<UpdateCustomQuestionCategoryRequest> _validator, ICustomQuestionCategory _customQuestionCategoryRepository, IUnitOfWork _unitOfWork, IMapper mapper) : IRequestHandler<UpdateCustomQuestionCategoryCommand, ServerResponse>
+namespace AvivCRM.Environment.Application.Features.CustomQuestionCategories.UpdateCustomQuestionCategory;
+internal class UpdateCustomQuestionCategoryCommandHandler(
+    IValidator<UpdateCustomQuestionCategoryRequest> _validator,
+    ICustomQuestionCategory _customQuestionCategoryRepository,
+    IUnitOfWork _unitOfWork,
+    IMapper mapper) : IRequestHandler<UpdateCustomQuestionCategoryCommand, ServerResponse>
 {
-    public async Task<ServerResponse> Handle(UpdateCustomQuestionCategoryCommand request, CancellationToken cancellationToken)
+    public async Task<ServerResponse> Handle(UpdateCustomQuestionCategoryCommand request,
+        CancellationToken cancellationToken)
     {
         // Validate Request
         var validate = await _validator.ValidateAsync(request.CustomQuestionCategory);
-        if (!validate.IsValid) return new ServerResponse(Message: string.Join("; ", validate.Errors.Select(error => error.ErrorMessage)));
+        if (!validate.IsValid)
+        {
+            return new ServerResponse(Message: string.Join("; ", validate.Errors.Select(error => error.ErrorMessage)));
+        }
 
         // Check if the plan type exists
-        var customQuestionCategory = await _customQuestionCategoryRepository.GetByIdAsync(request.CustomQuestionCategory.Id);
-        if (customQuestionCategory is null) return new ServerResponse(Message: "Custom Question Category Not Found");
+        var customQuestionCategory =
+            await _customQuestionCategoryRepository.GetByIdAsync(request.CustomQuestionCategory.Id);
+        if (customQuestionCategory is null)
+        {
+            return new ServerResponse(Message: "Custom Question Category Not Found");
+        }
 
         // Map the request to the entity
         var customQuestionCategoryEntity = mapper.Map<CustomQuestionCategory>(request.CustomQuestionCategory);
@@ -35,15 +50,6 @@ internal class UpdateCustomQuestionCategoryCommandHandler(IValidator<UpdateCusto
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Custom Question Category updated successfully", Data: customQuestionCategory);
+        return new ServerResponse(true, "Custom Question Category updated successfully", customQuestionCategory);
     }
 }
-
-
-
-
-
-
-
-
-

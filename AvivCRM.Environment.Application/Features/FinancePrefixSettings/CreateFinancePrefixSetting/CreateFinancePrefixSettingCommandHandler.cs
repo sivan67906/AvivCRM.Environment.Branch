@@ -1,3 +1,5 @@
+#region
+
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.FinancePrefixSettings;
 using AvivCRM.Environment.Domain.Contracts;
@@ -7,14 +9,18 @@ using AvivCRM.Environment.Domain.Responses;
 using FluentValidation;
 using MediatR;
 
-namespace AvivCRM.Environment.Application.Features.FinancePrefixSettings.CreateFinancePrefixSetting;
+#endregion
 
-internal class CreateFinancePrefixSettingCommandHandler(IValidator<CreateFinancePrefixSettingRequest> validator,
-    IFinancePrefixSetting _financePrefixSettingRepository, IUnitOfWork _unitOfWork, IMapper mapper)
+namespace AvivCRM.Environment.Application.Features.FinancePrefixSettings.CreateFinancePrefixSetting;
+internal class CreateFinancePrefixSettingCommandHandler(
+    IValidator<CreateFinancePrefixSettingRequest> validator,
+    IFinancePrefixSetting _financePrefixSettingRepository,
+    IUnitOfWork _unitOfWork,
+    IMapper mapper)
     : IRequestHandler<CreateFinancePrefixSettingCommand, ServerResponse>
 {
-
-    public async Task<ServerResponse> Handle(CreateFinancePrefixSettingCommand request, CancellationToken cancellationToken)
+    public async Task<ServerResponse> Handle(CreateFinancePrefixSettingCommand request,
+        CancellationToken cancellationToken)
     {
         var validate = await validator.ValidateAsync(request.FinancePrefixSetting);
         if (!validate.IsValid)
@@ -32,20 +38,9 @@ internal class CreateFinancePrefixSettingCommandHandler(IValidator<CreateFinance
         }
         catch (Exception ex)
         {
-            return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
+            return new ServerResponse(Message: "Error Occured: " + ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Finance Prefix Setting created successfully", Data: financePrefixSettingEntity);
+        return new ServerResponse(true, "Finance Prefix Setting created successfully", financePrefixSettingEntity);
     }
 }
-
-
-
-
-
-
-
-
-
-
-

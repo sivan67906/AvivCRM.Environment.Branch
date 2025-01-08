@@ -1,3 +1,5 @@
+#region
+
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.FinanceInvoiceTemplateSettings;
 using AvivCRM.Environment.Domain.Contracts;
@@ -7,14 +9,18 @@ using AvivCRM.Environment.Domain.Responses;
 using FluentValidation;
 using MediatR;
 
-namespace AvivCRM.Environment.Application.Features.FinanceInvoiceTemplateSettings.CreateFinanceInvoiceTemplateSetting;
+#endregion
 
-internal class CreateFinanceInvoiceTemplateSettingCommandHandler(IValidator<CreateFinanceInvoiceTemplateSettingRequest> validator,
-    IFinanceInvoiceTemplateSetting _financeInvoiceTemplateSettingRepository, IUnitOfWork _unitOfWork, IMapper mapper)
+namespace AvivCRM.Environment.Application.Features.FinanceInvoiceTemplateSettings.CreateFinanceInvoiceTemplateSetting;
+internal class CreateFinanceInvoiceTemplateSettingCommandHandler(
+    IValidator<CreateFinanceInvoiceTemplateSettingRequest> validator,
+    IFinanceInvoiceTemplateSetting _financeInvoiceTemplateSettingRepository,
+    IUnitOfWork _unitOfWork,
+    IMapper mapper)
     : IRequestHandler<CreateFinanceInvoiceTemplateSettingCommand, ServerResponse>
 {
-
-    public async Task<ServerResponse> Handle(CreateFinanceInvoiceTemplateSettingCommand request, CancellationToken cancellationToken)
+    public async Task<ServerResponse> Handle(CreateFinanceInvoiceTemplateSettingCommand request,
+        CancellationToken cancellationToken)
     {
         var validate = await validator.ValidateAsync(request.FinanceInvoiceTemplateSetting);
         if (!validate.IsValid)
@@ -23,7 +29,8 @@ internal class CreateFinanceInvoiceTemplateSettingCommandHandler(IValidator<Crea
             return new ServerResponse(Message: errorList);
         }
 
-        var financeInvoiceTemplateSettingEntity = mapper.Map<FinanceInvoiceTemplateSetting>(request.FinanceInvoiceTemplateSetting);
+        var financeInvoiceTemplateSettingEntity =
+            mapper.Map<FinanceInvoiceTemplateSetting>(request.FinanceInvoiceTemplateSetting);
 
         try
         {
@@ -32,20 +39,10 @@ internal class CreateFinanceInvoiceTemplateSettingCommandHandler(IValidator<Crea
         }
         catch (Exception ex)
         {
-            return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
+            return new ServerResponse(Message: "Error Occured: " + ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Finance Invoice Template Setting created successfully", Data: financeInvoiceTemplateSettingEntity);
+        return new ServerResponse(true, "Finance Invoice Template Setting created successfully",
+            financeInvoiceTemplateSettingEntity);
     }
 }
-
-
-
-
-
-
-
-
-
-
-

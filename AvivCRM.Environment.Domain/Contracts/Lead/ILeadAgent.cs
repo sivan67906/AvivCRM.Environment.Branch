@@ -1,4 +1,8 @@
-﻿using AvivCRM.Environment.Domain.Entities;
+﻿#region
+
+using AvivCRM.Environment.Domain.Entities;
+
+#endregion
 
 namespace AvivCRM.Environment.Domain.Contracts.Lead;
 public interface ILeadAgent

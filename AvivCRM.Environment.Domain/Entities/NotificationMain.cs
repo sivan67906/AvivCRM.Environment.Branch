@@ -1,4 +1,8 @@
+#region
+
 using AvivCRM.Environment.Domain.Entities.Common;
+
+#endregion
 
 namespace AvivCRM.Environment.Domain.Entities;
 public sealed class NotificationMain : BaseEntity, IEntity
@@ -14,12 +18,3 @@ public sealed class NotificationMain : BaseEntity, IEntity
     public string? ReminderNotificationMainJson { get; set; }
     public string? RequestNotificationMainJson { get; set; }
 }
-
-
-
-
-
-
-
-
-

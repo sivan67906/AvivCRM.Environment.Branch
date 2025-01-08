@@ -1,8 +1,11 @@
-﻿using AvivCRM.Environment.Domain.Entities;
+﻿#region
+
+using AvivCRM.Environment.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace AvivCRM.Environment.Infrastructure.Persistence;
+#endregion
 
+namespace AvivCRM.Environment.Infrastructure.Persistence;
 public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options)
     : DbContext(options)
 {
@@ -32,7 +35,10 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
     public DbSet<RecruitCustomQuestionSetting> RecruitCustomQuestionSettings => Set<RecruitCustomQuestionSetting>();
     public DbSet<RecruitFooterSetting> RecruitFooterSettings => Set<RecruitFooterSetting>();
     public DbSet<RecruitGeneralSetting> RecruitGeneralSettings => Set<RecruitGeneralSetting>();
-    public DbSet<RecruitJobApplicationStatusSetting> RecruitJobApplicationStatusSettings => Set<RecruitJobApplicationStatusSetting>();
+
+    public DbSet<RecruitJobApplicationStatusSetting> RecruitJobApplicationStatusSettings =>
+        Set<RecruitJobApplicationStatusSetting>();
+
     public DbSet<RecruiterSetting> RecruiterSettings => Set<RecruiterSetting>();
     public DbSet<TimeLog> TimeLogs => Set<TimeLog>();
     public DbSet<Timesheet> Timesheets => Set<Timesheet>();
@@ -43,7 +49,9 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
     public DbSet<Tax> Taxs => Set<Tax>();
     public DbSet<Client> Clients => Set<Client>();
     public DbSet<Employee> Employees => Set<Employee>();
+
     public DbSet<AttendanceSetting> AttendanceSettings => Set<AttendanceSetting>();
+
     //public DbSet<BillOrder> BillOrders => Set<BillOrder>();
     //public DbSet<PurchaseOrder> PurchaseOrders => Set<PurchaseOrder>();
     //public DbSet<VendorCredit> VendorCredits => Set<VendorCredit>();

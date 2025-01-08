@@ -1,4 +1,8 @@
+#region
+
 using AvivCRM.Environment.Domain.Entities;
+
+#endregion
 
 namespace AvivCRM.Environment.Domain.Contracts.Ticket;
 public interface ITicketReplyTemplate
@@ -10,12 +14,3 @@ public interface ITicketReplyTemplate
     Task<IEnumerable<TicketReplyTemplate>> GetAllAsync();
     Task<bool> IsAvailableByNameAsync(string ticketReplyTemplateName);
 }
-
-
-
-
-
-
-
-
-

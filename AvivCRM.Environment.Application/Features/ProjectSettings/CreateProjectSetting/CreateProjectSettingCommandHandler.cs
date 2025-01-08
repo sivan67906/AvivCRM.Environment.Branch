@@ -1,3 +1,5 @@
+#region
+
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.ProjectSettings;
 using AvivCRM.Environment.Domain.Contracts;
@@ -7,13 +9,16 @@ using AvivCRM.Environment.Domain.Responses;
 using FluentValidation;
 using MediatR;
 
-namespace AvivCRM.Environment.Application.Features.ProjectSettings.CreateProjectSetting;
+#endregion
 
-internal class CreateProjectSettingCommandHandler(IValidator<CreateProjectSettingRequest> validator,
-    IProjectSetting _projectSettingRepository, IUnitOfWork _unitOfWork, IMapper mapper)
+namespace AvivCRM.Environment.Application.Features.ProjectSettings.CreateProjectSetting;
+internal class CreateProjectSettingCommandHandler(
+    IValidator<CreateProjectSettingRequest> validator,
+    IProjectSetting _projectSettingRepository,
+    IUnitOfWork _unitOfWork,
+    IMapper mapper)
     : IRequestHandler<CreateProjectSettingCommand, ServerResponse>
 {
-
     public async Task<ServerResponse> Handle(CreateProjectSettingCommand request, CancellationToken cancellationToken)
     {
         var validate = await validator.ValidateAsync(request.ProjectSetting);
@@ -32,20 +37,9 @@ internal class CreateProjectSettingCommandHandler(IValidator<CreateProjectSettin
         }
         catch (Exception ex)
         {
-            return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
+            return new ServerResponse(Message: "Error Occured: " + ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Project Setting created successfully", Data: projectSettingEntity);
+        return new ServerResponse(true, "Project Setting created successfully", projectSettingEntity);
     }
 }
-
-
-
-
-
-
-
-
-
-
-

@@ -3,12 +3,3 @@ public class UpdateProjectCategoryRequest : ProjectCategoryBaseModel
 {
     public Guid Id { get; set; }
 }
-
-
-
-
-
-
-
-
-

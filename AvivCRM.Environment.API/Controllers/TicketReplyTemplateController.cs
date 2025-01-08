@@ -1,3 +1,5 @@
+#region
+
 using AvivCRM.Environment.Application.DTOs.TicketReplyTemplates;
 using AvivCRM.Environment.Application.Features.TicketReplyTemplates.CreateTicketReplyTemplate;
 using AvivCRM.Environment.Application.Features.TicketReplyTemplates.DeleteTicketReplyTemplate;
@@ -7,15 +9,19 @@ using AvivCRM.Environment.Application.Features.TicketReplyTemplates.UpdateTicket
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AvivCRM.Environment.API.Controllers;
+#endregion
 
+namespace AvivCRM.Environment.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class TicketReplyTemplateController : ControllerBase
 {
-
     private readonly ISender _sender;
-    public TicketReplyTemplateController(ISender sender) => _sender = sender;
+
+    public TicketReplyTemplateController(ISender sender)
+    {
+        _sender = sender;
+    }
 
     [HttpGet("all-ticketreplytemplate")]
     public async Task<IActionResult> GetAllAsync()

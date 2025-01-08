@@ -3,12 +3,3 @@ public abstract class CustomQuestionTypeBaseModel
 {
     public string CQTypeName { get; set; } = default!; // default! or required 
 }
-
-
-
-
-
-
-
-
-

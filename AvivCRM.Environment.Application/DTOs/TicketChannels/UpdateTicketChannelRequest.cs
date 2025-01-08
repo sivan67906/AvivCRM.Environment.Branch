@@ -3,12 +3,3 @@ public class UpdateTicketChannelRequest : TicketChannelBaseModel
 {
     public Guid Id { get; set; }
 }
-
-
-
-
-
-
-
-
-

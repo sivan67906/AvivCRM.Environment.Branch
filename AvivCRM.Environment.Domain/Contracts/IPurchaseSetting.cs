@@ -1,4 +1,8 @@
+#region
+
 using AvivCRM.Environment.Domain.Entities;
+
+#endregion
 
 namespace AvivCRM.Environment.Domain.Contracts.Purchase;
 public interface IPurchaseSetting
@@ -10,16 +14,3 @@ public interface IPurchaseSetting
     Task<IEnumerable<PurchaseSetting>> GetAllAsync();
     Task<bool> IsAvailableByNameAsync(string purchaseSettingName);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

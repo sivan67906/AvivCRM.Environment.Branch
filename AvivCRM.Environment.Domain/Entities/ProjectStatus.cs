@@ -1,4 +1,8 @@
+#region
+
 using AvivCRM.Environment.Domain.Entities.Common;
+
+#endregion
 
 namespace AvivCRM.Environment.Domain.Entities;
 public sealed class ProjectStatus : BaseEntity, IEntity
@@ -8,12 +12,3 @@ public sealed class ProjectStatus : BaseEntity, IEntity
     public bool IsDefaultStatus { get; set; }
     public bool Status { get; set; }
 }
-
-
-
-
-
-
-
-
-

@@ -1,3 +1,5 @@
+#region
+
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.JobApplicationCategories;
 using AvivCRM.Environment.Domain.Contracts;
@@ -7,14 +9,18 @@ using AvivCRM.Environment.Domain.Responses;
 using FluentValidation;
 using MediatR;
 
-namespace AvivCRM.Environment.Application.Features.JobApplicationCategories.CreateJobApplicationCategory;
+#endregion
 
-internal class CreateJobApplicationCategoryCommandHandler(IValidator<CreateJobApplicationCategoryRequest> validator,
-    IJobApplicationCategory _jobApplicationCategoryRepository, IUnitOfWork _unitOfWork, IMapper mapper)
+namespace AvivCRM.Environment.Application.Features.JobApplicationCategories.CreateJobApplicationCategory;
+internal class CreateJobApplicationCategoryCommandHandler(
+    IValidator<CreateJobApplicationCategoryRequest> validator,
+    IJobApplicationCategory _jobApplicationCategoryRepository,
+    IUnitOfWork _unitOfWork,
+    IMapper mapper)
     : IRequestHandler<CreateJobApplicationCategoryCommand, ServerResponse>
 {
-
-    public async Task<ServerResponse> Handle(CreateJobApplicationCategoryCommand request, CancellationToken cancellationToken)
+    public async Task<ServerResponse> Handle(CreateJobApplicationCategoryCommand request,
+        CancellationToken cancellationToken)
     {
         var validate = await validator.ValidateAsync(request.JobApplicationCategory);
         if (!validate.IsValid)
@@ -32,20 +38,9 @@ internal class CreateJobApplicationCategoryCommandHandler(IValidator<CreateJobAp
         }
         catch (Exception ex)
         {
-            return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
+            return new ServerResponse(Message: "Error Occured: " + ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Job Application Category created successfully", Data: jobApplicationCategoryEntity);
+        return new ServerResponse(true, "Job Application Category created successfully", jobApplicationCategoryEntity);
     }
 }
-
-
-
-
-
-
-
-
-
-
-

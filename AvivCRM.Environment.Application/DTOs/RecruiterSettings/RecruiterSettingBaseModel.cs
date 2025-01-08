@@ -3,12 +3,3 @@ public abstract class RecruiterSettingBaseModel
 {
     public string? RecruiterName { get; set; } = default!; // default! or required 
 }
-
-
-
-
-
-
-
-
-

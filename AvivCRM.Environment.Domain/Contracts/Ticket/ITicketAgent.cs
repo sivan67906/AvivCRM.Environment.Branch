@@ -1,4 +1,8 @@
+#region
+
 using AvivCRM.Environment.Domain.Entities;
+
+#endregion
 
 namespace AvivCRM.Environment.Domain.Contracts.Ticket;
 public interface ITicketAgent
@@ -10,12 +14,3 @@ public interface ITicketAgent
     Task<IEnumerable<TicketAgent>> GetAllAsync();
     Task<bool> IsAvailableByNameAsync(string ticketAgentName);
 }
-
-
-
-
-
-
-
-
-

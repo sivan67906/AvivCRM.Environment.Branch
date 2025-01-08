@@ -8,12 +8,3 @@ public class GetTimeLog : TimeLogBaseModel
     public bool IsDailyTimeLogReportEnabled { get; set; }
     public Guid RoleId { get; set; }
 }
-
-
-
-
-
-
-
-
-

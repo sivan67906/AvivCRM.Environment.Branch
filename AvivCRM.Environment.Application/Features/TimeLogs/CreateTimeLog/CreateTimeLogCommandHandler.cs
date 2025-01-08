@@ -1,19 +1,23 @@
+#region
+
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.TimeLogs;
-using AvivCRM.Environment.Domain.Contracts;
 using AvivCRM.Environment.Domain.Contracts;
 using AvivCRM.Environment.Domain.Entities;
 using AvivCRM.Environment.Domain.Responses;
 using FluentValidation;
 using MediatR;
 
-namespace AvivCRM.Environment.Application.Features.TimeLogs.CreateTimeLog;
+#endregion
 
-internal class CreateTimeLogCommandHandler(IValidator<CreateTimeLogRequest> validator,
-    ITimeLog _timeLogRepository, IUnitOfWork _unitOfWork, IMapper mapper)
+namespace AvivCRM.Environment.Application.Features.TimeLogs.CreateTimeLog;
+internal class CreateTimeLogCommandHandler(
+    IValidator<CreateTimeLogRequest> validator,
+    ITimeLog _timeLogRepository,
+    IUnitOfWork _unitOfWork,
+    IMapper mapper)
     : IRequestHandler<CreateTimeLogCommand, ServerResponse>
 {
-
     public async Task<ServerResponse> Handle(CreateTimeLogCommand request, CancellationToken cancellationToken)
     {
         var validate = await validator.ValidateAsync(request.TimeLog);
@@ -32,20 +36,9 @@ internal class CreateTimeLogCommandHandler(IValidator<CreateTimeLogRequest> vali
         }
         catch (Exception ex)
         {
-            return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
+            return new ServerResponse(Message: "Error Occured: " + ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "TimeLog created successfully", Data: timeLogEntity);
+        return new ServerResponse(true, "TimeLog created successfully", timeLogEntity);
     }
 }
-
-
-
-
-
-
-
-
-
-
-

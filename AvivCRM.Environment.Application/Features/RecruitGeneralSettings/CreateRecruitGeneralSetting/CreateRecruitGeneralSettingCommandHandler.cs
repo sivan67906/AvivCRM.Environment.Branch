@@ -1,3 +1,5 @@
+#region
+
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.RecruitGeneralSettings;
 using AvivCRM.Environment.Domain.Contracts;
@@ -7,14 +9,18 @@ using AvivCRM.Environment.Domain.Responses;
 using FluentValidation;
 using MediatR;
 
-namespace AvivCRM.Environment.Application.Features.RecruitGeneralSettings.CreateRecruitGeneralSetting;
+#endregion
 
-internal class CreateRecruitGeneralSettingCommandHandler(IValidator<CreateRecruitGeneralSettingRequest> validator,
-    IRecruitGeneralSetting _recruitGeneralSettingRepository, IUnitOfWork _unitOfWork, IMapper mapper)
+namespace AvivCRM.Environment.Application.Features.RecruitGeneralSettings.CreateRecruitGeneralSetting;
+internal class CreateRecruitGeneralSettingCommandHandler(
+    IValidator<CreateRecruitGeneralSettingRequest> validator,
+    IRecruitGeneralSetting _recruitGeneralSettingRepository,
+    IUnitOfWork _unitOfWork,
+    IMapper mapper)
     : IRequestHandler<CreateRecruitGeneralSettingCommand, ServerResponse>
 {
-
-    public async Task<ServerResponse> Handle(CreateRecruitGeneralSettingCommand request, CancellationToken cancellationToken)
+    public async Task<ServerResponse> Handle(CreateRecruitGeneralSettingCommand request,
+        CancellationToken cancellationToken)
     {
         var validate = await validator.ValidateAsync(request.RecruitGeneralSetting);
         if (!validate.IsValid)
@@ -32,20 +38,9 @@ internal class CreateRecruitGeneralSettingCommandHandler(IValidator<CreateRecrui
         }
         catch (Exception ex)
         {
-            return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
+            return new ServerResponse(Message: "Error Occured: " + ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Recruit General Setting created successfully", Data: recruitGeneralSettingEntity);
+        return new ServerResponse(true, "Recruit General Setting created successfully", recruitGeneralSettingEntity);
     }
 }
-
-
-
-
-
-
-
-
-
-
-

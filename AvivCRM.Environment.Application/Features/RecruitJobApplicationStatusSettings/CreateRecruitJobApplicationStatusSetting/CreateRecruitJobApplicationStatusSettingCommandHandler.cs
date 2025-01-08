@@ -1,3 +1,5 @@
+#region
+
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.RecruitJobApplicationStatusSettings;
 using AvivCRM.Environment.Domain.Contracts;
@@ -7,14 +9,19 @@ using AvivCRM.Environment.Domain.Responses;
 using FluentValidation;
 using MediatR;
 
-namespace AvivCRM.Environment.Application.Features.RecruitJobApplicationStatusSettings.CreateRecruitJobApplicationStatusSetting;
+#endregion
 
-internal class CreateRecruitJobApplicationStatusSettingCommandHandler(IValidator<CreateRecruitJobApplicationStatusSettingRequest> validator,
-    IRecruitJobApplicationStatusSetting _recruitJobApplicationStatusSettingRepository, IUnitOfWork _unitOfWork, IMapper mapper)
+namespace AvivCRM.Environment.Application.Features.RecruitJobApplicationStatusSettings.
+    CreateRecruitJobApplicationStatusSetting;
+internal class CreateRecruitJobApplicationStatusSettingCommandHandler(
+    IValidator<CreateRecruitJobApplicationStatusSettingRequest> validator,
+    IRecruitJobApplicationStatusSetting _recruitJobApplicationStatusSettingRepository,
+    IUnitOfWork _unitOfWork,
+    IMapper mapper)
     : IRequestHandler<CreateRecruitJobApplicationStatusSettingCommand, ServerResponse>
 {
-
-    public async Task<ServerResponse> Handle(CreateRecruitJobApplicationStatusSettingCommand request, CancellationToken cancellationToken)
+    public async Task<ServerResponse> Handle(CreateRecruitJobApplicationStatusSettingCommand request,
+        CancellationToken cancellationToken)
     {
         var validate = await validator.ValidateAsync(request.RecruitJobApplicationStatusSetting);
         if (!validate.IsValid)
@@ -23,7 +30,8 @@ internal class CreateRecruitJobApplicationStatusSettingCommandHandler(IValidator
             return new ServerResponse(Message: errorList);
         }
 
-        var recruitJobApplicationStatusSettingEntity = mapper.Map<RecruitJobApplicationStatusSetting>(request.RecruitJobApplicationStatusSetting);
+        var recruitJobApplicationStatusSettingEntity =
+            mapper.Map<RecruitJobApplicationStatusSetting>(request.RecruitJobApplicationStatusSetting);
 
         try
         {
@@ -32,20 +40,10 @@ internal class CreateRecruitJobApplicationStatusSettingCommandHandler(IValidator
         }
         catch (Exception ex)
         {
-            return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
+            return new ServerResponse(Message: "Error Occured: " + ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Recruit JobApplication Status Setting created successfully", Data: recruitJobApplicationStatusSettingEntity);
+        return new ServerResponse(true, "Recruit JobApplication Status Setting created successfully",
+            recruitJobApplicationStatusSettingEntity);
     }
 }
-
-
-
-
-
-
-
-
-
-
-

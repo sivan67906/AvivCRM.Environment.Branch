@@ -1,3 +1,5 @@
+#region
+
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.RecruitGeneralSettings;
 using AvivCRM.Environment.Domain.Contracts;
@@ -7,19 +9,32 @@ using AvivCRM.Environment.Domain.Responses;
 using FluentValidation;
 using MediatR;
 
-namespace AvivCRM.Environment.Application.Features.RecruitGeneralSettings.UpdateRecruitGeneralSetting;
+#endregion
 
-internal class UpdateRecruitGeneralSettingCommandHandler(IValidator<UpdateRecruitGeneralSettingRequest> _validator, IRecruitGeneralSetting _recruitGeneralSettingRepository, IUnitOfWork _unitOfWork, IMapper mapper) : IRequestHandler<UpdateRecruitGeneralSettingCommand, ServerResponse>
+namespace AvivCRM.Environment.Application.Features.RecruitGeneralSettings.UpdateRecruitGeneralSetting;
+internal class UpdateRecruitGeneralSettingCommandHandler(
+    IValidator<UpdateRecruitGeneralSettingRequest> _validator,
+    IRecruitGeneralSetting _recruitGeneralSettingRepository,
+    IUnitOfWork _unitOfWork,
+    IMapper mapper) : IRequestHandler<UpdateRecruitGeneralSettingCommand, ServerResponse>
 {
-    public async Task<ServerResponse> Handle(UpdateRecruitGeneralSettingCommand request, CancellationToken cancellationToken)
+    public async Task<ServerResponse> Handle(UpdateRecruitGeneralSettingCommand request,
+        CancellationToken cancellationToken)
     {
         // Validate Request
         var validate = await _validator.ValidateAsync(request.RecruitGeneralSetting);
-        if (!validate.IsValid) return new ServerResponse(Message: string.Join("; ", validate.Errors.Select(error => error.ErrorMessage)));
+        if (!validate.IsValid)
+        {
+            return new ServerResponse(Message: string.Join("; ", validate.Errors.Select(error => error.ErrorMessage)));
+        }
 
         // Check if the plan type exists
-        var recruitGeneralSetting = await _recruitGeneralSettingRepository.GetByIdAsync(request.RecruitGeneralSetting.Id);
-        if (recruitGeneralSetting is null) return new ServerResponse(Message: "Recruit General Setting Not Found");
+        var recruitGeneralSetting =
+            await _recruitGeneralSettingRepository.GetByIdAsync(request.RecruitGeneralSetting.Id);
+        if (recruitGeneralSetting is null)
+        {
+            return new ServerResponse(Message: "Recruit General Setting Not Found");
+        }
 
         // Map the request to the entity
         var recruitGeneralSettingEntity = mapper.Map<RecruitGeneralSetting>(request.RecruitGeneralSetting);
@@ -35,15 +50,6 @@ internal class UpdateRecruitGeneralSettingCommandHandler(IValidator<UpdateRecrui
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Recruit General Setting updated successfully", Data: recruitGeneralSetting);
+        return new ServerResponse(true, "Recruit General Setting updated successfully", recruitGeneralSetting);
     }
 }
-
-
-
-
-
-
-
-
-

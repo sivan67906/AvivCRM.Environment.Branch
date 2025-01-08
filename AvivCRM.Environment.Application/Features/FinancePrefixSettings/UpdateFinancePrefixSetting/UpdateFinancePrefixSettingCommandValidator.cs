@@ -1,8 +1,11 @@
+#region
+
 using AvivCRM.Environment.Application.DTOs.FinancePrefixSettings;
 using FluentValidation;
 
-namespace AvivCRM.Environment.Application.Features.FinancePrefixSettings.UpdateFinancePrefixSetting;
+#endregion
 
+namespace AvivCRM.Environment.Application.Features.FinancePrefixSettings.UpdateFinancePrefixSetting;
 public class UpdateFinancePrefixSettingCommandValidator : AbstractValidator<UpdateFinancePrefixSettingRequest>
 {
     public UpdateFinancePrefixSettingCommandValidator()
@@ -14,14 +17,3 @@ public class UpdateFinancePrefixSettingCommandValidator : AbstractValidator<Upda
         //            .NotEmpty().WithMessage("Finance Prefix Setting Name should not be empty");
     }
 }
-
-
-
-
-
-
-
-
-
-
-

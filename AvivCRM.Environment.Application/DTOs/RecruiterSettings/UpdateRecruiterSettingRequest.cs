@@ -4,12 +4,3 @@ public class UpdateRecruiterSettingRequest : RecruiterSettingBaseModel
     public Guid Id { get; set; }
     public int RecruiterStatusId { get; set; }
 }
-
-
-
-
-
-
-
-
-

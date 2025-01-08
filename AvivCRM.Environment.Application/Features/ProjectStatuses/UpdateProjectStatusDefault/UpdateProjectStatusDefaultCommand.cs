@@ -1,7 +1,11 @@
-﻿using AvivCRM.Environment.Application.DTOs.ProjectStatuses;
+﻿#region
+
+using AvivCRM.Environment.Application.DTOs.ProjectStatuses;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
 
-namespace AvivCRM.Environment.Application.Features.ProjectStatuses.UpdateProjectStatusDefault;
+#endregion
 
-public record UpdateProjectStatusDefaultCommand(UpdateProjectStatusDefaultRequest ProjectStatus) : IRequest<ServerResponse>;
+namespace AvivCRM.Environment.Application.Features.ProjectStatuses.UpdateProjectStatusDefault;
+public record UpdateProjectStatusDefaultCommand(UpdateProjectStatusDefaultRequest ProjectStatus)
+    : IRequest<ServerResponse>;

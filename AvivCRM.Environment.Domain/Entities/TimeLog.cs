@@ -1,4 +1,8 @@
+#region
+
 using AvivCRM.Environment.Domain.Entities.Common;
+
+#endregion
 
 namespace AvivCRM.Environment.Domain.Entities;
 public sealed class TimeLog : BaseEntity, IEntity
@@ -9,12 +13,3 @@ public sealed class TimeLog : BaseEntity, IEntity
     public bool IsDailyTimeLogReportEnabled { get; set; }
     public Guid RoleId { get; set; }
 }
-
-
-
-
-
-
-
-
-

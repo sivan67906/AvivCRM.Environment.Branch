@@ -1,3 +1,5 @@
+#region
+
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.TicketAgents;
 using AvivCRM.Environment.Domain.Contracts;
@@ -7,13 +9,16 @@ using AvivCRM.Environment.Domain.Responses;
 using FluentValidation;
 using MediatR;
 
-namespace AvivCRM.Environment.Application.Features.TicketAgents.CreateTicketAgent;
+#endregion
 
-internal class CreateTicketAgentCommandHandler(IValidator<CreateTicketAgentRequest> validator,
-    ITicketAgent _ticketAgentRepository, IUnitOfWork _unitOfWork, IMapper mapper)
+namespace AvivCRM.Environment.Application.Features.TicketAgents.CreateTicketAgent;
+internal class CreateTicketAgentCommandHandler(
+    IValidator<CreateTicketAgentRequest> validator,
+    ITicketAgent _ticketAgentRepository,
+    IUnitOfWork _unitOfWork,
+    IMapper mapper)
     : IRequestHandler<CreateTicketAgentCommand, ServerResponse>
 {
-
     public async Task<ServerResponse> Handle(CreateTicketAgentCommand request, CancellationToken cancellationToken)
     {
         var validate = await validator.ValidateAsync(request.TicketAgent);
@@ -32,20 +37,9 @@ internal class CreateTicketAgentCommandHandler(IValidator<CreateTicketAgentReque
         }
         catch (Exception ex)
         {
-            return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
+            return new ServerResponse(Message: "Error Occured: " + ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Ticket Agent created successfully", Data: ticketAgentEntity);
+        return new ServerResponse(true, "Ticket Agent created successfully", ticketAgentEntity);
     }
 }
-
-
-
-
-
-
-
-
-
-
-

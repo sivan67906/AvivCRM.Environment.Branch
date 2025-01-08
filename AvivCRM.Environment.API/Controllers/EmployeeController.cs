@@ -1,4 +1,6 @@
-﻿using AvivCRM.Environment.Application.DTOs.Employees;
+﻿#region
+
+using AvivCRM.Environment.Application.DTOs.Employees;
 using AvivCRM.Environment.Application.Features.Employees.CreateEmployee;
 using AvivCRM.Environment.Application.Features.Employees.DeleteEmployee;
 using AvivCRM.Environment.Application.Features.Employees.GetAllEmployee;
@@ -7,13 +9,19 @@ using AvivCRM.Environment.Application.Features.Employees.UpdateEmployee;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
+#endregion
+
 namespace AvivCRM.Environment.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class EmployeeController : ControllerBase
 {
     private readonly ISender _sender;
-    public EmployeeController(ISender sender) => _sender = sender;
+
+    public EmployeeController(ISender sender)
+    {
+        _sender = sender;
+    }
 
     [HttpGet("all-employee")]
     public async Task<IActionResult> GetAllAsync()

@@ -1,4 +1,6 @@
-﻿using AvivCRM.Environment.Application.DTOs.LeadSources;
+﻿#region
+
+using AvivCRM.Environment.Application.DTOs.LeadSources;
 using AvivCRM.Environment.Application.Features.LeadSources.CreateLeadSource;
 using AvivCRM.Environment.Application.Features.LeadSources.DeleteLeadSource;
 using AvivCRM.Environment.Application.Features.LeadSources.GetAllLeadSource;
@@ -7,15 +9,19 @@ using AvivCRM.Environment.Application.Features.LeadSources.UpdateLeadSource;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AvivCRM.Environment.API.Controllers;
+#endregion
 
+namespace AvivCRM.Environment.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class LeadSourceController : ControllerBase
 {
-
     private readonly ISender _sender;
-    public LeadSourceController(ISender sender) => _sender = sender;
+
+    public LeadSourceController(ISender sender)
+    {
+        _sender = sender;
+    }
 
     [HttpGet("all-leadsource")]
     public async Task<IActionResult> GetAllAsync()

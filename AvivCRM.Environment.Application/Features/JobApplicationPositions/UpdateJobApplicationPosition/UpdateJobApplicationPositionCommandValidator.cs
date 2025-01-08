@@ -1,8 +1,11 @@
+#region
+
 using AvivCRM.Environment.Application.DTOs.JobApplicationPositions;
 using FluentValidation;
 
-namespace AvivCRM.Environment.Application.Features.JobApplicationPositions.UpdateJobApplicationPosition;
+#endregion
 
+namespace AvivCRM.Environment.Application.Features.JobApplicationPositions.UpdateJobApplicationPosition;
 public class UpdateJobApplicationPositionCommandValidator : AbstractValidator<UpdateJobApplicationPositionRequest>
 {
     public UpdateJobApplicationPositionCommandValidator()
@@ -11,28 +14,8 @@ public class UpdateJobApplicationPositionCommandValidator : AbstractValidator<Up
             .NotEmpty().WithMessage("Job Application PositionId should not be empty");
 
         RuleFor(x => x.JAPositionName)
-                    .NotEmpty().WithMessage("Custom Question Name not empty")
-                    .MaximumLength(25).WithMessage("Custom Question Name must not exceed 25 Characters")
-                    .MinimumLength(3).WithMessage("Custom Question Name should not be less than 3 characters");
-
+            .NotEmpty().WithMessage("Custom Question Name not empty")
+            .MaximumLength(25).WithMessage("Custom Question Name must not exceed 25 Characters")
+            .MinimumLength(3).WithMessage("Custom Question Name should not be less than 3 characters");
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -3,12 +3,3 @@ public class UpdateFinanceUnitSettingRequest : FinanceUnitSettingBaseModel
 {
     public Guid Id { get; set; }
 }
-
-
-
-
-
-
-
-
-

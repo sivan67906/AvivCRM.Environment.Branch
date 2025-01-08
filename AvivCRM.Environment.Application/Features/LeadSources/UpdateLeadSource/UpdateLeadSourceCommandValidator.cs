@@ -1,8 +1,11 @@
-﻿using AvivCRM.Environment.Application.DTOs.LeadSources;
+﻿#region
+
+using AvivCRM.Environment.Application.DTOs.LeadSources;
 using FluentValidation;
 
-namespace AvivCRM.Environment.Application.Features.LeadSources.UpdateLeadSource;
+#endregion
 
+namespace AvivCRM.Environment.Application.Features.LeadSources.UpdateLeadSource;
 public class UpdateLeadSourceCommandValidator : AbstractValidator<UpdateLeadSourceRequest>
 {
     public UpdateLeadSourceCommandValidator()
@@ -11,11 +14,8 @@ public class UpdateLeadSourceCommandValidator : AbstractValidator<UpdateLeadSour
             .NotEmpty().WithMessage("Source Id should not be empty");
 
         RuleFor(x => x.Name)
-                    .NotEmpty().WithMessage("Source Name should not be empty")
-                    .MaximumLength(25).WithMessage("Source Name must not exceed 25 Characters")
-                    .MinimumLength(3).WithMessage("Source Name should not be less than 3 characters");
-
+            .NotEmpty().WithMessage("Source Name should not be empty")
+            .MaximumLength(25).WithMessage("Source Name must not exceed 25 Characters")
+            .MinimumLength(3).WithMessage("Source Name should not be less than 3 characters");
     }
 }
-
-

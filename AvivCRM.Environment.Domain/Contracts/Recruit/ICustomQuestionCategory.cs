@@ -1,4 +1,8 @@
+#region
+
 using AvivCRM.Environment.Domain.Entities;
+
+#endregion
 
 namespace AvivCRM.Environment.Domain.Contracts.Recruit;
 public interface ICustomQuestionCategory
@@ -10,12 +14,3 @@ public interface ICustomQuestionCategory
     Task<IEnumerable<CustomQuestionCategory>> GetAllAsync();
     Task<bool> IsAvailableByNameAsync(string customQuestionCategoryName);
 }
-
-
-
-
-
-
-
-
-

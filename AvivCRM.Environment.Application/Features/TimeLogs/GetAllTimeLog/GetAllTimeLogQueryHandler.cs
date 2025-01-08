@@ -1,33 +1,33 @@
+#region
+
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.TimeLogs;
 using AvivCRM.Environment.Domain.Contracts;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
 
+#endregion
+
 namespace AvivCRM.Environment.Application.Features.TimeLogs.GetAllTimeLog;
-internal class GetAllTimeLogQueryHandler(ITimeLog _timeLogRepository, IMapper mapper) : IRequestHandler<GetAllTimeLogQuery, ServerResponse>
+internal class GetAllTimeLogQueryHandler(ITimeLog _timeLogRepository, IMapper mapper)
+    : IRequestHandler<GetAllTimeLogQuery, ServerResponse>
 {
     public async Task<ServerResponse> Handle(GetAllTimeLogQuery request, CancellationToken cancellationToken)
     {
         // Get all plan types
         var timeLog = await _timeLogRepository.GetAllAsync();
-        if (timeLog is null) return new ServerResponse(Message: "No TimeLog Found");
+        if (timeLog is null)
+        {
+            return new ServerResponse(Message: "No TimeLog Found");
+        }
 
         // Map the plan types to the response
         var leadSourcResponse = mapper.Map<IEnumerable<GetTimeLog>>(timeLog);
-        if (leadSourcResponse is null) return new ServerResponse(Message: "TimeLog Not Found");
+        if (leadSourcResponse is null)
+        {
+            return new ServerResponse(Message: "TimeLog Not Found");
+        }
 
-        return new ServerResponse(IsSuccess: true, Message: "List of TimeLogs", Data: leadSourcResponse);
+        return new ServerResponse(true, "List of TimeLogs", leadSourcResponse);
     }
 }
-
-
-
-
-
-
-
-
-
-
-

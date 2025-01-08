@@ -3,12 +3,3 @@ public abstract class RecruitCustomQuestionSettingBaseModel
 {
     public string? CQQuestion { get; set; } = default!; // default! or required 
 }
-
-
-
-
-
-
-
-
-

@@ -3,12 +3,3 @@ public class UpdateCustomQuestionCategoryRequest : CustomQuestionCategoryBaseMod
 {
     public Guid Id { get; set; }
 }
-
-
-
-
-
-
-
-
-

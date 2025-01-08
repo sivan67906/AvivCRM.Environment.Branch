@@ -3,12 +3,3 @@ public class GetTicketType : TicketTypeBaseModel
 {
     public Guid Id { get; set; }
 }
-
-
-
-
-
-
-
-
-

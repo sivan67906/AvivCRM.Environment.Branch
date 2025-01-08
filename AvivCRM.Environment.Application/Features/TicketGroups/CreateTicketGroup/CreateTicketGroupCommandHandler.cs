@@ -1,3 +1,5 @@
+#region
+
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.TicketGroups;
 using AvivCRM.Environment.Domain.Contracts;
@@ -7,13 +9,16 @@ using AvivCRM.Environment.Domain.Responses;
 using FluentValidation;
 using MediatR;
 
-namespace AvivCRM.Environment.Application.Features.TicketGroups.CreateTicketGroup;
+#endregion
 
-internal class CreateTicketGroupCommandHandler(IValidator<CreateTicketGroupRequest> validator,
-    ITicketGroup _ticketGroupRepository, IUnitOfWork _unitOfWork, IMapper mapper)
+namespace AvivCRM.Environment.Application.Features.TicketGroups.CreateTicketGroup;
+internal class CreateTicketGroupCommandHandler(
+    IValidator<CreateTicketGroupRequest> validator,
+    ITicketGroup _ticketGroupRepository,
+    IUnitOfWork _unitOfWork,
+    IMapper mapper)
     : IRequestHandler<CreateTicketGroupCommand, ServerResponse>
 {
-
     public async Task<ServerResponse> Handle(CreateTicketGroupCommand request, CancellationToken cancellationToken)
     {
         var validate = await validator.ValidateAsync(request.TicketGroup);
@@ -32,20 +37,9 @@ internal class CreateTicketGroupCommandHandler(IValidator<CreateTicketGroupReque
         }
         catch (Exception ex)
         {
-            return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
+            return new ServerResponse(Message: "Error Occured: " + ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Ticket Group created successfully", Data: ticketGroupEntity);
+        return new ServerResponse(true, "Ticket Group created successfully", ticketGroupEntity);
     }
 }
-
-
-
-
-
-
-
-
-
-
-

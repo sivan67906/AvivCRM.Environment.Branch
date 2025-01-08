@@ -1,5 +1,9 @@
-﻿using AvivCRM.Environment.Application.DTOs.Taxes;
+﻿#region
+
+using AvivCRM.Environment.Application.DTOs.Taxes;
 using FluentValidation;
+
+#endregion
 
 namespace AvivCRM.Environment.Application.Features.Taxes.UpdateTax;
 public class UpdateTaxCommandValidator : AbstractValidator<UpdateTaxRequest>
@@ -14,7 +18,5 @@ public class UpdateTaxCommandValidator : AbstractValidator<UpdateTaxRequest>
             .MinimumLength(3).WithMessage("Tax Name should not be less than 3 characters");
         RuleFor(x => x.Rate)
             .NotEmpty().WithMessage("Tax Name should not be empty");
-
-
     }
 }

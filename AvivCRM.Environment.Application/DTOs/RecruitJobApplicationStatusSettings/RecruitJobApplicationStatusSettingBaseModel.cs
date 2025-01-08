@@ -2,12 +2,3 @@ namespace AvivCRM.Environment.Application.DTOs.RecruitJobApplicationStatusSettin
 public abstract class RecruitJobApplicationStatusSettingBaseModel
 {
 }
-
-
-
-
-
-
-
-
-

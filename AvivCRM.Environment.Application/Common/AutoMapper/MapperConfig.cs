@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿#region
+
+using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.Applications;
 using AvivCRM.Environment.Application.DTOs.AttendanceSettings;
 using AvivCRM.Environment.Application.DTOs.Clients;
@@ -41,6 +43,8 @@ using AvivCRM.Environment.Application.DTOs.TicketTypes;
 using AvivCRM.Environment.Application.DTOs.TimeLogs;
 using AvivCRM.Environment.Application.DTOs.Timesheets;
 using AvivCRM.Environment.Domain.Entities;
+
+#endregion
 
 namespace AvivCRM.Environment.Application.Common.AutoMapper;
 public class MapperConfig : Profile
@@ -225,7 +229,6 @@ public class MapperConfig : Profile
             .ForMember(dest => dest.JAPositionName, opt => opt.MapFrom(src => src.Name));
         CreateMap<GetJobApplicationPosition, JobApplicationPosition>()
             .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.JAPositionName));
-
 
 
         // NotificationMain

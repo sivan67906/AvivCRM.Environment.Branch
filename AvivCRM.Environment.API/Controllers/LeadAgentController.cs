@@ -1,4 +1,6 @@
-﻿using AvivCRM.Environment.Application.DTOs.LeadAgent;
+﻿#region
+
+using AvivCRM.Environment.Application.DTOs.LeadAgent;
 using AvivCRM.Environment.Application.Features.LeadAgents.CreateLeadAgent;
 using AvivCRM.Environment.Application.Features.LeadAgents.DeleteLeadAgent;
 using AvivCRM.Environment.Application.Features.LeadAgents.GetAllLeadAgents;
@@ -7,13 +9,19 @@ using AvivCRM.Environment.Application.Features.LeadAgents.UpdateLeadAgent;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
+#endregion
+
 namespace AvivCRM.Environment.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class LeadAgentController : ControllerBase
 {
     private readonly ISender _sender;
-    public LeadAgentController(ISender sender) => _sender = sender;
+
+    public LeadAgentController(ISender sender)
+    {
+        _sender = sender;
+    }
 
     [HttpGet("all-leadsgent")]
     public async Task<IActionResult> GetAllAsync()

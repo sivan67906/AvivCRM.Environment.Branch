@@ -1,3 +1,5 @@
+#region
+
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.PurchaseSettings;
 using AvivCRM.Environment.Domain.Contracts;
@@ -7,13 +9,16 @@ using AvivCRM.Environment.Domain.Responses;
 using FluentValidation;
 using MediatR;
 
-namespace AvivCRM.Environment.Application.Features.PurchaseSettings.CreatePurchaseSetting;
+#endregion
 
-internal class CreatePurchaseSettingCommandHandler(IValidator<CreatePurchaseSettingRequest> validator,
-    IPurchaseSetting _purchaseSettingRepository, IUnitOfWork _unitOfWork, IMapper mapper)
+namespace AvivCRM.Environment.Application.Features.PurchaseSettings.CreatePurchaseSetting;
+internal class CreatePurchaseSettingCommandHandler(
+    IValidator<CreatePurchaseSettingRequest> validator,
+    IPurchaseSetting _purchaseSettingRepository,
+    IUnitOfWork _unitOfWork,
+    IMapper mapper)
     : IRequestHandler<CreatePurchaseSettingCommand, ServerResponse>
 {
-
     public async Task<ServerResponse> Handle(CreatePurchaseSettingCommand request, CancellationToken cancellationToken)
     {
         var validate = await validator.ValidateAsync(request.PurchaseSetting);
@@ -32,24 +37,9 @@ internal class CreatePurchaseSettingCommandHandler(IValidator<CreatePurchaseSett
         }
         catch (Exception ex)
         {
-            return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
+            return new ServerResponse(Message: "Error Occured: " + ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Purchase Setting created successfully", Data: purchaseSettingEntity);
+        return new ServerResponse(true, "Purchase Setting created successfully", purchaseSettingEntity);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

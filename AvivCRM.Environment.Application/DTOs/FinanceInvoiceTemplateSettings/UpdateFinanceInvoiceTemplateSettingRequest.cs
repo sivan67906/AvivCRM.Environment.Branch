@@ -3,12 +3,3 @@ public class UpdateFinanceInvoiceTemplateSettingRequest : FinanceInvoiceTemplate
 {
     public Guid Id { get; set; }
 }
-
-
-
-
-
-
-
-
-

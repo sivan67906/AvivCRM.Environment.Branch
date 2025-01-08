@@ -1,4 +1,8 @@
+#region
+
 using AvivCRM.Environment.Domain.Entities;
+
+#endregion
 
 namespace AvivCRM.Environment.Domain.Contracts.Recruit;
 public interface IRecruiterSetting
@@ -10,12 +14,3 @@ public interface IRecruiterSetting
     Task<IEnumerable<RecruiterSetting>> GetAllAsync();
     Task<bool> IsAvailableByNameAsync(string recruiterSettingName);
 }
-
-
-
-
-
-
-
-
-

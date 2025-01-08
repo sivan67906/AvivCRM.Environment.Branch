@@ -1,9 +1,13 @@
+#region
+
 using AvivCRM.Environment.Application.DTOs.RecruitNotificationSettings;
 using FluentValidation;
 
-namespace AvivCRM.Environment.Application.Features.RecruitNotificationSettings.UpdateRecruitNotificationSetting;
+#endregion
 
-public class UpdateRecruitNotificationSettingCommandValidator : AbstractValidator<UpdateRecruitNotificationSettingRequest>
+namespace AvivCRM.Environment.Application.Features.RecruitNotificationSettings.UpdateRecruitNotificationSetting;
+public class
+    UpdateRecruitNotificationSettingCommandValidator : AbstractValidator<UpdateRecruitNotificationSettingRequest>
 {
     public UpdateRecruitNotificationSettingCommandValidator()
     {
@@ -14,17 +18,5 @@ public class UpdateRecruitNotificationSettingCommandValidator : AbstractValidato
         //    .NotEmpty().WithMessage("Recruit Mail Json Setting should not be empty");
         //RuleFor(x => x.CBEMailNotificationJsonSettings)
         //    .NotEmpty().WithMessage("Recruit Notification Mail Json Setting should not be empty");
-
     }
 }
-
-
-
-
-
-
-
-
-
-
-

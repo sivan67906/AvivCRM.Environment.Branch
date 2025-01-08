@@ -3,12 +3,3 @@ public class GetRecruitNotificationSetting : RecruitNotificationSettingBaseModel
 {
     public Guid Id { get; set; }
 }
-
-
-
-
-
-
-
-
-

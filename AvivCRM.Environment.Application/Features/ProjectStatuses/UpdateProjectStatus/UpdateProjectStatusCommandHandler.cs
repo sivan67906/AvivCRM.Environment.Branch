@@ -1,3 +1,5 @@
+#region
+
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.ProjectStatuses;
 using AvivCRM.Environment.Domain.Contracts;
@@ -7,15 +9,23 @@ using AvivCRM.Environment.Domain.Responses;
 using FluentValidation;
 using MediatR;
 
-namespace AvivCRM.Environment.Application.Features.ProjectStatuses.UpdateProjectStatus;
+#endregion
 
-internal class UpdateProjectStatusCommandHandler(IValidator<UpdateProjectStatusRequest> _validator, IProjectStatus _projectStatusRepository, IUnitOfWork _unitOfWork, IMapper mapper) : IRequestHandler<UpdateProjectStatusCommand, ServerResponse>
+namespace AvivCRM.Environment.Application.Features.ProjectStatuses.UpdateProjectStatus;
+internal class UpdateProjectStatusCommandHandler(
+    IValidator<UpdateProjectStatusRequest> _validator,
+    IProjectStatus _projectStatusRepository,
+    IUnitOfWork _unitOfWork,
+    IMapper mapper) : IRequestHandler<UpdateProjectStatusCommand, ServerResponse>
 {
     public async Task<ServerResponse> Handle(UpdateProjectStatusCommand request, CancellationToken cancellationToken)
     {
         // Validate Request
         var validate = await _validator.ValidateAsync(request.ProjectStatus);
-        if (!validate.IsValid) return new ServerResponse(Message: string.Join("; ", validate.Errors.Select(error => error.ErrorMessage)));
+        if (!validate.IsValid)
+        {
+            return new ServerResponse(Message: string.Join("; ", validate.Errors.Select(error => error.ErrorMessage)));
+        }
 
         //// Check if the Project Status exists
         //var projectStatus = await _projectStatusRepository.GetByIdAsync(request.ProjectStatus.Id);
@@ -26,10 +36,12 @@ internal class UpdateProjectStatusCommandHandler(IValidator<UpdateProjectStatusR
 
         // Check if the Project Status exists
         var projectStatuses = await _projectStatusRepository.GetAllAsync();
-        if (projectStatuses is null) return new ServerResponse(Message: "No Project Status Found");
+        if (projectStatuses is null)
+        {
+            return new ServerResponse(Message: "No Project Status Found");
+        }
 
         ProjectStatus selectedProjectStatus = new();
-
 
 
         try
@@ -54,10 +66,12 @@ internal class UpdateProjectStatusCommandHandler(IValidator<UpdateProjectStatusR
                     {
                         entity.ModifiedOn = DateTime.Now;
                     }
+
                     entity.IsDefaultStatus = false;
                     _projectStatusRepository.Update(entity);
                 }
             }
+
             await _unitOfWork.SaveChangesAsync();
         }
         catch (Exception ex)
@@ -65,15 +79,6 @@ internal class UpdateProjectStatusCommandHandler(IValidator<UpdateProjectStatusR
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Project Status updated successfully", Data: selectedProjectStatus);
+        return new ServerResponse(true, "Project Status updated successfully", selectedProjectStatus);
     }
 }
-
-
-
-
-
-
-
-
-

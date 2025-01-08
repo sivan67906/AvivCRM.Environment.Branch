@@ -1,4 +1,8 @@
+#region
+
 using AvivCRM.Environment.Domain.Entities;
+
+#endregion
 
 namespace AvivCRM.Environment.Domain.Contracts.Recruit;
 public interface IJobApplicationPosition
@@ -10,20 +14,3 @@ public interface IJobApplicationPosition
     Task<IEnumerable<JobApplicationPosition>> GetAllAsync();
     Task<bool> IsAvailableByNameAsync(string jobApplicationPositionName);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

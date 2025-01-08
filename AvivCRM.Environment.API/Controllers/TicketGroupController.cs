@@ -1,3 +1,5 @@
+#region
+
 using AvivCRM.Environment.Application.DTOs.TicketGroups;
 using AvivCRM.Environment.Application.Features.TicketGroups.CreateTicketGroup;
 using AvivCRM.Environment.Application.Features.TicketGroups.DeleteTicketGroup;
@@ -7,15 +9,19 @@ using AvivCRM.Environment.Application.Features.TicketGroups.UpdateTicketGroup;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AvivCRM.Environment.API.Controllers;
+#endregion
 
+namespace AvivCRM.Environment.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class TicketGroupController : ControllerBase
 {
-
     private readonly ISender _sender;
-    public TicketGroupController(ISender sender) => _sender = sender;
+
+    public TicketGroupController(ISender sender)
+    {
+        _sender = sender;
+    }
 
     [HttpGet("all-ticketgroup")]
     public async Task<IActionResult> GetAllAsync()

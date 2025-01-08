@@ -1,4 +1,8 @@
+#region
+
 using AvivCRM.Environment.Domain.Entities;
+
+#endregion
 
 namespace AvivCRM.Environment.Domain.Contracts.Project;
 public interface IProjectStatus
@@ -10,12 +14,3 @@ public interface IProjectStatus
     Task<IEnumerable<ProjectStatus>> GetAllAsync();
     Task<bool> IsAvailableByNameAsync(string projectStatusName);
 }
-
-
-
-
-
-
-
-
-

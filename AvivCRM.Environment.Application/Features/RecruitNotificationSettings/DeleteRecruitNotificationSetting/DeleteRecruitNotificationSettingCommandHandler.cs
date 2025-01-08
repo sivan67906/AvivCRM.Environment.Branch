@@ -1,3 +1,5 @@
+#region
+
 using AutoMapper;
 using AvivCRM.Environment.Domain.Contracts;
 using AvivCRM.Environment.Domain.Contracts.Recruit;
@@ -5,15 +7,23 @@ using AvivCRM.Environment.Domain.Entities;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
 
-namespace AvivCRM.Environment.Application.Features.RecruitNotificationSettings.DeleteRecruitNotificationSetting;
+#endregion
 
-internal class DeleteRecruitNotificationSettingCommandHandler(IRecruitNotificationSetting _recruitNotificationSettingRepository, IUnitOfWork _unitOfWork, IMapper mapper) : IRequestHandler<DeleteRecruitNotificationSettingCommand, ServerResponse>
+namespace AvivCRM.Environment.Application.Features.RecruitNotificationSettings.DeleteRecruitNotificationSetting;
+internal class DeleteRecruitNotificationSettingCommandHandler(
+    IRecruitNotificationSetting _recruitNotificationSettingRepository,
+    IUnitOfWork _unitOfWork,
+    IMapper mapper) : IRequestHandler<DeleteRecruitNotificationSettingCommand, ServerResponse>
 {
-    public async Task<ServerResponse> Handle(DeleteRecruitNotificationSettingCommand request, CancellationToken cancellationToken)
+    public async Task<ServerResponse> Handle(DeleteRecruitNotificationSettingCommand request,
+        CancellationToken cancellationToken)
     {
         // Is Found
         var recruitNotificationSetting = await _recruitNotificationSettingRepository.GetByIdAsync(request.Id);
-        if (recruitNotificationSetting is null) return new ServerResponse(Message: "Recruit Notification Setting Not Found");
+        if (recruitNotificationSetting is null)
+        {
+            return new ServerResponse(Message: "Recruit Notification Setting Not Found");
+        }
 
         // Map the request to the entity
         var delMapEntity = mapper.Map<RecruitNotificationSetting>(recruitNotificationSetting);
@@ -29,17 +39,7 @@ internal class DeleteRecruitNotificationSettingCommandHandler(IRecruitNotificati
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Recruit Notification Setting deleted successfully", Data: recruitNotificationSetting);
+        return new ServerResponse(true, "Recruit Notification Setting deleted successfully",
+            recruitNotificationSetting);
     }
 }
-
-
-
-
-
-
-
-
-
-
-

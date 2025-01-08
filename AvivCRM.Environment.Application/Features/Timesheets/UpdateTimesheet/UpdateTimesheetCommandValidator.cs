@@ -1,8 +1,11 @@
+#region
+
 using AvivCRM.Environment.Application.DTOs.Timesheets;
 using FluentValidation;
 
-namespace AvivCRM.Environment.Application.Features.Timesheets.UpdateTimesheet;
+#endregion
 
+namespace AvivCRM.Environment.Application.Features.Timesheets.UpdateTimesheet;
 public class UpdateTimesheetCommandValidator : AbstractValidator<UpdateTimesheetRequest>
 {
     public UpdateTimesheetCommandValidator()
@@ -14,17 +17,5 @@ public class UpdateTimesheetCommandValidator : AbstractValidator<UpdateTimesheet
         //            .NotEmpty().WithMessage("Timesheet Name not empty")
         //            .MaximumLength(25).WithMessage("Timesheet Name must not exceed 25 Characters")
         //            .MinimumLength(3).WithMessage("Timesheet Name should not be less than 3 characters");
-
     }
 }
-
-
-
-
-
-
-
-
-
-
-

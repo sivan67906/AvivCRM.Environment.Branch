@@ -1,3 +1,5 @@
+#region
+
 using AvivCRM.Environment.Application.DTOs.PurchaseSettings;
 using AvivCRM.Environment.Application.Features.PurchaseSettings.CreatePurchaseSetting;
 using AvivCRM.Environment.Application.Features.PurchaseSettings.DeletePurchaseSetting;
@@ -7,15 +9,19 @@ using AvivCRM.Environment.Application.Features.PurchaseSettings.UpdatePurchaseSe
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AvivCRM.Environment.API.Controllers;
+#endregion
 
+namespace AvivCRM.Environment.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class PurchaseSettingController : ControllerBase
 {
-
     private readonly ISender _sender;
-    public PurchaseSettingController(ISender sender) => _sender = sender;
+
+    public PurchaseSettingController(ISender sender)
+    {
+        _sender = sender;
+    }
 
     [HttpGet("all-purchasesetting")]
     public async Task<IActionResult> GetAllAsync()
@@ -52,16 +58,3 @@ public class PurchaseSettingController : ControllerBase
         return Ok(result);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

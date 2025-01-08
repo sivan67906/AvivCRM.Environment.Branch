@@ -1,3 +1,5 @@
+#region
+
 using AvivCRM.Environment.Application.DTOs.NotificationMains;
 using AvivCRM.Environment.Application.Features.NotificationMains.CreateNotificationMain;
 using AvivCRM.Environment.Application.Features.NotificationMains.DeleteNotificationMain;
@@ -7,15 +9,19 @@ using AvivCRM.Environment.Application.Features.NotificationMains.UpdateNotificat
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AvivCRM.Environment.API.Controllers;
+#endregion
 
+namespace AvivCRM.Environment.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class NotificationMainController : ControllerBase
 {
-
     private readonly ISender _sender;
-    public NotificationMainController(ISender sender) => _sender = sender;
+
+    public NotificationMainController(ISender sender)
+    {
+        _sender = sender;
+    }
 
     [HttpGet("all-notificationmain")]
     public async Task<IActionResult> GetAllAsync()
@@ -52,4 +58,3 @@ public class NotificationMainController : ControllerBase
         return Ok(result);
     }
 }
-

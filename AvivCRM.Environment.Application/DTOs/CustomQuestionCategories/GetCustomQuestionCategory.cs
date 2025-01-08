@@ -3,12 +3,3 @@ public class GetCustomQuestionCategory : CustomQuestionCategoryBaseModel
 {
     public Guid Id { get; set; }
 }
-
-
-
-
-
-
-
-
-

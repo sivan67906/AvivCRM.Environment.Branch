@@ -3,12 +3,3 @@ public class GetCustomQuestionType : CustomQuestionTypeBaseModel
 {
     public Guid Id { get; set; }
 }
-
-
-
-
-
-
-
-
-

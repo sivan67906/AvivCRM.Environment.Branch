@@ -10,12 +10,3 @@ public class GetRecruitJobApplicationStatusSetting : RecruitJobApplicationStatus
     public string? JASColor { get; set; }
     public int JASIsModelChecked { get; set; }
 }
-
-
-
-
-
-
-
-
-

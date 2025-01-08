@@ -3,12 +3,3 @@ public class UpdateProjectReminderPersonRequest : ProjectReminderPersonBaseModel
 {
     public Guid Id { get; set; }
 }
-
-
-
-
-
-
-
-
-

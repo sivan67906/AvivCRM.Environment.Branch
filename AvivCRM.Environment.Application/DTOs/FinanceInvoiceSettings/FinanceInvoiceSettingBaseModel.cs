@@ -1,5 +1,4 @@
 ﻿namespace AvivCRM.Environment.Application.DTOs.FinanceInvoiceSettings;
-
 public abstract class FinanceInvoiceSettingBaseModel
 {
     public string? FILogoPath { get; set; }

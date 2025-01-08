@@ -1,3 +1,5 @@
+#region
+
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.NotificationMains;
 using AvivCRM.Environment.Domain.Contracts;
@@ -6,19 +8,30 @@ using AvivCRM.Environment.Domain.Responses;
 using FluentValidation;
 using MediatR;
 
-namespace AvivCRM.Environment.Application.Features.NotificationMains.UpdateNotificationMain;
+#endregion
 
-internal class UpdateNotificationMainCommandHandler(IValidator<UpdateNotificationMainRequest> _validator, INotificationMain _notificationMainRepository, IUnitOfWork _unitOfWork, IMapper mapper) : IRequestHandler<UpdateNotificationMainCommand, ServerResponse>
+namespace AvivCRM.Environment.Application.Features.NotificationMains.UpdateNotificationMain;
+internal class UpdateNotificationMainCommandHandler(
+    IValidator<UpdateNotificationMainRequest> _validator,
+    INotificationMain _notificationMainRepository,
+    IUnitOfWork _unitOfWork,
+    IMapper mapper) : IRequestHandler<UpdateNotificationMainCommand, ServerResponse>
 {
     public async Task<ServerResponse> Handle(UpdateNotificationMainCommand request, CancellationToken cancellationToken)
     {
         // Validate Request
         var validate = await _validator.ValidateAsync(request.NotificationMain);
-        if (!validate.IsValid) return new ServerResponse(Message: string.Join("; ", validate.Errors.Select(error => error.ErrorMessage)));
+        if (!validate.IsValid)
+        {
+            return new ServerResponse(Message: string.Join("; ", validate.Errors.Select(error => error.ErrorMessage)));
+        }
 
         // Check if the plan type exists
         var notificationMain = await _notificationMainRepository.GetByIdAsync(request.NotificationMain.Id);
-        if (notificationMain is null) return new ServerResponse(Message: "Notification Main Not Found");
+        if (notificationMain is null)
+        {
+            return new ServerResponse(Message: "Notification Main Not Found");
+        }
 
         // Map the request to the entity
         var notificationMainEntity = mapper.Map<NotificationMain>(request.NotificationMain);
@@ -34,15 +47,6 @@ internal class UpdateNotificationMainCommandHandler(IValidator<UpdateNotificatio
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Notification Main updated successfully", Data: notificationMainEntity);
+        return new ServerResponse(true, "Notification Main updated successfully", notificationMainEntity);
     }
 }
-
-
-
-
-
-
-
-
-

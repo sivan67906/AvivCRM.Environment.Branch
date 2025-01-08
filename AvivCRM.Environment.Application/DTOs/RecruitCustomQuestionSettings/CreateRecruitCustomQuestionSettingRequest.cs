@@ -9,14 +9,3 @@ public class CreateRecruitCustomQuestionSettingRequest : RecruitCustomQuestionSe
     public int CQStatusName { get; set; }
     public int CQIsRequiredId { get; set; }
 }
-
-
-
-
-
-
-
-
-
-
-

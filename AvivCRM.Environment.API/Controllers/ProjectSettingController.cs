@@ -1,3 +1,5 @@
+#region
+
 using AvivCRM.Environment.Application.DTOs.ProjectSettings;
 using AvivCRM.Environment.Application.Features.ProjectSettings.CreateProjectSetting;
 using AvivCRM.Environment.Application.Features.ProjectSettings.DeleteProjectSetting;
@@ -7,15 +9,19 @@ using AvivCRM.Environment.Application.Features.ProjectSettings.UpdateProjectSett
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AvivCRM.Environment.API.Controllers;
+#endregion
 
+namespace AvivCRM.Environment.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class ProjectSettingController : ControllerBase
 {
-
     private readonly ISender _sender;
-    public ProjectSettingController(ISender sender) => _sender = sender;
+
+    public ProjectSettingController(ISender sender)
+    {
+        _sender = sender;
+    }
 
     [HttpGet("all-projectsetting")]
     public async Task<IActionResult> GetAllAsync()

@@ -3,12 +3,3 @@ public class UpdateCustomQuestionTypeRequest : CustomQuestionTypeBaseModel
 {
     public Guid Id { get; set; }
 }
-
-
-
-
-
-
-
-
-

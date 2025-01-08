@@ -1,3 +1,5 @@
+#region
+
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.TicketReplyTemplates;
 using AvivCRM.Environment.Domain.Contracts;
@@ -7,19 +9,31 @@ using AvivCRM.Environment.Domain.Responses;
 using FluentValidation;
 using MediatR;
 
-namespace AvivCRM.Environment.Application.Features.TicketReplyTemplates.UpdateTicketReplyTemplate;
+#endregion
 
-internal class UpdateTicketReplyTemplateCommandHandler(IValidator<UpdateTicketReplyTemplateRequest> _validator, ITicketReplyTemplate _ticketReplyTemplateRepository, IUnitOfWork _unitOfWork, IMapper mapper) : IRequestHandler<UpdateTicketReplyTemplateCommand, ServerResponse>
+namespace AvivCRM.Environment.Application.Features.TicketReplyTemplates.UpdateTicketReplyTemplate;
+internal class UpdateTicketReplyTemplateCommandHandler(
+    IValidator<UpdateTicketReplyTemplateRequest> _validator,
+    ITicketReplyTemplate _ticketReplyTemplateRepository,
+    IUnitOfWork _unitOfWork,
+    IMapper mapper) : IRequestHandler<UpdateTicketReplyTemplateCommand, ServerResponse>
 {
-    public async Task<ServerResponse> Handle(UpdateTicketReplyTemplateCommand request, CancellationToken cancellationToken)
+    public async Task<ServerResponse> Handle(UpdateTicketReplyTemplateCommand request,
+        CancellationToken cancellationToken)
     {
         // Validate Request
         var validate = await _validator.ValidateAsync(request.TicketReplyTemplate);
-        if (!validate.IsValid) return new ServerResponse(Message: string.Join("; ", validate.Errors.Select(error => error.ErrorMessage)));
+        if (!validate.IsValid)
+        {
+            return new ServerResponse(Message: string.Join("; ", validate.Errors.Select(error => error.ErrorMessage)));
+        }
 
         // Check if the plan type exists
         var ticketReplyTemplate = await _ticketReplyTemplateRepository.GetByIdAsync(request.TicketReplyTemplate.Id);
-        if (ticketReplyTemplate is null) return new ServerResponse(Message: "Ticket ReplyTemplate Not Found");
+        if (ticketReplyTemplate is null)
+        {
+            return new ServerResponse(Message: "Ticket ReplyTemplate Not Found");
+        }
 
         // Map the request to the entity
         var ticketReplyTemplateEntity = mapper.Map<TicketReplyTemplate>(request.TicketReplyTemplate);
@@ -35,15 +49,6 @@ internal class UpdateTicketReplyTemplateCommandHandler(IValidator<UpdateTicketRe
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Ticket ReplyTemplate updated successfully", Data: ticketReplyTemplateEntity);
+        return new ServerResponse(true, "Ticket ReplyTemplate updated successfully", ticketReplyTemplateEntity);
     }
 }
-
-
-
-
-
-
-
-
-

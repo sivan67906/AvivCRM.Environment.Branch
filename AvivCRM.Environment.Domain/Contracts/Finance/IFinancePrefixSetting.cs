@@ -1,4 +1,8 @@
+#region
+
 using AvivCRM.Environment.Domain.Entities;
+
+#endregion
 
 namespace AvivCRM.Environment.Domain.Contracts.Finance;
 public interface IFinancePrefixSetting
@@ -10,12 +14,3 @@ public interface IFinancePrefixSetting
     Task<IEnumerable<FinancePrefixSetting>> GetAllAsync();
     Task<bool> IsAvailableByNameAsync(string financePrefixSettingName);
 }
-
-
-
-
-
-
-
-
-

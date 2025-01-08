@@ -1,5 +1,9 @@
-﻿using AvivCRM.Environment.Application.DTOs.LeadAgent;
+﻿#region
+
+using AvivCRM.Environment.Application.DTOs.LeadAgent;
 using FluentValidation;
+
+#endregion
 
 namespace AvivCRM.Environment.Application.Features.LeadAgents.UpdateLeadAgent;
 public class UpdateLeadAgentCommandValidator : AbstractValidator<UpdateLeadAgentRequest>

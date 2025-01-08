@@ -1,3 +1,5 @@
+#region
+
 using AvivCRM.Environment.Application.DTOs.TicketChannels;
 using AvivCRM.Environment.Application.Features.TicketChannels.CreateTicketChannel;
 using AvivCRM.Environment.Application.Features.TicketChannels.DeleteTicketChannel;
@@ -7,15 +9,19 @@ using AvivCRM.Environment.Application.Features.TicketChannels.UpdateTicketChanne
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AvivCRM.Environment.API.Controllers;
+#endregion
 
+namespace AvivCRM.Environment.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class TicketChannelController : ControllerBase
 {
-
     private readonly ISender _sender;
-    public TicketChannelController(ISender sender) => _sender = sender;
+
+    public TicketChannelController(ISender sender)
+    {
+        _sender = sender;
+    }
 
     [HttpGet("all-ticketchannel")]
     public async Task<IActionResult> GetAllAsync()

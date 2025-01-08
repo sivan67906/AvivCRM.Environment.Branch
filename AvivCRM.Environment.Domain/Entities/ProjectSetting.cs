@@ -1,4 +1,8 @@
+#region
+
 using AvivCRM.Environment.Domain.Entities.Common;
+
+#endregion
 
 namespace AvivCRM.Environment.Domain.Entities;
 public sealed class ProjectSetting : BaseEntity, IEntity
@@ -8,12 +12,3 @@ public sealed class ProjectSetting : BaseEntity, IEntity
     public Guid ProjectReminderPersonId { get; set; }
     public int RemindBefore { get; set; }
 }
-
-
-
-
-
-
-
-
-

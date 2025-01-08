@@ -1,8 +1,12 @@
-﻿using AvivCRM.Environment.Domain.Entities.Common;
+﻿#region
+
 using System.ComponentModel.DataAnnotations.Schema;
+using AvivCRM.Environment.Domain.Entities.Common;
+
+#endregion
 
 namespace AvivCRM.Environment.Domain.Entities;
-public sealed class Applications : BaseEntity,IEntity
+public sealed class Applications : BaseEntity, IEntity
 {
     public string? DateFormat { get; set; } = default!;
     public string? TimeFormat { get; set; } = default!;
@@ -11,7 +15,7 @@ public sealed class Applications : BaseEntity,IEntity
     public string? DatatableRowLimit { get; set; } = default!;
     public bool EmployeeCanExportData { get; set; }
 
-    [ForeignKey(nameof(CurrencyId))]
-    public Guid CurrencyId { get; set; }
+    [ForeignKey(nameof(CurrencyId))] public Guid CurrencyId { get; set; }
+
     public Currency? Currency { get; set; }
 }

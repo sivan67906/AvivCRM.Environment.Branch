@@ -1,4 +1,6 @@
-﻿using AvivCRM.Environment.Application.DTOs.FinanceInvoiceSettings;
+﻿#region
+
+using AvivCRM.Environment.Application.DTOs.FinanceInvoiceSettings;
 using AvivCRM.Environment.Application.Features.FinanceInvoiceSettings.CreateFinanceInvoiceSetting;
 using AvivCRM.Environment.Application.Features.FinanceInvoiceSettings.DeleteFinanceInvoiceSetting;
 using AvivCRM.Environment.Application.Features.FinanceInvoiceSettings.GetAllFinanceInvoiceSetting;
@@ -7,13 +9,19 @@ using AvivCRM.Environment.Application.Features.FinanceInvoiceSettings.UpdateFina
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
+#endregion
+
 namespace AvivCRM.Environment.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class FinanceInvoiceSettingController : ControllerBase
 {
     private readonly ISender _sender;
-    public FinanceInvoiceSettingController(ISender sender) => _sender = sender;
+
+    public FinanceInvoiceSettingController(ISender sender)
+    {
+        _sender = sender;
+    }
 
     [HttpGet("all-financeInvoiceSetting")]
     public async Task<IActionResult> GetAllAsync()
