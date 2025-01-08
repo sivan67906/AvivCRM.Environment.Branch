@@ -50,6 +50,7 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
     public DbSet<FinanceInvoiceSetting> FinanceInvoiceSettings => Set<FinanceInvoiceSetting>();
     public DbSet<Language> Languages => Set<Language>();
     public DbSet<PurchaseSetting> PurchaseSettings => Set<PurchaseSetting>();
+    public DbSet<Tasks> Tasks => Set<Tasks>();
 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -102,5 +103,6 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
         modelBuilder.Entity<FinanceInvoiceSetting>().ToTable("tblFinanceInvoiceSetting");
         modelBuilder.Entity<Language>().ToTable("tblLanguage");
         modelBuilder.Entity<PurchaseSetting>().ToTable("tblPurchaseSetting");
+        modelBuilder.Entity<Tasks>().ToTable("tblTask");
     }
 }
