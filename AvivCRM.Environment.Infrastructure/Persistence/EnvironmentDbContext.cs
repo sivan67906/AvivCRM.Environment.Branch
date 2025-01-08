@@ -59,6 +59,8 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
     public DbSet<Language> Languages => Set<Language>();
     public DbSet<PurchaseSetting> PurchaseSettings => Set<PurchaseSetting>();
     public DbSet<Tasks> Tasks => Set<Tasks>();
+    public DbSet<Notification> Notifications => Set<Notification>();
+    public DbSet<Message> Messages => Set<Message>();
 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -112,5 +114,7 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
         modelBuilder.Entity<Language>().ToTable("tblLanguage");
         modelBuilder.Entity<PurchaseSetting>().ToTable("tblPurchaseSetting");
         modelBuilder.Entity<Tasks>().ToTable("tblTask");
+        modelBuilder.Entity<Notification>().ToTable("tblNotification");
+        modelBuilder.Entity<Message>().ToTable("tblMessage");
     }
 }

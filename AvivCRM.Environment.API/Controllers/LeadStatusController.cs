@@ -14,14 +14,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace AvivCRM.Environment.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
-public class LeadStatusController : ControllerBase
+public class LeadStatusController(ISender sender) : ControllerBase
 {
-    private readonly ISender _sender;
-
-    public LeadStatusController(ISender sender)
-    {
-        _sender = sender;
-    }
+    private readonly ISender _sender = sender;
 
     [HttpGet("all-leadstatus")]
     public async Task<IActionResult> GetAllAsync()

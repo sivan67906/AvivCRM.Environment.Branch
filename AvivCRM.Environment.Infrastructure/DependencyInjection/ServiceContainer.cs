@@ -69,6 +69,9 @@ public static class ServiceContainer
         services.AddScoped<IFinanceInvoiceSetting, FinanceInvoiceSettingRepository>();
         services.AddScoped<ILanguage, LanguageRepository>();
         services.AddScoped<IPurchaseSetting, PurchaseSettingRepository>();
+        services.AddScoped<ITasks, TasksRepository>();
+        services.AddScoped<IMessage, MessageRepository>();
+        services.AddScoped<INotifications, NotificationRepository>();
 
         return services;
     }

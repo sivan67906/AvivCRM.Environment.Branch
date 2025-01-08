@@ -14,14 +14,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace AvivCRM.Environment.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
-public class TaxController : ControllerBase
+public class TaxController(ISender sender) : ControllerBase
 {
-    private readonly ISender _sender;
-
-    public TaxController(ISender sender)
-    {
-        _sender = sender;
-    }
+    private readonly ISender _sender = sender;
 
     [HttpGet("all-tax")]
     public async Task<IActionResult> GetAllAsync()

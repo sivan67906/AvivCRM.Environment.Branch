@@ -31,4 +31,8 @@
     <ProjectReference Include="..\AvivCRM.Environment.Application\AvivCRM.Environment.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\Migrations\" />
+  </ItemGroup>
+
 </Project>

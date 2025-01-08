@@ -28,6 +28,6 @@ internal class GetPlanningByIdQueryHandler(IPlanning planTypeRepository, IMapper
             return new ServerResponse(Message: "Planning Not Found");
         }
 
-        return new ServerResponse(true, "List ofPlanning", planningResponse);
+        return new ServerResponse(true, "List of Planning", planningResponse);
     }
 }

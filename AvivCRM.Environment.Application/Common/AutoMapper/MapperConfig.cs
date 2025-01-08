@@ -20,7 +20,9 @@ using AvivCRM.Environment.Application.DTOs.LeadAgent;
 using AvivCRM.Environment.Application.DTOs.LeadCategories;
 using AvivCRM.Environment.Application.DTOs.LeadSources;
 using AvivCRM.Environment.Application.DTOs.LeadStatus;
+using AvivCRM.Environment.Application.DTOs.Messages;
 using AvivCRM.Environment.Application.DTOs.NotificationMains;
+using AvivCRM.Environment.Application.DTOs.Notifications;
 using AvivCRM.Environment.Application.DTOs.Payment;
 using AvivCRM.Environment.Application.DTOs.Plannings;
 using AvivCRM.Environment.Application.DTOs.ProjectCategories;
@@ -34,6 +36,7 @@ using AvivCRM.Environment.Application.DTOs.RecruitFooterSettings;
 using AvivCRM.Environment.Application.DTOs.RecruitGeneralSettings;
 using AvivCRM.Environment.Application.DTOs.RecruitJobApplicationStatusSettings;
 using AvivCRM.Environment.Application.DTOs.RecruitNotificationSettings;
+using AvivCRM.Environment.Application.DTOs.Taskss;
 using AvivCRM.Environment.Application.DTOs.Taxes;
 using AvivCRM.Environment.Application.DTOs.TicketAgents;
 using AvivCRM.Environment.Application.DTOs.TicketChannels;
@@ -280,34 +283,42 @@ public class MapperConfig : Profile
         CreateMap<CreateTimesheetRequest, Timesheet>();
         CreateMap<UpdateTimesheetRequest, Timesheet>();
         CreateMap<Timesheet, GetTimesheet>();
+
         // Payment
         CreateMap<CreatePaymentRequest, Payment>();
         CreateMap<UpdatePaymentRequest, Payment>();
         CreateMap<Payment, GetPayment>();
+
         // Application
         CreateMap<CreateApplicationRequest, Applications>();
         CreateMap<UpdateApplicationRequest, Applications>();
         CreateMap<Applications, GetApplication>();
+
         // Currency
         CreateMap<CreateCurrencyRequest, Currency>();
         CreateMap<UpdateCurrencyRequest, Currency>();
         CreateMap<Currency, GetCurrency>();
+
         // Planning
         CreateMap<CreatePlanningRequest, Planning>();
         CreateMap<UpdatePlanningRequest, Planning>();
         CreateMap<Planning, GetPlanning>();
+
         // Tax
         CreateMap<CreateTaxRequest, Tax>();
         CreateMap<UpdateTaxRequest, Tax>();
         CreateMap<Tax, GetTax>();
+
         // Client
         CreateMap<CreateClientRequest, Client>();
         CreateMap<UpdateClientRequest, Client>();
         CreateMap<Client, GetClient>();
+
         // Employee
         CreateMap<CreateEmployeeRequest, Employee>();
         CreateMap<UpdateEmployeeRequest, Employee>();
         CreateMap<Employee, GetEmployee>();
+
         // AttendanceSetting
         CreateMap<CreateAttendanceSettingRequest, AttendanceSetting>();
         CreateMap<UpdateAttendanceSettingRequest, AttendanceSetting>();
@@ -330,6 +341,7 @@ public class MapperConfig : Profile
         CreateMap<CreateFinanceInvoiceSettingRequest, FinanceInvoiceSetting>();
         CreateMap<UpdateFinanceInvoiceSettingRequest, FinanceInvoiceSetting>();
         CreateMap<FinanceInvoiceSetting, GetFinanceInvoiceSetting>();
+
         // Language
         CreateMap<createLanguageRequest, Language>();
         CreateMap<UpdateLanguageRequest, Language>();
@@ -360,5 +372,22 @@ public class MapperConfig : Profile
         CreateMap<CreatePurchaseSettingRequest, PurchaseSetting>();
         CreateMap<UpdatePurchaseSettingRequest, PurchaseSetting>();
         CreateMap<PurchaseSetting, GetPurchaseSetting>();
+
+        // Tasks
+        CreateMap<CreateTasksRequest, Tasks>();
+        CreateMap<UpdateTasksRequest, Tasks>();
+        CreateMap<Tasks, GetTasks>();
+
+        // Message
+        CreateMap<CreateMessageRequest, Message>();
+        CreateMap<UpdateMessageRequest, Message>();
+        CreateMap<Message, GetMessage>();
+
+        // Notification
+        CreateMap<CreateNotificationRequest, Notification>();
+        CreateMap<UpdateNotificationRequest, Notification>();
+        CreateMap<Notification, GetNotification>();
+
+
     }
 }
