@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿#region
+
+using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.Applications;
 using AvivCRM.Environment.Domain.Contracts;
 using AvivCRM.Environment.Domain.Entities;
@@ -6,15 +8,24 @@ using AvivCRM.Environment.Domain.Responses;
 using FluentValidation;
 using MediatR;
 
+#endregion
+
 namespace AvivCRM.Environment.Application.Features.Applicationss.CreateApplication;
-internal class CreateApplicationCommandHandler(IValidator<CreateApplicationRequest> _validator, IApplication _applicationRepository, IUnitOfWork _unitOfWork, IMapper mapper) : IRequestHandler<CreateApplicationCommand, ServerResponse>
+internal class CreateApplicationCommandHandler(
+    IValidator<CreateApplicationRequest> _validator,
+    IApplication _applicationRepository,
+    IUnitOfWork _unitOfWork,
+    IMapper mapper) : IRequestHandler<CreateApplicationCommand, ServerResponse>
 {
     public async Task<ServerResponse> Handle(CreateApplicationCommand request, CancellationToken cancellationToken)
     {
         // Validate the request
         var validate = await _validator.ValidateAsync(request.Application);
 
-        if (!validate.IsValid) return new ServerResponse(Message: string.Join("; ", validate.Errors.Select(error => error.ErrorMessage)));
+        if (!validate.IsValid)
+        {
+            return new ServerResponse(Message: string.Join("; ", validate.Errors.Select(error => error.ErrorMessage)));
+        }
 
 
         // Map the request to the entity
@@ -31,6 +42,6 @@ internal class CreateApplicationCommandHandler(IValidator<CreateApplicationReque
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Application created successfully", Data: applicationEntity);
+        return new ServerResponse(true, "Application created successfully", applicationEntity);
     }
 }

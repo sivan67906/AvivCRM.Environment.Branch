@@ -1,5 +1,4 @@
 ﻿namespace AvivCRM.Environment.Application.DTOs.Plannings;
-
 public abstract class PlanningBaseModel
 {
     public string? Name { get; set; } = default!;

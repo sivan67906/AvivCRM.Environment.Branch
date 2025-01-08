@@ -1,3 +1,5 @@
+#region
+
 using AutoMapper;
 using AvivCRM.Environment.Domain.Contracts;
 using AvivCRM.Environment.Domain.Contracts.Project;
@@ -5,15 +7,22 @@ using AvivCRM.Environment.Domain.Entities;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
 
-namespace AvivCRM.Environment.Application.Features.ProjectCategories.DeleteProjectCategory;
+#endregion
 
-internal class DeleteProjectCategoryCommandHandler(IProjectCategory _projectCategoryRepository, IUnitOfWork _unitOfWork, IMapper mapper) : IRequestHandler<DeleteProjectCategoryCommand, ServerResponse>
+namespace AvivCRM.Environment.Application.Features.ProjectCategories.DeleteProjectCategory;
+internal class DeleteProjectCategoryCommandHandler(
+    IProjectCategory _projectCategoryRepository,
+    IUnitOfWork _unitOfWork,
+    IMapper mapper) : IRequestHandler<DeleteProjectCategoryCommand, ServerResponse>
 {
     public async Task<ServerResponse> Handle(DeleteProjectCategoryCommand request, CancellationToken cancellationToken)
     {
         // Is Found
         var projectCategory = await _projectCategoryRepository.GetByIdAsync(request.Id);
-        if (projectCategory is null) return new ServerResponse(Message: "Project Category Not Found");
+        if (projectCategory is null)
+        {
+            return new ServerResponse(Message: "Project Category Not Found");
+        }
 
         // Map the request to the entity
         var delMapEntity = mapper.Map<ProjectCategory>(projectCategory);
@@ -29,17 +38,6 @@ internal class DeleteProjectCategoryCommandHandler(IProjectCategory _projectCate
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Project Category deleted successfully", Data: delMapEntity);
+        return new ServerResponse(true, "Project Category deleted successfully", delMapEntity);
     }
 }
-
-
-
-
-
-
-
-
-
-
-

@@ -13,18 +13,9 @@ public class CreateRecruitGeneralSettingRequest : RecruitGeneralSettingBaseModel
     public string? GeneralBGLogo { get; set; }
     public string? GeneralBGLogoPath { get; set; }
     public string? GeneralBGLogoImageFileName { get; set; }
+
     public string? GeneralBGColorCode { get; set; }
+
     //public string? GeneralRBJsonSettings { get; set; }
     public string? GeneralCBJsonSettings { get; set; }
 }
-
-
-
-
-
-
-
-
-
-
-

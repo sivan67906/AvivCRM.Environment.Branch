@@ -1,4 +1,8 @@
+#region
+
 using AvivCRM.Environment.Domain.Entities;
+
+#endregion
 
 namespace AvivCRM.Environment.Domain.Contracts;
 public interface ITimesheet
@@ -10,12 +14,3 @@ public interface ITimesheet
     Task<IEnumerable<Timesheet>> GetAllAsync();
     Task<bool> IsAvailableByNameAsync(string timesheetName);
 }
-
-
-
-
-
-
-
-
-

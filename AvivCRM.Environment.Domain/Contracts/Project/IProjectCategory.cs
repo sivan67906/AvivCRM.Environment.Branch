@@ -1,4 +1,8 @@
+#region
+
 using AvivCRM.Environment.Domain.Entities;
+
+#endregion
 
 namespace AvivCRM.Environment.Domain.Contracts.Project;
 public interface IProjectCategory
@@ -10,12 +14,3 @@ public interface IProjectCategory
     Task<IEnumerable<ProjectCategory>> GetAllAsync();
     Task<bool> IsAvailableByNameAsync(string projectCategoryName);
 }
-
-
-
-
-
-
-
-
-

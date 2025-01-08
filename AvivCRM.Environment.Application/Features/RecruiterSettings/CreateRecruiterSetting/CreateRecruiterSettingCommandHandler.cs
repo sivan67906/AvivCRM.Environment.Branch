@@ -1,3 +1,5 @@
+#region
+
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.RecruiterSettings;
 using AvivCRM.Environment.Domain.Contracts;
@@ -7,13 +9,16 @@ using AvivCRM.Environment.Domain.Responses;
 using FluentValidation;
 using MediatR;
 
-namespace AvivCRM.Environment.Application.Features.RecruiterSettings.CreateRecruiterSetting;
+#endregion
 
-internal class CreateRecruiterSettingCommandHandler(IValidator<CreateRecruiterSettingRequest> validator,
-    IRecruiterSetting _recruiterSettingRepository, IUnitOfWork _unitOfWork, IMapper mapper)
+namespace AvivCRM.Environment.Application.Features.RecruiterSettings.CreateRecruiterSetting;
+internal class CreateRecruiterSettingCommandHandler(
+    IValidator<CreateRecruiterSettingRequest> validator,
+    IRecruiterSetting _recruiterSettingRepository,
+    IUnitOfWork _unitOfWork,
+    IMapper mapper)
     : IRequestHandler<CreateRecruiterSettingCommand, ServerResponse>
 {
-
     public async Task<ServerResponse> Handle(CreateRecruiterSettingCommand request, CancellationToken cancellationToken)
     {
         var validate = await validator.ValidateAsync(request.RecruiterSetting);
@@ -32,20 +37,9 @@ internal class CreateRecruiterSettingCommandHandler(IValidator<CreateRecruiterSe
         }
         catch (Exception ex)
         {
-            return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
+            return new ServerResponse(Message: "Error Occured: " + ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Recruiter Setting created successfully", Data: recruiterSettingEntity);
+        return new ServerResponse(true, "Recruiter Setting created successfully", recruiterSettingEntity);
     }
 }
-
-
-
-
-
-
-
-
-
-
-

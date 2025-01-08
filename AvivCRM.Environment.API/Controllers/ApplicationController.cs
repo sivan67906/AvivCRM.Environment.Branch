@@ -1,4 +1,6 @@
-﻿using AvivCRM.Environment.Application.DTOs.Applications;
+﻿#region
+
+using AvivCRM.Environment.Application.DTOs.Applications;
 using AvivCRM.Environment.Application.Features.Applicationss.CreateApplication;
 using AvivCRM.Environment.Application.Features.Applicationss.DeleteApplication;
 using AvivCRM.Environment.Application.Features.Applicationss.GetAllApplication;
@@ -7,13 +9,19 @@ using AvivCRM.Environment.Application.Features.Applicationss.UpdateApplication;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
+#endregion
+
 namespace AvivCRM.Environment.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class ApplicationController : ControllerBase
 {
     private readonly ISender _sender;
-    public ApplicationController(ISender sender) => _sender = sender;
+
+    public ApplicationController(ISender sender)
+    {
+        _sender = sender;
+    }
 
     [HttpGet("all-application")]
     public async Task<IActionResult> GetAllAsync()

@@ -1,3 +1,5 @@
+#region
+
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.ProjectReminderPersons;
 using AvivCRM.Environment.Domain.Contracts;
@@ -7,19 +9,32 @@ using AvivCRM.Environment.Domain.Responses;
 using FluentValidation;
 using MediatR;
 
-namespace AvivCRM.Environment.Application.Features.ProjectReminderPersons.UpdateProjectReminderPerson;
+#endregion
 
-internal class UpdateProjectReminderPersonCommandHandler(IValidator<UpdateProjectReminderPersonRequest> _validator, IProjectReminderPerson _projectReminderPersonRepository, IUnitOfWork _unitOfWork, IMapper mapper) : IRequestHandler<UpdateProjectReminderPersonCommand, ServerResponse>
+namespace AvivCRM.Environment.Application.Features.ProjectReminderPersons.UpdateProjectReminderPerson;
+internal class UpdateProjectReminderPersonCommandHandler(
+    IValidator<UpdateProjectReminderPersonRequest> _validator,
+    IProjectReminderPerson _projectReminderPersonRepository,
+    IUnitOfWork _unitOfWork,
+    IMapper mapper) : IRequestHandler<UpdateProjectReminderPersonCommand, ServerResponse>
 {
-    public async Task<ServerResponse> Handle(UpdateProjectReminderPersonCommand request, CancellationToken cancellationToken)
+    public async Task<ServerResponse> Handle(UpdateProjectReminderPersonCommand request,
+        CancellationToken cancellationToken)
     {
         // Validate Request
         var validate = await _validator.ValidateAsync(request.ProjectReminderPerson);
-        if (!validate.IsValid) return new ServerResponse(Message: string.Join("; ", validate.Errors.Select(error => error.ErrorMessage)));
+        if (!validate.IsValid)
+        {
+            return new ServerResponse(Message: string.Join("; ", validate.Errors.Select(error => error.ErrorMessage)));
+        }
 
         // Check if the Project Reminder Person exists
-        var projectReminderPerson = await _projectReminderPersonRepository.GetByIdAsync(request.ProjectReminderPerson.Id);
-        if (projectReminderPerson is null) return new ServerResponse(Message: "Project Reminder Person Not Found");
+        var projectReminderPerson =
+            await _projectReminderPersonRepository.GetByIdAsync(request.ProjectReminderPerson.Id);
+        if (projectReminderPerson is null)
+        {
+            return new ServerResponse(Message: "Project Reminder Person Not Found");
+        }
 
         // Map the request to the entity
         var projectReminderPersonEntity = mapper.Map<ProjectReminderPerson>(request.ProjectReminderPerson);
@@ -35,15 +50,6 @@ internal class UpdateProjectReminderPersonCommandHandler(IValidator<UpdateProjec
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Project Reminder Person updated successfully", Data: projectReminderPersonEntity);
+        return new ServerResponse(true, "Project Reminder Person updated successfully", projectReminderPersonEntity);
     }
 }
-
-
-
-
-
-
-
-
-

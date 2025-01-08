@@ -3,12 +3,3 @@ public class GetProjectCategory : ProjectCategoryBaseModel
 {
     public Guid Id { get; set; }
 }
-
-
-
-
-
-
-
-
-

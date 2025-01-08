@@ -1,3 +1,5 @@
+#region
+
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.TicketTypes;
 using AvivCRM.Environment.Domain.Contracts;
@@ -7,13 +9,16 @@ using AvivCRM.Environment.Domain.Responses;
 using FluentValidation;
 using MediatR;
 
-namespace AvivCRM.Environment.Application.Features.TicketTypes.CreateTicketType;
+#endregion
 
-internal class CreateTicketTypeCommandHandler(IValidator<CreateTicketTypeRequest> validator,
-    ITicketType _ticketTypeRepository, IUnitOfWork _unitOfWork, IMapper mapper)
+namespace AvivCRM.Environment.Application.Features.TicketTypes.CreateTicketType;
+internal class CreateTicketTypeCommandHandler(
+    IValidator<CreateTicketTypeRequest> validator,
+    ITicketType _ticketTypeRepository,
+    IUnitOfWork _unitOfWork,
+    IMapper mapper)
     : IRequestHandler<CreateTicketTypeCommand, ServerResponse>
 {
-
     public async Task<ServerResponse> Handle(CreateTicketTypeCommand request, CancellationToken cancellationToken)
     {
         var validate = await validator.ValidateAsync(request.TicketType);
@@ -32,20 +37,9 @@ internal class CreateTicketTypeCommandHandler(IValidator<CreateTicketTypeRequest
         }
         catch (Exception ex)
         {
-            return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
+            return new ServerResponse(Message: "Error Occured: " + ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Ticket Type created successfully", Data: ticketTypeEntity);
+        return new ServerResponse(true, "Ticket Type created successfully", ticketTypeEntity);
     }
 }
-
-
-
-
-
-
-
-
-
-
-

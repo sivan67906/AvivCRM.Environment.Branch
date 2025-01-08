@@ -1,4 +1,8 @@
+#region
+
 using AvivCRM.Environment.Domain.Entities.Common;
+
+#endregion
 
 namespace AvivCRM.Environment.Domain.Entities;
 public sealed class RecruitJobApplicationStatusSetting : BaseEntity, IEntity
@@ -11,12 +15,3 @@ public sealed class RecruitJobApplicationStatusSetting : BaseEntity, IEntity
     public string? JASColor { get; set; }
     public int JASIsModelChecked { get; set; }
 }
-
-
-
-
-
-
-
-
-

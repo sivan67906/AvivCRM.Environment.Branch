@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿#region
+
+using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.Applications;
 using AvivCRM.Environment.Application.DTOs.AttendanceSettings;
 using AvivCRM.Environment.Application.DTOs.Clients;
@@ -42,6 +44,8 @@ using AvivCRM.Environment.Application.DTOs.TimeLogs;
 using AvivCRM.Environment.Application.DTOs.Timesheets;
 using AvivCRM.Environment.Domain.Entities;
 
+#endregion
+
 namespace AvivCRM.Environment.Application.Common.AutoMapper;
 public class MapperConfig : Profile
 {
@@ -67,61 +71,15 @@ public class MapperConfig : Profile
         CreateMap<UpdateTicketAgentRequest, TicketAgent>();
         CreateMap<TicketAgent, GetTicketAgent>();
 
-        CreateMap<CreateTicketAgentRequest, TicketAgent>()
-            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.TicketAgentName));
-        CreateMap<TicketAgent, CreateTicketAgentRequest>()
-            .ForMember(dest => dest.TicketAgentName, opt => opt.MapFrom(src => src.Name));
-
-        CreateMap<UpdateTicketAgentRequest, TicketAgent>()
-            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.TicketAgentName));
-        CreateMap<TicketAgent, UpdateTicketAgentRequest>()
-            .ForMember(dest => dest.TicketAgentName, opt => opt.MapFrom(src => src.Name));
-
-        CreateMap<TicketAgent, GetTicketAgent>()
-            .ForMember(dest => dest.TicketAgentName, opt => opt.MapFrom(src => src.Name));
-        CreateMap<GetTicketAgent, TicketAgent>()
-            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.TicketAgentName));
-
         // TicketChannel
         CreateMap<CreateTicketChannelRequest, TicketChannel>();
         CreateMap<UpdateTicketChannelRequest, TicketChannel>();
         CreateMap<TicketChannel, GetTicketChannel>();
 
-        CreateMap<CreateTicketChannelRequest, TicketAgent>()
-            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.TicketChannelName));
-        CreateMap<TicketAgent, CreateTicketChannelRequest>()
-            .ForMember(dest => dest.TicketChannelName, opt => opt.MapFrom(src => src.Name));
-
-        CreateMap<UpdateTicketChannelRequest, TicketAgent>()
-            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.TicketChannelName));
-        CreateMap<TicketAgent, UpdateTicketChannelRequest>()
-            .ForMember(dest => dest.TicketChannelName, opt => opt.MapFrom(src => src.Name));
-
-        CreateMap<TicketAgent, GetTicketChannel>()
-            .ForMember(dest => dest.TicketChannelName, opt => opt.MapFrom(src => src.Name));
-        CreateMap<GetTicketChannel, TicketAgent>()
-            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.TicketChannelName));
-
         // TicketGroup
         CreateMap<CreateTicketGroupRequest, TicketGroup>();
         CreateMap<UpdateTicketGroupRequest, TicketGroup>();
         CreateMap<TicketGroup, GetTicketGroup>();
-
-        CreateMap<CreateTicketGroupRequest, TicketGroup>()
-            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.TicketGroupName));
-        CreateMap<TicketGroup, CreateTicketGroupRequest>()
-            .ForMember(dest => dest.TicketGroupName, opt => opt.MapFrom(src => src.Name));
-
-        CreateMap<UpdateTicketGroupRequest, TicketGroup>()
-            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.TicketGroupName));
-        CreateMap<TicketGroup, UpdateTicketGroupRequest>()
-            .ForMember(dest => dest.TicketGroupName, opt => opt.MapFrom(src => src.Name));
-
-        CreateMap<GetTicketGroup, TicketGroup>()
-            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.TicketGroupName));
-        CreateMap<TicketGroup, GetTicketGroup>()
-            .ForMember(dest => dest.TicketGroupName, opt => opt.MapFrom(src => src.Name));
-
 
         // TicketReplyTemplate
         CreateMap<CreateTicketReplyTemplateRequest, TicketReplyTemplate>();
@@ -132,21 +90,6 @@ public class MapperConfig : Profile
         CreateMap<CreateTicketTypeRequest, TicketType>();
         CreateMap<UpdateTicketTypeRequest, TicketType>();
         CreateMap<TicketType, GetTicketType>();
-
-        CreateMap<CreateTicketTypeRequest, TicketType>()
-            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.TicketTypeName));
-        CreateMap<TicketType, CreateTicketTypeRequest>()
-            .ForMember(dest => dest.TicketTypeName, opt => opt.MapFrom(src => src.Name));
-
-        CreateMap<UpdateTicketTypeRequest, TicketType>()
-            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.TicketTypeName));
-        CreateMap<TicketType, UpdateTicketTypeRequest>()
-            .ForMember(dest => dest.TicketTypeName, opt => opt.MapFrom(src => src.Name));
-
-        CreateMap<TicketType, GetTicketType>()
-            .ForMember(dest => dest.TicketTypeName, opt => opt.MapFrom(src => src.Name));
-        CreateMap<GetTicketType, TicketType>()
-            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.TicketTypeName));
 
         // FinanceInvoiceTemplateSetting
         CreateMap<CreateFinanceInvoiceTemplateSettingRequest, FinanceInvoiceTemplateSetting>();
@@ -286,7 +229,6 @@ public class MapperConfig : Profile
             .ForMember(dest => dest.JAPositionName, opt => opt.MapFrom(src => src.Name));
         CreateMap<GetJobApplicationPosition, JobApplicationPosition>()
             .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.JAPositionName));
-
 
 
         // NotificationMain

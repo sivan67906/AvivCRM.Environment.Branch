@@ -1,4 +1,6 @@
-﻿using AvivCRM.Environment.Application.DTOs.Currencies;
+﻿#region
+
+using AvivCRM.Environment.Application.DTOs.Currencies;
 using AvivCRM.Environment.Application.Features.Currencies.CreateCurrency;
 using AvivCRM.Environment.Application.Features.Currencies.DeleteCurrency;
 using AvivCRM.Environment.Application.Features.Currencies.GetAllCurrency;
@@ -7,13 +9,19 @@ using AvivCRM.Environment.Application.Features.Currencies.UpdateCurrency;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
+#endregion
+
 namespace AvivCRM.Environment.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class CurrencyController : ControllerBase
 {
     private readonly ISender _sender;
-    public CurrencyController(ISender sender) => _sender = sender;
+
+    public CurrencyController(ISender sender)
+    {
+        _sender = sender;
+    }
 
     [HttpGet("all-currency")]
     public async Task<IActionResult> GetAllAsync()

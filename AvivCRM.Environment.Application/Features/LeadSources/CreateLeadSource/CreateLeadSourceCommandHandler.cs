@@ -1,3 +1,5 @@
+#region
+
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.LeadSources;
 using AvivCRM.Environment.Domain.Contracts;
@@ -7,13 +9,16 @@ using AvivCRM.Environment.Domain.Responses;
 using FluentValidation;
 using MediatR;
 
-namespace AvivCRM.Environment.Application.Features.LeadSources.CreateLeadSource;
+#endregion
 
-internal class CreateLeadSourceCommandHandler(IValidator<CreateLeadSourceRequest> validator,
-    ILeadSource _leadSourceRepository, IUnitOfWork _unitOfWork, IMapper mapper)
+namespace AvivCRM.Environment.Application.Features.LeadSources.CreateLeadSource;
+internal class CreateLeadSourceCommandHandler(
+    IValidator<CreateLeadSourceRequest> validator,
+    ILeadSource _leadSourceRepository,
+    IUnitOfWork _unitOfWork,
+    IMapper mapper)
     : IRequestHandler<CreateLeadSourceCommand, ServerResponse>
 {
-
     public async Task<ServerResponse> Handle(CreateLeadSourceCommand request, CancellationToken cancellationToken)
     {
         var validate = await validator.ValidateAsync(request.LeadSource);
@@ -32,11 +37,9 @@ internal class CreateLeadSourceCommandHandler(IValidator<CreateLeadSourceRequest
         }
         catch (Exception ex)
         {
-            return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
+            return new ServerResponse(Message: "Error Occured: " + ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Lead Source created successfully", Data: leadSourceEntity);
+        return new ServerResponse(true, "Lead Source created successfully", leadSourceEntity);
     }
 }
-
-

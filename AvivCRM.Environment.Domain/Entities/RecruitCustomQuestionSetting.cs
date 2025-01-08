@@ -1,4 +1,8 @@
+#region
+
 using AvivCRM.Environment.Domain.Entities.Common;
+
+#endregion
 
 namespace AvivCRM.Environment.Domain.Entities;
 public sealed class RecruitCustomQuestionSetting : BaseEntity, IEntity
@@ -12,12 +16,3 @@ public sealed class RecruitCustomQuestionSetting : BaseEntity, IEntity
     public int CQStatusName { get; set; }
     public int CQIsRequiredId { get; set; }
 }
-
-
-
-
-
-
-
-
-

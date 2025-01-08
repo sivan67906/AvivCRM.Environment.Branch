@@ -3,12 +3,3 @@ public class GetJobApplicationCategory : JobApplicationCategoryBaseModel
 {
     public Guid Id { get; set; }
 }
-
-
-
-
-
-
-
-
-

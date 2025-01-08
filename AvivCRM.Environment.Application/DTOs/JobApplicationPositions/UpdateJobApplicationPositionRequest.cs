@@ -3,20 +3,3 @@ public class UpdateJobApplicationPositionRequest : JobApplicationPositionBaseMod
 {
     public Guid Id { get; set; }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

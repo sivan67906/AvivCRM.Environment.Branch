@@ -3,14 +3,3 @@ public class CreateRecruiterSettingRequest : RecruiterSettingBaseModel
 {
     public int RecruiterStatusId { get; set; }
 }
-
-
-
-
-
-
-
-
-
-
-

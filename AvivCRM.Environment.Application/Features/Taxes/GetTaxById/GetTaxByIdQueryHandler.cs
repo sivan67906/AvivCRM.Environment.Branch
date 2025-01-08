@@ -1,8 +1,12 @@
-﻿using AutoMapper;
+﻿#region
+
+using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.Taxes;
 using AvivCRM.Environment.Domain.Contracts;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
+
+#endregion
 
 namespace AvivCRM.Environment.Application.Features.Taxes.GetTaxById;
 internal class GetTaxByIdQueryHandler(ITax taxRepository, IMapper mapper) : IRequestHandler<GetTaxByIdQuery, ServerResponse>

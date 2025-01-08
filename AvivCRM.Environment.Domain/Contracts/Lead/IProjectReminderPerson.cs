@@ -1,4 +1,8 @@
+#region
+
 using AvivCRM.Environment.Domain.Entities;
+
+#endregion
 
 namespace AvivCRM.Environment.Domain.Contracts.Project;
 public interface IProjectReminderPerson
@@ -10,12 +14,3 @@ public interface IProjectReminderPerson
     Task<IEnumerable<ProjectReminderPerson>> GetAllAsync();
     Task<bool> IsAvailableByNameAsync(string projectReminderPersonName);
 }
-
-
-
-
-
-
-
-
-

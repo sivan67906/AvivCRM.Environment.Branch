@@ -1,4 +1,6 @@
-﻿using AvivCRM.Environment.Application.DTOs.AttendanceSettings;
+﻿#region
+
+using AvivCRM.Environment.Application.DTOs.AttendanceSettings;
 using AvivCRM.Environment.Application.Features.AttendanceSettings.CreateAttendanceSetting;
 using AvivCRM.Environment.Application.Features.AttendanceSettings.DeleteAttendanceSetting;
 using AvivCRM.Environment.Application.Features.AttendanceSettings.GetAllAttendanceSetting;
@@ -7,13 +9,19 @@ using AvivCRM.Environment.Application.Features.AttendanceSettings.UpdateAttendan
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
+#endregion
+
 namespace AvivCRM.Environment.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class AttendanceSettingController : ControllerBase
 {
     private readonly ISender _sender;
-    public AttendanceSettingController(ISender sender) => _sender = sender;
+
+    public AttendanceSettingController(ISender sender)
+    {
+        _sender = sender;
+    }
 
     [HttpGet("all-attendancesetting")]
     public async Task<IActionResult> GetAllAsync()

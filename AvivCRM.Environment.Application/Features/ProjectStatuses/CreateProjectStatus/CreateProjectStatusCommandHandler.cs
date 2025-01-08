@@ -1,3 +1,5 @@
+#region
+
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.ProjectStatuses;
 using AvivCRM.Environment.Domain.Contracts;
@@ -7,13 +9,16 @@ using AvivCRM.Environment.Domain.Responses;
 using FluentValidation;
 using MediatR;
 
-namespace AvivCRM.Environment.Application.Features.ProjectStatuses.CreateProjectStatus;
+#endregion
 
-internal class CreateProjectStatusCommandHandler(IValidator<CreateProjectStatusRequest> validator,
-    IProjectStatus _projectStatusRepository, IUnitOfWork _unitOfWork, IMapper mapper)
+namespace AvivCRM.Environment.Application.Features.ProjectStatuses.CreateProjectStatus;
+internal class CreateProjectStatusCommandHandler(
+    IValidator<CreateProjectStatusRequest> validator,
+    IProjectStatus _projectStatusRepository,
+    IUnitOfWork _unitOfWork,
+    IMapper mapper)
     : IRequestHandler<CreateProjectStatusCommand, ServerResponse>
 {
-
     public async Task<ServerResponse> Handle(CreateProjectStatusCommand request, CancellationToken cancellationToken)
     {
         var validate = await validator.ValidateAsync(request.ProjectStatus);
@@ -30,7 +35,6 @@ internal class CreateProjectStatusCommandHandler(IValidator<CreateProjectStatusR
         {
             _projectStatusRepository.Add(projectStatusEntity);
             await _unitOfWork.SaveChangesAsync();
-
 
 
             if (projectStatusEntity.IsDefaultStatus)
@@ -54,31 +58,20 @@ internal class CreateProjectStatusCommandHandler(IValidator<CreateProjectStatusR
                         {
                             entity.ModifiedOn = DateTime.Now;
                         }
+
                         entity.IsDefaultStatus = false;
                         _projectStatusRepository.Update(entity);
                     }
                 }
+
                 await _unitOfWork.SaveChangesAsync();
             }
-
         }
         catch (Exception ex)
         {
-            return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
+            return new ServerResponse(Message: "Error Occured: " + ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Project Status created successfully", Data: projectStatusEntity);
+        return new ServerResponse(true, "Project Status created successfully", projectStatusEntity);
     }
-
 }
-
-
-
-
-
-
-
-
-
-
-

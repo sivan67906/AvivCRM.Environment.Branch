@@ -6,12 +6,3 @@ public class UpdateProjectSettingRequest : ProjectSettingBaseModel
     public Guid ProjectReminderPersonId { get; set; }
     public int RemindBefore { get; set; }
 }
-
-
-
-
-
-
-
-
-

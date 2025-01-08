@@ -1,19 +1,23 @@
+#region
+
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.NotificationMains;
-using AvivCRM.Environment.Domain.Contracts;
 using AvivCRM.Environment.Domain.Contracts;
 using AvivCRM.Environment.Domain.Entities;
 using AvivCRM.Environment.Domain.Responses;
 using FluentValidation;
 using MediatR;
 
-namespace AvivCRM.Environment.Application.Features.NotificationMains.CreateNotificationMain;
+#endregion
 
-internal class CreateNotificationMainCommandHandler(IValidator<CreateNotificationMainRequest> validator,
-    INotificationMain _notificationMainRepository, IUnitOfWork _unitOfWork, IMapper mapper)
+namespace AvivCRM.Environment.Application.Features.NotificationMains.CreateNotificationMain;
+internal class CreateNotificationMainCommandHandler(
+    IValidator<CreateNotificationMainRequest> validator,
+    INotificationMain _notificationMainRepository,
+    IUnitOfWork _unitOfWork,
+    IMapper mapper)
     : IRequestHandler<CreateNotificationMainCommand, ServerResponse>
 {
-
     public async Task<ServerResponse> Handle(CreateNotificationMainCommand request, CancellationToken cancellationToken)
     {
         var validate = await validator.ValidateAsync(request.NotificationMain);
@@ -32,20 +36,9 @@ internal class CreateNotificationMainCommandHandler(IValidator<CreateNotificatio
         }
         catch (Exception ex)
         {
-            return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
+            return new ServerResponse(Message: "Error Occured: " + ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Notification Main created successfully", Data: notificationMainEntity);
+        return new ServerResponse(true, "Notification Main created successfully", notificationMainEntity);
     }
 }
-
-
-
-
-
-
-
-
-
-
-

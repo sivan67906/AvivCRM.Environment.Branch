@@ -6,12 +6,3 @@ public class GetProjectStatus : ProjectStatusBaseModel
     public bool IsDefaultStatus { get; set; }
     public bool Status { get; set; }
 }
-
-
-
-
-
-
-
-
-

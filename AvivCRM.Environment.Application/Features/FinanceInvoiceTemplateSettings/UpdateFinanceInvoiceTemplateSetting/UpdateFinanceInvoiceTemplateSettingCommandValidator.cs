@@ -1,9 +1,13 @@
+#region
+
 using AvivCRM.Environment.Application.DTOs.FinanceInvoiceTemplateSettings;
 using FluentValidation;
 
-namespace AvivCRM.Environment.Application.Features.FinanceInvoiceTemplateSettings.UpdateFinanceInvoiceTemplateSetting;
+#endregion
 
-public class UpdateFinanceInvoiceTemplateSettingCommandValidator : AbstractValidator<UpdateFinanceInvoiceTemplateSettingRequest>
+namespace AvivCRM.Environment.Application.Features.FinanceInvoiceTemplateSettings.UpdateFinanceInvoiceTemplateSetting;
+public class
+    UpdateFinanceInvoiceTemplateSettingCommandValidator : AbstractValidator<UpdateFinanceInvoiceTemplateSettingRequest>
 {
     public UpdateFinanceInvoiceTemplateSettingCommandValidator()
     {
@@ -12,17 +16,5 @@ public class UpdateFinanceInvoiceTemplateSettingCommandValidator : AbstractValid
 
         //RuleFor(x => x.FIRBTemplateJsonSettings)
         //            .NotEmpty().WithMessage("Finance Invoice Template Setting Name should not be empty");
-
     }
 }
-
-
-
-
-
-
-
-
-
-
-

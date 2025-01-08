@@ -1,3 +1,5 @@
+#region
+
 using AvivCRM.Environment.Application.DTOs.RecruitCustomQuestionSettings;
 using AvivCRM.Environment.Application.Features.RecruitCustomQuestionSettings.CreateRecruitCustomQuestionSetting;
 using AvivCRM.Environment.Application.Features.RecruitCustomQuestionSettings.DeleteRecruitCustomQuestionSetting;
@@ -7,15 +9,19 @@ using AvivCRM.Environment.Application.Features.RecruitCustomQuestionSettings.Upd
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AvivCRM.Environment.API.Controllers;
+#endregion
 
+namespace AvivCRM.Environment.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class RecruitCustomQuestionSettingController : ControllerBase
 {
-
     private readonly ISender _sender;
-    public RecruitCustomQuestionSettingController(ISender sender) => _sender = sender;
+
+    public RecruitCustomQuestionSettingController(ISender sender)
+    {
+        _sender = sender;
+    }
 
     [HttpGet("byid")]
     public async Task<IActionResult> GetByIdAsync(Guid Id)

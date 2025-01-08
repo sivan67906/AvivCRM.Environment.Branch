@@ -1,8 +1,11 @@
-﻿using AvivCRM.Environment.Application.DTOs.LeadCategories;
+﻿#region
+
+using AvivCRM.Environment.Application.DTOs.LeadCategories;
 using FluentValidation;
 
-namespace AvivCRM.Environment.Application.Features.LeadCategories.UpdateLeadCategory;
+#endregion
 
+namespace AvivCRM.Environment.Application.Features.LeadCategories.UpdateLeadCategory;
 public class UpdateLeadCategoryCommandValidator : AbstractValidator<UpdateLeadCategoryRequest>
 {
     public UpdateLeadCategoryCommandValidator()
@@ -14,8 +17,5 @@ public class UpdateLeadCategoryCommandValidator : AbstractValidator<UpdateLeadCa
             .NotEmpty().WithMessage("Categories Name should not be empty")
             .MaximumLength(25).WithMessage("Categories Name must not exceed 25 Characters")
             .MinimumLength(3).WithMessage("Categories Name should not be less than 3 characters");
-
     }
 }
-
-

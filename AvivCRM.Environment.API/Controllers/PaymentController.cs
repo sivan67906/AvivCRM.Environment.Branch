@@ -1,4 +1,6 @@
-﻿using AvivCRM.Environment.Application.DTOs.Payment;
+﻿#region
+
+using AvivCRM.Environment.Application.DTOs.Payment;
 using AvivCRM.Environment.Application.Features.Payments.CreatePayment;
 using AvivCRM.Environment.Application.Features.Payments.DeletePayment;
 using AvivCRM.Environment.Application.Features.Payments.GetAllPayment;
@@ -7,13 +9,19 @@ using AvivCRM.Environment.Application.Features.Payments.UpdatePayment;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
+#endregion
+
 namespace AvivCRM.Environment.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class PaymentController : ControllerBase
 {
     private readonly ISender _sender;
-    public PaymentController(ISender sender) => _sender = sender;
+
+    public PaymentController(ISender sender)
+    {
+        _sender = sender;
+    }
 
     [HttpGet("all-payment")]
     public async Task<IActionResult> GetAllAsync()

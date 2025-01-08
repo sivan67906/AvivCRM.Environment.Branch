@@ -1,6 +1,10 @@
+#region
+
 using AvivCRM.Environment.Application.DependencyInjection;
 using AvivCRM.Environment.Infrastructure.DependencyInjection;
 using Scalar.AspNetCore;
+
+#endregion
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,9 +21,9 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
     app.MapScalarApiReference(options =>
-    options.WithTitle("Aviv Environment API")
-    .WithTheme(ScalarTheme.Mars)
-    .WithDefaultHttpClient(ScalarTarget.CSharp, ScalarClient.HttpClient)
+        options.WithTitle("Aviv Environment API")
+            .WithTheme(ScalarTheme.Mars)
+            .WithDefaultHttpClient(ScalarTarget.CSharp, ScalarClient.HttpClient)
     );
 }
 
@@ -30,4 +34,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-

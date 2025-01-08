@@ -1,4 +1,8 @@
-﻿using AvivCRM.Environment.Domain.Entities.Common;
+﻿#region
+
+using AvivCRM.Environment.Domain.Entities.Common;
+
+#endregion
 
 namespace AvivCRM.Environment.Domain.Entities;
 public sealed class Employee : BaseEntity, IEntity
@@ -14,5 +18,4 @@ public sealed class Employee : BaseEntity, IEntity
     public Guid CountryId { get; set; }
     public Guid StateId { get; set; }
     public Guid CityId { get; set; }
-
 }

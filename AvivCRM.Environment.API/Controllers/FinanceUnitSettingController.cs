@@ -1,3 +1,5 @@
+#region
+
 using AvivCRM.Environment.Application.DTOs.FinanceUnitSettings;
 using AvivCRM.Environment.Application.Features.FinanceUnitSettings.CreateFinanceUnitSetting;
 using AvivCRM.Environment.Application.Features.FinanceUnitSettings.DeleteFinanceUnitSetting;
@@ -7,15 +9,19 @@ using AvivCRM.Environment.Application.Features.FinanceUnitSettings.UpdateFinance
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AvivCRM.Environment.API.Controllers;
+#endregion
 
+namespace AvivCRM.Environment.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class FinanceUnitSettingController : ControllerBase
 {
-
     private readonly ISender _sender;
-    public FinanceUnitSettingController(ISender sender) => _sender = sender;
+
+    public FinanceUnitSettingController(ISender sender)
+    {
+        _sender = sender;
+    }
 
     [HttpGet("all-financeunitsetting")]
     public async Task<IActionResult> GetAllAsync()

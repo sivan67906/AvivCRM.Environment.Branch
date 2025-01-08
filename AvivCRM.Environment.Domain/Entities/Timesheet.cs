@@ -1,4 +1,8 @@
+#region
+
 using AvivCRM.Environment.Domain.Entities.Common;
+
+#endregion
 
 namespace AvivCRM.Environment.Domain.Entities;
 public sealed class Timesheet : BaseEntity, IEntity
@@ -13,12 +17,3 @@ public sealed class Timesheet : BaseEntity, IEntity
     public string? Memo { get; set; }
     public int TotalHours { get; set; }
 }
-
-
-
-
-
-
-
-
-

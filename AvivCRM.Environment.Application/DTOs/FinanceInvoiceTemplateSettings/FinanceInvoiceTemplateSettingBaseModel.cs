@@ -3,12 +3,3 @@ public abstract class FinanceInvoiceTemplateSettingBaseModel
 {
     public string FIRBTemplateJsonSettings { get; set; } = "[]";
 }
-
-
-
-
-
-
-
-
-

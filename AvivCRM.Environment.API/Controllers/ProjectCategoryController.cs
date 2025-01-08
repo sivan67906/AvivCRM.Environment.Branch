@@ -1,3 +1,5 @@
+#region
+
 using AvivCRM.Environment.Application.DTOs.ProjectCategories;
 using AvivCRM.Environment.Application.Features.ProjectCategories.CreateProjectCategory;
 using AvivCRM.Environment.Application.Features.ProjectCategories.DeleteProjectCategory;
@@ -7,15 +9,19 @@ using AvivCRM.Environment.Application.Features.ProjectCategories.UpdateProjectCa
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AvivCRM.Environment.API.Controllers;
+#endregion
 
+namespace AvivCRM.Environment.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class ProjectCategoryController : ControllerBase
 {
-
     private readonly ISender _sender;
-    public ProjectCategoryController(ISender sender) => _sender = sender;
+
+    public ProjectCategoryController(ISender sender)
+    {
+        _sender = sender;
+    }
 
     [HttpGet("all-projectcategory")]
     public async Task<IActionResult> GetAllAsync()

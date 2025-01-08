@@ -3,12 +3,3 @@ public class UpdateFinancePrefixSettingRequest : FinancePrefixSettingBaseModel
 {
     public Guid Id { get; set; }
 }
-
-
-
-
-
-
-
-
-

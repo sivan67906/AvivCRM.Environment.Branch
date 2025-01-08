@@ -1,3 +1,5 @@
+#region
+
 using AvivCRM.Environment.Application.DTOs.FinancePrefixSettings;
 using AvivCRM.Environment.Application.Features.FinancePrefixSettings.CreateFinancePrefixSetting;
 using AvivCRM.Environment.Application.Features.FinancePrefixSettings.DeleteFinancePrefixSetting;
@@ -7,15 +9,19 @@ using AvivCRM.Environment.Application.Features.FinancePrefixSettings.UpdateFinan
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AvivCRM.Environment.API.Controllers;
+#endregion
 
+namespace AvivCRM.Environment.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class FinancePrefixSettingController : ControllerBase
 {
-
     private readonly ISender _sender;
-    public FinancePrefixSettingController(ISender sender) => _sender = sender;
+
+    public FinancePrefixSettingController(ISender sender)
+    {
+        _sender = sender;
+    }
 
     [HttpGet("all-financeprefixsetting")]
     public async Task<IActionResult> GetAllAsync()

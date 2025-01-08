@@ -1,4 +1,8 @@
+#region
+
 using AvivCRM.Environment.Domain.Entities;
+
+#endregion
 
 namespace AvivCRM.Environment.Domain.Contracts;
 public interface ITimeLog
@@ -10,12 +14,3 @@ public interface ITimeLog
     Task<IEnumerable<TimeLog>> GetAllAsync();
     Task<bool> IsAvailableByNameAsync(string timeLogName);
 }
-
-
-
-
-
-
-
-
-

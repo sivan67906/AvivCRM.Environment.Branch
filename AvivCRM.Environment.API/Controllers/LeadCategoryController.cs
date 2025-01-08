@@ -1,4 +1,6 @@
-﻿using AvivCRM.Environment.Application.DTOs.LeadCategories;
+﻿#region
+
+using AvivCRM.Environment.Application.DTOs.LeadCategories;
 using AvivCRM.Environment.Application.Features.LeadCategories.CreateLeadCategory;
 using AvivCRM.Environment.Application.Features.LeadCategories.DeleteLeadCategory;
 using AvivCRM.Environment.Application.Features.LeadCategories.GetAllLeadCategories;
@@ -7,13 +9,19 @@ using AvivCRM.Environment.Application.Features.LeadCategories.UpdateLeadCategory
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
+#endregion
+
 namespace AvivCRM.Environment.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class LeadCategoryController : ControllerBase
 {
     private readonly ISender _sender;
-    public LeadCategoryController(ISender sender) => _sender = sender;
+
+    public LeadCategoryController(ISender sender)
+    {
+        _sender = sender;
+    }
 
     [HttpGet("all-leadcategory")]
     public async Task<IActionResult> GetAllAsync()

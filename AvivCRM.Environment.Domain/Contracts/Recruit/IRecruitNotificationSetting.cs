@@ -1,4 +1,8 @@
+#region
+
 using AvivCRM.Environment.Domain.Entities;
+
+#endregion
 
 namespace AvivCRM.Environment.Domain.Contracts.Recruit;
 public interface IRecruitNotificationSetting
@@ -10,12 +14,3 @@ public interface IRecruitNotificationSetting
     Task<IEnumerable<RecruitNotificationSetting>> GetAllAsync();
     Task<bool> IsAvailableByNameAsync(string recruitNotificationSettingName);
 }
-
-
-
-
-
-
-
-
-

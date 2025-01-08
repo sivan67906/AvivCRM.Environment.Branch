@@ -1,3 +1,5 @@
+#region
+
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.TicketReplyTemplates;
 using AvivCRM.Environment.Domain.Contracts;
@@ -7,14 +9,18 @@ using AvivCRM.Environment.Domain.Responses;
 using FluentValidation;
 using MediatR;
 
-namespace AvivCRM.Environment.Application.Features.TicketReplyTemplates.CreateTicketReplyTemplate;
+#endregion
 
-internal class CreateTicketReplyTemplateCommandHandler(IValidator<CreateTicketReplyTemplateRequest> validator,
-    ITicketReplyTemplate _ticketReplyTemplateRepository, IUnitOfWork _unitOfWork, IMapper mapper)
+namespace AvivCRM.Environment.Application.Features.TicketReplyTemplates.CreateTicketReplyTemplate;
+internal class CreateTicketReplyTemplateCommandHandler(
+    IValidator<CreateTicketReplyTemplateRequest> validator,
+    ITicketReplyTemplate _ticketReplyTemplateRepository,
+    IUnitOfWork _unitOfWork,
+    IMapper mapper)
     : IRequestHandler<CreateTicketReplyTemplateCommand, ServerResponse>
 {
-
-    public async Task<ServerResponse> Handle(CreateTicketReplyTemplateCommand request, CancellationToken cancellationToken)
+    public async Task<ServerResponse> Handle(CreateTicketReplyTemplateCommand request,
+        CancellationToken cancellationToken)
     {
         var validate = await validator.ValidateAsync(request.TicketReplyTemplate);
         if (!validate.IsValid)
@@ -32,20 +38,9 @@ internal class CreateTicketReplyTemplateCommandHandler(IValidator<CreateTicketRe
         }
         catch (Exception ex)
         {
-            return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
+            return new ServerResponse(Message: "Error Occured: " + ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Ticket ReplyTemplate created successfully", Data: ticketReplyTemplateEntity);
+        return new ServerResponse(true, "Ticket ReplyTemplate created successfully", ticketReplyTemplateEntity);
     }
 }
-
-
-
-
-
-
-
-
-
-
-

@@ -13,12 +13,3 @@ public class UpdateNotificationMainRequest : NotificationMainBaseModel
     public string? ReminderNotificationMainJson { get; set; }
     public string? RequestNotificationMainJson { get; set; }
 }
-
-
-
-
-
-
-
-
-

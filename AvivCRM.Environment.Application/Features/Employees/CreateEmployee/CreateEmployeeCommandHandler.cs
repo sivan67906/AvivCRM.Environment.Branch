@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿#region
+
+using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.Employees;
 using AvivCRM.Environment.Domain.Contracts;
 using AvivCRM.Environment.Domain.Entities;
@@ -6,12 +8,16 @@ using AvivCRM.Environment.Domain.Responses;
 using FluentValidation;
 using MediatR;
 
+#endregion
+
 namespace AvivCRM.Environment.Application.Features.Employees.CreateEmployee;
-internal class CreateEmployeeCommandHandler(IValidator<CreateEmployeeRequest> validator,
-    IEmployee _employeeRepository, IUnitOfWork _unitOfWork, IMapper mapper)
+internal class CreateEmployeeCommandHandler(
+    IValidator<CreateEmployeeRequest> validator,
+    IEmployee _employeeRepository,
+    IUnitOfWork _unitOfWork,
+    IMapper mapper)
     : IRequestHandler<CreateEmployeeCommand, ServerResponse>
 {
-
     public async Task<ServerResponse> Handle(CreateEmployeeCommand request, CancellationToken cancellationToken)
     {
         // Validate request
@@ -21,6 +27,7 @@ internal class CreateEmployeeCommandHandler(IValidator<CreateEmployeeRequest> va
             var errorList = string.Join("; ", validate.Errors.Select(error => error.ErrorMessage));
             return new ServerResponse(Message: errorList);
         }
+
         // Mapping Entity
         var employeeEntity = mapper.Map<Employee>(request.Employee);
 
@@ -31,10 +38,9 @@ internal class CreateEmployeeCommandHandler(IValidator<CreateEmployeeRequest> va
         }
         catch (Exception ex)
         {
-            return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
+            return new ServerResponse(Message: "Error Occured: " + ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Employee created successfully", Data: employeeEntity);
+        return new ServerResponse(true, "Employee created successfully", employeeEntity);
     }
 }
-

@@ -1,4 +1,8 @@
+#region
+
 using AvivCRM.Environment.Domain.Entities.Common;
+
+#endregion
 
 namespace AvivCRM.Environment.Domain.Entities;
 public sealed class RecruitFooterSetting : BaseEntity, IEntity
@@ -8,12 +12,3 @@ public sealed class RecruitFooterSetting : BaseEntity, IEntity
     public int FooterStatusId { get; set; }
     public string? FooterDescription { get; set; }
 }
-
-
-
-
-
-
-
-
-

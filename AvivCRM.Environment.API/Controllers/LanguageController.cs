@@ -1,12 +1,15 @@
-﻿using AvivCRM.Environment.Application.DTOs.Languages;
+﻿#region
+
+using AvivCRM.Environment.Application.DTOs.Languages;
 using AvivCRM.Environment.Application.Features.Languages.CreateLanguage;
 using AvivCRM.Environment.Application.Features.Languages.DeleteLanguage;
 using AvivCRM.Environment.Application.Features.Languages.GatAllLanguage;
 using AvivCRM.Environment.Application.Features.Languages.GetLanguageById;
 using AvivCRM.Environment.Application.Features.Languages.UpdateLanguage;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+
+#endregion
 
 namespace AvivCRM.Environment.API.Controllers;
 [Route("api/[controller]")]
@@ -14,7 +17,11 @@ namespace AvivCRM.Environment.API.Controllers;
 public class LanguageController : ControllerBase
 {
     private readonly ISender _sender;
-    public LanguageController(ISender sender) => _sender = sender;
+
+    public LanguageController(ISender sender)
+    {
+        _sender = sender;
+    }
 
     [HttpGet("all-language")]
     public async Task<IActionResult> GetAllAsync()

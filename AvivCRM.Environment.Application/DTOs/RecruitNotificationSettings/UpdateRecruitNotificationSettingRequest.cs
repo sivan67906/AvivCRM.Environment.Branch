@@ -3,12 +3,3 @@ public class UpdateRecruitNotificationSettingRequest : RecruitNotificationSettin
 {
     public Guid Id { get; set; }
 }
-
-
-
-
-
-
-
-
-

@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿#region
+
+using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.LeadStatus;
 using AvivCRM.Environment.Domain.Contracts;
 using AvivCRM.Environment.Domain.Contracts.Lead;
@@ -7,12 +9,16 @@ using AvivCRM.Environment.Domain.Responses;
 using FluentValidation;
 using MediatR;
 
+#endregion
+
 namespace AvivCRM.Environment.Application.Features.LeadStatuss.CreateLeadStatus;
-internal class CreateLeadStatusCommandHandler(IValidator<CreateLeadStatusRequest> validator,
-    ILeadStatus _leadStatusRepository, IUnitOfWork _unitOfWork, IMapper mapper)
+internal class CreateLeadStatusCommandHandler(
+    IValidator<CreateLeadStatusRequest> validator,
+    ILeadStatus _leadStatusRepository,
+    IUnitOfWork _unitOfWork,
+    IMapper mapper)
     : IRequestHandler<CreateLeadStatusCommand, ServerResponse>
 {
-
     public async Task<ServerResponse> Handle(CreateLeadStatusCommand request, CancellationToken cancellationToken)
     {
         // Validate Check
@@ -22,6 +28,7 @@ internal class CreateLeadStatusCommandHandler(IValidator<CreateLeadStatusRequest
             var errorList = string.Join("; ", validate.Errors.Select(error => error.ErrorMessage));
             return new ServerResponse(Message: errorList);
         }
+
         // Mapping Entity
         var leadStatusEntity = mapper.Map<LeadStatus>(request.LeadStatus);
 
@@ -32,9 +39,9 @@ internal class CreateLeadStatusCommandHandler(IValidator<CreateLeadStatusRequest
         }
         catch (Exception ex)
         {
-            return new ServerResponse(Message: "Error Occured: " + ex.Message.ToString());
+            return new ServerResponse(Message: "Error Occured: " + ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Lead Status created successfully", Data: leadStatusEntity);
+        return new ServerResponse(true, "Lead Status created successfully", leadStatusEntity);
     }
 }

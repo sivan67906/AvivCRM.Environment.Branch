@@ -1,4 +1,8 @@
+#region
+
 using AvivCRM.Environment.Domain.Entities;
+
+#endregion
 
 namespace AvivCRM.Environment.Domain.Contracts.Finance;
 public interface IFinanceUnitSetting
@@ -10,12 +14,3 @@ public interface IFinanceUnitSetting
     Task<IEnumerable<FinanceUnitSetting>> GetAllAsync();
     Task<bool> IsAvailableByNameAsync(string financeUnitSettingName);
 }
-
-
-
-
-
-
-
-
-

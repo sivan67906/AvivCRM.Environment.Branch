@@ -1,3 +1,5 @@
+#region
+
 using AvivCRM.Environment.Application.DTOs.ProjectReminderPersons;
 using AvivCRM.Environment.Application.Features.ProjectReminderPersons.CreateProjectReminderPerson;
 using AvivCRM.Environment.Application.Features.ProjectReminderPersons.DeleteProjectReminderPerson;
@@ -7,15 +9,19 @@ using AvivCRM.Environment.Application.Features.ProjectReminderPersons.UpdateProj
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AvivCRM.Environment.API.Controllers;
+#endregion
 
+namespace AvivCRM.Environment.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class ProjectReminderPersonController : ControllerBase
 {
-
     private readonly ISender _sender;
-    public ProjectReminderPersonController(ISender sender) => _sender = sender;
+
+    public ProjectReminderPersonController(ISender sender)
+    {
+        _sender = sender;
+    }
 
     [HttpGet("all-projectreminderperson")]
     public async Task<IActionResult> GetAllAsync()

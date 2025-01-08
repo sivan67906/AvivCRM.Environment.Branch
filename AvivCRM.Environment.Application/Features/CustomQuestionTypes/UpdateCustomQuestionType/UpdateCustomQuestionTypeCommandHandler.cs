@@ -1,3 +1,5 @@
+#region
+
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.CustomQuestionTypes;
 using AvivCRM.Environment.Domain.Contracts;
@@ -7,19 +9,31 @@ using AvivCRM.Environment.Domain.Responses;
 using FluentValidation;
 using MediatR;
 
-namespace AvivCRM.Environment.Application.Features.CustomQuestionTypes.UpdateCustomQuestionType;
+#endregion
 
-internal class UpdateCustomQuestionTypeCommandHandler(IValidator<UpdateCustomQuestionTypeRequest> _validator, ICustomQuestionType _customQuestionTypeRepository, IUnitOfWork _unitOfWork, IMapper mapper) : IRequestHandler<UpdateCustomQuestionTypeCommand, ServerResponse>
+namespace AvivCRM.Environment.Application.Features.CustomQuestionTypes.UpdateCustomQuestionType;
+internal class UpdateCustomQuestionTypeCommandHandler(
+    IValidator<UpdateCustomQuestionTypeRequest> _validator,
+    ICustomQuestionType _customQuestionTypeRepository,
+    IUnitOfWork _unitOfWork,
+    IMapper mapper) : IRequestHandler<UpdateCustomQuestionTypeCommand, ServerResponse>
 {
-    public async Task<ServerResponse> Handle(UpdateCustomQuestionTypeCommand request, CancellationToken cancellationToken)
+    public async Task<ServerResponse> Handle(UpdateCustomQuestionTypeCommand request,
+        CancellationToken cancellationToken)
     {
         // Validate Request
         var validate = await _validator.ValidateAsync(request.CustomQuestionType);
-        if (!validate.IsValid) return new ServerResponse(Message: string.Join("; ", validate.Errors.Select(error => error.ErrorMessage)));
+        if (!validate.IsValid)
+        {
+            return new ServerResponse(Message: string.Join("; ", validate.Errors.Select(error => error.ErrorMessage)));
+        }
 
         // Check if the plan type exists
         var customQuestionType = await _customQuestionTypeRepository.GetByIdAsync(request.CustomQuestionType.Id);
-        if (customQuestionType is null) return new ServerResponse(Message: "Custom Question Type Not Found");
+        if (customQuestionType is null)
+        {
+            return new ServerResponse(Message: "Custom Question Type Not Found");
+        }
 
         // Map the request to the entity
         var customQuestionTypeEntity = mapper.Map<CustomQuestionType>(request.CustomQuestionType);
@@ -35,15 +49,6 @@ internal class UpdateCustomQuestionTypeCommandHandler(IValidator<UpdateCustomQue
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Custom Question Type updated successfully", Data: customQuestionType);
+        return new ServerResponse(true, "Custom Question Type updated successfully", customQuestionType);
     }
 }
-
-
-
-
-
-
-
-
-

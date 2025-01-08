@@ -7,5 +7,5 @@ public abstract class ApplicationBaseModel
     public string? Language { get; set; } = default!;
     public string? DatatableRowLimit { get; set; } = default!;
     public bool EmployeeCanExportData { get; set; }
-    public Guid CurrencyId { get; set; }  // Foreign Key
+    public Guid CurrencyId { get; set; } // Foreign Key
 }

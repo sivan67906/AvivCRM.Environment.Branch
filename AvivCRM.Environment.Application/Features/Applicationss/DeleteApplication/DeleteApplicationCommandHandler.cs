@@ -1,17 +1,27 @@
-﻿using AutoMapper;
+﻿#region
+
+using AutoMapper;
 using AvivCRM.Environment.Domain.Contracts;
 using AvivCRM.Environment.Domain.Entities;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
 
+#endregion
+
 namespace AvivCRM.Environment.Application.Features.Applicationss.DeleteApplication;
-internal class DeleteApplicationCommandHandler(IApplication _applicationRepository, IUnitOfWork _unitOfWork, IMapper mapper) : IRequestHandler<DeleteApplicationCommand, ServerResponse>
+internal class DeleteApplicationCommandHandler(
+    IApplication _applicationRepository,
+    IUnitOfWork _unitOfWork,
+    IMapper mapper) : IRequestHandler<DeleteApplicationCommand, ServerResponse>
 {
     public async Task<ServerResponse> Handle(DeleteApplicationCommand request, CancellationToken cancellationToken)
     {
         // Is Found
         var application = await _applicationRepository.GetByIdAsync(request.Id);
-        if (application is null) return new ServerResponse(Message: "Application Not Found");
+        if (application is null)
+        {
+            return new ServerResponse(Message: "Application Not Found");
+        }
 
         // Map the request to the entity
         var delMapEntity = mapper.Map<Applications>(application);
@@ -27,6 +37,6 @@ internal class DeleteApplicationCommandHandler(IApplication _applicationReposito
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Application deleted successfully", Data: delMapEntity);
+        return new ServerResponse(true, "Application deleted successfully", delMapEntity);
     }
 }

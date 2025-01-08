@@ -3,12 +3,3 @@ public class UpdateTicketTypeRequest : TicketTypeBaseModel
 {
     public Guid Id { get; set; }
 }
-
-
-
-
-
-
-
-
-

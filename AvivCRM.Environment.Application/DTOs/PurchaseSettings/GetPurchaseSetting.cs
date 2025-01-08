@@ -3,16 +3,3 @@ public class GetPurchaseSetting : PurchaseSettingBaseModel
 {
     public Guid Id { get; set; }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

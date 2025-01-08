@@ -1,3 +1,5 @@
+#region
+
 using AvivCRM.Environment.Application.DTOs.RecruitFooterSettings;
 using AvivCRM.Environment.Application.Features.RecruitFooterSettings.CreateRecruitFooterSetting;
 using AvivCRM.Environment.Application.Features.RecruitFooterSettings.DeleteRecruitFooterSetting;
@@ -7,15 +9,19 @@ using AvivCRM.Environment.Application.Features.RecruitFooterSettings.UpdateRecru
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AvivCRM.Environment.API.Controllers;
+#endregion
 
+namespace AvivCRM.Environment.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class RecruitFooterSettingController : ControllerBase
 {
-
     private readonly ISender _sender;
-    public RecruitFooterSettingController(ISender sender) => _sender = sender;
+
+    public RecruitFooterSettingController(ISender sender)
+    {
+        _sender = sender;
+    }
 
     [HttpGet("byid")]
     public async Task<IActionResult> GetByIdAsync(Guid Id)

@@ -3,12 +3,3 @@ public abstract class ProjectCategoryBaseModel
 {
     public string Name { get; set; } = default!; // default! or required 
 }
-
-
-
-
-
-
-
-
-

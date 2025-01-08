@@ -12,12 +12,3 @@ public class GetTimesheet : TimesheetBaseModel
     public string? Memo { get; set; }
     public int TotalHours { get; set; }
 }
-
-
-
-
-
-
-
-
-

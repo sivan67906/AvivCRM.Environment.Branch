@@ -1,3 +1,5 @@
+#region
+
 using AvivCRM.Environment.Application.DTOs.TimeLogs;
 using AvivCRM.Environment.Application.Features.TimeLogs.CreateTimeLog;
 using AvivCRM.Environment.Application.Features.TimeLogs.DeleteTimeLog;
@@ -7,15 +9,19 @@ using AvivCRM.Environment.Application.Features.TimeLogs.UpdateTimeLog;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AvivCRM.Environment.API.Controllers;
+#endregion
 
+namespace AvivCRM.Environment.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class TimeLogController : ControllerBase
 {
-
     private readonly ISender _sender;
-    public TimeLogController(ISender sender) => _sender = sender;
+
+    public TimeLogController(ISender sender)
+    {
+        _sender = sender;
+    }
 
     [HttpGet("all-timelog")]
     public async Task<IActionResult> GetAllAsync()

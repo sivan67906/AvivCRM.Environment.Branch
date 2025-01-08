@@ -3,12 +3,3 @@ public class UpdateTicketAgentRequest : TicketAgentBaseModel
 {
     public Guid Id { get; set; }
 }
-
-
-
-
-
-
-
-
-

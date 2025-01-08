@@ -3,12 +3,3 @@ public class UpdateJobApplicationCategoryRequest : JobApplicationCategoryBaseMod
 {
     public Guid Id { get; set; }
 }
-
-
-
-
-
-
-
-
-

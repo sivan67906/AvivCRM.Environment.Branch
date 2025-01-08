@@ -1,15 +1,20 @@
-﻿using AvivCRM.Environment.Domain.Contracts;
+﻿#region
+
+using AvivCRM.Environment.Domain.Contracts;
 using AvivCRM.Environment.Domain.Contracts.Project;
 using AvivCRM.Environment.Domain.Entities;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
 
-namespace AvivCRM.Environment.Application.Features.ProjectStatuses.UpdateProjectStatusDefault;
+#endregion
 
-internal class UpdateProjectStatusDefaultCommandHandler(IProjectStatus _projectStatusRepository
-    , IUnitOfWork _unitOfWork) : IRequestHandler<UpdateProjectStatusDefaultCommand, ServerResponse>
+namespace AvivCRM.Environment.Application.Features.ProjectStatuses.UpdateProjectStatusDefault;
+internal class UpdateProjectStatusDefaultCommandHandler(
+    IProjectStatus _projectStatusRepository,
+    IUnitOfWork _unitOfWork) : IRequestHandler<UpdateProjectStatusDefaultCommand, ServerResponse>
 {
-    public async Task<ServerResponse> Handle(UpdateProjectStatusDefaultCommand request, CancellationToken cancellationToken)
+    public async Task<ServerResponse> Handle(UpdateProjectStatusDefaultCommand request,
+        CancellationToken cancellationToken)
     {
         // Validate Request
         //var validate = await _validator.ValidateAsync(request.ProjectStatus);
@@ -17,7 +22,10 @@ internal class UpdateProjectStatusDefaultCommandHandler(IProjectStatus _projectS
 
         // Check if the Project Status Default exists
         var projectStatuses = await _projectStatusRepository.GetAllAsync();
-        if (projectStatuses is null) return new ServerResponse(Message: "No Project Status Defaults Found");
+        if (projectStatuses is null)
+        {
+            return new ServerResponse(Message: "No Project Status Defaults Found");
+        }
 
         ProjectStatus selectedProjectStatus = new();
 
@@ -40,10 +48,12 @@ internal class UpdateProjectStatusDefaultCommandHandler(IProjectStatus _projectS
                     {
                         entity.ModifiedOn = DateTime.Now;
                     }
+
                     entity.IsDefaultStatus = false;
                     _projectStatusRepository.Update(entity);
                 }
             }
+
             await _unitOfWork.SaveChangesAsync();
         }
         catch (Exception ex)
@@ -51,6 +61,6 @@ internal class UpdateProjectStatusDefaultCommandHandler(IProjectStatus _projectS
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Project Status Default updated successfully", Data: selectedProjectStatus);
+        return new ServerResponse(true, "Project Status Default updated successfully", selectedProjectStatus);
     }
 }
