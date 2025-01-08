@@ -35,7 +35,7 @@ internal class UpdateTicketGroupCommandHandler(IValidator<UpdateTicketGroupReque
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Ticket Group updated successfully", Data: ticketGroup);
+        return new ServerResponse(IsSuccess: true, Message: "Ticket Group updated successfully", Data: ticketGroupEntity);
     }
 }
 

@@ -17,35 +17,35 @@ public class TicketAgentController : ControllerBase
     private readonly ISender _sender;
     public TicketAgentController(ISender sender) => _sender = sender;
 
-    [HttpGet("byid")]
-    public async Task<IActionResult> GetByIdAsync(Guid Id)
-    {
-        var result = await _sender.Send(new GetTicketAgentByIdQuery(Id));
-        return Ok(result);
-    }
-
-    [HttpPost("create")]
-    public async Task<IActionResult> CreateAsync(CreateTicketAgentRequest ticketAgent)
-    {
-        var result = await _sender.Send(new CreateTicketAgentCommand(ticketAgent));
-        return Ok(result);
-    }
-
-    [HttpPut("update")]
-    public async Task<IActionResult> UpdateAsync(UpdateTicketAgentRequest ticketAgent)
-    {
-        var result = await _sender.Send(new UpdateTicketAgentCommand(ticketAgent));
-        return Ok(result);
-    }
-
-    [HttpGet("all")]
+    [HttpGet("all-ticketagent")]
     public async Task<IActionResult> GetAllAsync()
     {
         var ticketAgentList = await _sender.Send(new GetAllTicketAgentQuery());
         return Ok(ticketAgentList);
     }
 
-    [HttpDelete("delete")]
+    [HttpGet("byid-ticketagent")]
+    public async Task<IActionResult> GetByIdAsync(Guid Id)
+    {
+        var result = await _sender.Send(new GetTicketAgentByIdQuery(Id));
+        return Ok(result);
+    }
+
+    [HttpPost("create-ticketagent")]
+    public async Task<IActionResult> CreateAsync(CreateTicketAgentRequest ticketAgent)
+    {
+        var result = await _sender.Send(new CreateTicketAgentCommand(ticketAgent));
+        return Ok(result);
+    }
+
+    [HttpPut("update-ticketagent")]
+    public async Task<IActionResult> UpdateAsync(UpdateTicketAgentRequest ticketAgent)
+    {
+        var result = await _sender.Send(new UpdateTicketAgentCommand(ticketAgent));
+        return Ok(result);
+    }
+
+    [HttpDelete("delete-ticketagent")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
         var result = await _sender.Send(new DeleteTicketAgentCommand(Id));

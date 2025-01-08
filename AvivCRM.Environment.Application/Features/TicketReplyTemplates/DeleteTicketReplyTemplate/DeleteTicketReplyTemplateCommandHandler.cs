@@ -29,7 +29,7 @@ internal class DeleteTicketReplyTemplateCommandHandler(ITicketReplyTemplate _tic
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Ticket ReplyTemplate deleted successfully", Data: ticketReplyTemplate);
+        return new ServerResponse(IsSuccess: true, Message: "Ticket ReplyTemplate deleted successfully", Data: delMapEntity);
     }
 }
 

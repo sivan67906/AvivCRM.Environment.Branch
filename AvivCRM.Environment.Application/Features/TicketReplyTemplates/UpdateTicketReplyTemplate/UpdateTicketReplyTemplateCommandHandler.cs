@@ -35,7 +35,7 @@ internal class UpdateTicketReplyTemplateCommandHandler(IValidator<UpdateTicketRe
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Ticket ReplyTemplate updated successfully", Data: ticketReplyTemplate);
+        return new ServerResponse(IsSuccess: true, Message: "Ticket ReplyTemplate updated successfully", Data: ticketReplyTemplateEntity);
     }
 }
 

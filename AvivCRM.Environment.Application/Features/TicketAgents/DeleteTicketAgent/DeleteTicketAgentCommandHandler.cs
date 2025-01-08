@@ -29,6 +29,6 @@ internal class DeleteTicketAgentCommandHandler(ITicketAgent _ticketAgentReposito
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Ticket Agent deleted successfully", Data: ticketAgent);
+        return new ServerResponse(IsSuccess: true, Message: "Ticket Agent deleted successfully", Data: delMapEntity);
     }
 }

@@ -35,7 +35,7 @@ internal class UpdateTicketTypeCommandHandler(IValidator<UpdateTicketTypeRequest
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Ticket Type updated successfully", Data: ticketType);
+        return new ServerResponse(IsSuccess: true, Message: "Ticket Type updated successfully", Data: ticketTypeEntity);
     }
 }
 

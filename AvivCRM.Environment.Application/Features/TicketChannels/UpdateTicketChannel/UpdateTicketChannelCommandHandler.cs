@@ -35,7 +35,7 @@ internal class UpdateTicketChannelCommandHandler(IValidator<UpdateTicketChannelR
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(IsSuccess: true, Message: "Ticket Channel updated successfully", Data: ticketChannel);
+        return new ServerResponse(IsSuccess: true, Message: "Ticket Channel updated successfully", Data: ticketChannelEntity);
     }
 }
 

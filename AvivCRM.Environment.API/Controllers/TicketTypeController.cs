@@ -17,35 +17,35 @@ public class TicketTypeController : ControllerBase
     private readonly ISender _sender;
     public TicketTypeController(ISender sender) => _sender = sender;
 
-    [HttpGet("byid")]
-    public async Task<IActionResult> GetByIdAsync(Guid Id)
-    {
-        var result = await _sender.Send(new GetTicketTypeByIdQuery(Id));
-        return Ok(result);
-    }
-
-    [HttpPost("create")]
-    public async Task<IActionResult> CreateAsync(CreateTicketTypeRequest ticketType)
-    {
-        var result = await _sender.Send(new CreateTicketTypeCommand(ticketType));
-        return Ok(result);
-    }
-
-    [HttpPut("update")]
-    public async Task<IActionResult> UpdateAsync(UpdateTicketTypeRequest ticketType)
-    {
-        var result = await _sender.Send(new UpdateTicketTypeCommand(ticketType));
-        return Ok(result);
-    }
-
-    [HttpGet("all")]
+    [HttpGet("all-tickettype")]
     public async Task<IActionResult> GetAllAsync()
     {
         var ticketTypeList = await _sender.Send(new GetAllTicketTypeQuery());
         return Ok(ticketTypeList);
     }
 
-    [HttpDelete("delete")]
+    [HttpGet("byid-tickettype")]
+    public async Task<IActionResult> GetByIdAsync(Guid Id)
+    {
+        var result = await _sender.Send(new GetTicketTypeByIdQuery(Id));
+        return Ok(result);
+    }
+
+    [HttpPost("create-tickettype")]
+    public async Task<IActionResult> CreateAsync(CreateTicketTypeRequest ticketType)
+    {
+        var result = await _sender.Send(new CreateTicketTypeCommand(ticketType));
+        return Ok(result);
+    }
+
+    [HttpPut("update-tickettype")]
+    public async Task<IActionResult> UpdateAsync(UpdateTicketTypeRequest ticketType)
+    {
+        var result = await _sender.Send(new UpdateTicketTypeCommand(ticketType));
+        return Ok(result);
+    }
+
+    [HttpDelete("delete-tickettype")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
         var result = await _sender.Send(new DeleteTicketTypeCommand(Id));
