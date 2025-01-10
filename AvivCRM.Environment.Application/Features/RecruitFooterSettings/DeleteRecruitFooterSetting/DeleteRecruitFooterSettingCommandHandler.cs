@@ -39,6 +39,6 @@ internal class DeleteRecruitFooterSettingCommandHandler(
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(true, "Recruit Footer Setting deleted successfully", recruitFooterSetting);
+        return new ServerResponse(true, "Recruit Footer Setting deleted successfully", delMapEntity);
     }
 }

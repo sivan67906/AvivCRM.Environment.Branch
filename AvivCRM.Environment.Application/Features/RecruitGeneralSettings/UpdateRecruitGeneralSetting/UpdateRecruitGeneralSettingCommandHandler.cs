@@ -50,6 +50,6 @@ internal class UpdateRecruitGeneralSettingCommandHandler(
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(true, "Recruit General Setting updated successfully", recruitGeneralSetting);
+        return new ServerResponse(true, "Recruit General Setting updated successfully", recruitGeneralSettingEntity);
     }
 }

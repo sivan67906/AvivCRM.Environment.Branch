@@ -40,6 +40,6 @@ internal class DeleteRecruitNotificationSettingCommandHandler(
         }
 
         return new ServerResponse(true, "Recruit Notification Setting deleted successfully",
-            recruitNotificationSetting);
+            delMapEntity);
     }
 }

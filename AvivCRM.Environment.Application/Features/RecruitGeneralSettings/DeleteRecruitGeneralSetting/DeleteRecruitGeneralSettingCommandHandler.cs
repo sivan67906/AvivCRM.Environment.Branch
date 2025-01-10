@@ -39,6 +39,6 @@ internal class DeleteRecruitGeneralSettingCommandHandler(
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(true, "Recruit General Setting deleted successfully", recruitGeneralSetting);
+        return new ServerResponse(true, "Recruit General Setting deleted successfully", delMapEntity);
     }
 }

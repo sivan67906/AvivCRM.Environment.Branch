@@ -54,6 +54,6 @@ internal class UpdateRecruitJobApplicationStatusSettingCommandHandler(
         }
 
         return new ServerResponse(true, "Recruit JobApplication Status Setting updated successfully",
-            recruitJobApplicationStatusSetting);
+            recruitJobApplicationStatusSettingEntity);
     }
 }

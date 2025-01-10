@@ -42,6 +42,6 @@ internal class DeleteRecruitJobApplicationStatusSettingCommandHandler(
         }
 
         return new ServerResponse(true, "Recruit JobApplication Status Setting deleted successfully",
-            recruitJobApplicationStatusSetting);
+            delMapEntity);
     }
 }

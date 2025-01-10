@@ -38,6 +38,6 @@ internal class DeleteRecruiterSettingCommandHandler(
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(true, "Recruiter Setting deleted successfully", recruiterSetting);
+        return new ServerResponse(true, "Recruiter Setting deleted successfully", delMapEntity);
     }
 }

@@ -52,6 +52,6 @@ internal class UpdateRecruitCustomQuestionSettingCommandHandler(
         }
 
         return new ServerResponse(true, "Recruit Custom Question Setting updated successfully",
-            recruitCustomQuestionSetting);
+            recruitCustomQuestionSettingEntity);
     }
 }

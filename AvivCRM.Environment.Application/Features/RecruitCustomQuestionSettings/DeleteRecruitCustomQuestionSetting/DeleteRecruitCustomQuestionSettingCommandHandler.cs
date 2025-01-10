@@ -40,6 +40,6 @@ internal class DeleteRecruitCustomQuestionSettingCommandHandler(
         }
 
         return new ServerResponse(true, "Recruit Custom Question Setting deleted successfully",
-            recruitCustomQuestionSetting);
+            delMapEntity);
     }
 }

@@ -28,14 +28,22 @@ public class RecruitJobApplicationStatusSettingController : ControllerBase
         _sender = sender;
     }
 
-    [HttpGet("byid")]
+    [HttpGet("all-recruitjobapplicationstatussetting")]
+    public async Task<IActionResult> GetAllAsync()
+    {
+        var recruitJobApplicationStatusSettingList =
+            await _sender.Send(new GetAllRecruitJobApplicationStatusSettingQuery());
+        return Ok(recruitJobApplicationStatusSettingList);
+    }
+
+    [HttpGet("byid-recruitjobapplicationstatussetting")]
     public async Task<IActionResult> GetByIdAsync(Guid Id)
     {
         var result = await _sender.Send(new GetRecruitJobApplicationStatusSettingByIdQuery(Id));
         return Ok(result);
     }
 
-    [HttpPost("create")]
+    [HttpPost("create-recruitjobapplicationstatussetting")]
     public async Task<IActionResult> CreateAsync(
         CreateRecruitJobApplicationStatusSettingRequest recruitJobApplicationStatusSetting)
     {
@@ -44,7 +52,7 @@ public class RecruitJobApplicationStatusSettingController : ControllerBase
         return Ok(result);
     }
 
-    [HttpPut("update")]
+    [HttpPut("update-recruitjobapplicationstatussetting")]
     public async Task<IActionResult> UpdateAsync(
         UpdateRecruitJobApplicationStatusSettingRequest recruitJobApplicationStatusSetting)
     {
@@ -53,15 +61,7 @@ public class RecruitJobApplicationStatusSettingController : ControllerBase
         return Ok(result);
     }
 
-    [HttpGet("all")]
-    public async Task<IActionResult> GetAllAsync()
-    {
-        var recruitJobApplicationStatusSettingList =
-            await _sender.Send(new GetAllRecruitJobApplicationStatusSettingQuery());
-        return Ok(recruitJobApplicationStatusSettingList);
-    }
-
-    [HttpDelete("delete")]
+    [HttpDelete("delete-recruitjobapplicationstatussetting")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
         var result = await _sender.Send(new DeleteRecruitJobApplicationStatusSettingCommand(Id));
