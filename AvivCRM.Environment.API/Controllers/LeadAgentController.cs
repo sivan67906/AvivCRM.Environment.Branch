@@ -23,35 +23,35 @@ public class LeadAgentController : ControllerBase
         _sender = sender;
     }
 
-    [HttpGet("all-leadsgent")]
+    [HttpGet("all-leadagent")]
     public async Task<IActionResult> GetAllAsync()
     {
         var leadAgentList = await _sender.Send(new GetAllLeadAgentsQuery());
         return Ok(leadAgentList);
     }
 
-    [HttpGet("byid-leadsgent")]
+    [HttpGet("byid-leadagent")]
     public async Task<IActionResult> GetByIdAsync(Guid Id)
     {
         var result = await _sender.Send(new GetLeadAgentByIdQuery(Id));
         return Ok(result);
     }
 
-    [HttpPost("create-leadsgent")]
+    [HttpPost("create-leadagent")]
     public async Task<IActionResult> CreateAsync(CreateLeadAgentRequest leadAgent)
     {
         var result = await _sender.Send(new CreateLeadAgentCommand(leadAgent));
         return Ok(result);
     }
 
-    [HttpPut("update-leadsgent")]
+    [HttpPut("update-leadagent")]
     public async Task<IActionResult> UpdateAsync(UpdateLeadAgentRequest leadAgent)
     {
         var result = await _sender.Send(new UpdateLeadAgentCommand(leadAgent));
         return Ok(result);
     }
 
-    [HttpDelete("delete-leadsgent")]
+    [HttpDelete("delete-leadagent")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
         var result = await _sender.Send(new DeleteLeadAgentCommand(Id));
