@@ -45,6 +45,7 @@ using AvivCRM.Environment.Application.DTOs.TicketReplyTemplates;
 using AvivCRM.Environment.Application.DTOs.TicketTypes;
 using AvivCRM.Environment.Application.DTOs.TimeLogs;
 using AvivCRM.Environment.Application.DTOs.Timesheets;
+using AvivCRM.Environment.Application.DTOs.ToggleValues;
 using AvivCRM.Environment.Domain.Entities;
 
 #endregion
@@ -634,6 +635,10 @@ public class MapperConfig : Profile
         CreateMap<UpdateNotificationRequest, Notification>();
         CreateMap<Notification, GetNotification>();
 
+        // ToggleValue
+        CreateMap<CreateToggleValueRequest, ToggleValue>();
+        CreateMap<UpdateToggleValueRequest, ToggleValue>();
+        CreateMap<ToggleValue, GetToggleValue>();
 
     }
 }

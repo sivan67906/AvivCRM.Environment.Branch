@@ -72,7 +72,7 @@ public static class ServiceContainer
         services.AddScoped<ITasks, TasksRepository>();
         services.AddScoped<IMessage, MessageRepository>();
         services.AddScoped<INotifications, NotificationRepository>();
-
+        services.AddScoped<IToggleValue, ToggleValueRepository>();
         return services;
     }
 }

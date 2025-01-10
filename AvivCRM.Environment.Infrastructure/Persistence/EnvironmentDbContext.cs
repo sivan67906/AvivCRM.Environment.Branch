@@ -61,7 +61,7 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
     public DbSet<Tasks> Tasks => Set<Tasks>();
     public DbSet<Notification> Notifications => Set<Notification>();
     public DbSet<Message> Messages => Set<Message>();
-
+    public DbSet<ToggleValue> ToggleValues => Set<ToggleValue>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -116,5 +116,6 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
         modelBuilder.Entity<Tasks>().ToTable("tblTask");
         modelBuilder.Entity<Notification>().ToTable("tblNotification");
         modelBuilder.Entity<Message>().ToTable("tblMessage");
+        modelBuilder.Entity<ToggleValue>().ToTable("tblToggleValue");
     }
 }
