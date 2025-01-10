@@ -48,6 +48,6 @@ internal class UpdateRecruiterSettingCommandHandler(
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(true, "Recruiter Setting updated successfully", recruiterSetting);
+        return new ServerResponse(true, "Recruiter Setting updated successfully", recruiterSettingEntity);
     }
 }

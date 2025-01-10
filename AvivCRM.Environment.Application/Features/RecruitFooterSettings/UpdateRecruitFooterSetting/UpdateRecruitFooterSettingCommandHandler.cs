@@ -49,6 +49,6 @@ internal class UpdateRecruitFooterSettingCommandHandler(
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(true, "Recruit Footer Setting updated successfully", recruitFooterSetting);
+        return new ServerResponse(true, "Recruit Footer Setting updated successfully", recruitFooterSettingEntity);
     }
 }

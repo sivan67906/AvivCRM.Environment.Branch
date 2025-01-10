@@ -23,35 +23,35 @@ public class RecruitNotificationSettingController : ControllerBase
         _sender = sender;
     }
 
-    [HttpGet("byid")]
-    public async Task<IActionResult> GetByIdAsync(Guid Id)
-    {
-        var result = await _sender.Send(new GetRecruitNotificationSettingByIdQuery(Id));
-        return Ok(result);
-    }
-
-    [HttpPost("create")]
-    public async Task<IActionResult> CreateAsync(CreateRecruitNotificationSettingRequest recruitNotificationSetting)
-    {
-        var result = await _sender.Send(new CreateRecruitNotificationSettingCommand(recruitNotificationSetting));
-        return Ok(result);
-    }
-
-    [HttpPut("update")]
-    public async Task<IActionResult> UpdateAsync(UpdateRecruitNotificationSettingRequest recruitNotificationSetting)
-    {
-        var result = await _sender.Send(new UpdateRecruitNotificationSettingCommand(recruitNotificationSetting));
-        return Ok(result);
-    }
-
-    [HttpGet("all")]
+    [HttpGet("all-recruitnotificationsetting")]
     public async Task<IActionResult> GetAllAsync()
     {
         var recruitNotificationSettingList = await _sender.Send(new GetAllRecruitNotificationSettingQuery());
         return Ok(recruitNotificationSettingList);
     }
 
-    [HttpDelete("delete")]
+    [HttpGet("byid-recruitnotificationsetting")]
+    public async Task<IActionResult> GetByIdAsync(Guid Id)
+    {
+        var result = await _sender.Send(new GetRecruitNotificationSettingByIdQuery(Id));
+        return Ok(result);
+    }
+
+    [HttpPost("create-recruitnotificationsetting")]
+    public async Task<IActionResult> CreateAsync(CreateRecruitNotificationSettingRequest recruitNotificationSetting)
+    {
+        var result = await _sender.Send(new CreateRecruitNotificationSettingCommand(recruitNotificationSetting));
+        return Ok(result);
+    }
+
+    [HttpPut("update-recruitnotificationsetting")]
+    public async Task<IActionResult> UpdateAsync(UpdateRecruitNotificationSettingRequest recruitNotificationSetting)
+    {
+        var result = await _sender.Send(new UpdateRecruitNotificationSettingCommand(recruitNotificationSetting));
+        return Ok(result);
+    }
+
+    [HttpDelete("delete-recruitnotificationsetting")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
         var result = await _sender.Send(new DeleteRecruitNotificationSettingCommand(Id));

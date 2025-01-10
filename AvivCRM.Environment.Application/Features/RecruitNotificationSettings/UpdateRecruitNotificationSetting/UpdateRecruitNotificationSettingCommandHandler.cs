@@ -52,6 +52,6 @@ internal class UpdateRecruitNotificationSettingCommandHandler(
         }
 
         return new ServerResponse(true, "Recruit Notification Setting updated successfully",
-            recruitNotificationSetting);
+            recruitNotificationSettingEntity);
     }
 }

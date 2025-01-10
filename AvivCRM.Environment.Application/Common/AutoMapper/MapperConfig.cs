@@ -130,11 +130,6 @@ public class MapperConfig : Profile
             .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.FUnitName))
             .ForMember(dest => dest.IsDefault, opt => opt.MapFrom(src => src.FIsDefault));
 
-        // RecruitNotificationSetting
-        CreateMap<CreateRecruitNotificationSettingRequest, RecruitNotificationSetting>();
-        CreateMap<UpdateRecruitNotificationSettingRequest, RecruitNotificationSetting>();
-        CreateMap<RecruitNotificationSetting, GetRecruitNotificationSetting>();
-
         // LeadStatus
         CreateMap<CreateLeadStatusRequest, LeadStatus>();
         CreateMap<UpdateLeadStatusRequest, LeadStatus>();
@@ -171,7 +166,6 @@ public class MapperConfig : Profile
             .ForMember(dest => dest.CQCategoryName, opt => opt.MapFrom(src => src.Name));
         CreateMap<GetCustomQuestionCategory, CustomQuestionCategory>()
             .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.CQCategoryName));
-
 
         // CustomQuestionType
         CreateMap<CreateCustomQuestionTypeRequest, CustomQuestionType>();
@@ -249,30 +243,282 @@ public class MapperConfig : Profile
         CreateMap<UpdateProjectStatusRequest, ProjectStatus>();
         CreateMap<ProjectStatus, GetProjectStatus>();
 
-        // RecruitCustomQuestionSetting
-        CreateMap<CreateRecruitCustomQuestionSettingRequest, RecruitCustomQuestionSetting>();
-        CreateMap<UpdateRecruitCustomQuestionSettingRequest, RecruitCustomQuestionSetting>();
-        CreateMap<RecruitCustomQuestionSetting, GetRecruitCustomQuestionSetting>();
+        // RecruitGeneralSetting
+        CreateMap<CreateRecruitGeneralSettingRequest, RecruitGeneralSetting>();
+        CreateMap<UpdateRecruitGeneralSettingRequest, RecruitGeneralSetting>();
+        CreateMap<RecruitGeneralSetting, GetRecruitGeneralSetting>();
+
+        CreateMap<CreateRecruitGeneralSettingRequest, RecruitGeneralSetting>()
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.GeneralCompanyName))
+            .ForMember(dest => dest.Website, opt => opt.MapFrom(src => src.GeneralCompanyWebsite))
+            .ForMember(dest => dest.Logo, opt => opt.MapFrom(src => src.GeneralCompanyLogo))
+            .ForMember(dest => dest.LogoPath, opt => opt.MapFrom(src => src.GeneralCompanyLogoPath))
+            .ForMember(dest => dest.LogoImageFileName, opt => opt.MapFrom(src => src.GeneralCompanyLogoImageFileName))
+            .ForMember(dest => dest.About, opt => opt.MapFrom(src => src.GeneralAboutCompany))
+            .ForMember(dest => dest.LegalTerm, opt => opt.MapFrom(src => src.GeneralLegalTerm))
+            .ForMember(dest => dest.DuplJobApplnRestrictDays, opt => opt.MapFrom(src => src.GeneralDuplJobApplnRestrictDays))
+            .ForMember(dest => dest.OLReminderToCandidate, opt => opt.MapFrom(src => src.GeneralOLReminderToCandidate))
+            .ForMember(dest => dest.BGLogo, opt => opt.MapFrom(src => src.GeneralBGLogo))
+            .ForMember(dest => dest.BGLogoPath, opt => opt.MapFrom(src => src.GeneralBGLogoPath))
+            .ForMember(dest => dest.BGLogoImageFileName, opt => opt.MapFrom(src => src.GeneralBGLogoImageFileName))
+            .ForMember(dest => dest.BGColorCode, opt => opt.MapFrom(src => src.GeneralBGColorCode))
+            .ForMember(dest => dest.CBJsonSettings, opt => opt.MapFrom(src => src.GeneralCBJsonSettings));
+        CreateMap<RecruitGeneralSetting, CreateRecruitGeneralSettingRequest>()
+            .ForMember(dest => dest.GeneralCompanyName, opt => opt.MapFrom(src => src.Name))
+            .ForMember(dest => dest.GeneralCompanyWebsite, opt => opt.MapFrom(src => src.Website))
+            .ForMember(dest => dest.GeneralCompanyLogo, opt => opt.MapFrom(src => src.Logo))
+            .ForMember(dest => dest.GeneralCompanyLogoPath, opt => opt.MapFrom(src => src.LogoPath))
+            .ForMember(dest => dest.GeneralCompanyLogoImageFileName, opt => opt.MapFrom(src => src.LogoImageFileName))
+            .ForMember(dest => dest.GeneralAboutCompany, opt => opt.MapFrom(src => src.About))
+            .ForMember(dest => dest.GeneralLegalTerm, opt => opt.MapFrom(src => src.LegalTerm))
+            .ForMember(dest => dest.GeneralDuplJobApplnRestrictDays, opt => opt.MapFrom(src => src.DuplJobApplnRestrictDays))
+            .ForMember(dest => dest.GeneralOLReminderToCandidate, opt => opt.MapFrom(src => src.OLReminderToCandidate))
+            .ForMember(dest => dest.GeneralBGLogo, opt => opt.MapFrom(src => src.BGLogo))
+            .ForMember(dest => dest.GeneralBGLogoPath, opt => opt.MapFrom(src => src.BGLogoPath))
+            .ForMember(dest => dest.GeneralBGLogoImageFileName, opt => opt.MapFrom(src => src.BGLogoImageFileName))
+            .ForMember(dest => dest.GeneralBGColorCode, opt => opt.MapFrom(src => src.BGColorCode))
+            .ForMember(dest => dest.GeneralCBJsonSettings, opt => opt.MapFrom(src => src.CBJsonSettings));
+
+        CreateMap<UpdateRecruitGeneralSettingRequest, RecruitGeneralSetting>()
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.GeneralCompanyName))
+            .ForMember(dest => dest.Website, opt => opt.MapFrom(src => src.GeneralCompanyWebsite))
+            .ForMember(dest => dest.Logo, opt => opt.MapFrom(src => src.GeneralCompanyLogo))
+            .ForMember(dest => dest.LogoPath, opt => opt.MapFrom(src => src.GeneralCompanyLogoPath))
+            .ForMember(dest => dest.LogoImageFileName, opt => opt.MapFrom(src => src.GeneralCompanyLogoImageFileName))
+            .ForMember(dest => dest.About, opt => opt.MapFrom(src => src.GeneralAboutCompany))
+            .ForMember(dest => dest.LegalTerm, opt => opt.MapFrom(src => src.GeneralLegalTerm))
+            .ForMember(dest => dest.DuplJobApplnRestrictDays, opt => opt.MapFrom(src => src.GeneralDuplJobApplnRestrictDays))
+            .ForMember(dest => dest.OLReminderToCandidate, opt => opt.MapFrom(src => src.GeneralOLReminderToCandidate))
+            .ForMember(dest => dest.BGLogo, opt => opt.MapFrom(src => src.GeneralBGLogo))
+            .ForMember(dest => dest.BGLogoPath, opt => opt.MapFrom(src => src.GeneralBGLogoPath))
+            .ForMember(dest => dest.BGLogoImageFileName, opt => opt.MapFrom(src => src.GeneralBGLogoImageFileName))
+            .ForMember(dest => dest.BGColorCode, opt => opt.MapFrom(src => src.GeneralBGColorCode))
+            .ForMember(dest => dest.CBJsonSettings, opt => opt.MapFrom(src => src.GeneralCBJsonSettings));
+        CreateMap<RecruitGeneralSetting, UpdateRecruitGeneralSettingRequest>()
+            .ForMember(dest => dest.GeneralCompanyName, opt => opt.MapFrom(src => src.Name))
+            .ForMember(dest => dest.GeneralCompanyWebsite, opt => opt.MapFrom(src => src.Website))
+            .ForMember(dest => dest.GeneralCompanyLogo, opt => opt.MapFrom(src => src.Logo))
+            .ForMember(dest => dest.GeneralCompanyLogoPath, opt => opt.MapFrom(src => src.LogoPath))
+            .ForMember(dest => dest.GeneralCompanyLogoImageFileName, opt => opt.MapFrom(src => src.LogoImageFileName))
+            .ForMember(dest => dest.GeneralAboutCompany, opt => opt.MapFrom(src => src.About))
+            .ForMember(dest => dest.GeneralLegalTerm, opt => opt.MapFrom(src => src.LegalTerm))
+            .ForMember(dest => dest.GeneralDuplJobApplnRestrictDays, opt => opt.MapFrom(src => src.DuplJobApplnRestrictDays))
+            .ForMember(dest => dest.GeneralOLReminderToCandidate, opt => opt.MapFrom(src => src.OLReminderToCandidate))
+            .ForMember(dest => dest.GeneralBGLogo, opt => opt.MapFrom(src => src.BGLogo))
+            .ForMember(dest => dest.GeneralBGLogoPath, opt => opt.MapFrom(src => src.BGLogoPath))
+            .ForMember(dest => dest.GeneralBGLogoImageFileName, opt => opt.MapFrom(src => src.BGLogoImageFileName))
+            .ForMember(dest => dest.GeneralBGColorCode, opt => opt.MapFrom(src => src.BGColorCode))
+            .ForMember(dest => dest.GeneralCBJsonSettings, opt => opt.MapFrom(src => src.CBJsonSettings));
+
+        CreateMap<GetRecruitGeneralSetting, RecruitGeneralSetting>()
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.GeneralCompanyName))
+            .ForMember(dest => dest.Website, opt => opt.MapFrom(src => src.GeneralCompanyWebsite))
+            .ForMember(dest => dest.Logo, opt => opt.MapFrom(src => src.GeneralCompanyLogo))
+            .ForMember(dest => dest.LogoPath, opt => opt.MapFrom(src => src.GeneralCompanyLogoPath))
+            .ForMember(dest => dest.LogoImageFileName, opt => opt.MapFrom(src => src.GeneralCompanyLogoImageFileName))
+            .ForMember(dest => dest.About, opt => opt.MapFrom(src => src.GeneralAboutCompany))
+            .ForMember(dest => dest.LegalTerm, opt => opt.MapFrom(src => src.GeneralLegalTerm))
+            .ForMember(dest => dest.DuplJobApplnRestrictDays, opt => opt.MapFrom(src => src.GeneralDuplJobApplnRestrictDays))
+            .ForMember(dest => dest.OLReminderToCandidate, opt => opt.MapFrom(src => src.GeneralOLReminderToCandidate))
+            .ForMember(dest => dest.BGLogo, opt => opt.MapFrom(src => src.GeneralBGLogo))
+            .ForMember(dest => dest.BGLogoPath, opt => opt.MapFrom(src => src.GeneralBGLogoPath))
+            .ForMember(dest => dest.BGLogoImageFileName, opt => opt.MapFrom(src => src.GeneralBGLogoImageFileName))
+            .ForMember(dest => dest.BGColorCode, opt => opt.MapFrom(src => src.GeneralBGColorCode))
+            .ForMember(dest => dest.CBJsonSettings, opt => opt.MapFrom(src => src.GeneralCBJsonSettings));
+        CreateMap<RecruitGeneralSetting, GetRecruitGeneralSetting>()
+            .ForMember(dest => dest.GeneralCompanyName, opt => opt.MapFrom(src => src.Name))
+            .ForMember(dest => dest.GeneralCompanyWebsite, opt => opt.MapFrom(src => src.Website))
+            .ForMember(dest => dest.GeneralCompanyLogo, opt => opt.MapFrom(src => src.Logo))
+            .ForMember(dest => dest.GeneralCompanyLogoPath, opt => opt.MapFrom(src => src.LogoPath))
+            .ForMember(dest => dest.GeneralCompanyLogoImageFileName, opt => opt.MapFrom(src => src.LogoImageFileName))
+            .ForMember(dest => dest.GeneralAboutCompany, opt => opt.MapFrom(src => src.About))
+            .ForMember(dest => dest.GeneralLegalTerm, opt => opt.MapFrom(src => src.LegalTerm))
+            .ForMember(dest => dest.GeneralDuplJobApplnRestrictDays, opt => opt.MapFrom(src => src.DuplJobApplnRestrictDays))
+            .ForMember(dest => dest.GeneralOLReminderToCandidate, opt => opt.MapFrom(src => src.OLReminderToCandidate))
+            .ForMember(dest => dest.GeneralBGLogo, opt => opt.MapFrom(src => src.BGLogo))
+            .ForMember(dest => dest.GeneralBGLogoPath, opt => opt.MapFrom(src => src.BGLogoPath))
+            .ForMember(dest => dest.GeneralBGLogoImageFileName, opt => opt.MapFrom(src => src.BGLogoImageFileName))
+            .ForMember(dest => dest.GeneralBGColorCode, opt => opt.MapFrom(src => src.BGColorCode))
+            .ForMember(dest => dest.GeneralCBJsonSettings, opt => opt.MapFrom(src => src.CBJsonSettings));
+
 
         // RecruitFooterSetting
         CreateMap<CreateRecruitFooterSettingRequest, RecruitFooterSetting>();
         CreateMap<UpdateRecruitFooterSettingRequest, RecruitFooterSetting>();
         CreateMap<RecruitFooterSetting, GetRecruitFooterSetting>();
 
-        // RecruitGeneralSetting
-        CreateMap<CreateRecruitGeneralSettingRequest, RecruitGeneralSetting>();
-        CreateMap<UpdateRecruitGeneralSettingRequest, RecruitGeneralSetting>();
-        CreateMap<RecruitGeneralSetting, GetRecruitGeneralSetting>();
+        CreateMap<CreateRecruitFooterSettingRequest, RecruitFooterSetting>()
+        .ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.FooterTitle))
+        .ForMember(dest => dest.Slug, opt => opt.MapFrom(src => src.FooterSlug))
+        .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.FooterDescription))
+        .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.FooterStatusId));
+        CreateMap<RecruitFooterSetting, CreateRecruitFooterSettingRequest>()
+        .ForMember(dest => dest.FooterTitle, opt => opt.MapFrom(src => src.Title))
+        .ForMember(dest => dest.FooterSlug, opt => opt.MapFrom(src => src.Slug))
+        .ForMember(dest => dest.FooterDescription, opt => opt.MapFrom(src => src.Description))
+        .ForMember(dest => dest.FooterStatusId, opt => opt.MapFrom(src => src.Status));
+
+        CreateMap<UpdateRecruitFooterSettingRequest, RecruitFooterSetting>()
+        .ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.FooterTitle))
+        .ForMember(dest => dest.Slug, opt => opt.MapFrom(src => src.FooterSlug))
+        .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.FooterDescription))
+        .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.FooterStatusId));
+        CreateMap<RecruitFooterSetting, UpdateRecruitFooterSettingRequest>()
+        .ForMember(dest => dest.FooterTitle, opt => opt.MapFrom(src => src.Title))
+        .ForMember(dest => dest.FooterSlug, opt => opt.MapFrom(src => src.Slug))
+        .ForMember(dest => dest.FooterDescription, opt => opt.MapFrom(src => src.Description))
+        .ForMember(dest => dest.FooterStatusId, opt => opt.MapFrom(src => src.Status));
+
+        CreateMap<GetRecruitFooterSetting, RecruitFooterSetting>()
+         .ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.FooterTitle))
+         .ForMember(dest => dest.Slug, opt => opt.MapFrom(src => src.FooterSlug))
+         .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.FooterDescription))
+         .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.FooterStatusId));
+        CreateMap<RecruitFooterSetting, GetRecruitFooterSetting>()
+        .ForMember(dest => dest.FooterTitle, opt => opt.MapFrom(src => src.Title))
+        .ForMember(dest => dest.FooterSlug, opt => opt.MapFrom(src => src.Slug))
+        .ForMember(dest => dest.FooterDescription, opt => opt.MapFrom(src => src.Description))
+        .ForMember(dest => dest.FooterStatusId, opt => opt.MapFrom(src => src.Status));
+
+        // RecruiterSetting
+        CreateMap<CreateRecruiterSettingRequest, RecruiterSetting>();
+        CreateMap<UpdateRecruiterSettingRequest, RecruiterSetting>();
+        CreateMap<RecruiterSetting, GetRecruiterSetting>();
+
+        CreateMap<CreateRecruiterSettingRequest, RecruiterSetting>()
+         .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.RecruiterName))
+         .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.RecruiterStatusId));
+        CreateMap<RecruiterSetting, CreateRecruiterSettingRequest>()
+        .ForMember(dest => dest.RecruiterName, opt => opt.MapFrom(src => src.Name))
+        .ForMember(dest => dest.RecruiterStatusId, opt => opt.MapFrom(src => src.Status));
+
+        CreateMap<UpdateRecruiterSettingRequest, RecruiterSetting>()
+        .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.RecruiterName))
+        .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.RecruiterStatusId));
+        CreateMap<RecruiterSetting, UpdateRecruiterSettingRequest>()
+        .ForMember(dest => dest.RecruiterName, opt => opt.MapFrom(src => src.Name))
+        .ForMember(dest => dest.RecruiterStatusId, opt => opt.MapFrom(src => src.Status));
+
+        CreateMap<GetRecruiterSetting, RecruiterSetting>()
+        .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.RecruiterName))
+        .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.RecruiterStatusId));
+        CreateMap<RecruiterSetting, GetRecruiterSetting>()
+        .ForMember(dest => dest.RecruiterName, opt => opt.MapFrom(src => src.Name))
+        .ForMember(dest => dest.RecruiterStatusId, opt => opt.MapFrom(src => src.Status));
+
+        // RecruitNotificationSetting
+        CreateMap<CreateRecruitNotificationSettingRequest, RecruitNotificationSetting>();
+        CreateMap<UpdateRecruitNotificationSettingRequest, RecruitNotificationSetting>();
+        CreateMap<RecruitNotificationSetting, GetRecruitNotificationSetting>();
+
+        CreateMap<CreateRecruitNotificationSettingRequest, RecruitNotificationSetting>()
+        .ForMember(dest => dest.EMailJsonSettings, opt => opt.MapFrom(src => src.CBEMailJsonSettings))
+        .ForMember(dest => dest.EMailNotificationJsonSettings, opt => opt.MapFrom(src => src.CBEMailNotificationJsonSettings));
+        CreateMap<RecruitNotificationSetting, CreateRecruitNotificationSettingRequest>()
+        .ForMember(dest => dest.CBEMailJsonSettings, opt => opt.MapFrom(src => src.EMailJsonSettings))
+        .ForMember(dest => dest.CBEMailNotificationJsonSettings, opt => opt.MapFrom(src => src.EMailNotificationJsonSettings));
+
+        CreateMap<UpdateRecruitNotificationSettingRequest, RecruitNotificationSetting>()
+        .ForMember(dest => dest.EMailJsonSettings, opt => opt.MapFrom(src => src.CBEMailJsonSettings))
+        .ForMember(dest => dest.EMailNotificationJsonSettings, opt => opt.MapFrom(src => src.CBEMailNotificationJsonSettings));
+        CreateMap<RecruitNotificationSetting, UpdateRecruitNotificationSettingRequest>()
+        .ForMember(dest => dest.CBEMailJsonSettings, opt => opt.MapFrom(src => src.EMailJsonSettings))
+        .ForMember(dest => dest.CBEMailNotificationJsonSettings, opt => opt.MapFrom(src => src.EMailNotificationJsonSettings));
+
+        CreateMap<GetRecruitNotificationSetting, RecruitNotificationSetting>()
+        .ForMember(dest => dest.EMailJsonSettings, opt => opt.MapFrom(src => src.CBEMailJsonSettings))
+        .ForMember(dest => dest.EMailNotificationJsonSettings, opt => opt.MapFrom(src => src.CBEMailNotificationJsonSettings));
+        CreateMap<RecruitNotificationSetting, GetRecruitNotificationSetting>()
+        .ForMember(dest => dest.CBEMailJsonSettings, opt => opt.MapFrom(src => src.EMailJsonSettings))
+        .ForMember(dest => dest.CBEMailNotificationJsonSettings, opt => opt.MapFrom(src => src.EMailNotificationJsonSettings));
 
         // RecruitJobApplicationStatusSetting
         CreateMap<CreateRecruitJobApplicationStatusSettingRequest, RecruitJobApplicationStatusSetting>();
         CreateMap<UpdateRecruitJobApplicationStatusSettingRequest, RecruitJobApplicationStatusSetting>();
         CreateMap<RecruitJobApplicationStatusSetting, GetRecruitJobApplicationStatusSetting>();
 
-        // RecruiterSetting
-        CreateMap<CreateRecruiterSettingRequest, RecruiterSetting>();
-        CreateMap<UpdateRecruiterSettingRequest, RecruiterSetting>();
-        CreateMap<RecruiterSetting, GetRecruiterSetting>();
+        CreateMap<CreateRecruitJobApplicationStatusSettingRequest, RecruitJobApplicationStatusSetting>()
+        .ForMember(dest => dest.PositionId, opt => opt.MapFrom(src => src.JobApplicationPositionId))
+        .ForMember(dest => dest.CategoryId, opt => opt.MapFrom(src => src.JobApplicationCategoryId))
+        .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.JASStatus))
+        .ForMember(dest => dest.Color, opt => opt.MapFrom(src => src.JASColor))
+        .ForMember(dest => dest.IsModelChecked, opt => opt.MapFrom(src => src.JASIsModelChecked));
+        CreateMap<RecruitJobApplicationStatusSetting, CreateRecruitJobApplicationStatusSettingRequest>()
+        .ForMember(dest => dest.JobApplicationPositionId, opt => opt.MapFrom(src => src.PositionId))
+        .ForMember(dest => dest.JobApplicationCategoryId, opt => opt.MapFrom(src => src.CategoryId))
+        .ForMember(dest => dest.JASStatus, opt => opt.MapFrom(src => src.Status))
+        .ForMember(dest => dest.JASColor, opt => opt.MapFrom(src => src.Color))
+        .ForMember(dest => dest.JASIsModelChecked, opt => opt.MapFrom(src => src.IsModelChecked));
+
+        CreateMap<UpdateRecruitJobApplicationStatusSettingRequest, RecruitJobApplicationStatusSetting>()
+        .ForMember(dest => dest.PositionId, opt => opt.MapFrom(src => src.JobApplicationPositionId))
+        .ForMember(dest => dest.CategoryId, opt => opt.MapFrom(src => src.JobApplicationCategoryId))
+        .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.JASStatus))
+        .ForMember(dest => dest.Color, opt => opt.MapFrom(src => src.JASColor))
+        .ForMember(dest => dest.IsModelChecked, opt => opt.MapFrom(src => src.JASIsModelChecked));
+        CreateMap<RecruitJobApplicationStatusSetting, UpdateRecruitJobApplicationStatusSettingRequest>()
+        .ForMember(dest => dest.JobApplicationPositionId, opt => opt.MapFrom(src => src.PositionId))
+        .ForMember(dest => dest.JobApplicationCategoryId, opt => opt.MapFrom(src => src.CategoryId))
+        .ForMember(dest => dest.JASStatus, opt => opt.MapFrom(src => src.Status))
+        .ForMember(dest => dest.JASColor, opt => opt.MapFrom(src => src.Color))
+        .ForMember(dest => dest.JASIsModelChecked, opt => opt.MapFrom(src => src.IsModelChecked));
+
+        CreateMap<GetRecruitJobApplicationStatusSetting, RecruitJobApplicationStatusSetting>()
+        .ForMember(dest => dest.PositionId, opt => opt.MapFrom(src => src.JobApplicationPositionId))
+        .ForMember(dest => dest.CategoryId, opt => opt.MapFrom(src => src.JobApplicationCategoryId))
+        .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.JASStatus))
+        .ForMember(dest => dest.Color, opt => opt.MapFrom(src => src.JASColor))
+        .ForMember(dest => dest.IsModelChecked, opt => opt.MapFrom(src => src.JASIsModelChecked));
+        CreateMap<RecruitJobApplicationStatusSetting, GetRecruitJobApplicationStatusSetting>()
+        .ForMember(dest => dest.JobApplicationPositionId, opt => opt.MapFrom(src => src.PositionId))
+        .ForMember(dest => dest.JobApplicationCategoryId, opt => opt.MapFrom(src => src.CategoryId))
+        .ForMember(dest => dest.JASStatus, opt => opt.MapFrom(src => src.Status))
+        .ForMember(dest => dest.JASColor, opt => opt.MapFrom(src => src.Color))
+        .ForMember(dest => dest.JASIsModelChecked, opt => opt.MapFrom(src => src.IsModelChecked));
+
+        // RecruitCustomQuestionSetting
+        CreateMap<CreateRecruitCustomQuestionSettingRequest, RecruitCustomQuestionSetting>();
+        CreateMap<UpdateRecruitCustomQuestionSettingRequest, RecruitCustomQuestionSetting>();
+        CreateMap<RecruitCustomQuestionSetting, GetRecruitCustomQuestionSetting>();
+
+        CreateMap<CreateRecruitCustomQuestionSettingRequest, RecruitCustomQuestionSetting>()
+        .ForMember(dest => dest.Question, opt => opt.MapFrom(src => src.CustomQuestionTypeName))
+        .ForMember(dest => dest.TypeId, opt => opt.MapFrom(src => src.CustomQuestionTypeId))
+        .ForMember(dest => dest.CategoryId, opt => opt.MapFrom(src => src.CustomQuestionCategoryId))
+        .ForMember(dest => dest.StatusId, opt => opt.MapFrom(src => src.CQStatusId))
+        .ForMember(dest => dest.IsRequired, opt => opt.MapFrom(src => src.CQIsRequiredId));
+        CreateMap<RecruitCustomQuestionSetting, CreateRecruitCustomQuestionSettingRequest>()
+        .ForMember(dest => dest.CustomQuestionTypeName, opt => opt.MapFrom(src => src.Question))
+        .ForMember(dest => dest.CustomQuestionTypeId, opt => opt.MapFrom(src => src.TypeId))
+        .ForMember(dest => dest.CustomQuestionCategoryId, opt => opt.MapFrom(src => src.CategoryId))
+        .ForMember(dest => dest.CQStatusId, opt => opt.MapFrom(src => src.StatusId))
+        .ForMember(dest => dest.CQIsRequiredId, opt => opt.MapFrom(src => src.IsRequired));
+
+        CreateMap<UpdateRecruitCustomQuestionSettingRequest, RecruitCustomQuestionSetting>()
+        .ForMember(dest => dest.Question, opt => opt.MapFrom(src => src.CustomQuestionTypeName))
+        .ForMember(dest => dest.TypeId, opt => opt.MapFrom(src => src.CustomQuestionTypeId))
+        .ForMember(dest => dest.CategoryId, opt => opt.MapFrom(src => src.CustomQuestionCategoryId))
+        .ForMember(dest => dest.StatusId, opt => opt.MapFrom(src => src.CQStatusId))
+        .ForMember(dest => dest.IsRequired, opt => opt.MapFrom(src => src.CQIsRequiredId));
+        CreateMap<RecruitCustomQuestionSetting, UpdateRecruitCustomQuestionSettingRequest>()
+        .ForMember(dest => dest.CustomQuestionTypeName, opt => opt.MapFrom(src => src.Question))
+        .ForMember(dest => dest.CustomQuestionTypeId, opt => opt.MapFrom(src => src.TypeId))
+        .ForMember(dest => dest.CustomQuestionCategoryId, opt => opt.MapFrom(src => src.CategoryId))
+        .ForMember(dest => dest.CQStatusId, opt => opt.MapFrom(src => src.StatusId))
+        .ForMember(dest => dest.CQIsRequiredId, opt => opt.MapFrom(src => src.IsRequired));
+
+        CreateMap<GetRecruitCustomQuestionSetting, RecruitCustomQuestionSetting>()
+        .ForMember(dest => dest.Question, opt => opt.MapFrom(src => src.CustomQuestionTypeName))
+        .ForMember(dest => dest.TypeId, opt => opt.MapFrom(src => src.CustomQuestionTypeId))
+        .ForMember(dest => dest.CategoryId, opt => opt.MapFrom(src => src.CustomQuestionCategoryId))
+        .ForMember(dest => dest.StatusId, opt => opt.MapFrom(src => src.CQStatusId))
+        .ForMember(dest => dest.IsRequired, opt => opt.MapFrom(src => src.CQIsRequiredId));
+        CreateMap<RecruitCustomQuestionSetting, GetRecruitCustomQuestionSetting>()
+        .ForMember(dest => dest.CustomQuestionTypeName, opt => opt.MapFrom(src => src.Question))
+        .ForMember(dest => dest.CustomQuestionTypeId, opt => opt.MapFrom(src => src.TypeId))
+        .ForMember(dest => dest.CustomQuestionCategoryId, opt => opt.MapFrom(src => src.CategoryId))
+        .ForMember(dest => dest.CQStatusId, opt => opt.MapFrom(src => src.StatusId))
+        .ForMember(dest => dest.CQIsRequiredId, opt => opt.MapFrom(src => src.IsRequired));
 
         // TimeLog
         CreateMap<CreateTimeLogRequest, TimeLog>();

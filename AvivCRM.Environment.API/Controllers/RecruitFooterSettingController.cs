@@ -23,35 +23,35 @@ public class RecruitFooterSettingController : ControllerBase
         _sender = sender;
     }
 
-    [HttpGet("byid")]
-    public async Task<IActionResult> GetByIdAsync(Guid Id)
-    {
-        var result = await _sender.Send(new GetRecruitFooterSettingByIdQuery(Id));
-        return Ok(result);
-    }
-
-    [HttpPost("create")]
-    public async Task<IActionResult> CreateAsync(CreateRecruitFooterSettingRequest recruitFooterSetting)
-    {
-        var result = await _sender.Send(new CreateRecruitFooterSettingCommand(recruitFooterSetting));
-        return Ok(result);
-    }
-
-    [HttpPut("update")]
-    public async Task<IActionResult> UpdateAsync(UpdateRecruitFooterSettingRequest recruitFooterSetting)
-    {
-        var result = await _sender.Send(new UpdateRecruitFooterSettingCommand(recruitFooterSetting));
-        return Ok(result);
-    }
-
-    [HttpGet("all")]
+    [HttpGet("all-recruitfootersetting")]
     public async Task<IActionResult> GetAllAsync()
     {
         var recruitFooterSettingList = await _sender.Send(new GetAllRecruitFooterSettingQuery());
         return Ok(recruitFooterSettingList);
     }
 
-    [HttpDelete("delete")]
+    [HttpGet("byid-recruitfootersetting")]
+    public async Task<IActionResult> GetByIdAsync(Guid Id)
+    {
+        var result = await _sender.Send(new GetRecruitFooterSettingByIdQuery(Id));
+        return Ok(result);
+    }
+
+    [HttpPost("create-recruitfootersetting")]
+    public async Task<IActionResult> CreateAsync(CreateRecruitFooterSettingRequest recruitFooterSetting)
+    {
+        var result = await _sender.Send(new CreateRecruitFooterSettingCommand(recruitFooterSetting));
+        return Ok(result);
+    }
+
+    [HttpPut("update-recruitfootersetting")]
+    public async Task<IActionResult> UpdateAsync(UpdateRecruitFooterSettingRequest recruitFooterSetting)
+    {
+        var result = await _sender.Send(new UpdateRecruitFooterSettingCommand(recruitFooterSetting));
+        return Ok(result);
+    }
+
+    [HttpDelete("delete-recruitfootersetting")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
         var result = await _sender.Send(new DeleteRecruitFooterSettingCommand(Id));

@@ -7,21 +7,19 @@ using AvivCRM.Environment.Domain.Entities.Common;
 namespace AvivCRM.Environment.Domain.Entities;
 public sealed class RecruitGeneralSetting : BaseEntity, IEntity
 {
-    public string? GeneralCompanyName { get; set; }
-    public string? GeneralCompanyWebsite { get; set; }
-    public string? GeneralCompanyLogo { get; set; }
-    public string? GeneralCompanyLogoPath { get; set; }
-    public string? GeneralCompanyLogoImageFileName { get; set; }
-    public string? GeneralAboutCompany { get; set; }
-    public string? GeneralLegalTerm { get; set; }
-    public int GeneralDuplJobApplnRestrictDays { get; set; }
-    public int GeneralOLReminderToCandidate { get; set; }
-    public string? GeneralBGLogo { get; set; }
-    public string? GeneralBGLogoPath { get; set; }
-    public string? GeneralBGLogoImageFileName { get; set; }
-
-    public string? GeneralBGColorCode { get; set; }
-
-    //public string? GeneralRBJsonSettings { get; set; }
-    public string? GeneralCBJsonSettings { get; set; }
+    public string? Name { get; set; }
+    public string? Website { get; set; }
+    public string? Logo { get; set; }
+    public string? LogoPath { get; set; }
+    public string? LogoImageFileName { get; set; }
+    public string? About { get; set; }
+    public string? LegalTerm { get; set; }
+    public int DuplJobApplnRestrictDays { get; set; }
+    public int OLReminderToCandidate { get; set; }
+    public string? BGLogo { get; set; }
+    public string? BGLogoPath { get; set; }
+    public string? BGLogoImageFileName { get; set; }
+    public string? BGColorCode { get; set; }
+    //public string? RBJsonSettings { get; set; }
+    public string? CBJsonSettings { get; set; }
 }
