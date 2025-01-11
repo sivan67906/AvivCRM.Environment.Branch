@@ -9,7 +9,7 @@ using MediatR;
 
 #endregion
 
-namespace AvivCRM.Environment.Application.Features.LeadStatuss.DeleteLeadStatus;
+namespace AvivCRM.Environment.Application.Features.LeadStatuses.DeleteLeadStatus;
 internal class DeleteLeadStatusCommandHandler(
     ILeadStatus _leadStatusRepository,
     IUnitOfWork _unitOfWork,

@@ -1,11 +1,11 @@
 ﻿#region
 
 using AvivCRM.Environment.Application.DTOs.LeadStatus;
-using AvivCRM.Environment.Application.Features.LeadStatuss.CreateLeadStatus;
-using AvivCRM.Environment.Application.Features.LeadStatuss.DeleteLeadStatus;
-using AvivCRM.Environment.Application.Features.LeadStatuss.GetAllLeadStatus;
-using AvivCRM.Environment.Application.Features.LeadStatuss.GetLeadStatusById;
-using AvivCRM.Environment.Application.Features.LeadStatuss.UpdateLeadStatus;
+using AvivCRM.Environment.Application.Features.LeadStatuses.CreateLeadStatus;
+using AvivCRM.Environment.Application.Features.LeadStatuses.DeleteLeadStatus;
+using AvivCRM.Environment.Application.Features.LeadStatuses.GetAllLeadStatus;
+using AvivCRM.Environment.Application.Features.LeadStatuses.GetLeadStatusById;
+using AvivCRM.Environment.Application.Features.LeadStatuses.UpdateLeadStatus;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

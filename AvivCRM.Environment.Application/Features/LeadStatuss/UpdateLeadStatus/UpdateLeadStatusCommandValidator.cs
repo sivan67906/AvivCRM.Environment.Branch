@@ -5,7 +5,7 @@ using FluentValidation;
 
 #endregion
 
-namespace AvivCRM.Environment.Application.Features.LeadStatuss.UpdateLeadStatus;
+namespace AvivCRM.Environment.Application.Features.LeadStatuses.UpdateLeadStatus;
 public class UpdateLeadStatusCommandValidator : AbstractValidator<UpdateLeadStatusRequest>
 {
     public UpdateLeadStatusCommandValidator()

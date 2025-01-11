@@ -11,7 +11,7 @@ using MediatR;
 
 #endregion
 
-namespace AvivCRM.Environment.Application.Features.LeadStatuss.CreateLeadStatus;
+namespace AvivCRM.Environment.Application.Features.LeadStatuses.CreateLeadStatus;
 internal class CreateLeadStatusCommandHandler(
     IValidator<CreateLeadStatusRequest> validator,
     ILeadStatus _leadStatusRepository,

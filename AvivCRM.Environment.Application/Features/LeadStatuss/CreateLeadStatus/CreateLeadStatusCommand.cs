@@ -6,5 +6,5 @@ using MediatR;
 
 #endregion
 
-namespace AvivCRM.Environment.Application.Features.LeadStatuss.CreateLeadStatus;
+namespace AvivCRM.Environment.Application.Features.LeadStatuses.CreateLeadStatus;
 public record CreateLeadStatusCommand(CreateLeadStatusRequest LeadStatus) : IRequest<ServerResponse>;

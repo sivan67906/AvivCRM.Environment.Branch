@@ -5,5 +5,5 @@ using MediatR;
 
 #endregion
 
-namespace AvivCRM.Environment.Application.Features.LeadStatuss.GetLeadStatusById;
+namespace AvivCRM.Environment.Application.Features.LeadStatuses.GetLeadStatusById;
 public record GetLeadStatusByIdQuery(Guid Id) : IRequest<ServerResponse>;

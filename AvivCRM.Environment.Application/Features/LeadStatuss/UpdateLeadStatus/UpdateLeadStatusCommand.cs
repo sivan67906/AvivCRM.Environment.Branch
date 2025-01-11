@@ -6,5 +6,5 @@ using MediatR;
 
 #endregion
 
-namespace AvivCRM.Environment.Application.Features.LeadStatuss.UpdateLeadStatus;
+namespace AvivCRM.Environment.Application.Features.LeadStatuses.UpdateLeadStatus;
 public record UpdateLeadStatusCommand(UpdateLeadStatusRequest LeadStatus) : IRequest<ServerResponse>;

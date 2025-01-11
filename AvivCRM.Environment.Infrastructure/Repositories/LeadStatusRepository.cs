@@ -8,6 +8,6 @@ using AvivCRM.Environment.Infrastructure.Persistence;
 
 namespace AvivCRM.Environment.Infrastructure.Repositories;
 public class LeadStatusRepository(EnvironmentDbContext context)
-    : GenericRepository<LeadStatus>(context, context.LeadStatuss), ILeadStatus
+    : GenericRepository<LeadStatus>(context, context.LeadStatuses), ILeadStatus
 {
 }
