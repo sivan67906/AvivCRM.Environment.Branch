@@ -380,3 +380,4 @@ FodyWeavers.xsd
 /.gitignore
 /AvivCRM.Environment.Domain/Entities/AttendanceSetting.manifest
 /AvivCRM.Environment.API/appsettings.json
+/AvivCRM.Environment.Domain/Entities/Testing.cs
