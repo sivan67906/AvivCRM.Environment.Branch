@@ -1,5 +1,6 @@
 #region
 
+using System.ComponentModel.DataAnnotations.Schema;
 using AvivCRM.Environment.Domain.Entities.Common;
 
 #endregion
@@ -12,4 +13,9 @@ public sealed class RecruitJobApplicationStatusSetting : BaseEntity, IEntity
     public string? Status { get; set; }
     public string? Color { get; set; }
     public bool IsModelChecked { get; set; }
+
+    [ForeignKey(nameof(PositionId))]
+    public JobApplicationPosition? JobApplicationPosition { get; set; }
+    [ForeignKey(nameof(CategoryId))]
+    public JobApplicationCategory? JobApplicationCategory { get; set; }
 }

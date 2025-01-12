@@ -1,6 +1,7 @@
 ﻿#region
 
 using AvivCRM.Environment.Domain.Entities;
+using AvivCRM.Environment.Infrastructure.Persistence.Configurations;
 using Microsoft.EntityFrameworkCore;
 
 #endregion
@@ -92,7 +93,7 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
         modelBuilder.Entity<NotificationMain>().ToTable("tblNotificationMain");
         modelBuilder.Entity<ProjectSetting>().ToTable("tblProjectSetting");
         modelBuilder.Entity<ProjectStatus>().ToTable("tblProjectStatus");
-        modelBuilder.Entity<RecruitCustomQuestionSetting>().ToTable("tblRecruitCustomQuestionSetting");
+        //modelBuilder.Entity<RecruitCustomQuestionSetting>().ToTable("tblRecruitCustomQuestionSetting");
         modelBuilder.Entity<RecruitFooterSetting>().ToTable("tblRecruitFooterSetting");
         modelBuilder.Entity<RecruitGeneralSetting>().ToTable("tblRecruitGeneralSetting");
         modelBuilder.Entity<RecruitJobApplicationStatusSetting>().ToTable("tblRecruitJobApplicationStatusSetting");
@@ -119,7 +120,7 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
         modelBuilder.Entity<ToggleValue>().ToTable("tblToggleValue");
 
 
-
+        modelBuilder.ApplyConfiguration(new RecruitCustomQuestionSettingConfiguration());
 
 
 
@@ -136,12 +137,11 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
             .IsRequired()  // Ensure Name is required
             .HasMaxLength(20);  // Set maximum length for Name
 
-
         // RecruitFooterSetting
         modelBuilder.Entity<RecruitFooterSetting>()
             .Property(c => c.Title)
             .IsRequired()  // Ensure Title is required
-            .HasMaxLength(100);  // Set maximum length for Name
+            .HasMaxLength(100);  // Set maximum length for Title
         modelBuilder.Entity<RecruitFooterSetting>()
             .Property(c => c.Slug)
             .HasMaxLength(100);  // Set maximum length for Slug
@@ -149,9 +149,95 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
            .Property(c => c.Description)
            .HasMaxLength(500);  // Set maximum length for Description
         modelBuilder.Entity<RecruitFooterSetting>()
-           .HasOne(ci => ci.ToggleValue)  // A city belongs to one state
-           .WithMany(s => s.RecruitFooterSettings)  // A state can have many cities
-           .HasForeignKey(ci => ci.StatusId)  // Foreign key of type Guid
+           .HasOne(ci => ci.ToggleValue)
+           .WithMany(s => s.RecruitFooterSettings)
+           .HasForeignKey(ci => ci.StatusId)
+           .IsRequired()  // Ensure StatusId is required
+           .OnDelete(DeleteBehavior.Restrict);  // Prevent cascade delete
+
+        // JobApplicationCategory
+        modelBuilder.Entity<JobApplicationCategory>()
+            .HasKey(s => s.Id);  // Primary key of type Guid
+        modelBuilder.Entity<JobApplicationCategory>()
+            .Property(c => c.Code)
+            .HasMaxLength(10);  // Set maximum length for Name
+        modelBuilder.Entity<JobApplicationCategory>()
+            .Property(c => c.Name)
+            .IsRequired()  // Ensure Name is required
+            .HasMaxLength(25);  // Set maximum length for Name
+
+        // JobApplicationPosition
+        modelBuilder.Entity<JobApplicationPosition>()
+            .HasKey(s => s.Id);  // Primary key of type Guid
+        modelBuilder.Entity<JobApplicationPosition>()
+            .Property(c => c.Code)
+            .HasMaxLength(10);  // Set maximum length for Name
+        modelBuilder.Entity<JobApplicationPosition>()
+            .Property(c => c.Name)
+            .IsRequired()  // Ensure Name is required
+            .HasMaxLength(25);  // Set maximum length for Name
+
+        // CustomQuestionCategory
+        modelBuilder.Entity<CustomQuestionCategory>()
+            .HasKey(s => s.Id);  // Primary key of type Guid
+        modelBuilder.Entity<CustomQuestionCategory>()
+            .Property(c => c.Code)
+            .HasMaxLength(10);  // Set maximum length for Name
+        modelBuilder.Entity<CustomQuestionCategory>()
+            .Property(c => c.Name)
+            .IsRequired()  // Ensure Name is required
+            .HasMaxLength(25);  // Set maximum length for Name
+
+        // CustomQuestionType
+        modelBuilder.Entity<CustomQuestionType>()
+            .HasKey(s => s.Id);  // Primary key of type Guid
+        modelBuilder.Entity<CustomQuestionType>()
+            .Property(c => c.Code)
+            .HasMaxLength(10);  // Set maximum length for Name
+        modelBuilder.Entity<CustomQuestionType>()
+            .Property(c => c.Name)
+            .IsRequired()  // Ensure Name is required
+            .HasMaxLength(25);  // Set maximum length for Name
+
+        // RecruitJobApplicationStatusSetting
+        modelBuilder.Entity<RecruitJobApplicationStatusSetting>()
+            .Property(c => c.Status)
+            .IsRequired()  // Ensure Title is required
+            .HasMaxLength(250);  // Set maximum length for Status
+        modelBuilder.Entity<RecruitJobApplicationStatusSetting>()
+           .HasOne(ci => ci.JobApplicationCategory)
+           .WithMany(s => s.RecruitJobApplicationStatusSettings)
+           .HasForeignKey(ci => ci.CategoryId)
+           .IsRequired()  // Ensure CategoryId is required
+           .OnDelete(DeleteBehavior.Restrict);  // Prevent cascade delete
+        modelBuilder.Entity<RecruitJobApplicationStatusSetting>()
+           .HasOne(ci => ci.JobApplicationPosition)
+           .WithMany(s => s.RecruitJobApplicationStatusSettings)
+           .HasForeignKey(ci => ci.PositionId)
+           .IsRequired()  // Ensure PositionId is required
+           .OnDelete(DeleteBehavior.Restrict);  // Prevent cascade delete
+
+        // RecruitCustomQuestionSetting
+        modelBuilder.Entity<RecruitCustomQuestionSetting>()
+            .Property(c => c.Question)
+            .IsRequired()  // Ensure Title is required
+            .HasMaxLength(500);  // Set maximum length for Question
+        modelBuilder.Entity<RecruitCustomQuestionSetting>()
+           .HasOne(ci => ci.CustomQuestionType)
+           .WithMany(s => s.RecruitCustomQuestionSettings)
+           .HasForeignKey(ci => ci.TypeId)
+           .IsRequired()  // Ensure TypeId is required
+           .OnDelete(DeleteBehavior.Restrict);  // Prevent cascade delete
+        modelBuilder.Entity<RecruitCustomQuestionSetting>()
+           .HasOne(ci => ci.CustomQuestionCategory)
+           .WithMany(s => s.RecruitCustomQuestionSettings)
+           .HasForeignKey(ci => ci.CategoryId)
+           .IsRequired()  // Ensure CategoryId is required
+           .OnDelete(DeleteBehavior.Restrict);  // Prevent cascade delete
+        modelBuilder.Entity<RecruitCustomQuestionSetting>()
+           .HasOne(ci => ci.ToggleValue)
+           .WithMany(s => s.RecruitCustomQuestionSettings)
+           .HasForeignKey(ci => ci.StatusId)
            .IsRequired()  // Ensure StatusId is required
            .OnDelete(DeleteBehavior.Restrict);  // Prevent cascade delete
     }

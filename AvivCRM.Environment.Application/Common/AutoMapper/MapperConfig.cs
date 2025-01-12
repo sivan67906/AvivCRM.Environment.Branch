@@ -154,19 +154,25 @@ public class MapperConfig : Profile
         CreateMap<CustomQuestionCategory, GetCustomQuestionCategory>();
 
         CreateMap<CreateCustomQuestionCategoryRequest, CustomQuestionCategory>()
-            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.CQCategoryName));
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.CQCategoryName))
+            .ForMember(dest => dest.Code, opt => opt.MapFrom(src => src.CQCategoryCode));
         CreateMap<CustomQuestionCategory, CreateCustomQuestionCategoryRequest>()
-            .ForMember(dest => dest.CQCategoryName, opt => opt.MapFrom(src => src.Name));
+            .ForMember(dest => dest.CQCategoryName, opt => opt.MapFrom(src => src.Name))
+            .ForMember(dest => dest.CQCategoryCode, opt => opt.MapFrom(src => src.Code));
 
         CreateMap<UpdateCustomQuestionCategoryRequest, CustomQuestionCategory>()
-            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.CQCategoryName));
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.CQCategoryName))
+            .ForMember(dest => dest.Code, opt => opt.MapFrom(src => src.CQCategoryCode));
         CreateMap<CustomQuestionCategory, UpdateCustomQuestionCategoryRequest>()
-            .ForMember(dest => dest.CQCategoryName, opt => opt.MapFrom(src => src.Name));
+            .ForMember(dest => dest.CQCategoryName, opt => opt.MapFrom(src => src.Name))
+            .ForMember(dest => dest.CQCategoryCode, opt => opt.MapFrom(src => src.Code));
 
         CreateMap<CustomQuestionCategory, GetCustomQuestionCategory>()
-            .ForMember(dest => dest.CQCategoryName, opt => opt.MapFrom(src => src.Name));
+            .ForMember(dest => dest.CQCategoryName, opt => opt.MapFrom(src => src.Name))
+            .ForMember(dest => dest.CQCategoryCode, opt => opt.MapFrom(src => src.Code));
         CreateMap<GetCustomQuestionCategory, CustomQuestionCategory>()
-            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.CQCategoryName));
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.CQCategoryName))
+            .ForMember(dest => dest.Code, opt => opt.MapFrom(src => src.CQCategoryCode));
 
         // CustomQuestionType
         CreateMap<CreateCustomQuestionTypeRequest, CustomQuestionType>();
@@ -174,19 +180,25 @@ public class MapperConfig : Profile
         CreateMap<CustomQuestionType, GetCustomQuestionType>();
 
         CreateMap<CreateCustomQuestionTypeRequest, CustomQuestionType>()
-            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.CQTypeName));
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.CQTypeName))
+            .ForMember(dest => dest.Code, opt => opt.MapFrom(src => src.CQTypeCode));
         CreateMap<CustomQuestionType, CreateCustomQuestionTypeRequest>()
-            .ForMember(dest => dest.CQTypeName, opt => opt.MapFrom(src => src.Name));
+            .ForMember(dest => dest.CQTypeName, opt => opt.MapFrom(src => src.Name))
+            .ForMember(dest => dest.CQTypeCode, opt => opt.MapFrom(src => src.Code));
 
         CreateMap<UpdateCustomQuestionTypeRequest, CustomQuestionType>()
-            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.CQTypeName));
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.CQTypeName))
+            .ForMember(dest => dest.Code, opt => opt.MapFrom(src => src.CQTypeCode));
         CreateMap<CustomQuestionType, UpdateCustomQuestionTypeRequest>()
-            .ForMember(dest => dest.CQTypeName, opt => opt.MapFrom(src => src.Name));
+            .ForMember(dest => dest.CQTypeName, opt => opt.MapFrom(src => src.Name))
+            .ForMember(dest => dest.CQTypeCode, opt => opt.MapFrom(src => src.Code));
 
         CreateMap<CustomQuestionType, GetCustomQuestionType>()
-            .ForMember(dest => dest.CQTypeName, opt => opt.MapFrom(src => src.Name));
+            .ForMember(dest => dest.CQTypeName, opt => opt.MapFrom(src => src.Name))
+            .ForMember(dest => dest.CQTypeCode, opt => opt.MapFrom(src => src.Code));
         CreateMap<GetCustomQuestionType, CustomQuestionType>()
-            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.CQTypeName));
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.CQTypeName))
+            .ForMember(dest => dest.Code, opt => opt.MapFrom(src => src.CQTypeCode));
 
         // JobApplicationCategory
         CreateMap<CreateJobApplicationCategoryRequest, JobApplicationCategory>();
@@ -194,19 +206,25 @@ public class MapperConfig : Profile
         CreateMap<JobApplicationCategory, GetJobApplicationCategory>();
 
         CreateMap<CreateJobApplicationCategoryRequest, JobApplicationCategory>()
-            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.JACategoryName));
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.JACategoryName))
+            .ForMember(dest => dest.Code, opt => opt.MapFrom(src => src.JACategoryCode));
         CreateMap<JobApplicationCategory, CreateJobApplicationCategoryRequest>()
-            .ForMember(dest => dest.JACategoryName, opt => opt.MapFrom(src => src.Name));
+            .ForMember(dest => dest.JACategoryName, opt => opt.MapFrom(src => src.Name))
+            .ForMember(dest => dest.JACategoryCode, opt => opt.MapFrom(src => src.Code));
 
         CreateMap<UpdateJobApplicationCategoryRequest, JobApplicationCategory>()
-            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.JACategoryName));
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.JACategoryName))
+            .ForMember(dest => dest.Code, opt => opt.MapFrom(src => src.JACategoryCode));
         CreateMap<JobApplicationCategory, UpdateJobApplicationCategoryRequest>()
-            .ForMember(dest => dest.JACategoryName, opt => opt.MapFrom(src => src.Name));
+            .ForMember(dest => dest.JACategoryName, opt => opt.MapFrom(src => src.Name))
+            .ForMember(dest => dest.JACategoryCode, opt => opt.MapFrom(src => src.Code));
 
         CreateMap<JobApplicationCategory, GetJobApplicationCategory>()
-            .ForMember(dest => dest.JACategoryName, opt => opt.MapFrom(src => src.Name));
+            .ForMember(dest => dest.JACategoryName, opt => opt.MapFrom(src => src.Name))
+            .ForMember(dest => dest.JACategoryCode, opt => opt.MapFrom(src => src.Code));
         CreateMap<GetJobApplicationCategory, JobApplicationCategory>()
-            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.JACategoryName));
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.JACategoryName))
+            .ForMember(dest => dest.Code, opt => opt.MapFrom(src => src.JACategoryCode));
 
         // JobApplicationPosition
         CreateMap<CreateJobApplicationPositionRequest, JobApplicationPosition>();
@@ -214,19 +232,25 @@ public class MapperConfig : Profile
         CreateMap<JobApplicationPosition, GetJobApplicationPosition>();
 
         CreateMap<CreateJobApplicationPositionRequest, JobApplicationPosition>()
-            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.JAPositionName));
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.JAPositionName))
+            .ForMember(dest => dest.Code, opt => opt.MapFrom(src => src.JAPositionCode));
         CreateMap<JobApplicationPosition, CreateJobApplicationPositionRequest>()
-            .ForMember(dest => dest.JAPositionName, opt => opt.MapFrom(src => src.Name));
+            .ForMember(dest => dest.JAPositionName, opt => opt.MapFrom(src => src.Name))
+            .ForMember(dest => dest.JAPositionCode, opt => opt.MapFrom(src => src.Code));
 
         CreateMap<UpdateJobApplicationPositionRequest, JobApplicationPosition>()
-            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.JAPositionName));
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.JAPositionName))
+            .ForMember(dest => dest.Code, opt => opt.MapFrom(src => src.JAPositionCode));
         CreateMap<JobApplicationPosition, UpdateJobApplicationPositionRequest>()
-            .ForMember(dest => dest.JAPositionName, opt => opt.MapFrom(src => src.Name));
+            .ForMember(dest => dest.JAPositionName, opt => opt.MapFrom(src => src.Name))
+            .ForMember(dest => dest.JAPositionCode, opt => opt.MapFrom(src => src.Code));
 
         CreateMap<JobApplicationPosition, GetJobApplicationPosition>()
-            .ForMember(dest => dest.JAPositionName, opt => opt.MapFrom(src => src.Name));
+            .ForMember(dest => dest.JAPositionName, opt => opt.MapFrom(src => src.Name))
+            .ForMember(dest => dest.JAPositionCode, opt => opt.MapFrom(src => src.Code));
         CreateMap<GetJobApplicationPosition, JobApplicationPosition>()
-            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.JAPositionName));
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.JAPositionName))
+            .ForMember(dest => dest.Code, opt => opt.MapFrom(src => src.JAPositionCode));
 
 
         // NotificationMain
@@ -483,39 +507,39 @@ public class MapperConfig : Profile
         CreateMap<RecruitCustomQuestionSetting, GetRecruitCustomQuestionSetting>();
 
         CreateMap<CreateRecruitCustomQuestionSettingRequest, RecruitCustomQuestionSetting>()
-        .ForMember(dest => dest.Question, opt => opt.MapFrom(src => src.CustomQuestionTypeName))
+        .ForMember(dest => dest.Question, opt => opt.MapFrom(src => src.CQQuestion))
         .ForMember(dest => dest.TypeId, opt => opt.MapFrom(src => src.CustomQuestionTypeId))
         .ForMember(dest => dest.CategoryId, opt => opt.MapFrom(src => src.CustomQuestionCategoryId))
         .ForMember(dest => dest.StatusId, opt => opt.MapFrom(src => src.CQStatusId))
         .ForMember(dest => dest.IsRequired, opt => opt.MapFrom(src => src.CQIsRequiredId));
         CreateMap<RecruitCustomQuestionSetting, CreateRecruitCustomQuestionSettingRequest>()
-        .ForMember(dest => dest.CustomQuestionTypeName, opt => opt.MapFrom(src => src.Question))
+        .ForMember(dest => dest.CQQuestion, opt => opt.MapFrom(src => src.Question))
         .ForMember(dest => dest.CustomQuestionTypeId, opt => opt.MapFrom(src => src.TypeId))
         .ForMember(dest => dest.CustomQuestionCategoryId, opt => opt.MapFrom(src => src.CategoryId))
         .ForMember(dest => dest.CQStatusId, opt => opt.MapFrom(src => src.StatusId))
         .ForMember(dest => dest.CQIsRequiredId, opt => opt.MapFrom(src => src.IsRequired));
 
         CreateMap<UpdateRecruitCustomQuestionSettingRequest, RecruitCustomQuestionSetting>()
-        .ForMember(dest => dest.Question, opt => opt.MapFrom(src => src.CustomQuestionTypeName))
+        .ForMember(dest => dest.Question, opt => opt.MapFrom(src => src.CQQuestion))
         .ForMember(dest => dest.TypeId, opt => opt.MapFrom(src => src.CustomQuestionTypeId))
         .ForMember(dest => dest.CategoryId, opt => opt.MapFrom(src => src.CustomQuestionCategoryId))
         .ForMember(dest => dest.StatusId, opt => opt.MapFrom(src => src.CQStatusId))
         .ForMember(dest => dest.IsRequired, opt => opt.MapFrom(src => src.CQIsRequiredId));
         CreateMap<RecruitCustomQuestionSetting, UpdateRecruitCustomQuestionSettingRequest>()
-        .ForMember(dest => dest.CustomQuestionTypeName, opt => opt.MapFrom(src => src.Question))
+        .ForMember(dest => dest.CQQuestion, opt => opt.MapFrom(src => src.Question))
         .ForMember(dest => dest.CustomQuestionTypeId, opt => opt.MapFrom(src => src.TypeId))
         .ForMember(dest => dest.CustomQuestionCategoryId, opt => opt.MapFrom(src => src.CategoryId))
         .ForMember(dest => dest.CQStatusId, opt => opt.MapFrom(src => src.StatusId))
         .ForMember(dest => dest.CQIsRequiredId, opt => opt.MapFrom(src => src.IsRequired));
 
         CreateMap<GetRecruitCustomQuestionSetting, RecruitCustomQuestionSetting>()
-        .ForMember(dest => dest.Question, opt => opt.MapFrom(src => src.CustomQuestionTypeName))
+        .ForMember(dest => dest.Question, opt => opt.MapFrom(src => src.CQQuestion))
         .ForMember(dest => dest.TypeId, opt => opt.MapFrom(src => src.CustomQuestionTypeId))
         .ForMember(dest => dest.CategoryId, opt => opt.MapFrom(src => src.CustomQuestionCategoryId))
         .ForMember(dest => dest.StatusId, opt => opt.MapFrom(src => src.CQStatusId))
         .ForMember(dest => dest.IsRequired, opt => opt.MapFrom(src => src.CQIsRequiredId));
         CreateMap<RecruitCustomQuestionSetting, GetRecruitCustomQuestionSetting>()
-        .ForMember(dest => dest.CustomQuestionTypeName, opt => opt.MapFrom(src => src.Question))
+        .ForMember(dest => dest.CQQuestion, opt => opt.MapFrom(src => src.Question))
         .ForMember(dest => dest.CustomQuestionTypeId, opt => opt.MapFrom(src => src.TypeId))
         .ForMember(dest => dest.CustomQuestionCategoryId, opt => opt.MapFrom(src => src.CategoryId))
         .ForMember(dest => dest.CQStatusId, opt => opt.MapFrom(src => src.StatusId))
