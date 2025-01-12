@@ -5,5 +5,5 @@ using MediatR;
 
 #endregion
 
-namespace AvivCRM.Environment.Application.Features.LeadStatuss.DeleteLeadStatus;
+namespace AvivCRM.Environment.Application.Features.LeadStatuses.DeleteLeadStatus;
 public record DeleteLeadStatusCommand(Guid Id) : IRequest<ServerResponse>;

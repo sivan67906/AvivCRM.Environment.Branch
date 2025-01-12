@@ -11,7 +11,7 @@ using MediatR;
 
 #endregion
 
-namespace AvivCRM.Environment.Application.Features.LeadStatuss.UpdateLeadStatus;
+namespace AvivCRM.Environment.Application.Features.LeadStatuses.UpdateLeadStatus;
 internal class UpdateLeadStatusCommandHandler(
     IValidator<UpdateLeadStatusRequest> _validator,
     ILeadStatus _leadStatusRepository,

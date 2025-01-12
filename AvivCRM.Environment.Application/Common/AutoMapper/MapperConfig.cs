@@ -45,6 +45,7 @@ using AvivCRM.Environment.Application.DTOs.TicketReplyTemplates;
 using AvivCRM.Environment.Application.DTOs.TicketTypes;
 using AvivCRM.Environment.Application.DTOs.TimeLogs;
 using AvivCRM.Environment.Application.DTOs.Timesheets;
+using AvivCRM.Environment.Application.DTOs.ToggleValues;
 using AvivCRM.Environment.Domain.Entities;
 
 #endregion
@@ -351,34 +352,34 @@ public class MapperConfig : Profile
         .ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.FooterTitle))
         .ForMember(dest => dest.Slug, opt => opt.MapFrom(src => src.FooterSlug))
         .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.FooterDescription))
-        .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.FooterStatusId));
+        .ForMember(dest => dest.StatusId, opt => opt.MapFrom(src => src.FooterStatusId));
         CreateMap<RecruitFooterSetting, CreateRecruitFooterSettingRequest>()
         .ForMember(dest => dest.FooterTitle, opt => opt.MapFrom(src => src.Title))
         .ForMember(dest => dest.FooterSlug, opt => opt.MapFrom(src => src.Slug))
         .ForMember(dest => dest.FooterDescription, opt => opt.MapFrom(src => src.Description))
-        .ForMember(dest => dest.FooterStatusId, opt => opt.MapFrom(src => src.Status));
+        .ForMember(dest => dest.FooterStatusId, opt => opt.MapFrom(src => src.StatusId));
 
         CreateMap<UpdateRecruitFooterSettingRequest, RecruitFooterSetting>()
         .ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.FooterTitle))
         .ForMember(dest => dest.Slug, opt => opt.MapFrom(src => src.FooterSlug))
         .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.FooterDescription))
-        .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.FooterStatusId));
+        .ForMember(dest => dest.StatusId, opt => opt.MapFrom(src => src.FooterStatusId));
         CreateMap<RecruitFooterSetting, UpdateRecruitFooterSettingRequest>()
         .ForMember(dest => dest.FooterTitle, opt => opt.MapFrom(src => src.Title))
         .ForMember(dest => dest.FooterSlug, opt => opt.MapFrom(src => src.Slug))
         .ForMember(dest => dest.FooterDescription, opt => opt.MapFrom(src => src.Description))
-        .ForMember(dest => dest.FooterStatusId, opt => opt.MapFrom(src => src.Status));
+        .ForMember(dest => dest.FooterStatusId, opt => opt.MapFrom(src => src.StatusId));
 
         CreateMap<GetRecruitFooterSetting, RecruitFooterSetting>()
          .ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.FooterTitle))
          .ForMember(dest => dest.Slug, opt => opt.MapFrom(src => src.FooterSlug))
          .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.FooterDescription))
-         .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.FooterStatusId));
+         .ForMember(dest => dest.StatusId, opt => opt.MapFrom(src => src.FooterStatusId));
         CreateMap<RecruitFooterSetting, GetRecruitFooterSetting>()
         .ForMember(dest => dest.FooterTitle, opt => opt.MapFrom(src => src.Title))
         .ForMember(dest => dest.FooterSlug, opt => opt.MapFrom(src => src.Slug))
         .ForMember(dest => dest.FooterDescription, opt => opt.MapFrom(src => src.Description))
-        .ForMember(dest => dest.FooterStatusId, opt => opt.MapFrom(src => src.Status));
+        .ForMember(dest => dest.FooterStatusId, opt => opt.MapFrom(src => src.StatusId));
 
         // RecruiterSetting
         CreateMap<CreateRecruiterSettingRequest, RecruiterSetting>();
@@ -387,24 +388,24 @@ public class MapperConfig : Profile
 
         CreateMap<CreateRecruiterSettingRequest, RecruiterSetting>()
          .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.RecruiterName))
-         .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.RecruiterStatusId));
+         .ForMember(dest => dest.StatusId, opt => opt.MapFrom(src => src.RecruiterStatusId));
         CreateMap<RecruiterSetting, CreateRecruiterSettingRequest>()
         .ForMember(dest => dest.RecruiterName, opt => opt.MapFrom(src => src.Name))
-        .ForMember(dest => dest.RecruiterStatusId, opt => opt.MapFrom(src => src.Status));
+        .ForMember(dest => dest.RecruiterStatusId, opt => opt.MapFrom(src => src.StatusId));
 
         CreateMap<UpdateRecruiterSettingRequest, RecruiterSetting>()
         .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.RecruiterName))
-        .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.RecruiterStatusId));
+        .ForMember(dest => dest.StatusId, opt => opt.MapFrom(src => src.RecruiterStatusId));
         CreateMap<RecruiterSetting, UpdateRecruiterSettingRequest>()
         .ForMember(dest => dest.RecruiterName, opt => opt.MapFrom(src => src.Name))
-        .ForMember(dest => dest.RecruiterStatusId, opt => opt.MapFrom(src => src.Status));
+        .ForMember(dest => dest.RecruiterStatusId, opt => opt.MapFrom(src => src.StatusId));
 
         CreateMap<GetRecruiterSetting, RecruiterSetting>()
         .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.RecruiterName))
-        .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.RecruiterStatusId));
+        .ForMember(dest => dest.StatusId, opt => opt.MapFrom(src => src.RecruiterStatusId));
         CreateMap<RecruiterSetting, GetRecruiterSetting>()
         .ForMember(dest => dest.RecruiterName, opt => opt.MapFrom(src => src.Name))
-        .ForMember(dest => dest.RecruiterStatusId, opt => opt.MapFrom(src => src.Status));
+        .ForMember(dest => dest.RecruiterStatusId, opt => opt.MapFrom(src => src.StatusId));
 
         // RecruitNotificationSetting
         CreateMap<CreateRecruitNotificationSettingRequest, RecruitNotificationSetting>();
@@ -634,6 +635,10 @@ public class MapperConfig : Profile
         CreateMap<UpdateNotificationRequest, Notification>();
         CreateMap<Notification, GetNotification>();
 
+        // ToggleValue
+        CreateMap<CreateToggleValueRequest, ToggleValue>();
+        CreateMap<UpdateToggleValueRequest, ToggleValue>();
+        CreateMap<ToggleValue, GetToggleValue>();
 
     }
 }

@@ -8,7 +8,7 @@ using MediatR;
 
 #endregion
 
-namespace AvivCRM.Environment.Application.Features.LeadStatuss.GetAllLeadStatus;
+namespace AvivCRM.Environment.Application.Features.LeadStatuses.GetAllLeadStatus;
 internal class GetAllLeadStatusQueryHandler(ILeadStatus _leadStatusRepository, IMapper mapper)
     : IRequestHandler<GetAllLeadStatusQuery, ServerResponse>
 {

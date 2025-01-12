@@ -5,7 +5,7 @@ using FluentValidation;
 
 #endregion
 
-namespace AvivCRM.Environment.Application.Features.LeadStatuss.CreateLeadStatus;
+namespace AvivCRM.Environment.Application.Features.LeadStatuses.CreateLeadStatus;
 public class CreateLeadStatusCommandValidator : AbstractValidator<CreateLeadStatusRequest>
 {
     public CreateLeadStatusCommandValidator()

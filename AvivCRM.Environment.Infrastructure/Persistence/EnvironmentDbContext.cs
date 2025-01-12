@@ -21,7 +21,7 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
     public DbSet<FinancePrefixSetting> FinancePrefixSettings => Set<FinancePrefixSetting>();
     public DbSet<FinanceUnitSetting> FinanceUnitSettings => Set<FinanceUnitSetting>();
     public DbSet<RecruitNotificationSetting> RecruitNotificationSettings => Set<RecruitNotificationSetting>();
-    public DbSet<LeadStatus> LeadStatuss => Set<LeadStatus>();
+    public DbSet<LeadStatus> LeadStatuses => Set<LeadStatus>();
     public DbSet<Contract> Contracts => Set<Contract>();
     public DbSet<LeadAgent> LeadAgents => Set<LeadAgent>();
     public DbSet<LeadCategory> LeadCategories => Set<LeadCategory>();
@@ -61,7 +61,7 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
     public DbSet<Tasks> Tasks => Set<Tasks>();
     public DbSet<Notification> Notifications => Set<Notification>();
     public DbSet<Message> Messages => Set<Message>();
-
+    public DbSet<ToggleValue> ToggleValues => Set<ToggleValue>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -116,5 +116,43 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
         modelBuilder.Entity<Tasks>().ToTable("tblTask");
         modelBuilder.Entity<Notification>().ToTable("tblNotification");
         modelBuilder.Entity<Message>().ToTable("tblMessage");
+        modelBuilder.Entity<ToggleValue>().ToTable("tblToggleValue");
+
+
+
+
+
+
+
+
+        // ToggleValue
+        modelBuilder.Entity<ToggleValue>()
+            .HasKey(s => s.Id);  // Primary key of type Guid
+        modelBuilder.Entity<ToggleValue>()
+            .Property(c => c.Code)
+            .HasMaxLength(10);  // Set maximum length for Name
+        modelBuilder.Entity<ToggleValue>()
+            .Property(c => c.Name)
+            .IsRequired()  // Ensure Name is required
+            .HasMaxLength(20);  // Set maximum length for Name
+
+
+        // RecruitFooterSetting
+        modelBuilder.Entity<RecruitFooterSetting>()
+            .Property(c => c.Title)
+            .IsRequired()  // Ensure Title is required
+            .HasMaxLength(100);  // Set maximum length for Name
+        modelBuilder.Entity<RecruitFooterSetting>()
+            .Property(c => c.Slug)
+            .HasMaxLength(100);  // Set maximum length for Slug
+        modelBuilder.Entity<RecruitFooterSetting>()
+           .Property(c => c.Description)
+           .HasMaxLength(500);  // Set maximum length for Description
+        modelBuilder.Entity<RecruitFooterSetting>()
+           .HasOne(ci => ci.ToggleValue)  // A city belongs to one state
+           .WithMany(s => s.RecruitFooterSettings)  // A state can have many cities
+           .HasForeignKey(ci => ci.StatusId)  // Foreign key of type Guid
+           .IsRequired()  // Ensure StatusId is required
+           .OnDelete(DeleteBehavior.Restrict);  // Prevent cascade delete
     }
 }
