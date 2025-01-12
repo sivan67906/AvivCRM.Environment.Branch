@@ -73,6 +73,9 @@ public static class ServiceContainer
         services.AddScoped<IMessage, MessageRepository>();
         services.AddScoped<INotifications, NotificationRepository>();
         services.AddScoped<IToggleValue, ToggleValueRepository>();
+        services.AddScoped<IDatePattern, DatePatternRepository>();
+        services.AddScoped<ITimeZoneStandard, TimeZoneStandardRepository>();
+
         return services;
     }
 }
