@@ -23,6 +23,7 @@ public class RecruitCustomQuestionSettingConfiguration
         //    .IsRequired()
         //    .HasColumnType("decimal(18,2)");
 
+        // UTC Date as Default
         builder.Property(p => p.CreatedOn)
             .HasDefaultValueSql("GETUTCDATE()")
             .ValueGeneratedOnAdd();

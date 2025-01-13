@@ -9,6 +9,7 @@ public sealed class ToggleValue : BaseEntity, IEntity
     public ICollection<RecruitFooterSetting>? RecruitFooterSettings { get; set; }
     public ICollection<RecruiterSetting>? RecruiterSettings { get; set; }
     public ICollection<RecruitCustomQuestionSetting>? RecruitCustomQuestionSettings { get; set; }
+    public ICollection<TicketAgent>? TicketAgents { get; set; }
 }
 
 
