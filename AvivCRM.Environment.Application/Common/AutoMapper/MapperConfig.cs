@@ -8,6 +8,7 @@ using AvivCRM.Environment.Application.DTOs.Contracts;
 using AvivCRM.Environment.Application.DTOs.Currencies;
 using AvivCRM.Environment.Application.DTOs.CustomQuestionCategories;
 using AvivCRM.Environment.Application.DTOs.CustomQuestionTypes;
+using AvivCRM.Environment.Application.DTOs.DatePatterns;
 using AvivCRM.Environment.Application.DTOs.Employees;
 using AvivCRM.Environment.Application.DTOs.FinanceInvoiceSettings;
 using AvivCRM.Environment.Application.DTOs.FinanceInvoiceTemplateSettings;
@@ -45,6 +46,7 @@ using AvivCRM.Environment.Application.DTOs.TicketReplyTemplates;
 using AvivCRM.Environment.Application.DTOs.TicketTypes;
 using AvivCRM.Environment.Application.DTOs.TimeLogs;
 using AvivCRM.Environment.Application.DTOs.Timesheets;
+using AvivCRM.Environment.Application.DTOs.TimeZoneStandards;
 using AvivCRM.Environment.Application.DTOs.ToggleValues;
 using AvivCRM.Environment.Domain.Entities;
 
@@ -663,6 +665,17 @@ public class MapperConfig : Profile
         CreateMap<CreateToggleValueRequest, ToggleValue>();
         CreateMap<UpdateToggleValueRequest, ToggleValue>();
         CreateMap<ToggleValue, GetToggleValue>();
+
+
+        // TimeZoneStandard
+        CreateMap<CreateTimeZoneStandardRequest, TimeZoneStandard>();
+        CreateMap<UpdateTimeZoneStandardRequest, TimeZoneStandard>();
+        CreateMap<TimeZoneStandard, GetTimeZoneStandard>();
+
+        // DatePattern
+        CreateMap<CreateDatePatternRequest, DatePattern>();
+        CreateMap<UpdateDatePatternRequest, DatePattern>();
+        CreateMap<DatePattern, GetDatePattern>();
 
     }
 }

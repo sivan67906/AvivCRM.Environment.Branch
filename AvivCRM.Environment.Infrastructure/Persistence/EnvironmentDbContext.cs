@@ -63,6 +63,9 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
     public DbSet<Notification> Notifications => Set<Notification>();
     public DbSet<Message> Messages => Set<Message>();
     public DbSet<ToggleValue> ToggleValues => Set<ToggleValue>();
+    public DbSet<DatePattern> DatePatterns => Set<DatePattern>();
+    public DbSet<TimeZoneStandard> TimeZoneStandards => Set<TimeZoneStandard>();
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -118,6 +121,8 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
         modelBuilder.Entity<Notification>().ToTable("tblNotification");
         modelBuilder.Entity<Message>().ToTable("tblMessage");
         modelBuilder.Entity<ToggleValue>().ToTable("tblToggleValue");
+        modelBuilder.Entity<DatePattern>().ToTable("tblDatePattern");
+        modelBuilder.Entity<TimeZoneStandard>().ToTable("tblTimeZoneStandard");
 
 
         modelBuilder.ApplyConfiguration(new RecruitCustomQuestionSettingConfiguration());
@@ -240,5 +245,29 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
            .HasForeignKey(ci => ci.StatusId)
            .IsRequired()  // Ensure StatusId is required
            .OnDelete(DeleteBehavior.Restrict);  // Prevent cascade delete
+
+        // DatePattern
+        modelBuilder.Entity<DatePattern>()
+            .HasKey(s => s.Id);  // Primary key of type Guid
+        modelBuilder.Entity<DatePattern>()
+            .Property(c => c.Code)
+            .HasMaxLength(10);  // Set maximum length for Name
+        modelBuilder.Entity<DatePattern>()
+            .Property(c => c.Name)
+            .IsRequired()  // Ensure Name is required
+            .HasMaxLength(20);  // Set maximum length for Name
+
+        // TimeZoneStandard
+        modelBuilder.Entity<TimeZoneStandard>()
+            .HasKey(s => s.Id);  // Primary key of type Guid
+        modelBuilder.Entity<TimeZoneStandard>()
+            .Property(c => c.Code)
+            .HasMaxLength(10);  // Set maximum length for Name
+        modelBuilder.Entity<TimeZoneStandard>()
+            .Property(c => c.Name)
+            .IsRequired()  // Ensure Name is required
+            .HasMaxLength(20);  // Set maximum length for Name
+
+
     }
 }
