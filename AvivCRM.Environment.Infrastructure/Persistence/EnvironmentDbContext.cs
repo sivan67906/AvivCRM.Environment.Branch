@@ -76,7 +76,7 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
         modelBuilder.Entity<LeadSource>().ToTable("tblLeadSource");
         modelBuilder.Entity<ProjectCategory>().ToTable("tblProjectCategory");
         modelBuilder.Entity<ProjectReminderPerson>().ToTable("tblProjectReminderPerson");
-        modelBuilder.Entity<TicketAgent>().ToTable("tblTicketAgent");
+        //modelBuilder.Entity<TicketAgent>().ToTable("tblTicketAgent");
         modelBuilder.Entity<TicketChannel>().ToTable("tblTicketChannel");
         modelBuilder.Entity<TicketGroup>().ToTable("tblTicketGroup");
         modelBuilder.Entity<TicketReplyTemplate>().ToTable("tblTicketReplyTemplate");
@@ -126,6 +126,7 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
 
 
         modelBuilder.ApplyConfiguration(new RecruitCustomQuestionSettingConfiguration());
+        modelBuilder.ApplyConfiguration(new TicketAgentConfiguration());
 
 
 
@@ -267,7 +268,6 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
             .Property(c => c.Name)
             .IsRequired()  // Ensure Name is required
             .HasMaxLength(20);  // Set maximum length for Name
-
 
     }
 }

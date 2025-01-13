@@ -77,6 +77,33 @@ public class MapperConfig : Profile
         CreateMap<UpdateTicketAgentRequest, TicketAgent>();
         CreateMap<TicketAgent, GetTicketAgent>();
 
+        CreateMap<CreateTicketAgentRequest, TicketAgent>()
+            .ForMember(dest => dest.GroupId, opt => opt.MapFrom(src => src.AgentGroupId))
+            .ForMember(dest => dest.TypeId, opt => opt.MapFrom(src => src.AgentTypeId))
+            .ForMember(dest => dest.StatusId, opt => opt.MapFrom(src => src.AgentStatusId));
+        CreateMap<TicketAgent, CreateTicketAgentRequest>()
+            .ForMember(dest => dest.AgentGroupId, opt => opt.MapFrom(src => src.GroupId))
+            .ForMember(dest => dest.AgentTypeId, opt => opt.MapFrom(src => src.TypeId))
+            .ForMember(dest => dest.AgentStatusId, opt => opt.MapFrom(src => src.StatusId));
+
+        CreateMap<UpdateTicketAgentRequest, TicketAgent>()
+            .ForMember(dest => dest.GroupId, opt => opt.MapFrom(src => src.AgentGroupId))
+            .ForMember(dest => dest.TypeId, opt => opt.MapFrom(src => src.AgentTypeId))
+            .ForMember(dest => dest.StatusId, opt => opt.MapFrom(src => src.AgentStatusId));
+        CreateMap<TicketAgent, UpdateTicketAgentRequest>()
+            .ForMember(dest => dest.AgentGroupId, opt => opt.MapFrom(src => src.GroupId))
+            .ForMember(dest => dest.AgentTypeId, opt => opt.MapFrom(src => src.TypeId))
+            .ForMember(dest => dest.AgentStatusId, opt => opt.MapFrom(src => src.StatusId));
+
+        CreateMap<GetTicketAgent, TicketAgent>()
+            .ForMember(dest => dest.GroupId, opt => opt.MapFrom(src => src.AgentGroupId))
+            .ForMember(dest => dest.TypeId, opt => opt.MapFrom(src => src.AgentTypeId))
+            .ForMember(dest => dest.StatusId, opt => opt.MapFrom(src => src.AgentStatusId));
+        CreateMap<TicketAgent, GetTicketAgent>()
+            .ForMember(dest => dest.AgentGroupId, opt => opt.MapFrom(src => src.GroupId))
+            .ForMember(dest => dest.AgentTypeId, opt => opt.MapFrom(src => src.TypeId))
+            .ForMember(dest => dest.AgentStatusId, opt => opt.MapFrom(src => src.StatusId));
+
         // TicketChannel
         CreateMap<CreateTicketChannelRequest, TicketChannel>();
         CreateMap<UpdateTicketChannelRequest, TicketChannel>();
