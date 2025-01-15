@@ -73,36 +73,36 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
 
         modelBuilder.HasDefaultSchema("aviv");
 
-        modelBuilder.Entity<LeadSource>().ToTable("tblLeadSource");
-        modelBuilder.Entity<ProjectCategory>().ToTable("tblProjectCategory");
-        modelBuilder.Entity<ProjectReminderPerson>().ToTable("tblProjectReminderPerson");
+        //modelBuilder.Entity<LeadSource>().ToTable("tblLeadSource");
+        //modelBuilder.Entity<ProjectCategory>().ToTable("tblProjectCategory");
+        //modelBuilder.Entity<ProjectReminderPerson>().ToTable("tblProjectReminderPerson");
         //modelBuilder.Entity<TicketAgent>().ToTable("tblTicketAgent");
-        modelBuilder.Entity<TicketChannel>().ToTable("tblTicketChannel");
-        modelBuilder.Entity<TicketGroup>().ToTable("tblTicketGroup");
-        modelBuilder.Entity<TicketReplyTemplate>().ToTable("tblTicketReplyTemplate");
-        modelBuilder.Entity<TicketType>().ToTable("tblTicketType");
-        modelBuilder.Entity<FinanceInvoiceTemplateSetting>().ToTable("tblFinanceInvoiceTemplateSetting");
-        modelBuilder.Entity<FinancePrefixSetting>().ToTable("tblFinancePrefixSetting");
-        modelBuilder.Entity<FinanceUnitSetting>().ToTable("tblFinanceUnitSetting");
-        modelBuilder.Entity<RecruitNotificationSetting>().ToTable("tblRecruitNotificationSetting");
+        //modelBuilder.Entity<TicketChannel>().ToTable("tblTicketChannel");
+        //modelBuilder.Entity<TicketGroup>().ToTable("tblTicketGroup");
+        //modelBuilder.Entity<TicketReplyTemplate>().ToTable("tblTicketReplyTemplate");
+        //modelBuilder.Entity<TicketType>().ToTable("tblTicketType");
+        //modelBuilder.Entity<FinanceInvoiceTemplateSetting>().ToTable("tblFinanceInvoiceTemplateSetting");
+        //modelBuilder.Entity<FinancePrefixSetting>().ToTable("tblFinancePrefixSetting");
+        //modelBuilder.Entity<FinanceUnitSetting>().ToTable("tblFinanceUnitSetting");
+        //modelBuilder.Entity<RecruitNotificationSetting>().ToTable("tblRecruitNotificationSetting");
         modelBuilder.Entity<LeadStatus>().ToTable("tblLeadStatus");
         modelBuilder.Entity<Contract>().ToTable("tblContract");
         modelBuilder.Entity<LeadAgent>().ToTable("tblLeadAgent");
         modelBuilder.Entity<LeadCategory>().ToTable("tblLeadCategory");
-        modelBuilder.Entity<CustomQuestionCategory>().ToTable("tblCustomQuestionCategory");
-        modelBuilder.Entity<CustomQuestionType>().ToTable("tblCustomQuestionType");
-        modelBuilder.Entity<JobApplicationCategory>().ToTable("tblJobApplicationCategory");
-        modelBuilder.Entity<JobApplicationPosition>().ToTable("tblJobApplicationPosition");
-        modelBuilder.Entity<NotificationMain>().ToTable("tblNotificationMain");
-        modelBuilder.Entity<ProjectSetting>().ToTable("tblProjectSetting");
-        modelBuilder.Entity<ProjectStatus>().ToTable("tblProjectStatus");
+        //modelBuilder.Entity<CustomQuestionCategory>().ToTable("tblCustomQuestionCategory");
+        //modelBuilder.Entity<CustomQuestionType>().ToTable("tblCustomQuestionType");
+        //modelBuilder.Entity<JobApplicationCategory>().ToTable("tblJobApplicationCategory");
+        //modelBuilder.Entity<JobApplicationPosition>().ToTable("tblJobApplicationPosition");
+        //modelBuilder.Entity<NotificationMain>().ToTable("tblNotificationMain");
+        //modelBuilder.Entity<ProjectSetting>().ToTable("tblProjectSetting");
+        //modelBuilder.Entity<ProjectStatus>().ToTable("tblProjectStatus");
         //modelBuilder.Entity<RecruitCustomQuestionSetting>().ToTable("tblRecruitCustomQuestionSetting");
-        modelBuilder.Entity<RecruitFooterSetting>().ToTable("tblRecruitFooterSetting");
-        modelBuilder.Entity<RecruitGeneralSetting>().ToTable("tblRecruitGeneralSetting");
-        modelBuilder.Entity<RecruitJobApplicationStatusSetting>().ToTable("tblRecruitJobApplicationStatusSetting");
-        modelBuilder.Entity<RecruiterSetting>().ToTable("tblRecruiterSetting");
-        modelBuilder.Entity<TimeLog>().ToTable("tblTimeLog");
-        modelBuilder.Entity<Timesheet>().ToTable("tblTimesheet");
+        //modelBuilder.Entity<RecruitFooterSetting>().ToTable("tblRecruitFooterSetting");
+        //modelBuilder.Entity<RecruitGeneralSetting>().ToTable("tblRecruitGeneralSetting");
+        //modelBuilder.Entity<RecruitJobApplicationStatusSetting>().ToTable("tblRecruitJobApplicationStatusSetting");
+        //modelBuilder.Entity<RecruiterSetting>().ToTable("tblRecruiterSetting");
+        //modelBuilder.Entity<TimeLog>().ToTable("tblTimeLog");
+        //modelBuilder.Entity<Timesheet>().ToTable("tblTimesheet");
         modelBuilder.Entity<Payment>().ToTable("tblPayment");
         modelBuilder.Entity<Applications>().ToTable("tblApplication");
         modelBuilder.Entity<Currency>().ToTable("tblCurrency");
@@ -114,8 +114,8 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
         //modelBuilder.Entity<BillOrder>().ToTable("tblBillOrder");
         //modelBuilder.Entity<PurchaseOrder>().ToTable("tblPurchaseOrder");
         //modelBuilder.Entity<VendorCredit>().ToTable("tblVendorCredit");
-        modelBuilder.Entity<FinanceInvoiceSetting>().ToTable("tblFinanceInvoiceSetting");
-        modelBuilder.Entity<Language>().ToTable("tblLanguage");
+        //modelBuilder.Entity<FinanceInvoiceSetting>().ToTable("tblFinanceInvoiceSetting");
+        //modelBuilder.Entity<Language>().ToTable("tblLanguage");
         modelBuilder.Entity<PurchaseSetting>().ToTable("tblPurchaseSetting");
         modelBuilder.Entity<Tasks>().ToTable("tblTask");
         modelBuilder.Entity<Notification>().ToTable("tblNotification");
@@ -125,7 +125,30 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
         modelBuilder.Entity<TimeZoneStandard>().ToTable("tblTimeZoneStandard");
 
 
+
+        modelBuilder.ApplyConfiguration(new AttendanceSettingConfiguration());
+        modelBuilder.ApplyConfiguration(new CustomQuestionCategoryConfiguration());
+        modelBuilder.ApplyConfiguration(new CustomQuestionTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new DatePatternConfiguration());
+        modelBuilder.ApplyConfiguration(new FinanceInvoiceSettingConfiguration());
+        modelBuilder.ApplyConfiguration(new FinanceInvoiceTemplateSettingConfiguration());
+        modelBuilder.ApplyConfiguration(new FinancePrefixSettingConfiguration());
+        modelBuilder.ApplyConfiguration(new FinanceUnitSettingConfiguration());
+        modelBuilder.ApplyConfiguration(new JobApplicationCategoryConfiguration());
+        modelBuilder.ApplyConfiguration(new JobApplicationPositionConfiguration());
+        modelBuilder.ApplyConfiguration(new LanguageConfiguration());
+        modelBuilder.ApplyConfiguration(new LeadSourceConfiguration());
+        modelBuilder.ApplyConfiguration(new NotificationMainConfiguration());
+        modelBuilder.ApplyConfiguration(new ProjectCategoryConfiguration());
+        modelBuilder.ApplyConfiguration(new ProjectReminderPersonConfiguration());
+        modelBuilder.ApplyConfiguration(new ProjectSettingConfiguration());
+        modelBuilder.ApplyConfiguration(new ProjectStatusConfiguration());
         modelBuilder.ApplyConfiguration(new RecruitCustomQuestionSettingConfiguration());
+        modelBuilder.ApplyConfiguration(new RecruiterSettingConfiguration());
+        modelBuilder.ApplyConfiguration(new RecruitFooterSettingConfiguration());
+        modelBuilder.ApplyConfiguration(new RecruitGeneralSettingConfiguration());
+        modelBuilder.ApplyConfiguration(new RecruitJobApplicationStatusSettingConfiguration());
+        modelBuilder.ApplyConfiguration(new RecruitNotificationSettingConfiguration());
         modelBuilder.ApplyConfiguration(new TicketAgentConfiguration());
         modelBuilder.ApplyConfiguration(new LeadAgentConfiguration());
         modelBuilder.ApplyConfiguration(new LeadSourceConfiguration());
@@ -279,5 +302,11 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
             .IsRequired()  // Ensure Name is required
             .HasMaxLength(20);  // Set maximum length for Name
 
+        modelBuilder.ApplyConfiguration(new TicketChannelConfiguration());
+        modelBuilder.ApplyConfiguration(new TicketGroupConfiguration());
+        modelBuilder.ApplyConfiguration(new TimeLogConfiguration());
+        modelBuilder.ApplyConfiguration(new TimesheetConfiguration());
+        modelBuilder.ApplyConfiguration(new TimeZoneStandardConfiguration());
+        modelBuilder.ApplyConfiguration(new ToggleValueConfiguration());
     }
 }

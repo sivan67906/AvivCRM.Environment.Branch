@@ -1,5 +1,6 @@
 ﻿#region
 
+using System.ComponentModel.DataAnnotations.Schema;
 using AvivCRM.Environment.Domain.Entities.Common;
 
 #endregion
@@ -22,6 +23,6 @@ public sealed class FinanceInvoiceSetting : BaseEntity, IEntity
     public string? FIOtherInfo { get; set; }
 
     // Navigation Property
-    //[ForeignKey(nameof(FILanguageId))]
-    //public Language? Language { get; set; }
+    [ForeignKey(nameof(FILanguageId))]
+    public Language? Language { get; set; }
 }

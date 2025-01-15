@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AvivCRM.Environment.Infrastructure.Persistence.Configurations;
 
-public class LanguageConfiguration
-    : IEntityTypeConfiguration<Language>
+public class CustomQuestionTypeConfiguration
+    : IEntityTypeConfiguration<CustomQuestionType>
 {
-    public void Configure(EntityTypeBuilder<Language> builder)
+    public void Configure(EntityTypeBuilder<CustomQuestionType> builder)
     {
         // Table name
-        builder.ToTable("tblLanguage");
+        builder.ToTable("tblCustomQuestionType");
 
         // Primary key
         builder.HasKey(p => p.Id);
@@ -33,10 +33,10 @@ public class LanguageConfiguration
             .ValueGeneratedOnAddOrUpdate();
 
         // Relationship
-        builder.HasMany(a => a.FinanceInvoiceSettings)
-        .WithOne(b => b.Language)
-        .HasForeignKey(b => b.Id)
-        .IsRequired()  // Ensure Id is required
-        .OnDelete(DeleteBehavior.Restrict);  // Prevent cascade delete
+        builder.HasMany(a => a.RecruitCustomQuestionSettings)
+            .WithOne(b => b.CustomQuestionType)
+            .HasForeignKey(b => b.Id)
+            .IsRequired()  // Ensure Id is required
+            .OnDelete(DeleteBehavior.Restrict);  // Prevent cascade delete
     }
 }

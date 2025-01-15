@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AvivCRM.Environment.Infrastructure.Persistence.Configurations;
 
-public class LanguageConfiguration
-    : IEntityTypeConfiguration<Language>
+public class DatePatternConfiguration
+    : IEntityTypeConfiguration<DatePattern>
 {
-    public void Configure(EntityTypeBuilder<Language> builder)
+    public void Configure(EntityTypeBuilder<DatePattern> builder)
     {
         // Table name
-        builder.ToTable("tblLanguage");
+        builder.ToTable("tblDatePattern");
 
         // Primary key
         builder.HasKey(p => p.Id);
@@ -31,12 +31,5 @@ public class LanguageConfiguration
         builder.Property(p => p.ModifiedOn)
             .HasDefaultValueSql("GETUTCDATE()")
             .ValueGeneratedOnAddOrUpdate();
-
-        // Relationship
-        builder.HasMany(a => a.FinanceInvoiceSettings)
-        .WithOne(b => b.Language)
-        .HasForeignKey(b => b.Id)
-        .IsRequired()  // Ensure Id is required
-        .OnDelete(DeleteBehavior.Restrict);  // Prevent cascade delete
     }
 }

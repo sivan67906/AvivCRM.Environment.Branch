@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AvivCRM.Environment.Infrastructure.Persistence.Configurations;
 
-public class LanguageConfiguration
-    : IEntityTypeConfiguration<Language>
+public class CustomQuestionCategoryConfiguration
+    : IEntityTypeConfiguration<CustomQuestionCategory>
 {
-    public void Configure(EntityTypeBuilder<Language> builder)
+    public void Configure(EntityTypeBuilder<CustomQuestionCategory> builder)
     {
         // Table name
-        builder.ToTable("tblLanguage");
+        builder.ToTable("tblCustomQuestionCategory");
 
         // Primary key
         builder.HasKey(p => p.Id);
@@ -18,7 +18,7 @@ public class LanguageConfiguration
         // Properties
         builder.Property(p => p.Code)
             .IsRequired()
-            .HasMaxLength(20);
+            .HasMaxLength(10);
         builder.Property(p => p.Name)
             .IsRequired()
             .HasMaxLength(100);
@@ -33,10 +33,10 @@ public class LanguageConfiguration
             .ValueGeneratedOnAddOrUpdate();
 
         // Relationship
-        builder.HasMany(a => a.FinanceInvoiceSettings)
-        .WithOne(b => b.Language)
-        .HasForeignKey(b => b.Id)
-        .IsRequired()  // Ensure Id is required
-        .OnDelete(DeleteBehavior.Restrict);  // Prevent cascade delete
+        builder.HasMany(a => a.RecruitCustomQuestionSettings)
+            .WithOne(b => b.CustomQuestionCategory)
+            .HasForeignKey(b => b.Id)
+            .IsRequired()  // Ensure Id is required
+            .OnDelete(DeleteBehavior.Restrict);  // Prevent cascade delete
     }
 }

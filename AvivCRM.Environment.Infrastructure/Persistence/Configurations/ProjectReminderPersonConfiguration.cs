@@ -3,14 +3,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AvivCRM.Environment.Infrastructure.Persistence.Configurations;
-
-public class LanguageConfiguration
-    : IEntityTypeConfiguration<Language>
+public class ProjectReminderPersonConfiguration
+    : IEntityTypeConfiguration<ProjectReminderPerson>
 {
-    public void Configure(EntityTypeBuilder<Language> builder)
+    public void Configure(EntityTypeBuilder<ProjectReminderPerson> builder)
     {
         // Table name
-        builder.ToTable("tblLanguage");
+        builder.ToTable("tblProjectReminderPerson");
 
         // Primary key
         builder.HasKey(p => p.Id);
@@ -31,12 +30,5 @@ public class LanguageConfiguration
         builder.Property(p => p.ModifiedOn)
             .HasDefaultValueSql("GETUTCDATE()")
             .ValueGeneratedOnAddOrUpdate();
-
-        // Relationship
-        builder.HasMany(a => a.FinanceInvoiceSettings)
-        .WithOne(b => b.Language)
-        .HasForeignKey(b => b.Id)
-        .IsRequired()  // Ensure Id is required
-        .OnDelete(DeleteBehavior.Restrict);  // Prevent cascade delete
     }
 }

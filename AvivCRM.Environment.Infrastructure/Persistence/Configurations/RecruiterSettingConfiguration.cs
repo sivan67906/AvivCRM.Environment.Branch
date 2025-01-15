@@ -4,21 +4,18 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AvivCRM.Environment.Infrastructure.Persistence.Configurations;
 
-public class LanguageConfiguration
-    : IEntityTypeConfiguration<Language>
+public class RecruiterSettingConfiguration
+    : IEntityTypeConfiguration<RecruiterSetting>
 {
-    public void Configure(EntityTypeBuilder<Language> builder)
+    public void Configure(EntityTypeBuilder<RecruiterSetting> builder)
     {
         // Table name
-        builder.ToTable("tblLanguage");
+        builder.ToTable("tblRecruiterSetting");
 
         // Primary key
         builder.HasKey(p => p.Id);
 
         // Properties
-        builder.Property(p => p.Code)
-            .IsRequired()
-            .HasMaxLength(20);
         builder.Property(p => p.Name)
             .IsRequired()
             .HasMaxLength(100);
@@ -33,10 +30,10 @@ public class LanguageConfiguration
             .ValueGeneratedOnAddOrUpdate();
 
         // Relationship
-        builder.HasMany(a => a.FinanceInvoiceSettings)
-        .WithOne(b => b.Language)
-        .HasForeignKey(b => b.Id)
-        .IsRequired()  // Ensure Id is required
-        .OnDelete(DeleteBehavior.Restrict);  // Prevent cascade delete
+        builder.HasOne(ci => ci.ToggleValue)
+           .WithMany(s => s.RecruiterSettings)
+           .HasForeignKey(ci => ci.StatusId)
+           .IsRequired()  // Ensure StatusId is required
+           .OnDelete(DeleteBehavior.Restrict);  // Prevent cascade delete
     }
 }
