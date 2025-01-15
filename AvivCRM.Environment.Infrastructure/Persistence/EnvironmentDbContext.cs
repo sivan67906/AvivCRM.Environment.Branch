@@ -85,10 +85,10 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
         //modelBuilder.Entity<FinancePrefixSetting>().ToTable("tblFinancePrefixSetting");
         //modelBuilder.Entity<FinanceUnitSetting>().ToTable("tblFinanceUnitSetting");
         //modelBuilder.Entity<RecruitNotificationSetting>().ToTable("tblRecruitNotificationSetting");
-        modelBuilder.Entity<LeadStatus>().ToTable("tblLeadStatus");
-        modelBuilder.Entity<Contract>().ToTable("tblContract");
-        modelBuilder.Entity<LeadAgent>().ToTable("tblLeadAgent");
-        modelBuilder.Entity<LeadCategory>().ToTable("tblLeadCategory");
+        //modelBuilder.Entity<LeadStatus>().ToTable("tblLeadStatus");
+        //modelBuilder.Entity<Contract>().ToTable("tblContract");
+        //modelBuilder.Entity<LeadAgent>().ToTable("tblLeadAgent");
+        //modelBuilder.Entity<LeadCategory>().ToTable("tblLeadCategory");
         //modelBuilder.Entity<CustomQuestionCategory>().ToTable("tblCustomQuestionCategory");
         //modelBuilder.Entity<CustomQuestionType>().ToTable("tblCustomQuestionType");
         //modelBuilder.Entity<JobApplicationCategory>().ToTable("tblJobApplicationCategory");

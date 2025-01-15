@@ -1,19 +1,17 @@
 ﻿using AvivCRM.Environment.Domain.Entities;
+using AvivCRM.Environment.Infrastructure.Persistence.Configurations.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AvivCRM.Environment.Infrastructure.Persistence.Configurations;
 
 public class ContractConfiguration
-    : IEntityTypeConfiguration<Contract>
+    : BaseEntityConfiguration<Contract>, IEntityTypeConfiguration<Contract>
 {
     public void Configure(EntityTypeBuilder<Contract> builder)
     {
         // Table name
         builder.ToTable("tblContract");
-
-        // Primary key
-        builder.HasKey(p => p.Id);
 
         // Properties
         builder.Property(p => p.ContractPrefix)
@@ -31,17 +29,6 @@ public class ContractConfiguration
         builder.Property(p => p.ContractNumberExample)
            .IsRequired()
            .HasMaxLength(25);
-
-        builder.Property(p => p.CreatedOn)
-            .HasDefaultValueSql("GETUTCDATE()")
-            .ValueGeneratedOnAdd();
-
-        builder.Property(p => p.ModifiedOn)
-            .HasDefaultValueSql("GETUTCDATE()")
-            .ValueGeneratedOnAddOrUpdate();
-
-        //builder.Property(p => p.IsVisible)
-        //    .HasDefaultValue(true);
 
     }
 }

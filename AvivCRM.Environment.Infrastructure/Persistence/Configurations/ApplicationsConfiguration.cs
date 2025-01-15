@@ -1,19 +1,17 @@
 ﻿using AvivCRM.Environment.Domain.Entities;
+using AvivCRM.Environment.Infrastructure.Persistence.Configurations.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AvivCRM.Environment.Infrastructure.Persistence.Configurations;
 
 public class ApplicationsConfiguration
-    : IEntityTypeConfiguration<Applications>
+    : BaseEntityConfiguration<Applications>, IEntityTypeConfiguration<Applications>
 {
     public void Configure(EntityTypeBuilder<Applications> builder)
     {
         // Table name
         builder.ToTable("tblApplication");
-
-        // Primary key
-        builder.HasKey(p => p.Id);
 
         // Properties
         builder.Property(p => p.DateFormat)
@@ -47,17 +45,6 @@ public class ApplicationsConfiguration
         //builder.Property(p => p.Price)
         //    .IsRequired()
         //    .HasColumnType("decimal(18,2)");
-
-        builder.Property(p => p.CreatedOn)
-            .HasDefaultValueSql("GETUTCDATE()")
-            .ValueGeneratedOnAdd();
-
-        builder.Property(p => p.ModifiedOn)
-            .HasDefaultValueSql("GETUTCDATE()")
-            .ValueGeneratedOnAddOrUpdate();
-
-        //builder.Property(p => p.IsVisible)
-        //    .HasDefaultValue(true);
 
     }
 }

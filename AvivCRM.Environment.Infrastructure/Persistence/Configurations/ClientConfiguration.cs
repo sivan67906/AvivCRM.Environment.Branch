@@ -1,19 +1,18 @@
 ﻿using AvivCRM.Environment.Domain.Entities;
+using AvivCRM.Environment.Infrastructure.Persistence.Configurations.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AvivCRM.Environment.Infrastructure.Persistence.Configurations;
 
 public class ClientConfiguration
-    : IEntityTypeConfiguration<Client>
+    : BaseEntityConfiguration<Client>, IEntityTypeConfiguration<Client>
 {
     public void Configure(EntityTypeBuilder<Client> builder)
     {
         // Table name
         builder.ToTable("tblClient");
 
-        // Primary key
-        builder.HasKey(p => p.Id);
 
         // Properties
         builder.Property(p => p.ClientCode)
@@ -49,18 +48,6 @@ public class ClientConfiguration
 
         // Foreign key
         builder.HasKey(p => p.CityId);
-
-
-        builder.Property(p => p.CreatedOn)
-            .HasDefaultValueSql("GETUTCDATE()")
-            .ValueGeneratedOnAdd();
-
-        builder.Property(p => p.ModifiedOn)
-            .HasDefaultValueSql("GETUTCDATE()")
-            .ValueGeneratedOnAddOrUpdate();
-
-        //builder.Property(p => p.IsVisible)
-        //    .HasDefaultValue(true);
 
     }
 }
