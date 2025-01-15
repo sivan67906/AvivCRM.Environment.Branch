@@ -1,6 +1,6 @@
 ﻿#region
 
-using AvivCRM.Environment.Application.Contracts;
+using AvivCRM.Environment.Domain.Interfaces;
 using AvivCRM.Environment.Infrastructure.Persistence.Data;
 
 #endregion

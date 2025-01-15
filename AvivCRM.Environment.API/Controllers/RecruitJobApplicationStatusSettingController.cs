@@ -1,16 +1,11 @@
 #region
 
 using AvivCRM.Environment.Application.DTOs.RecruitJobApplicationStatusSettings;
-using AvivCRM.Environment.Application.Features.RecruitJobApplicationStatusSettings.
-    CreateRecruitJobApplicationStatusSetting;
-using AvivCRM.Environment.Application.Features.RecruitJobApplicationStatusSettings.
-    DeleteRecruitJobApplicationStatusSetting;
-using AvivCRM.Environment.Application.Features.RecruitJobApplicationStatusSettings.
-    GetAllRecruitJobApplicationStatusSetting;
-using AvivCRM.Environment.Application.Features.RecruitJobApplicationStatusSettings.
-    GetRecruitJobApplicationStatusSettingById;
-using AvivCRM.Environment.Application.Features.RecruitJobApplicationStatusSettings.
-    UpdateRecruitJobApplicationStatusSetting;
+using AvivCRM.Environment.Application.Features.RecruitJobApplicationStatusSettings.Command.CreateRecruitJobApplicationStatusSetting;
+using AvivCRM.Environment.Application.Features.RecruitJobApplicationStatusSettings.Command.DeleteRecruitJobApplicationStatusSetting;
+using AvivCRM.Environment.Application.Features.RecruitJobApplicationStatusSettings.Command.UpdateRecruitJobApplicationStatusSetting;
+using AvivCRM.Environment.Application.Features.RecruitJobApplicationStatusSettings.Query.GetAllRecruitJobApplicationStatusSetting;
+using AvivCRM.Environment.Application.Features.RecruitJobApplicationStatusSettings.Query.GetRecruitJobApplicationStatusSettingById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -31,7 +26,7 @@ public class RecruitJobApplicationStatusSettingController : ControllerBase
     [HttpGet("all-recruitjobapplicationstatussetting")]
     public async Task<IActionResult> GetAllAsync()
     {
-        var recruitJobApplicationStatusSettingList =
+        Domain.Responses.ServerResponse recruitJobApplicationStatusSettingList =
             await _sender.Send(new GetAllRecruitJobApplicationStatusSettingQuery());
         return Ok(recruitJobApplicationStatusSettingList);
     }
@@ -39,7 +34,7 @@ public class RecruitJobApplicationStatusSettingController : ControllerBase
     [HttpGet("byid-recruitjobapplicationstatussetting")]
     public async Task<IActionResult> GetByIdAsync(Guid Id)
     {
-        var result = await _sender.Send(new GetRecruitJobApplicationStatusSettingByIdQuery(Id));
+        Domain.Responses.ServerResponse result = await _sender.Send(new GetRecruitJobApplicationStatusSettingByIdQuery(Id));
         return Ok(result);
     }
 
@@ -47,7 +42,7 @@ public class RecruitJobApplicationStatusSettingController : ControllerBase
     public async Task<IActionResult> CreateAsync(
         CreateRecruitJobApplicationStatusSettingRequest recruitJobApplicationStatusSetting)
     {
-        var result =
+        Domain.Responses.ServerResponse result =
             await _sender.Send(new CreateRecruitJobApplicationStatusSettingCommand(recruitJobApplicationStatusSetting));
         return Ok(result);
     }
@@ -56,7 +51,7 @@ public class RecruitJobApplicationStatusSettingController : ControllerBase
     public async Task<IActionResult> UpdateAsync(
         UpdateRecruitJobApplicationStatusSettingRequest recruitJobApplicationStatusSetting)
     {
-        var result =
+        Domain.Responses.ServerResponse result =
             await _sender.Send(new UpdateRecruitJobApplicationStatusSettingCommand(recruitJobApplicationStatusSetting));
         return Ok(result);
     }
@@ -64,7 +59,7 @@ public class RecruitJobApplicationStatusSettingController : ControllerBase
     [HttpDelete("delete-recruitjobapplicationstatussetting")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
-        var result = await _sender.Send(new DeleteRecruitJobApplicationStatusSettingCommand(Id));
+        Domain.Responses.ServerResponse result = await _sender.Send(new DeleteRecruitJobApplicationStatusSettingCommand(Id));
         return Ok(result);
     }
 }

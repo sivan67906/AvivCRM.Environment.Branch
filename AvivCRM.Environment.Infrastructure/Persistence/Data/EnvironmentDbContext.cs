@@ -1,7 +1,17 @@
 ﻿#region
 
 using AvivCRM.Environment.Domain.Entities;
+using AvivCRM.Environment.Domain.Entities.Finance;
+using AvivCRM.Environment.Domain.Entities.Lead;
+using AvivCRM.Environment.Domain.Entities.Project;
+using AvivCRM.Environment.Domain.Entities.Recruit;
+using AvivCRM.Environment.Domain.Entities.Ticket;
 using AvivCRM.Environment.Infrastructure.Persistence.Configurations;
+using AvivCRM.Environment.Infrastructure.Persistence.Configurations.Finance;
+using AvivCRM.Environment.Infrastructure.Persistence.Configurations.Lead;
+using AvivCRM.Environment.Infrastructure.Persistence.Configurations.Project;
+using AvivCRM.Environment.Infrastructure.Persistence.Configurations.Recruit;
+using AvivCRM.Environment.Infrastructure.Persistence.Configurations.Ticket;
 using Microsoft.EntityFrameworkCore;
 
 #endregion
@@ -71,7 +81,7 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
     {
         base.OnModelCreating(modelBuilder);
 
-        modelBuilder.HasDefaultSchema("aviv");
+        modelBuilder.HasDefaultSchema("Sivan");
 
         //modelBuilder.Entity<LeadSource>().ToTable("tblLeadSource");
         //modelBuilder.Entity<ProjectCategory>().ToTable("tblProjectCategory");
@@ -103,26 +113,26 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
         //modelBuilder.Entity<RecruiterSetting>().ToTable("tblRecruiterSetting");
         //modelBuilder.Entity<TimeLog>().ToTable("tblTimeLog");
         //modelBuilder.Entity<Timesheet>().ToTable("tblTimesheet");
-        modelBuilder.Entity<Payment>().ToTable("tblPayment");
-        modelBuilder.Entity<Applications>().ToTable("tblApplication");
-        modelBuilder.Entity<Currency>().ToTable("tblCurrency");
-        modelBuilder.Entity<Planning>().ToTable("tblPlanning");
-        modelBuilder.Entity<Tax>().ToTable("tblTax");
-        modelBuilder.Entity<Client>().ToTable("tblClient");
-        modelBuilder.Entity<Employee>().ToTable("tblEmployee");
-        modelBuilder.Entity<AttendanceSetting>().ToTable("tblAttendanceSetting");
+        //modelBuilder.Entity<Payment>().ToTable("tblPayment");
+        //modelBuilder.Entity<Applications>().ToTable("tblApplication");
+        //modelBuilder.Entity<Currency>().ToTable("tblCurrency");
+        //modelBuilder.Entity<Planning>().ToTable("tblPlanning");
+        //modelBuilder.Entity<Tax>().ToTable("tblTax");
+        //modelBuilder.Entity<Client>().ToTable("tblClient");
+        //modelBuilder.Entity<Employee>().ToTable("tblEmployee");
+        //modelBuilder.Entity<AttendanceSetting>().ToTable("tblAttendanceSetting");
         //modelBuilder.Entity<BillOrder>().ToTable("tblBillOrder");
         //modelBuilder.Entity<PurchaseOrder>().ToTable("tblPurchaseOrder");
         //modelBuilder.Entity<VendorCredit>().ToTable("tblVendorCredit");
         //modelBuilder.Entity<FinanceInvoiceSetting>().ToTable("tblFinanceInvoiceSetting");
         //modelBuilder.Entity<Language>().ToTable("tblLanguage");
-        modelBuilder.Entity<PurchaseSetting>().ToTable("tblPurchaseSetting");
-        modelBuilder.Entity<Tasks>().ToTable("tblTask");
-        modelBuilder.Entity<Notification>().ToTable("tblNotification");
-        modelBuilder.Entity<Message>().ToTable("tblMessage");
-        modelBuilder.Entity<ToggleValue>().ToTable("tblToggleValue");
-        modelBuilder.Entity<DatePattern>().ToTable("tblDatePattern");
-        modelBuilder.Entity<TimeZoneStandard>().ToTable("tblTimeZoneStandard");
+        //modelBuilder.Entity<PurchaseSetting>().ToTable("tblPurchaseSetting");
+        //modelBuilder.Entity<Tasks>().ToTable("tblTask");
+        //modelBuilder.Entity<Notification>().ToTable("tblNotification");
+        //modelBuilder.Entity<Message>().ToTable("tblMessage");
+        //modelBuilder.Entity<ToggleValue>().ToTable("tblToggleValue");
+        //modelBuilder.Entity<DatePattern>().ToTable("tblDatePattern");
+        //modelBuilder.Entity<TimeZoneStandard>().ToTable("tblTimeZoneStandard");
 
 
 

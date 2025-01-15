@@ -1,11 +1,11 @@
 #region
 
 using AvivCRM.Environment.Application.DTOs.TicketGroups;
-using AvivCRM.Environment.Application.Features.TicketGroups.CreateTicketGroup;
-using AvivCRM.Environment.Application.Features.TicketGroups.DeleteTicketGroup;
-using AvivCRM.Environment.Application.Features.TicketGroups.GetAllTicketGroup;
-using AvivCRM.Environment.Application.Features.TicketGroups.GetTicketGroupById;
-using AvivCRM.Environment.Application.Features.TicketGroups.UpdateTicketGroup;
+using AvivCRM.Environment.Application.Features.TicketGroups.Command.CreateTicketGroup;
+using AvivCRM.Environment.Application.Features.TicketGroups.Command.DeleteTicketGroup;
+using AvivCRM.Environment.Application.Features.TicketGroups.Command.UpdateTicketGroup;
+using AvivCRM.Environment.Application.Features.TicketGroups.Query.GetAllTicketGroup;
+using AvivCRM.Environment.Application.Features.TicketGroups.Query.GetTicketGroupById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,35 +26,35 @@ public class TicketGroupController : ControllerBase
     [HttpGet("all-ticketgroup")]
     public async Task<IActionResult> GetAllAsync()
     {
-        var ticketGroupList = await _sender.Send(new GetAllTicketGroupQuery());
+        Domain.Responses.ServerResponse ticketGroupList = await _sender.Send(new GetAllTicketGroupQuery());
         return Ok(ticketGroupList);
     }
 
     [HttpGet("byid-ticketgroup")]
     public async Task<IActionResult> GetByIdAsync(Guid Id)
     {
-        var result = await _sender.Send(new GetTicketGroupByIdQuery(Id));
+        Domain.Responses.ServerResponse result = await _sender.Send(new GetTicketGroupByIdQuery(Id));
         return Ok(result);
     }
 
     [HttpPost("create-ticketgroup")]
     public async Task<IActionResult> CreateAsync(CreateTicketGroupRequest ticketGroup)
     {
-        var result = await _sender.Send(new CreateTicketGroupCommand(ticketGroup));
+        Domain.Responses.ServerResponse result = await _sender.Send(new CreateTicketGroupCommand(ticketGroup));
         return Ok(result);
     }
 
     [HttpPut("update-ticketgroup")]
     public async Task<IActionResult> UpdateAsync(UpdateTicketGroupRequest ticketGroup)
     {
-        var result = await _sender.Send(new UpdateTicketGroupCommand(ticketGroup));
+        Domain.Responses.ServerResponse result = await _sender.Send(new UpdateTicketGroupCommand(ticketGroup));
         return Ok(result);
     }
 
     [HttpDelete("delete-ticketgroup")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
-        var result = await _sender.Send(new DeleteTicketGroupCommand(Id));
+        Domain.Responses.ServerResponse result = await _sender.Send(new DeleteTicketGroupCommand(Id));
         return Ok(result);
     }
 }

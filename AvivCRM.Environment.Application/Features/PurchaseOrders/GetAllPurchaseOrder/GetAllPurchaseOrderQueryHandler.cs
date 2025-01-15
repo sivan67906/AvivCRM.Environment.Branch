@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿using AutoMapper; using AvivCRM.Environment.Domain.Interfaces;
 using AvivCRM.Environment.Application.DTOs.PurchaseOrders;
 using AvivCRM.Environment.Application.Contracts.Purchase;
 using AvivCRM.Environment.Domain.Responses;

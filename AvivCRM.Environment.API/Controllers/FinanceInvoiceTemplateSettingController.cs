@@ -1,11 +1,11 @@
 #region
 
 using AvivCRM.Environment.Application.DTOs.FinanceInvoiceTemplateSettings;
-using AvivCRM.Environment.Application.Features.FinanceInvoiceTemplateSettings.CreateFinanceInvoiceTemplateSetting;
-using AvivCRM.Environment.Application.Features.FinanceInvoiceTemplateSettings.DeleteFinanceInvoiceTemplateSetting;
-using AvivCRM.Environment.Application.Features.FinanceInvoiceTemplateSettings.GetAllFinanceInvoiceTemplateSetting;
-using AvivCRM.Environment.Application.Features.FinanceInvoiceTemplateSettings.GetFinanceInvoiceTemplateSettingById;
-using AvivCRM.Environment.Application.Features.FinanceInvoiceTemplateSettings.UpdateFinanceInvoiceTemplateSetting;
+using AvivCRM.Environment.Application.Features.FinanceInvoiceTemplateSettings.Command.CreateFinanceInvoiceTemplateSetting;
+using AvivCRM.Environment.Application.Features.FinanceInvoiceTemplateSettings.Command.DeleteFinanceInvoiceTemplateSetting;
+using AvivCRM.Environment.Application.Features.FinanceInvoiceTemplateSettings.Command.UpdateFinanceInvoiceTemplateSetting;
+using AvivCRM.Environment.Application.Features.FinanceInvoiceTemplateSettings.Query.GetAllFinanceInvoiceTemplateSetting;
+using AvivCRM.Environment.Application.Features.FinanceInvoiceTemplateSettings.Query.GetFinanceInvoiceTemplateSettingById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,14 +26,14 @@ public class FinanceInvoiceTemplateSettingController : ControllerBase
     [HttpGet("all-financeinvoicetemplatesetting")]
     public async Task<IActionResult> GetAllAsync()
     {
-        var financeInvoiceTemplateSettingList = await _sender.Send(new GetAllFinanceInvoiceTemplateSettingQuery());
+        Domain.Responses.ServerResponse financeInvoiceTemplateSettingList = await _sender.Send(new GetAllFinanceInvoiceTemplateSettingQuery());
         return Ok(financeInvoiceTemplateSettingList);
     }
 
     [HttpGet("byid-financeinvoicetemplatesetting")]
     public async Task<IActionResult> GetByIdAsync(Guid Id)
     {
-        var result = await _sender.Send(new GetFinanceInvoiceTemplateSettingByIdQuery(Id));
+        Domain.Responses.ServerResponse result = await _sender.Send(new GetFinanceInvoiceTemplateSettingByIdQuery(Id));
         return Ok(result);
     }
 
@@ -41,7 +41,7 @@ public class FinanceInvoiceTemplateSettingController : ControllerBase
     public async Task<IActionResult> CreateAsync(
         CreateFinanceInvoiceTemplateSettingRequest financeInvoiceTemplateSetting)
     {
-        var result = await _sender.Send(new CreateFinanceInvoiceTemplateSettingCommand(financeInvoiceTemplateSetting));
+        Domain.Responses.ServerResponse result = await _sender.Send(new CreateFinanceInvoiceTemplateSettingCommand(financeInvoiceTemplateSetting));
         return Ok(result);
     }
 
@@ -49,14 +49,14 @@ public class FinanceInvoiceTemplateSettingController : ControllerBase
     public async Task<IActionResult> UpdateAsync(
         UpdateFinanceInvoiceTemplateSettingRequest financeInvoiceTemplateSetting)
     {
-        var result = await _sender.Send(new UpdateFinanceInvoiceTemplateSettingCommand(financeInvoiceTemplateSetting));
+        Domain.Responses.ServerResponse result = await _sender.Send(new UpdateFinanceInvoiceTemplateSettingCommand(financeInvoiceTemplateSetting));
         return Ok(result);
     }
 
     [HttpDelete("delete-financeinvoicetemplatesetting")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
-        var result = await _sender.Send(new DeleteFinanceInvoiceTemplateSettingCommand(Id));
+        Domain.Responses.ServerResponse result = await _sender.Send(new DeleteFinanceInvoiceTemplateSettingCommand(Id));
         return Ok(result);
     }
 }

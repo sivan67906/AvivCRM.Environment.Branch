@@ -3,7 +3,7 @@
 using System.Reflection;
 using AvivCRM.Environment.Application.Common.AutoMapper;
 using AvivCRM.Environment.Application.Common.Behaviors;
-using AvivCRM.Environment.Application.Features.LeadSources.CreateLeadSource;
+using AvivCRM.Environment.Application.Features.LeadSources.Command.CreateLeadSource;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;

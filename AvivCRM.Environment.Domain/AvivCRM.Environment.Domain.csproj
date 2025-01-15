@@ -33,7 +33,6 @@
   <ItemGroup>
     <Folder Include="Entities\Identity\" />
     <Folder Include="Entities\Mapping\" />
-    <Folder Include="Interfaces\" />
   </ItemGroup>
 
 </Project>

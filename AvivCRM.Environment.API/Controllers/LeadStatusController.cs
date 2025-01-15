@@ -1,11 +1,11 @@
 ﻿#region
 
 using AvivCRM.Environment.Application.DTOs.LeadStatus;
-using AvivCRM.Environment.Application.Features.LeadStatuses.CreateLeadStatus;
-using AvivCRM.Environment.Application.Features.LeadStatuses.DeleteLeadStatus;
-using AvivCRM.Environment.Application.Features.LeadStatuses.GetAllLeadStatus;
-using AvivCRM.Environment.Application.Features.LeadStatuses.GetLeadStatusById;
-using AvivCRM.Environment.Application.Features.LeadStatuses.UpdateLeadStatus;
+using AvivCRM.Environment.Application.Features.LeadStatuss.Command.CreateLeadStatus;
+using AvivCRM.Environment.Application.Features.LeadStatuss.Command.DeleteLeadStatus;
+using AvivCRM.Environment.Application.Features.LeadStatuss.Command.UpdateLeadStatus;
+using AvivCRM.Environment.Application.Features.LeadStatuss.Query.GetAllLeadStatus;
+using AvivCRM.Environment.Application.Features.LeadStatuss.Query.GetLeadStatusById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,35 +21,35 @@ public class LeadStatusController(ISender sender) : ControllerBase
     [HttpGet("all-leadstatus")]
     public async Task<IActionResult> GetAllAsync()
     {
-        var leadStatusList = await _sender.Send(new GetAllLeadStatusQuery());
+        Domain.Responses.ServerResponse leadStatusList = await _sender.Send(new GetAllLeadStatusQuery());
         return Ok(leadStatusList);
     }
 
     [HttpGet("byid-leadstatus")]
     public async Task<IActionResult> GetByIdAsync(Guid Id)
     {
-        var result = await _sender.Send(new GetLeadStatusByIdQuery(Id));
+        Domain.Responses.ServerResponse result = await _sender.Send(new GetLeadStatusByIdQuery(Id));
         return Ok(result);
     }
 
     [HttpPost("create-leadstatus")]
     public async Task<IActionResult> CreateAsync(CreateLeadStatusRequest leadStatus)
     {
-        var result = await _sender.Send(new CreateLeadStatusCommand(leadStatus));
+        Domain.Responses.ServerResponse result = await _sender.Send(new CreateLeadStatusCommand(leadStatus));
         return Ok(result);
     }
 
     [HttpPut("update-leadstatus")]
     public async Task<IActionResult> UpdateAsync(UpdateLeadStatusRequest leadStatus)
     {
-        var result = await _sender.Send(new UpdateLeadStatusCommand(leadStatus));
+        Domain.Responses.ServerResponse result = await _sender.Send(new UpdateLeadStatusCommand(leadStatus));
         return Ok(result);
     }
 
     [HttpDelete("delete-leadstatus")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
-        var result = await _sender.Send(new DeleteLeadStatusCommand(Id));
+        Domain.Responses.ServerResponse result = await _sender.Send(new DeleteLeadStatusCommand(Id));
         return Ok(result);
     }
 }

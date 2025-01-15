@@ -1,11 +1,11 @@
 #region
 
 using AvivCRM.Environment.Application.DTOs.ProjectSettings;
-using AvivCRM.Environment.Application.Features.ProjectSettings.CreateProjectSetting;
-using AvivCRM.Environment.Application.Features.ProjectSettings.DeleteProjectSetting;
-using AvivCRM.Environment.Application.Features.ProjectSettings.GetAllProjectSetting;
-using AvivCRM.Environment.Application.Features.ProjectSettings.GetProjectSettingById;
-using AvivCRM.Environment.Application.Features.ProjectSettings.UpdateProjectSetting;
+using AvivCRM.Environment.Application.Features.ProjectSettings.Command.CreateProjectSetting;
+using AvivCRM.Environment.Application.Features.ProjectSettings.Command.DeleteProjectSetting;
+using AvivCRM.Environment.Application.Features.ProjectSettings.Command.UpdateProjectSetting;
+using AvivCRM.Environment.Application.Features.ProjectSettings.Query.GetAllProjectSetting;
+using AvivCRM.Environment.Application.Features.ProjectSettings.Query.GetProjectSettingById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,35 +26,35 @@ public class ProjectSettingController : ControllerBase
     [HttpGet("all-projectsetting")]
     public async Task<IActionResult> GetAllAsync()
     {
-        var projectSettingList = await _sender.Send(new GetAllProjectSettingQuery());
+        Domain.Responses.ServerResponse projectSettingList = await _sender.Send(new GetAllProjectSettingQuery());
         return Ok(projectSettingList);
     }
 
     [HttpGet("byid-projectsetting")]
     public async Task<IActionResult> GetByIdAsync(Guid Id)
     {
-        var result = await _sender.Send(new GetProjectSettingByIdQuery(Id));
+        Domain.Responses.ServerResponse result = await _sender.Send(new GetProjectSettingByIdQuery(Id));
         return Ok(result);
     }
 
     [HttpPost("create-projectsetting")]
     public async Task<IActionResult> CreateAsync(CreateProjectSettingRequest projectSetting)
     {
-        var result = await _sender.Send(new CreateProjectSettingCommand(projectSetting));
+        Domain.Responses.ServerResponse result = await _sender.Send(new CreateProjectSettingCommand(projectSetting));
         return Ok(result);
     }
 
     [HttpPut("update-projectsetting")]
     public async Task<IActionResult> UpdateAsync(UpdateProjectSettingRequest projectSetting)
     {
-        var result = await _sender.Send(new UpdateProjectSettingCommand(projectSetting));
+        Domain.Responses.ServerResponse result = await _sender.Send(new UpdateProjectSettingCommand(projectSetting));
         return Ok(result);
     }
 
     [HttpDelete("delete-projectsetting")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
-        var result = await _sender.Send(new DeleteProjectSettingCommand(Id));
+        Domain.Responses.ServerResponse result = await _sender.Send(new DeleteProjectSettingCommand(Id));
         return Ok(result);
     }
 }

@@ -19,6 +19,6 @@ public abstract class BaseEntityConfiguration<TEntity> : IEntityTypeConfiguratio
             .ValueGeneratedOnAddOrUpdate();
 
         builder.Property(e => e.IsActive)
-            .HasDefaultValueSql("true");
+            .HasDefaultValue(true);
     }
 }

@@ -1,9 +1,9 @@
 using AvivCRM.Environment.Application.DTOs.ToggleValues;
-using AvivCRM.Environment.Application.Features.ToggleValues.CreateToggleValue;
-using AvivCRM.Environment.Application.Features.ToggleValues.DeleteToggleValue;
-using AvivCRM.Environment.Application.Features.ToggleValues.GetAllToggleValue;
-using AvivCRM.Environment.Application.Features.ToggleValues.GetToggleValueById;
-using AvivCRM.Environment.Application.Features.ToggleValues.UpdateToggleValue;
+using AvivCRM.Environment.Application.Features.ToggleValues.Command.CreateToggleValue;
+using AvivCRM.Environment.Application.Features.ToggleValues.Command.DeleteToggleValue;
+using AvivCRM.Environment.Application.Features.ToggleValues.Command.UpdateToggleValue;
+using AvivCRM.Environment.Application.Features.ToggleValues.Query.GetAllToggleValue;
+using AvivCRM.Environment.Application.Features.ToggleValues.Query.GetToggleValueById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,35 +20,35 @@ public class ToggleValueController : ControllerBase
     [HttpGet("all-togglevalue")]
     public async Task<IActionResult> GetAllAsync()
     {
-        var toggleValueList = await _sender.Send(new GetAllToggleValueQuery());
+        Domain.Responses.ServerResponse toggleValueList = await _sender.Send(new GetAllToggleValueQuery());
         return Ok(toggleValueList);
     }
 
     [HttpGet("byid-togglevalue")]
     public async Task<IActionResult> GetByIdAsync(Guid Id)
     {
-        var result = await _sender.Send(new GetToggleValueByIdQuery(Id));
+        Domain.Responses.ServerResponse result = await _sender.Send(new GetToggleValueByIdQuery(Id));
         return Ok(result);
     }
 
     [HttpPost("create-togglevalue")]
     public async Task<IActionResult> CreateAsync(CreateToggleValueRequest toggleValue)
     {
-        var result = await _sender.Send(new CreateToggleValueCommand(toggleValue));
+        Domain.Responses.ServerResponse result = await _sender.Send(new CreateToggleValueCommand(toggleValue));
         return Ok(result);
     }
 
     [HttpPut("update-togglevalue")]
     public async Task<IActionResult> UpdateAsync(UpdateToggleValueRequest toggleValue)
     {
-        var result = await _sender.Send(new UpdateToggleValueCommand(toggleValue));
+        Domain.Responses.ServerResponse result = await _sender.Send(new UpdateToggleValueCommand(toggleValue));
         return Ok(result);
     }
 
     [HttpDelete("delete-togglevalue")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
-        var result = await _sender.Send(new DeleteToggleValueCommand(Id));
+        Domain.Responses.ServerResponse result = await _sender.Send(new DeleteToggleValueCommand(Id));
         return Ok(result);
     }
 }

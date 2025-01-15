@@ -1,9 +1,9 @@
 using AvivCRM.Environment.Application.DTOs.CustomQuestionTypes;
-using AvivCRM.Environment.Application.Features.CustomQuestionTypes.CreateCustomQuestionType;
-using AvivCRM.Environment.Application.Features.CustomQuestionTypes.DeleteCustomQuestionType;
-using AvivCRM.Environment.Application.Features.CustomQuestionTypes.GetAllCustomQuestionType;
-using AvivCRM.Environment.Application.Features.CustomQuestionTypes.GetCustomQuestionTypeById;
-using AvivCRM.Environment.Application.Features.CustomQuestionTypes.UpdateCustomQuestionType;
+using AvivCRM.Environment.Application.Features.CustomQuestionTypes.Command.CreateCustomQuestionType;
+using AvivCRM.Environment.Application.Features.CustomQuestionTypes.Command.DeleteCustomQuestionType;
+using AvivCRM.Environment.Application.Features.CustomQuestionTypes.Command.UpdateCustomQuestionType;
+using AvivCRM.Environment.Application.Features.CustomQuestionTypes.Query.GetAllCustomQuestionType;
+using AvivCRM.Environment.Application.Features.CustomQuestionTypes.Query.GetCustomQuestionTypeById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,35 +20,35 @@ public class CustomQuestionTypeController : ControllerBase
     [HttpGet("all-customquestiontype")]
     public async Task<IActionResult> GetAllAsync()
     {
-        var customQuestionTypeList = await _sender.Send(new GetAllCustomQuestionTypeQuery());
+        Domain.Responses.ServerResponse customQuestionTypeList = await _sender.Send(new GetAllCustomQuestionTypeQuery());
         return Ok(customQuestionTypeList);
     }
 
     [HttpGet("byid-customquestiontype")]
     public async Task<IActionResult> GetByIdAsync(Guid Id)
     {
-        var result = await _sender.Send(new GetCustomQuestionTypeByIdQuery(Id));
+        Domain.Responses.ServerResponse result = await _sender.Send(new GetCustomQuestionTypeByIdQuery(Id));
         return Ok(result);
     }
 
     [HttpPost("create-customquestiontype")]
     public async Task<IActionResult> CreateAsync(CreateCustomQuestionTypeRequest customQuestionType)
     {
-        var result = await _sender.Send(new CreateCustomQuestionTypeCommand(customQuestionType));
+        Domain.Responses.ServerResponse result = await _sender.Send(new CreateCustomQuestionTypeCommand(customQuestionType));
         return Ok(result);
     }
 
     [HttpPut("update-customquestiontype")]
     public async Task<IActionResult> UpdateAsync(UpdateCustomQuestionTypeRequest customQuestionType)
     {
-        var result = await _sender.Send(new UpdateCustomQuestionTypeCommand(customQuestionType));
+        Domain.Responses.ServerResponse result = await _sender.Send(new UpdateCustomQuestionTypeCommand(customQuestionType));
         return Ok(result);
     }
 
     [HttpDelete("delete-customquestiontype")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
-        var result = await _sender.Send(new DeleteCustomQuestionTypeCommand(Id));
+        Domain.Responses.ServerResponse result = await _sender.Send(new DeleteCustomQuestionTypeCommand(Id));
         return Ok(result);
     }
 }

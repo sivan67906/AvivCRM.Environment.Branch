@@ -1,11 +1,11 @@
 ﻿#region
 
 using AvivCRM.Environment.Application.DTOs.Employees;
-using AvivCRM.Environment.Application.Features.Employees.CreateEmployee;
-using AvivCRM.Environment.Application.Features.Employees.DeleteEmployee;
-using AvivCRM.Environment.Application.Features.Employees.GetAllEmployee;
-using AvivCRM.Environment.Application.Features.Employees.GetEmployeeById;
-using AvivCRM.Environment.Application.Features.Employees.UpdateEmployee;
+using AvivCRM.Environment.Application.Features.Employees.Command.CreateEmployee;
+using AvivCRM.Environment.Application.Features.Employees.Command.DeleteEmployee;
+using AvivCRM.Environment.Application.Features.Employees.Command.UpdateEmployee;
+using AvivCRM.Environment.Application.Features.Employees.Query.GetAllEmployee;
+using AvivCRM.Environment.Application.Features.Employees.Query.GetEmployeeById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,35 +26,35 @@ public class EmployeeController : ControllerBase
     [HttpGet("all-employee")]
     public async Task<IActionResult> GetAllAsync()
     {
-        var employeeList = await _sender.Send(new GetAllEmployeeQuery());
+        Domain.Responses.ServerResponse employeeList = await _sender.Send(new GetAllEmployeeQuery());
         return Ok(employeeList);
     }
 
     [HttpGet("byid-employee")]
     public async Task<IActionResult> GetByIdAsync(Guid Id)
     {
-        var result = await _sender.Send(new GetEmployeeByIdQuery(Id));
+        Domain.Responses.ServerResponse result = await _sender.Send(new GetEmployeeByIdQuery(Id));
         return Ok(result);
     }
 
     [HttpPost("create-employee")]
     public async Task<IActionResult> CreateAsync(CreateEmployeeRequest employee)
     {
-        var result = await _sender.Send(new CreateEmployeeCommand(employee));
+        Domain.Responses.ServerResponse result = await _sender.Send(new CreateEmployeeCommand(employee));
         return Ok(result);
     }
 
     [HttpPut("update-employee")]
     public async Task<IActionResult> UpdateAsync(UpdateEmployeeRequest employee)
     {
-        var result = await _sender.Send(new UpdateEmployeeCommand(employee));
+        Domain.Responses.ServerResponse result = await _sender.Send(new UpdateEmployeeCommand(employee));
         return Ok(result);
     }
 
     [HttpDelete("delete-employee")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
-        var result = await _sender.Send(new DeleteEmployeeCommand(Id));
+        Domain.Responses.ServerResponse result = await _sender.Send(new DeleteEmployeeCommand(Id));
         return Ok(result);
     }
 }

@@ -20,7 +20,7 @@ public abstract class GenericRepository<TEntity>(EnvironmentDbContext _context, 
     public void Update(TEntity entity)
     {
         // Check if the entity is already being tracked
-        var trackedEntity = _dbSet.Local.FirstOrDefault(e => e.Id == entity.Id);
+        TEntity? trackedEntity = _dbSet.Local.FirstOrDefault(e => e.Id == entity.Id);
 
         if (trackedEntity != null)
         {
@@ -55,7 +55,7 @@ public abstract class GenericRepository<TEntity>(EnvironmentDbContext _context, 
 
     public async Task<bool> IsAvailableByNameAsync(string name)
     {
-        var item = await _context.Set<TEntity>().FirstOrDefaultAsync(x => EF.Property<string>(x, "Name") == name);
+        TEntity? item = await _context.Set<TEntity>().FirstOrDefaultAsync(x => EF.Property<string>(x, "Name") == name);
         return item != null;
     }
 }

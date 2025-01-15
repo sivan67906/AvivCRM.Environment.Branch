@@ -1,11 +1,11 @@
 #region
 
 using AvivCRM.Environment.Application.DTOs.RecruitGeneralSettings;
-using AvivCRM.Environment.Application.Features.RecruitGeneralSettings.CreateRecruitGeneralSetting;
-using AvivCRM.Environment.Application.Features.RecruitGeneralSettings.DeleteRecruitGeneralSetting;
-using AvivCRM.Environment.Application.Features.RecruitGeneralSettings.GetAllRecruitGeneralSetting;
-using AvivCRM.Environment.Application.Features.RecruitGeneralSettings.GetRecruitGeneralSettingById;
-using AvivCRM.Environment.Application.Features.RecruitGeneralSettings.UpdateRecruitGeneralSetting;
+using AvivCRM.Environment.Application.Features.RecruitGeneralSettings.Command.CreateRecruitGeneralSetting;
+using AvivCRM.Environment.Application.Features.RecruitGeneralSettings.Command.DeleteRecruitGeneralSetting;
+using AvivCRM.Environment.Application.Features.RecruitGeneralSettings.Command.UpdateRecruitGeneralSetting;
+using AvivCRM.Environment.Application.Features.RecruitGeneralSettings.Query.GetAllRecruitGeneralSetting;
+using AvivCRM.Environment.Application.Features.RecruitGeneralSettings.Query.GetRecruitGeneralSettingById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,35 +25,35 @@ public class RecruitGeneralSettingController : ControllerBase
     [HttpGet("all-recruitgeneralsetting")]
     public async Task<IActionResult> GetAllAsync()
     {
-        var recruitGeneralSettingList = await _sender.Send(new GetAllRecruitGeneralSettingQuery());
+        Domain.Responses.ServerResponse recruitGeneralSettingList = await _sender.Send(new GetAllRecruitGeneralSettingQuery());
         return Ok(recruitGeneralSettingList);
     }
 
     [HttpGet("byid-recruitgeneralsetting")]
     public async Task<IActionResult> GetByIdAsync(Guid Id)
     {
-        var result = await _sender.Send(new GetRecruitGeneralSettingByIdQuery(Id));
+        Domain.Responses.ServerResponse result = await _sender.Send(new GetRecruitGeneralSettingByIdQuery(Id));
         return Ok(result);
     }
 
     [HttpPost("create-recruitgeneralsetting")]
     public async Task<IActionResult> CreateAsync(CreateRecruitGeneralSettingRequest recruitGeneralSetting)
     {
-        var result = await _sender.Send(new CreateRecruitGeneralSettingCommand(recruitGeneralSetting));
+        Domain.Responses.ServerResponse result = await _sender.Send(new CreateRecruitGeneralSettingCommand(recruitGeneralSetting));
         return Ok(result);
     }
 
     [HttpPut("update-recruitgeneralsetting")]
     public async Task<IActionResult> UpdateAsync(UpdateRecruitGeneralSettingRequest recruitGeneralSetting)
     {
-        var result = await _sender.Send(new UpdateRecruitGeneralSettingCommand(recruitGeneralSetting));
+        Domain.Responses.ServerResponse result = await _sender.Send(new UpdateRecruitGeneralSettingCommand(recruitGeneralSetting));
         return Ok(result);
     }
 
     [HttpDelete("delete-recruitgeneralsetting")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
-        var result = await _sender.Send(new DeleteRecruitGeneralSettingCommand(Id));
+        Domain.Responses.ServerResponse result = await _sender.Send(new DeleteRecruitGeneralSettingCommand(Id));
         return Ok(result);
     }
 }

@@ -1,6 +1,6 @@
 #region
 
-using AvivCRM.Environment.Domain.Entities;
+using AvivCRM.Environment.Domain.Entities.Ticket;
 
 #endregion
 

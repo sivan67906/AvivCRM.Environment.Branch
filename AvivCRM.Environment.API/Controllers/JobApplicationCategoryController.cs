@@ -1,9 +1,9 @@
 using AvivCRM.Environment.Application.DTOs.JobApplicationCategories;
-using AvivCRM.Environment.Application.Features.JobApplicationCategories.CreateJobApplicationCategory;
-using AvivCRM.Environment.Application.Features.JobApplicationCategories.DeleteJobApplicationCategory;
-using AvivCRM.Environment.Application.Features.JobApplicationCategories.GetAllJobApplicationCategory;
-using AvivCRM.Environment.Application.Features.JobApplicationCategories.GetJobApplicationCategoryById;
-using AvivCRM.Environment.Application.Features.JobApplicationCategories.UpdateJobApplicationCategory;
+using AvivCRM.Environment.Application.Features.JobApplicationCategories.Command.CreateJobApplicationCategory;
+using AvivCRM.Environment.Application.Features.JobApplicationCategories.Command.DeleteJobApplicationCategory;
+using AvivCRM.Environment.Application.Features.JobApplicationCategories.Command.UpdateJobApplicationCategory;
+using AvivCRM.Environment.Application.Features.JobApplicationCategories.Query.GetAllJobApplicationCategory;
+using AvivCRM.Environment.Application.Features.JobApplicationCategories.Query.GetJobApplicationCategoryById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,35 +20,35 @@ public class JobApplicationCategoryController : ControllerBase
     [HttpGet("all-jobapplicationcategory")]
     public async Task<IActionResult> GetAllAsync()
     {
-        var jobApplicationCategoryList = await _sender.Send(new GetAllJobApplicationCategoryQuery());
+        Domain.Responses.ServerResponse jobApplicationCategoryList = await _sender.Send(new GetAllJobApplicationCategoryQuery());
         return Ok(jobApplicationCategoryList);
     }
 
     [HttpGet("byid-jobapplicationcategory")]
     public async Task<IActionResult> GetByIdAsync(Guid Id)
     {
-        var result = await _sender.Send(new GetJobApplicationCategoryByIdQuery(Id));
+        Domain.Responses.ServerResponse result = await _sender.Send(new GetJobApplicationCategoryByIdQuery(Id));
         return Ok(result);
     }
 
     [HttpPost("create-jobapplicationcategory")]
     public async Task<IActionResult> CreateAsync(CreateJobApplicationCategoryRequest jobApplicationCategory)
     {
-        var result = await _sender.Send(new CreateJobApplicationCategoryCommand(jobApplicationCategory));
+        Domain.Responses.ServerResponse result = await _sender.Send(new CreateJobApplicationCategoryCommand(jobApplicationCategory));
         return Ok(result);
     }
 
     [HttpPut("update-jobapplicationcategory")]
     public async Task<IActionResult> UpdateAsync(UpdateJobApplicationCategoryRequest jobApplicationCategory)
     {
-        var result = await _sender.Send(new UpdateJobApplicationCategoryCommand(jobApplicationCategory));
+        Domain.Responses.ServerResponse result = await _sender.Send(new UpdateJobApplicationCategoryCommand(jobApplicationCategory));
         return Ok(result);
     }
 
     [HttpDelete("delete-jobapplicationcategory")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
-        var result = await _sender.Send(new DeleteJobApplicationCategoryCommand(Id));
+        Domain.Responses.ServerResponse result = await _sender.Send(new DeleteJobApplicationCategoryCommand(Id));
         return Ok(result);
     }
 }

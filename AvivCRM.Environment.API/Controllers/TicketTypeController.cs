@@ -1,11 +1,11 @@
 #region
 
 using AvivCRM.Environment.Application.DTOs.TicketTypes;
-using AvivCRM.Environment.Application.Features.TicketTypes.CreateTicketType;
-using AvivCRM.Environment.Application.Features.TicketTypes.DeleteTicketType;
-using AvivCRM.Environment.Application.Features.TicketTypes.GetAllTicketType;
-using AvivCRM.Environment.Application.Features.TicketTypes.GetTicketTypeById;
-using AvivCRM.Environment.Application.Features.TicketTypes.UpdateTicketType;
+using AvivCRM.Environment.Application.Features.TicketTypes.Command.CreateTicketType;
+using AvivCRM.Environment.Application.Features.TicketTypes.Command.DeleteTicketType;
+using AvivCRM.Environment.Application.Features.TicketTypes.Command.UpdateTicketType;
+using AvivCRM.Environment.Application.Features.TicketTypes.Query.GetAllTicketType;
+using AvivCRM.Environment.Application.Features.TicketTypes.Query.GetTicketTypeById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,35 +26,35 @@ public class TicketTypeController : ControllerBase
     [HttpGet("all-tickettype")]
     public async Task<IActionResult> GetAllAsync()
     {
-        var ticketTypeList = await _sender.Send(new GetAllTicketTypeQuery());
+        Domain.Responses.ServerResponse ticketTypeList = await _sender.Send(new GetAllTicketTypeQuery());
         return Ok(ticketTypeList);
     }
 
     [HttpGet("byid-tickettype")]
     public async Task<IActionResult> GetByIdAsync(Guid Id)
     {
-        var result = await _sender.Send(new GetTicketTypeByIdQuery(Id));
+        Domain.Responses.ServerResponse result = await _sender.Send(new GetTicketTypeByIdQuery(Id));
         return Ok(result);
     }
 
     [HttpPost("create-tickettype")]
     public async Task<IActionResult> CreateAsync(CreateTicketTypeRequest ticketType)
     {
-        var result = await _sender.Send(new CreateTicketTypeCommand(ticketType));
+        Domain.Responses.ServerResponse result = await _sender.Send(new CreateTicketTypeCommand(ticketType));
         return Ok(result);
     }
 
     [HttpPut("update-tickettype")]
     public async Task<IActionResult> UpdateAsync(UpdateTicketTypeRequest ticketType)
     {
-        var result = await _sender.Send(new UpdateTicketTypeCommand(ticketType));
+        Domain.Responses.ServerResponse result = await _sender.Send(new UpdateTicketTypeCommand(ticketType));
         return Ok(result);
     }
 
     [HttpDelete("delete-tickettype")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
-        var result = await _sender.Send(new DeleteTicketTypeCommand(Id));
+        Domain.Responses.ServerResponse result = await _sender.Send(new DeleteTicketTypeCommand(Id));
         return Ok(result);
     }
 }

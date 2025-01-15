@@ -1,11 +1,11 @@
 ﻿#region
 
 using AvivCRM.Environment.Application.DTOs.Currencies;
-using AvivCRM.Environment.Application.Features.Currencies.CreateCurrency;
-using AvivCRM.Environment.Application.Features.Currencies.DeleteCurrency;
-using AvivCRM.Environment.Application.Features.Currencies.GetAllCurrency;
-using AvivCRM.Environment.Application.Features.Currencies.GetCurrencyById;
-using AvivCRM.Environment.Application.Features.Currencies.UpdateCurrency;
+using AvivCRM.Environment.Application.Features.Currencies.Command.CreateCurrency;
+using AvivCRM.Environment.Application.Features.Currencies.Command.DeleteCurrency;
+using AvivCRM.Environment.Application.Features.Currencies.Command.UpdateCurrency;
+using AvivCRM.Environment.Application.Features.Currencies.Query.GetAllCurrency;
+using AvivCRM.Environment.Application.Features.Currencies.Query.GetCurrencyById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,35 +26,35 @@ public class CurrencyController : ControllerBase
     [HttpGet("all-currency")]
     public async Task<IActionResult> GetAllAsync()
     {
-        var currencyList = await _sender.Send(new GetAllCurrencyQuery());
+        Domain.Responses.ServerResponse currencyList = await _sender.Send(new GetAllCurrencyQuery());
         return Ok(currencyList);
     }
 
     [HttpGet("byid-currency")]
     public async Task<IActionResult> GetByIdAsync(Guid Id)
     {
-        var result = await _sender.Send(new GetCurrencyByIdQuery(Id));
+        Domain.Responses.ServerResponse result = await _sender.Send(new GetCurrencyByIdQuery(Id));
         return Ok(result);
     }
 
     [HttpPost("create-currency")]
     public async Task<IActionResult> CreateAsync(CreateCurrencyRequest currency)
     {
-        var result = await _sender.Send(new CreateCurrencyCommand(currency));
+        Domain.Responses.ServerResponse result = await _sender.Send(new CreateCurrencyCommand(currency));
         return Ok(result);
     }
 
     [HttpPut("update-currency")]
     public async Task<IActionResult> UpdateAsync(UpdateCurrencyRequest currency)
     {
-        var result = await _sender.Send(new UpdateCurrencyCommand(currency));
+        Domain.Responses.ServerResponse result = await _sender.Send(new UpdateCurrencyCommand(currency));
         return Ok(result);
     }
 
     [HttpDelete("delete-currency")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
-        var result = await _sender.Send(new DeleteCurrencyCommand(Id));
+        Domain.Responses.ServerResponse result = await _sender.Send(new DeleteCurrencyCommand(Id));
         return Ok(result);
     }
 }

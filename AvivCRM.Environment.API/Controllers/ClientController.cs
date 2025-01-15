@@ -1,11 +1,11 @@
 ﻿#region
 
 using AvivCRM.Environment.Application.DTOs.Clients;
-using AvivCRM.Environment.Application.Features.Clients.CreateClient;
-using AvivCRM.Environment.Application.Features.Clients.DeleteClient;
-using AvivCRM.Environment.Application.Features.Clients.GetAllClient;
-using AvivCRM.Environment.Application.Features.Clients.GetClientById;
-using AvivCRM.Environment.Application.Features.Clients.UpdateClient;
+using AvivCRM.Environment.Application.Features.Clients.Command.CreateClient;
+using AvivCRM.Environment.Application.Features.Clients.Command.DeleteClient;
+using AvivCRM.Environment.Application.Features.Clients.Command.UpdateClient;
+using AvivCRM.Environment.Application.Features.Clients.Query.GetAllClient;
+using AvivCRM.Environment.Application.Features.Clients.Query.GetClientById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,35 +26,35 @@ public class ClientController : ControllerBase
     [HttpGet("all-client")]
     public async Task<IActionResult> GetAllAsync()
     {
-        var clientList = await _sender.Send(new GetAllClientQuery());
+        Domain.Responses.ServerResponse clientList = await _sender.Send(new GetAllClientQuery());
         return Ok(clientList);
     }
 
     [HttpGet("byid-client")]
     public async Task<IActionResult> GetByIdAsync(Guid Id)
     {
-        var result = await _sender.Send(new GetClientByIdQuery(Id));
+        Domain.Responses.ServerResponse result = await _sender.Send(new GetClientByIdQuery(Id));
         return Ok(result);
     }
 
     [HttpPost("create-client")]
     public async Task<IActionResult> CreateAsync(CreateClientRequest client)
     {
-        var result = await _sender.Send(new CreateClientCommand(client));
+        Domain.Responses.ServerResponse result = await _sender.Send(new CreateClientCommand(client));
         return Ok(result);
     }
 
     [HttpPut("update-client")]
     public async Task<IActionResult> UpdateAsync(UpdateClientRequest client)
     {
-        var result = await _sender.Send(new UpdateClientCommand(client));
+        Domain.Responses.ServerResponse result = await _sender.Send(new UpdateClientCommand(client));
         return Ok(result);
     }
 
     [HttpDelete("delete-client")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
-        var result = await _sender.Send(new DeleteClientCommand(Id));
+        Domain.Responses.ServerResponse result = await _sender.Send(new DeleteClientCommand(Id));
         return Ok(result);
     }
 }

@@ -56,7 +56,7 @@ public class CurrencyConfiguration
             .HasMaxLength(5);
 
         // Relationship
-        builder.HasMany(tg => tg.Applications)
+        builder.HasMany(tg => tg.Application)
            .WithOne(ta => ta.Currency)
            .HasForeignKey(ta => ta.Id)
            .IsRequired()  // Ensure GroupId is required

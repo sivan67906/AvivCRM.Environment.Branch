@@ -19,10 +19,10 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
     public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next,
         CancellationToken cancellationToken)
     {
-        var context = new ValidationContext<TRequest>(request);
+        ValidationContext<TRequest> context = new ValidationContext<TRequest>(request);
 
         // Perform validation
-        var failures = _validators
+        List<FluentValidation.Results.ValidationFailure> failures = _validators
             .Select(v => v.Validate(context))
             .SelectMany(result => result.Errors)
             .Where(f => f != null)
@@ -31,7 +31,7 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
         // If validation fails, return a TResponse (in this case, ServerResponse)
         if (failures.Any())
         {
-            var errorMessage = string.Join("; ", failures.Select(f => f.ErrorMessage));
+            string errorMessage = string.Join("; ", failures.Select(f => f.ErrorMessage));
             return (TResponse)Activator.CreateInstance(typeof(TResponse), false, $"Validation failed: {errorMessage}",
                 null!)!;
         }

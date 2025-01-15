@@ -1,11 +1,11 @@
 ﻿#region
 
 using AvivCRM.Environment.Application.DTOs.Payment;
-using AvivCRM.Environment.Application.Features.Payments.CreatePayment;
-using AvivCRM.Environment.Application.Features.Payments.DeletePayment;
-using AvivCRM.Environment.Application.Features.Payments.GetAllPayment;
-using AvivCRM.Environment.Application.Features.Payments.GetPaymentById;
-using AvivCRM.Environment.Application.Features.Payments.UpdatePayment;
+using AvivCRM.Environment.Application.Features.Payments.Command.CreatePayment;
+using AvivCRM.Environment.Application.Features.Payments.Command.DeletePayment;
+using AvivCRM.Environment.Application.Features.Payments.Command.UpdatePayment;
+using AvivCRM.Environment.Application.Features.Payments.Query.GetAllPayment;
+using AvivCRM.Environment.Application.Features.Payments.Query.GetPaymentById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,35 +26,35 @@ public class PaymentController : ControllerBase
     [HttpGet("all-payment")]
     public async Task<IActionResult> GetAllAsync()
     {
-        var paymentList = await _sender.Send(new GetAllPaymentQuery());
+        Domain.Responses.ServerResponse paymentList = await _sender.Send(new GetAllPaymentQuery());
         return Ok(paymentList);
     }
 
     [HttpGet("byid-payment")]
     public async Task<IActionResult> GetByIdAsync(Guid Id)
     {
-        var result = await _sender.Send(new GetPaymentByIdQuery(Id));
+        Domain.Responses.ServerResponse result = await _sender.Send(new GetPaymentByIdQuery(Id));
         return Ok(result);
     }
 
     [HttpPost("create-payment")]
     public async Task<IActionResult> CreateAsync(CreatePaymentRequest payment)
     {
-        var result = await _sender.Send(new CreatePaymentCommand(payment));
+        Domain.Responses.ServerResponse result = await _sender.Send(new CreatePaymentCommand(payment));
         return Ok(result);
     }
 
     [HttpPut("update-payment")]
     public async Task<IActionResult> UpdateAsync(UpdatePaymentRequest payment)
     {
-        var result = await _sender.Send(new UpdatePaymentCommand(payment));
+        Domain.Responses.ServerResponse result = await _sender.Send(new UpdatePaymentCommand(payment));
         return Ok(result);
     }
 
     [HttpDelete("delete-payment")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
-        var result = await _sender.Send(new DeletePaymentCommand(Id));
+        Domain.Responses.ServerResponse result = await _sender.Send(new DeletePaymentCommand(Id));
         return Ok(result);
     }
 }

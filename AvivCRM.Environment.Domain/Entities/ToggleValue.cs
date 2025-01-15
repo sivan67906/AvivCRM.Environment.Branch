@@ -1,4 +1,6 @@
 using AvivCRM.Environment.Domain.Entities.Common;
+using AvivCRM.Environment.Domain.Entities.Recruit;
+using AvivCRM.Environment.Domain.Entities.Ticket;
 
 namespace AvivCRM.Environment.Domain.Entities;
 public sealed class ToggleValue : BaseEntity, IEntity

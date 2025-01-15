@@ -53,6 +53,16 @@
 
   <ItemGroup>
     <Folder Include="Services\" />
+      <Folder Include="Features\BillOrders\Command\" />
+      <Folder Include="Features\JobApplicationCategories\Command\" />
+      <Folder Include="Features\PurchaseOrders\Command\" />
+      <Folder Include="Features\RecruitJobApplicationStatus...\Command\" />
+      <Folder Include="Features\VendorCredits\Command\" />
+      <Folder Include="Features\BillOrders\Query\" />
+      <Folder Include="Features\PurchaseOrders\Query\" />
+      <Folder Include="Features\RecruitJobApplicationStatus...\Query\" />
+      <Folder Include="Features\VendorCredits\Query\" />
+
   </ItemGroup>
 
 </Project>

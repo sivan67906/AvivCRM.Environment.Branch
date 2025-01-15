@@ -38,7 +38,7 @@ public class ApplicationsConfiguration
         //builder.HasKey(p => p.CurrencyId);
         // Relationship
         builder.HasOne(ci => ci.Currency)
-           .WithMany(s => s.Applications)
+           .WithMany(s => s.Application)
            .HasForeignKey(ci => ci.CurrencyId)
            .IsRequired()  // Ensure GroupId is required
            .OnDelete(DeleteBehavior.Restrict);  // Prevent cascade delete

@@ -1,6 +1,7 @@
 ﻿#region
 
 using AvivCRM.Environment.Domain.Entities.Common;
+using AvivCRM.Environment.Domain.Entities.Finance;
 
 #endregion
 

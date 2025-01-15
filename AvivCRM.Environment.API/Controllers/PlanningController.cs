@@ -1,11 +1,11 @@
 ﻿#region
 
 using AvivCRM.Environment.Application.DTOs.Plannings;
-using AvivCRM.Environment.Application.Features.Plannings.CreatePlanning;
-using AvivCRM.Environment.Application.Features.Plannings.DeletePlanning;
-using AvivCRM.Environment.Application.Features.Plannings.GetAllPlanning;
-using AvivCRM.Environment.Application.Features.Plannings.GetPlanningById;
-using AvivCRM.Environment.Application.Features.Plannings.UpdatePlanning;
+using AvivCRM.Environment.Application.Features.Plannings.Command.CreatePlanning;
+using AvivCRM.Environment.Application.Features.Plannings.Command.DeletePlanning;
+using AvivCRM.Environment.Application.Features.Plannings.Command.UpdatePlanning;
+using AvivCRM.Environment.Application.Features.Plannings.Query.GetAllPlanning;
+using AvivCRM.Environment.Application.Features.Plannings.Query.GetPlanningById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,35 +26,35 @@ public class PlanningController : ControllerBase
     [HttpGet("all-planning")]
     public async Task<IActionResult> GetAllAsync()
     {
-        var planningList = await _sender.Send(new GetAllPlanningQuery());
+        Domain.Responses.ServerResponse planningList = await _sender.Send(new GetAllPlanningQuery());
         return Ok(planningList);
     }
 
     [HttpGet("byid-planning")]
     public async Task<IActionResult> GetByIdAsync(Guid Id)
     {
-        var result = await _sender.Send(new GetPlanningByIdQuery(Id));
+        Domain.Responses.ServerResponse result = await _sender.Send(new GetPlanningByIdQuery(Id));
         return Ok(result);
     }
 
     [HttpPost("create-planning")]
     public async Task<IActionResult> CreateAsync(CreatePlanningRequest planning)
     {
-        var result = await _sender.Send(new CreatePlanningCommand(planning));
+        Domain.Responses.ServerResponse result = await _sender.Send(new CreatePlanningCommand(planning));
         return Ok(result);
     }
 
     [HttpPut("update-planning")]
     public async Task<IActionResult> UpdateAsync(UpdatePlanningRequest planning)
     {
-        var result = await _sender.Send(new UpdatePlanningCommand(planning));
+        Domain.Responses.ServerResponse result = await _sender.Send(new UpdatePlanningCommand(planning));
         return Ok(result);
     }
 
     [HttpDelete("delete")]
     public async Task<IActionResult> DeleteAsync(Guid Id)
     {
-        var result = await _sender.Send(new DeletePlanningCommand(Id));
+        Domain.Responses.ServerResponse result = await _sender.Send(new DeletePlanningCommand(Id));
         return Ok(result);
     }
 }

@@ -49,6 +49,11 @@ using AvivCRM.Environment.Application.DTOs.Timesheets;
 using AvivCRM.Environment.Application.DTOs.TimeZoneStandards;
 using AvivCRM.Environment.Application.DTOs.ToggleValues;
 using AvivCRM.Environment.Domain.Entities;
+using AvivCRM.Environment.Domain.Entities.Finance;
+using AvivCRM.Environment.Domain.Entities.Lead;
+using AvivCRM.Environment.Domain.Entities.Project;
+using AvivCRM.Environment.Domain.Entities.Recruit;
+using AvivCRM.Environment.Domain.Entities.Ticket;
 
 #endregion
 
