@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Contracts\Purchase\**" />
     <Compile Remove="DTOs\BillOrders\**" />
     <Compile Remove="DTOs\CustomQuestionPositions\**" />
     <Compile Remove="DTOs\PurchaseOrders\**" />
@@ -16,6 +17,7 @@
     <Compile Remove="Features\PurchaseOrders\**" />
     <Compile Remove="Features\VendorCredits\**" />
     <Compile Remove="Feature\**" />
+    <EmbeddedResource Remove="Contracts\Purchase\**" />
     <EmbeddedResource Remove="DTOs\BillOrders\**" />
     <EmbeddedResource Remove="DTOs\CustomQuestionPositions\**" />
     <EmbeddedResource Remove="DTOs\PurchaseOrders\**" />
@@ -25,6 +27,7 @@
     <EmbeddedResource Remove="Features\PurchaseOrders\**" />
     <EmbeddedResource Remove="Features\VendorCredits\**" />
     <EmbeddedResource Remove="Feature\**" />
+    <None Remove="Contracts\Purchase\**" />
     <None Remove="DTOs\BillOrders\**" />
     <None Remove="DTOs\CustomQuestionPositions\**" />
     <None Remove="DTOs\PurchaseOrders\**" />
@@ -46,6 +49,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AvivCRM.Environment.Domain\AvivCRM.Environment.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>

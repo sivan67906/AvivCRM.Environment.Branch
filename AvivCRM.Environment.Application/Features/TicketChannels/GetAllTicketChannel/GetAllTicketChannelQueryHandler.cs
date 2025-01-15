@@ -2,7 +2,7 @@
 
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.TicketChannels;
-using AvivCRM.Environment.Domain.Contracts.Ticket;
+using AvivCRM.Environment.Application.Contracts.Ticket;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
 

@@ -1,7 +1,7 @@
 #region
 
 using AutoMapper;
-using AvivCRM.Environment.Domain.Contracts;
+using AvivCRM.Environment.Application.Contracts;
 using AvivCRM.Environment.Domain.Entities;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;

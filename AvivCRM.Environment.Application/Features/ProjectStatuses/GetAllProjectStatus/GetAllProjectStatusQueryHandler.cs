@@ -2,7 +2,7 @@
 
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.ProjectStatuses;
-using AvivCRM.Environment.Domain.Contracts.Project;
+using AvivCRM.Environment.Application.Contracts.Project;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
 

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.PurchaseOrders;
-using AvivCRM.Environment.Domain.Contracts;
-using AvivCRM.Environment.Domain.Contracts.Purchase;
+using AvivCRM.Environment.Application.Contracts;
+using AvivCRM.Environment.Application.Contracts.Purchase;
 using AvivCRM.Environment.Domain.Entities;
 using AvivCRM.Environment.Domain.Responses;
 using FluentValidation;

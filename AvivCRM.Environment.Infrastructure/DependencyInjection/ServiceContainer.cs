@@ -1,14 +1,15 @@
 ﻿#region
 
-using AvivCRM.Environment.Domain.Contracts;
-using AvivCRM.Environment.Domain.Contracts.Finance;
-using AvivCRM.Environment.Domain.Contracts.Lead;
-using AvivCRM.Environment.Domain.Contracts.Project;
-using AvivCRM.Environment.Domain.Contracts.Purchase;
-using AvivCRM.Environment.Domain.Contracts.Recruit;
-using AvivCRM.Environment.Domain.Contracts.Ticket;
-using AvivCRM.Environment.Infrastructure.Persistence;
+using AvivCRM.Environment.Application.Contracts;
+using AvivCRM.Environment.Application.Contracts.Finance;
+using AvivCRM.Environment.Application.Contracts.Lead;
+using AvivCRM.Environment.Application.Contracts.Project;
+using AvivCRM.Environment.Application.Contracts.Purchase;
+using AvivCRM.Environment.Application.Contracts.Recruit;
+using AvivCRM.Environment.Application.Contracts.Ticket;
+using AvivCRM.Environment.Infrastructure.Persistence.Data;
 using AvivCRM.Environment.Infrastructure.Repositories;
+using AvivCRM.Environment.Infrastructure.Repositories.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

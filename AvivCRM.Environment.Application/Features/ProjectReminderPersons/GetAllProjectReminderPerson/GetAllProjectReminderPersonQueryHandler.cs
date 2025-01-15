@@ -2,7 +2,7 @@
 
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.ProjectReminderPersons;
-using AvivCRM.Environment.Domain.Contracts.Project;
+using AvivCRM.Environment.Application.Contracts.Project;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
 
