@@ -1,19 +1,17 @@
 ﻿using AvivCRM.Environment.Domain.Entities;
+using AvivCRM.Environment.Infrastructure.Persistence.Configurations.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AvivCRM.Environment.Infrastructure.Persistence.Configurations;
 
 public class EmployeeConfiguration
-    : IEntityTypeConfiguration<Employee>
+    : BaseEntityConfiguration<Employee>, IEntityTypeConfiguration<Employee>
 {
     public void Configure(EntityTypeBuilder<Employee> builder)
     {
         // Table name
         builder.ToTable("tblEmployee");
-
-        // Primary key
-        builder.HasKey(p => p.Id);
 
         // Properties
         builder.Property(p => p.EmployeeName)
@@ -46,17 +44,6 @@ public class EmployeeConfiguration
         builder.HasKey(p => p.StateId);
 
         builder.HasKey(p => p.CityId);
-
-        builder.Property(p => p.CreatedOn)
-            .HasDefaultValueSql("GETUTCDATE()")
-            .ValueGeneratedOnAdd();
-
-        builder.Property(p => p.ModifiedOn)
-            .HasDefaultValueSql("GETUTCDATE()")
-            .ValueGeneratedOnAddOrUpdate();
-
-        //builder.Property(p => p.IsVisible)
-        //    .HasDefaultValue(true);
 
     }
 }
