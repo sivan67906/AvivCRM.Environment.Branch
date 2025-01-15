@@ -1,8 +1,9 @@
 ﻿#region
 
-using AvivCRM.Environment.Domain.Contracts;
+using AvivCRM.Environment.Application.Contracts;
 using AvivCRM.Environment.Domain.Entities;
-using AvivCRM.Environment.Infrastructure.Persistence;
+using AvivCRM.Environment.Infrastructure.Persistence.Data;
+using AvivCRM.Environment.Infrastructure.Repositories.Common;
 
 #endregion
 

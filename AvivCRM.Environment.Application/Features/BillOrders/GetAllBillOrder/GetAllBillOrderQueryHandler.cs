@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.BillOrders;
-using AvivCRM.Environment.Domain.Contracts.Purchase;
+using AvivCRM.Environment.Application.Contracts.Purchase;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
 

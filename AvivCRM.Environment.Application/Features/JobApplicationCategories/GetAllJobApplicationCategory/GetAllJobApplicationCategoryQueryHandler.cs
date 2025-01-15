@@ -2,7 +2,7 @@
 
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.JobApplicationCategories;
-using AvivCRM.Environment.Domain.Contracts.Recruit;
+using AvivCRM.Environment.Application.Contracts.Recruit;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
 

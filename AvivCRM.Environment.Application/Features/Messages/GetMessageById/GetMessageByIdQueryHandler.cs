@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.Messages;
-using AvivCRM.Environment.Domain.Contracts;
+using AvivCRM.Environment.Application.Contracts;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
 

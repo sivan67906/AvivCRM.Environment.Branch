@@ -7,12 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Contracts\Purchase\**" />
-    <EmbeddedResource Remove="Contracts\Purchase\**" />
-    <None Remove="Contracts\Purchase\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Remove="Interfaces\IGenericRepository.cs" />
   </ItemGroup>
 

@@ -1,4 +1,4 @@
-﻿using AvivCRM.Environment.Domain.Contracts.Purchase;
+﻿using AvivCRM.Environment.Application.Contracts.Purchase;
 using AvivCRM.Environment.Domain.Entities;
 using AvivCRM.Environment.Infrastructure.Persistence;
 

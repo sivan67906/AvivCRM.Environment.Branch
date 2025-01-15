@@ -2,8 +2,8 @@
 
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.LeadStatus;
-using AvivCRM.Environment.Domain.Contracts;
-using AvivCRM.Environment.Domain.Contracts.Lead;
+using AvivCRM.Environment.Application.Contracts;
+using AvivCRM.Environment.Application.Contracts.Lead;
 using AvivCRM.Environment.Domain.Entities;
 using AvivCRM.Environment.Domain.Responses;
 using FluentValidation;

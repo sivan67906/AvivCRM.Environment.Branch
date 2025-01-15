@@ -2,7 +2,7 @@
 
 using AutoMapper;
 using AvivCRM.Environment.Application.DTOs.FinanceInvoiceTemplateSettings;
-using AvivCRM.Environment.Domain.Contracts.Finance;
+using AvivCRM.Environment.Application.Contracts.Finance;
 using AvivCRM.Environment.Domain.Responses;
 using MediatR;
 
