@@ -1,19 +1,17 @@
 ﻿using AvivCRM.Environment.Domain.Entities;
+using AvivCRM.Environment.Infrastructure.Persistence.Configurations.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AvivCRM.Environment.Infrastructure.Persistence.Configurations;
 
 public class TasksConfiguration
-    : IEntityTypeConfiguration<Tasks>
+    : BaseEntityConfiguration<Tasks>, IEntityTypeConfiguration<Tasks>
 {
     public void Configure(EntityTypeBuilder<Tasks> builder)
     {
         // Table name
         builder.ToTable("tblTask");
-
-        // Primary key
-        builder.HasKey(p => p.Id);
 
         // Properties
 
@@ -86,7 +84,7 @@ public class TasksConfiguration
 
         builder.Property(p => p.Notes)
            .HasDefaultValue(false);
-            
+
         builder.Property(p => p.History)
            .HasDefaultValue(false);
 
@@ -98,15 +96,6 @@ public class TasksConfiguration
 
         builder.Property(p => p.CopyTaskLink)
            .HasDefaultValue(false);
-
-        builder.Property(p => p.CreatedOn)
-            .HasDefaultValueSql("GETUTCDATE()")
-            .ValueGeneratedOnAdd();
-
-        builder.Property(p => p.ModifiedOn)
-            .HasDefaultValueSql("GETUTCDATE()")
-            .ValueGeneratedOnAddOrUpdate();
-
 
     }
 }

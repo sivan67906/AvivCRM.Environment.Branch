@@ -1,19 +1,17 @@
 ﻿using AvivCRM.Environment.Domain.Entities;
+using AvivCRM.Environment.Infrastructure.Persistence.Configurations.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AvivCRM.Environment.Infrastructure.Persistence.Configurations;
 
 public class LeadStatusConfiguration
-    : IEntityTypeConfiguration<LeadStatus>
+    : BaseEntityConfiguration<LeadStatus>, IEntityTypeConfiguration<LeadStatus>
 {
     public void Configure(EntityTypeBuilder<LeadStatus> builder)
     {
         // Table name
         builder.ToTable("tblLeadStatus");
-
-        // Primary key
-        builder.HasKey(p => p.Id);
 
         // Properties
         builder.Property(p => p.Name)
@@ -24,12 +22,5 @@ public class LeadStatusConfiguration
            .IsRequired()
            .HasMaxLength(15);
 
-        builder.Property(p => p.CreatedOn)
-            .HasDefaultValueSql("GETUTCDATE()")
-            .ValueGeneratedOnAdd();
-
-        builder.Property(p => p.ModifiedOn)
-            .HasDefaultValueSql("GETUTCDATE()")
-            .ValueGeneratedOnAddOrUpdate();
     }
 }
