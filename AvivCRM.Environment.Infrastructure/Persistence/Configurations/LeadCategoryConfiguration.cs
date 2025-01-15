@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AvivCRM.Environment.Infrastructure.Persistence.Configurations;
 
-public class LeadSourceConfiguration
-    : IEntityTypeConfiguration<LeadSource>
+public class LeadCategoryConfiguration
+    : IEntityTypeConfiguration<LeadCategory>
 {
-    public void Configure(EntityTypeBuilder<LeadSource> builder)
+    public void Configure(EntityTypeBuilder<LeadCategory> builder)
     {
         // Table name
-        builder.ToTable("tblLeadSource");
+        builder.ToTable("tblLeadCategory");
 
         // Primary key
         builder.HasKey(p => p.Id);

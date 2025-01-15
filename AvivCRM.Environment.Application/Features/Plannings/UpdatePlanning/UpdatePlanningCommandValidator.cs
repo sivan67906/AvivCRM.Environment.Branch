@@ -34,6 +34,6 @@ public class UpdatePlanningCommandValidator : AbstractValidator<UpdatePlanningRe
             .NotEmpty().WithMessage("Planning not empty");
 
         RuleFor(x => x.Description)
-            .MaximumLength(250).WithMessage("Planning must not exceed 25 Characters");
+            .MaximumLength(250).WithMessage("Planning must not exceed 250 Characters");
     }
 }
