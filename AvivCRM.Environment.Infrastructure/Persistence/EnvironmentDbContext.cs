@@ -127,10 +127,20 @@ public class EnvironmentDbContext(DbContextOptions<EnvironmentDbContext> options
 
         modelBuilder.ApplyConfiguration(new RecruitCustomQuestionSettingConfiguration());
         modelBuilder.ApplyConfiguration(new TicketAgentConfiguration());
-
-
-
-
+        modelBuilder.ApplyConfiguration(new LeadAgentConfiguration());
+        modelBuilder.ApplyConfiguration(new LeadSourceConfiguration());
+        modelBuilder.ApplyConfiguration(new LeadCategoryConfiguration());
+        modelBuilder.ApplyConfiguration(new LeadStatusConfiguration());
+        modelBuilder.ApplyConfiguration(new ClientConfiguration());
+        modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
+        modelBuilder.ApplyConfiguration(new ContractConfiguration());
+        modelBuilder.ApplyConfiguration(new CurrencyConfiguration());
+        modelBuilder.ApplyConfiguration(new LanguageConfiguration());
+        modelBuilder.ApplyConfiguration(new MessageConfiguration());
+        modelBuilder.ApplyConfiguration(new PaymentConfiguration());
+        modelBuilder.ApplyConfiguration(new PlanningConfiguration());
+        modelBuilder.ApplyConfiguration(new TasksConfiguration());
+        modelBuilder.ApplyConfiguration(new TaxConfiguration());
 
         // ToggleValue
         modelBuilder.Entity<ToggleValue>()

@@ -56,6 +56,13 @@ public class CurrencyConfiguration
             .IsRequired()
             .HasMaxLength(5);
 
+        // Relationship
+        builder.HasMany(tg => tg.Applications)
+           .WithOne(ta => ta.Currency)
+           .HasForeignKey(ta => ta.Id)
+           .IsRequired()  // Ensure GroupId is required
+           .OnDelete(DeleteBehavior.Restrict);  // Prevent cascade delete
+
         builder.Property(p => p.CreatedOn)
             .HasDefaultValueSql("GETUTCDATE()")
             .ValueGeneratedOnAdd();
