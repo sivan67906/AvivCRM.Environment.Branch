@@ -1,19 +1,20 @@
 ﻿using AvivCRM.Environment.Domain.Entities;
+using AvivCRM.Environment.Infrastructure.Persistence.Configurations.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AvivCRM.Environment.Infrastructure.Persistence.Configurations;
 
 public class LanguageConfiguration
-    : IEntityTypeConfiguration<Language>
+    : BaseEntityConfiguration<Language>, IEntityTypeConfiguration<Language>
 {
     public void Configure(EntityTypeBuilder<Language> builder)
     {
         // Table name
         builder.ToTable("tblLanguage");
 
-        // Primary key
-        builder.HasKey(p => p.Id);
+        // call the base configuration
+        base.Configure(builder);
 
         // Properties
         builder.Property(p => p.Code)
@@ -23,19 +24,10 @@ public class LanguageConfiguration
             .IsRequired()
             .HasMaxLength(100);
 
-        // UTC Date as Default
-        builder.Property(p => p.CreatedOn)
-            .HasDefaultValueSql("GETUTCDATE()")
-            .ValueGeneratedOnAdd();
-
-        builder.Property(p => p.ModifiedOn)
-            .HasDefaultValueSql("GETUTCDATE()")
-            .ValueGeneratedOnAddOrUpdate();
-
         // Relationship
         builder.HasMany(a => a.FinanceInvoiceSettings)
         .WithOne(b => b.Language)
-        .HasForeignKey(b => b.Id)
+        .HasForeignKey(b => b.FILanguageId)
         .IsRequired()  // Ensure Id is required
         .OnDelete(DeleteBehavior.Restrict);  // Prevent cascade delete
     }

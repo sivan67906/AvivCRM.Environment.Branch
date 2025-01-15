@@ -1,19 +1,20 @@
 ﻿using AvivCRM.Environment.Domain.Entities;
+using AvivCRM.Environment.Infrastructure.Persistence.Configurations.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AvivCRM.Environment.Infrastructure.Persistence.Configurations;
 
 public class ProjectSettingConfiguration
-    : IEntityTypeConfiguration<ProjectSetting>
+    : BaseEntityConfiguration<ProjectSetting>, IEntityTypeConfiguration<ProjectSetting>
 {
     public void Configure(EntityTypeBuilder<ProjectSetting> builder)
     {
         // Table name
         builder.ToTable("tblProjectSetting");
 
-        // Primary key
-        builder.HasKey(p => p.Id);
+        // call the base configuration
+        base.Configure(builder);
 
         // Properties
         builder.Property(p => p.Name)
@@ -21,15 +22,5 @@ public class ProjectSettingConfiguration
             .HasMaxLength(100);
         builder.Property(p => p.IsSendReminder)
             .HasDefaultValue(true);
-
-
-        // UTC Date as Default
-        builder.Property(p => p.CreatedOn)
-            .HasDefaultValueSql("GETUTCDATE()")
-            .ValueGeneratedOnAdd();
-
-        builder.Property(p => p.ModifiedOn)
-            .HasDefaultValueSql("GETUTCDATE()")
-            .ValueGeneratedOnAddOrUpdate();
     }
 }
