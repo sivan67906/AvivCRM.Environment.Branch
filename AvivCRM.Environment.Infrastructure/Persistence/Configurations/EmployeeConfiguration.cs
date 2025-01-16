@@ -34,16 +34,7 @@ public class EmployeeConfiguration
 
             .HasMaxLength(250);
 
-        // Foreign Keys
-        builder.HasKey(p => p.DepartmentId);
 
-        builder.HasKey(p => p.CompanyId);
-
-        builder.HasKey(p => p.AddressId);
-
-        builder.HasKey(p => p.StateId);
-
-        builder.HasKey(p => p.CityId);
 
     }
 }

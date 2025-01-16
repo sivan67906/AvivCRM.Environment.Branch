@@ -4,6 +4,7 @@ using AvivCRM.Environment.Infrastructure.Persistence.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AvivCRM.Environment.Infrastructure.Persistence.Data.Migrations
 {
     [DbContext(typeof(EnvironmentDbContext))]
-    partial class EnvironmentDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250115105127_Kansheyam-Test")]
+    partial class KansheyamTest
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

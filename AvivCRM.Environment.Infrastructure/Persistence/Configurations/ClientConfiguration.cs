@@ -15,6 +15,8 @@ public class ClientConfiguration
 
 
         // Properties
+
+
         builder.Property(p => p.ClientCode)
             .IsRequired()
             .HasMaxLength(15);
@@ -33,21 +35,6 @@ public class ClientConfiguration
 
         builder.Property(p => p.Description)
            .HasMaxLength(250);
-
-        // Foreign key
-        builder.HasKey(p => p.AddressId);
-
-        // Foreign key
-        builder.HasKey(p => p.CompanyId);
-
-        // Foreign key
-        builder.HasKey(p => p.CountryId);
-
-        // Foreign key
-        builder.HasKey(p => p.StateId);
-
-        // Foreign key
-        builder.HasKey(p => p.CityId);
 
     }
 }
