@@ -17,5 +17,5 @@ public sealed class Currency : BaseEntity, IEntity
     public string? ThousandSeparator { get; set; }
     public string? DecimalSeparator { get; set; }
     public int NumberofDecimals { get; set; }
-    public ICollection<Applications> Application { get; set; } = [];
+    public ICollection<Applications>? Applications { get; set; }
 }

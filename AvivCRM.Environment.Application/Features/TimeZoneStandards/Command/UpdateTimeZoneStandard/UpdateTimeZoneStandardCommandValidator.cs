@@ -11,13 +11,13 @@ public class UpdateTimeZoneStandardCommandValidator : AbstractValidator<UpdateTi
             .NotEmpty().WithMessage("Source Id should not be empty");
 
         RuleFor(x => x.Code)
-                    .NotEmpty().WithMessage("Source Code should not be empty")
-                    .MaximumLength(10).WithMessage("Source Code must not exceed 10 Characters")
-                    .MinimumLength(3).WithMessage("Source Code should not be less than 3 characters");
+            .NotEmpty().WithMessage("TimeZone Code not empty")
+            .MaximumLength(10).WithMessage("TimeZone Code must not exceed 10 Characters")
+            .MinimumLength(3).WithMessage("TimeZone Code should not be less than 3 characters");
         RuleFor(x => x.Name)
-                    .NotEmpty().WithMessage("TimeZone Name should not be empty")
-                    .MaximumLength(25).WithMessage("TimeZone Name must not exceed 25 Characters")
-                    .MinimumLength(3).WithMessage("TimeZone Name should not be less than 3 characters");
+            .NotEmpty().WithMessage("TimeZone Name not empty")
+            .MaximumLength(100).WithMessage("TimeZone Name must not exceed 100 Characters")
+            .MinimumLength(3).WithMessage("TimeZone Name should not be less than 3 characters");
 
     }
 }

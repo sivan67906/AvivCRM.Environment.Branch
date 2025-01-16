@@ -49,6 +49,6 @@ internal class UpdateFinanceUnitSettingCommandHandler(
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(true, "Finance Unit Setting updated successfully", financeUnitSetting);
+        return new ServerResponse(true, "Finance Unit Setting updated successfully", financeUnitSettingEntity);
     }
 }

@@ -56,9 +56,9 @@ public class CurrencyConfiguration
             .HasMaxLength(5);
 
         // Relationship
-        builder.HasMany(tg => tg.Application)
+        builder.HasMany(tg => tg.Applications)
            .WithOne(ta => ta.Currency)
-           .HasForeignKey(ta => ta.Id)
+           .HasForeignKey(ta => ta.CurrencyId)
            .IsRequired()  // Ensure GroupId is required
            .OnDelete(DeleteBehavior.Restrict);  // Prevent cascade delete
 

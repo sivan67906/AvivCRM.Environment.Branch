@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Persistence\Data\Migrations\**" />
+    <EmbeddedResource Remove="Persistence\Data\Migrations\**" />
+    <None Remove="Persistence\Data\Migrations\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Repositories\BillOrderRepository.cs" />
     <Compile Remove="Repositories\PurchaseOrderRepository.cs" />
     <Compile Remove="Repositories\VendorCreditRepository.cs" />
@@ -29,10 +35,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AvivCRM.Environment.Application\AvivCRM.Environment.Application.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Persistence\Data\Migrations\" />
   </ItemGroup>
 
 

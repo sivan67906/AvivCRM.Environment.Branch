@@ -17,9 +17,6 @@ public class ProjectSettingConfiguration
         base.Configure(builder);
 
         // Properties
-        builder.Property(p => p.Name)
-            .IsRequired()
-            .HasMaxLength(100);
         builder.Property(p => p.IsSendReminder)
             .HasDefaultValue(true);
     }
