@@ -15,7 +15,7 @@ public sealed class Applications : BaseEntity, IEntity
     public string? DatatableRowLimit { get; set; } = default!;
     public bool EmployeeCanExportData { get; set; }
 
-    [ForeignKey(nameof(CurrencyId))]
+    [ForeignKey(nameof(CurrencyId))] // Foreign key
     public Guid CurrencyId { get; set; }
     public Currency? Currency { get; set; }
 }
