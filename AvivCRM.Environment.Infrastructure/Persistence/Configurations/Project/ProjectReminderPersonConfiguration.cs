@@ -22,5 +22,12 @@ public class ProjectReminderPersonConfiguration
         builder.Property(p => p.Name)
             .IsRequired()
             .HasMaxLength(100);
+
+        // Relationship
+        builder.HasMany(a => a.ProjectSettings)
+            .WithOne(b => b.ProjectReminderPerson)
+            .HasForeignKey(b => b.ProjectReminderPersonId)
+            .IsRequired()  // Ensure ProjectReminderPersonId is required
+            .OnDelete(DeleteBehavior.Restrict);  // Prevent cascade delete
     }
 }

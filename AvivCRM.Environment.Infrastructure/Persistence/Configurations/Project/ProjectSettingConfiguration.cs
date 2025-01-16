@@ -19,5 +19,12 @@ public class ProjectSettingConfiguration
         // Properties
         builder.Property(p => p.IsSendReminder)
             .HasDefaultValue(true);
+
+        // Relationship
+        builder.HasOne(ci => ci.ProjectReminderPerson)
+           .WithMany(s => s.ProjectSettings)
+           .HasForeignKey(ci => ci.ProjectReminderPersonId)
+           .IsRequired()  // Ensure ProjectReminderPersonId is required
+           .OnDelete(DeleteBehavior.Restrict);  // Prevent cascade delete
     }
 }
