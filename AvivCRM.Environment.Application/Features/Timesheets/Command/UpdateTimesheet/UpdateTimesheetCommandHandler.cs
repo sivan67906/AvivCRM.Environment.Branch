@@ -48,6 +48,6 @@ internal class UpdateTimesheetCommandHandler(
             return new ServerResponse(Message: ex.Message);
         }
 
-        return new ServerResponse(true, "Timesheet updated successfully", timesheet);
+        return new ServerResponse(true, "Timesheet updated successfully", timesheetEntity);
     }
 }
