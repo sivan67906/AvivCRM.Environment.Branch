@@ -13,6 +13,9 @@ public class ApplicationsConfiguration
         // Table name
         builder.ToTable("tblApplication");
 
+        builder.HasKey(p => p.Id);
+
+
         // Properties
         builder.Property(p => p.DateFormat)
             .IsRequired()
@@ -34,17 +37,13 @@ public class ApplicationsConfiguration
            .IsRequired()
            .HasMaxLength(25);
 
-        // Foreign key
-        //builder.HasKey(p => p.CurrencyId);
-        // Relationship
+
         builder.HasOne(ci => ci.Currency)
            .WithMany(s => s.Applications)
            .HasForeignKey(ci => ci.CurrencyId)
            .IsRequired()  // Ensure GroupId is required
            .OnDelete(DeleteBehavior.Restrict);  // Prevent cascade delete
-        //builder.Property(p => p.Price)
-        //    .IsRequired()
-        //    .HasColumnType("decimal(18,2)");
+
 
     }
 }
