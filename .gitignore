@@ -399,3 +399,6 @@ FodyWeavers.xsd
 /AvivCRM.Environment.Infrastructure/Persistence/Data/Migrations/20250115081012_Sivan-Initial_Deployment.cs
 /AvivCRM.Environment.Infrastructure/Persistence/Data/Migrations/20250115081012_Sivan-Initial_Deployment.cs
 /AvivCRM.Environment.Infrastructure/Persistence/Data/Migrations
+/AvivCRM.Environment.Infrastructure/Persistence/Data/Migrations/20250116063023_Merrcy-Testing.cs
+/AvivCRM.Environment.Infrastructure/Persistence/Data/Migrations/20250116063023_Merrcy-Testing.Designer.cs
+/AvivCRM.Environment.Infrastructure/Persistence/Data/Migrations/EnvironmentDbContextModelSnapshot.cs
